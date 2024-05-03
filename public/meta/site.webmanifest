@@ -1,0 +1,20 @@
+{
+    "name": "nm_massagekiev",
+    "short_name": "nm_massagekiev",
+    "title": "nm_massagekiev",
+    "description": "nm_massagekiev",
+    "start_url": "/",
+    "locale": "uk_UA",
+    "keywords": "keywords",
+    "icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],
+    "images": [
+     {
+      "url": "/meta/og-image.jpg",
+      "width": 1200,
+      "height": 630,
+      "alt": "image_descr"
+     }
+  ],
+    "background_color": "#ffffff",
+    "display": "browser"
+}
