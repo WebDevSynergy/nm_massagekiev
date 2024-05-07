@@ -16,7 +16,15 @@ export default function Home() {
 
         <Link
           className="block text-[48px] text-accent  underline"
-          href="https://webdevsynergy.vercel.app/en"
+          href="/admin"
+        >
+          Go to admin panel.
+        </Link>
+
+        <Link
+          className="block text-[20px] text-accent  underline"
+          href="https://webdevsynergy.com.ua"
+          target="blank"
         >
           Go to the website of our web studio.
         </Link>
