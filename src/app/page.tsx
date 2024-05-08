@@ -1,3 +1,4 @@
+import { TestPostSection } from '@/sections/TestPostSection';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,6 +14,8 @@ export default function Home() {
           width={1200}
           height={630}
         />
+
+        <TestPostSection />
 
         <Link
           className="block text-[48px] text-accent  underline"

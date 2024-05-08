@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 export const post = {
   name: 'post',
   title: 'Posts (min 3)',
   type: 'document',
   validation: (Rule: any) => [
-    Rule.required().error('This collection is required'),
+    Rule.required().error('Ця колекція обовʼзкова'),
     Rule.custom((review: any) =>
-      review.length < 3 ? 'You need at least 3 posts' : true,
+      review.length < 3 ? 'Повинно бути від 3-х постів' : true,
     ),
   ],
   fields: [
@@ -16,9 +17,9 @@ export const post = {
       type: 'string',
 
       validation: (Rule: any) => [
-        Rule.required().error('This field is required'),
-        Rule.max(100).error('This field should be less than 100 characters'),
-        Rule.min(2).error('This field should be more than 2 characters'),
+        Rule.required().error('Поле обовʼязкове'),
+        Rule.max(100).error('Може містити до 100 символів'),
+        Rule.min(2).error('Повинно містити від 2 символів'),
       ],
     },
     {
@@ -27,17 +28,16 @@ export const post = {
       type: 'text',
 
       validation: (Rule: any) => [
-        Rule.required().error('This field is required'),
-        Rule.max(5000).error('This field should be less than 5000 characters'),
-        Rule.min(10).error('This field should be more than 10 characters'),
+        Rule.required().error('Поле обовʼязкове'),
+        Rule.max(5000).error('Може містити до 5000 символів'),
+        Rule.min(10).error('Повинно містити від 10 символів'),
       ],
     },
     {
       name: 'image',
       title: 'Image',
       type: 'image',
-      validation: (Rule: any) =>
-        Rule.required().error('This field is required'),
+      validation: (Rule: any) => Rule.required().error('Поле обовʼязкове'),
       options: {
         hotspot: true, // <-- Defaults to false
       },
@@ -46,12 +46,20 @@ export const post = {
           name: 'caption',
           type: 'string',
           title: 'Caption',
+          validation: (Rule: any) => Rule.required().error('Поле обовʼязкове'),
         },
-        {
-          name: 'attribution',
-          type: 'string',
-          title: 'Attribution',
-        },
+      ],
+    },
+    {
+      name: 'url',
+      type: 'string',
+      title: 'Url',
+      validation: (Rule: any) => [
+        Rule.required().error(
+          'Поле обовʼязкове та повинно бути унікальним та англійською - призначене для генерування slug',
+        ),
+        Rule.max(200).error('Може містити до 200 символів'),
+        Rule.min(5).error('Повинно містити від 5 символів'),
       ],
     },
     {
@@ -59,12 +67,12 @@ export const post = {
       name: 'slug',
       type: 'slug',
       validation: (Rule: any) =>
-        Rule.required().error('This field is required'),
+        Rule.required().error('Поле обовʼязкове та повинно бути унікальним'),
       options: {
-        source: 'title',
+        source: 'url',
         maxLength: 200, // will be ignored if slugify is set
         slugify: (input: any) =>
-          input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+          encodeURI(input.toLowerCase().replace(/\s+/g, '-').slice(0, 200)),
       },
     },
   ],
