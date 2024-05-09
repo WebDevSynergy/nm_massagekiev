@@ -48,6 +48,11 @@ export const post = {
           title: 'Caption',
           validation: (Rule: any) => Rule.required().error('Поле обовʼязкове'),
         },
+        {
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
       ],
     },
     {

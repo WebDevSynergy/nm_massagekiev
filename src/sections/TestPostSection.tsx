@@ -34,7 +34,7 @@ export const TestPostSection: React.FC = () => {
 
   return (
     <>
-      <h2 className="text-white">Test Data Sanity</h2>
+      <h2 className="text-[32px] text-white ">Test Data Sanity</h2>
       <ul className=" flex gap-4 text-white">
         {posts &&
           posts.map(
@@ -54,11 +54,9 @@ export const TestPostSection: React.FC = () => {
               return (
                 <li
                   key={_id}
-                  className=" w-[600px] border border-solid border-cyan-50 p-4"
+                  className=" flex w-[600px] flex-col items-center justify-between gap-4 border border-solid border-cyan-50 p-4"
                 >
-                  <p>id: {_id}</p>
-                  <p>slug: {slug.current}</p>
-                  <p>title: {title}</p>
+                  <h2 className="font-bold">title: {title}</h2>
                   <p>description: {description}</p>
                   <Image
                     src={urlForImage(image)}
@@ -66,6 +64,8 @@ export const TestPostSection: React.FC = () => {
                     width={300}
                     height={300}
                   />
+                  <p>id: {_id}</p>
+                  <p>slug: {slug.current}</p>
                 </li>
               );
             },

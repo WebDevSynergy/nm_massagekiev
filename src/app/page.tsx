@@ -11,8 +11,8 @@ export default function Home() {
         <Image
           src="https://res.cloudinary.com/dkwbqq1n1/image/upload/v1708091473/gfhzv7slpkemeq6svdi5.jpg"
           alt="Логотип"
-          width={1200}
-          height={630}
+          width={600}
+          height={315}
           priority
         />
 
