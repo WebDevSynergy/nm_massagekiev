@@ -13,6 +13,7 @@ export default function Home() {
           alt="Логотип"
           width={1200}
           height={630}
+          priority
         />
 
         <TestPostSection />
