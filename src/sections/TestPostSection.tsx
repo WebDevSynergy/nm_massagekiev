@@ -3,11 +3,44 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-import { client } from '@/sanity/lib/client';
+import { client, createPost } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 
 export const TestPostSection: React.FC = () => {
   const [posts, setPosts] = useState([]);
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // const data = new FormData(event.currentTarget);
+
+    const newReview = {
+      _type: 'review',
+      // author: data.get('author'),
+      // review: data.get('review'),
+      author: 'Mango',
+      review:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, voluptas?',
+    };
+    console.log(newReview);
+
+    // const url = `https://pmsq873x.api.sanity.io/v2021-06-07/data/mutate/production`;
+
+    // const res = await fetch(url, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(newReview),
+    // });
+
+    createPost(newReview);
+    // const result = client.create(newReview);
+  };
+
+  // curl 'https://<project-id>.api.sanity.io/v2021-06-07/data/mutate/<dataset-name>' \
+  //   -H 'Authorization: Bearer <token>' \
+  //   -H 'Content-Type: application/json' \
+  //   --data-binary '{"mutations":[<transactions>]}'
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -34,7 +67,24 @@ export const TestPostSection: React.FC = () => {
 
   return (
     <>
-      <h2 className="text-[32px] text-white ">Test Data Sanity</h2>
+      <h2 className="text-[32px] text-white ">Test Review</h2>
+      <form className="flex flex-col items-center gap-5" onSubmit={onSubmit}>
+        <label>
+          Name
+          <input type="text" name="author" className="w-[300px]" />
+        </label>
+
+        <label>
+          Name
+          <textarea name="review" className="w-[300px]" />
+        </label>
+
+        <button type="submit" className="block bg-blue-100 p-5">
+          Submit
+        </button>
+      </form>
+
+      <h2 className="text-[32px] text-white ">Test Blog Data Sanity</h2>
       <ul className=" flex gap-4 text-white">
         {posts &&
           posts.map(
