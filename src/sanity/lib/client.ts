@@ -11,19 +11,3 @@ export const client = createClient({
   useCdn,
   token,
 });
-
-export async function getPosts() {
-  const posts = await client.fetch('*[_type == "post"]');
-  return posts;
-}
-
-type Post = {
-  _type: string;
-  author: string | null;
-  review: string | null;
-};
-
-export async function createPost(post: Post) {
-  const result = client.create(post);
-  return result;
-}

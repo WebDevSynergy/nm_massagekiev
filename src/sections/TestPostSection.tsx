@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-import { client, createPost } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
+import { createReview, getPosts } from '@/sanity/requests';
 
 export const TestPostSection: React.FC = () => {
   const [posts, setPosts] = useState([]);
@@ -12,48 +12,24 @@ export const TestPostSection: React.FC = () => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // const data = new FormData(event.currentTarget);
+    // author: data.get('author'),
+    // review: data.get('review'),
 
     const newReview = {
       _type: 'review',
-      // author: data.get('author'),
-      // review: data.get('review'),
       author: 'Mango',
       review:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, voluptas?',
     };
     console.log(newReview);
 
-    // const url = `https://pmsq873x.api.sanity.io/v2021-06-07/data/mutate/production`;
-
-    // const res = await fetch(url, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(newReview),
-    // });
-
-    createPost(newReview);
-    // const result = client.create(newReview);
+    createReview(newReview);
   };
-
-  // curl 'https://<project-id>.api.sanity.io/v2021-06-07/data/mutate/<dataset-name>' \
-  //   -H 'Authorization: Bearer <token>' \
-  //   -H 'Content-Type: application/json' \
-  //   --data-binary '{"mutations":[<transactions>]}'
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const query = "*[_type=='post']{_id, title, description, image, slug}";
-        // const query = "*[_type=='post']";
-
-        const fetchedData = await client.fetch(query, {
-          // next: {
-          //   // revalidate: 3600, // look for updates to revalidate cache every hour
-          //   revalidate: 1,
-          // },
-        });
+        const fetchedData = await getPosts();
 
         console.log('fetchedData', fetchedData);
         setPosts(fetchedData);
@@ -91,13 +67,15 @@ export const TestPostSection: React.FC = () => {
             ({
               _id,
               title,
-              description,
+              preDescription,
+              postDescription,
               image,
               slug,
             }: {
               _id: string;
               title: string;
-              description: string;
+              preDescription: string;
+              postDescription: string;
               image: any;
               slug: any;
             }) => {
@@ -107,13 +85,14 @@ export const TestPostSection: React.FC = () => {
                   className=" flex w-[600px] flex-col items-center justify-between gap-4 border border-solid border-cyan-50 p-4"
                 >
                   <h2 className="font-bold">title: {title}</h2>
-                  <p>description: {description}</p>
+                  <p>preDescription: {preDescription}</p>
                   <Image
                     src={urlForImage(image)}
                     alt="test"
                     width={300}
                     height={300}
                   />
+                  <p>postDescription: {postDescription}</p>
                   <p>id: {_id}</p>
                   <p>slug: {slug.current}</p>
                 </li>

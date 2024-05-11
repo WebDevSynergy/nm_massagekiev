@@ -1,14 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const review = {
   name: 'review',
-  title: 'Відгуки ( Мінімум 3 )',
+  title: 'Відгуки ( мінімум 3 )',
   type: 'document',
+
   validation: (Rule: any) => [
     Rule.required().error('Колекція обовʼязкова'),
     Rule.custom((review: any) =>
       review.length < 3 ? 'Повинно бути від 3-х відгуків' : true,
     ),
   ],
+
   fields: [
     {
       name: 'author',
