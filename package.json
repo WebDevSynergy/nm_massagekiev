@@ -16,6 +16,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.19.3",
     "@sanity/client": "^6.12.4",
     "@sanity/icons": "^2.8",
     "@sanity/image-url": "1",

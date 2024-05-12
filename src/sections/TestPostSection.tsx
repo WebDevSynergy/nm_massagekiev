@@ -1,13 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
+
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { createReview, getPosts } from '@/sanity/requests';
 
 import { urlForImage } from '@/sanity/lib/image';
-import { createReview, getPosts } from '@/sanity/requests';
+
+import { GoogleMaps } from '@/components/base';
+
+import { useFetchGoogleRating } from '@/utils/hooks/useFetchGoogleRating';
 
 export const TestPostSection: React.FC = () => {
   const [posts, setPosts] = useState([]);
+
+  const ratingValue = useFetchGoogleRating(); //якщо 0 - то пишемо що не завантажилось, і крутим лоадер
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,7 +28,6 @@ export const TestPostSection: React.FC = () => {
       review:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, voluptas?',
     };
-    console.log(newReview);
 
     createReview(newReview);
   };
@@ -31,7 +37,6 @@ export const TestPostSection: React.FC = () => {
       try {
         const fetchedData = await getPosts();
 
-        console.log('fetchedData', fetchedData);
         setPosts(fetchedData);
       } catch (e) {
         console.error('Error fetching data:', e);
@@ -59,7 +64,6 @@ export const TestPostSection: React.FC = () => {
           Submit
         </button>
       </form>
-
       <h2 className="text-[32px] text-white ">Test Blog Data Sanity</h2>
       <ul className=" flex gap-4 text-white">
         {posts &&
@@ -100,6 +104,12 @@ export const TestPostSection: React.FC = () => {
             },
           )}
       </ul>
+
+      <div className="bg-white">
+        <p>{ratingValue}</p>
+      </div>
+
+      <GoogleMaps width={948} height={686} />
     </>
   );
 };

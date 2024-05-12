@@ -127,19 +127,23 @@ Z{Enter} --> L(Layout)
 Each component has its own API. You can find it in the component's folder. This
 is a list of more common components and their API.
 
-- #### Logo(example)
+- #### GoogleMaps
 
-| Prop        | Default | Description                                                    |
-| ----------- | ------- | -------------------------------------------------------------- |
-| `location`  | -       | required, choose the position you'd need :'header' or 'footer' |
-| `className` | ''      | optional, `string`, adds custom css class.                     |
+A GoogleMaps component designed to display a Google map with user interaction.
+It has two main functions: Map display: The component uses GoogleMap and
+LoadScript from the @react-google-maps/api library to display a Google map. It
+takes width and height as parameters and sets their size according to the
+container. Displaying information windows: The component uses Marker and
+InfoWindow to display markers on the map and corresponding information windows
+when clicking on the marker. It also uses a GoogleMapInfoCard for the content of
+the info window.
 
-- #### MainNav
+| Prop     | Default | Description                                     |
+| -------- | ------- | ----------------------------------------------- |
+| `width`  | -       | required, `number`, sets the width size in px.  |
+| `height` | ''      | required, `number`, sets the height size in px. |
 
-| Prop       | Default   | Description                                                  |
-| ---------- | --------- | ------------------------------------------------------------ |
-| `location` | -         | required, choose the position you'd need :'header' or 'menu' |
-| `onClick`  | undefined | click handler                                                |
+- #### ----------------------------------------------------------------------------------
 
 - #### Modal(example)
 

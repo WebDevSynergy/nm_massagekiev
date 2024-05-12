@@ -1,3 +1,14 @@
 {
-  "testField": "nm_massagekiev"
+  "testField": "nm_massagekiev",
+  "googleMaps": {
+    "center": {
+      "lat": 50.4970817565918,
+      "lng": 30.4421443939209
+    },
+    "position": {
+      "lat": 50.4970817565918,
+      "lng": 30.4421443939209
+    },
+    "zoom": 15
+  }
 }
