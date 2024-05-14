@@ -15,8 +15,8 @@ import { GoogleMapsProps } from './types';
 const LIBRARIES: Libraries = ['marker'];
 
 const GoogleMaps: React.FC<GoogleMapsProps> = ({ width, height }) => {
-  const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY as string;
-  const MAP_ID = process.env.NEXT_PUBLIC_MAP_ID as string;
+  const API_KEY = process.env.GOOGLE_MAP_API_KEY as string;
+  const MAP_ID = process.env.MAP_ID as string;
 
   const { center, position, zoom, errorLoadMap } =
     googleMapsStaticData.googleMaps;

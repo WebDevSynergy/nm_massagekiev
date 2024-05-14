@@ -4,6 +4,7 @@ import { Raleway, Geologica } from 'next/font/google';
 import meta from '@/data/meta';
 
 import './globals.css';
+import { Footer, Header } from '@/layout';
 
 const raleway = Raleway({
   subsets: ['cyrillic', 'latin'],
@@ -30,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="uk" className="scroll-smooth">
       <body className={`${raleway.variable} ${geologica.variable}`}>
+        <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

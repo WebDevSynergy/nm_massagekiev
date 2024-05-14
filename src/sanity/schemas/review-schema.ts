@@ -34,5 +34,11 @@ export const review = {
         Rule.min(5).error('Повинно бути від 5-ти символів'),
       ],
     },
+
+    {
+      name: 'contact',
+      title: 'Контакт',
+      type: 'text',
+    },
   ],
 };

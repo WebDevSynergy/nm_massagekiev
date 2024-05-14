@@ -1,21 +1,28 @@
-import { TestPostSection } from '@/sections/TestPostSection';
-import Image from 'next/image';
+import { TestPostSection } from '@/sections/TestPostSection'; //////////
+//////////////////////////////ВИДАЛИТИ///////////////////////////////////
+
 import Link from 'next/link';
+
+import {
+  HeroSection,
+  BenefitsSection,
+  ServicesSection,
+  ReviewsSection,
+  CosmeceuticalsSection,
+  MasseursSection,
+  ContactUsSections,
+  BlogSections,
+  CertificateSection,
+  FAQSection,
+  InstagramSection,
+  ContactsSection,
+} from '@/sections';
 
 export default function Home() {
   return (
-    <div className="container">
-      <div className="mt-10 flex flex-col items-center justify-center gap-6">
-        <h1 className=" text-[48px] text-white">WDS_template</h1>
-
-        <Image
-          src="https://res.cloudinary.com/dkwbqq1n1/image/upload/v1708091473/gfhzv7slpkemeq6svdi5.jpg"
-          alt="Логотип"
-          width={600}
-          height={315}
-          priority
-        />
-
+    <>
+      {/* ////////////////////ВИДАЛИТИ///////////////////////// */}
+      <div>
         <TestPostSection />
 
         <Link
@@ -24,15 +31,31 @@ export default function Home() {
         >
           Go to admin panel.
         </Link>
-
-        <Link
-          className="block text-[20px] text-accent  underline"
-          href="https://webdevsynergy.com.ua"
-          target="blank"
-        >
-          Go to the website of our web studio.
-        </Link>
       </div>
-    </div>
+      {/* ////////////////////ВИДАЛИТИ///////////////////////// */}
+      <HeroSection />
+
+      <BenefitsSection />
+
+      <ServicesSection />
+
+      <ReviewsSection />
+
+      <CosmeceuticalsSection />
+
+      <MasseursSection />
+
+      <ContactUsSections />
+
+      <BlogSections />
+
+      <CertificateSection />
+
+      <FAQSection />
+
+      <InstagramSection />
+
+      <ContactsSection />
+    </>
   );
 }

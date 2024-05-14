@@ -3,34 +3,18 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { createReview, getPosts } from '@/sanity/requests';
+import { getPosts } from '@/sanity/requests';
 
 import { urlForImage } from '@/sanity/lib/image';
 
 import { GoogleMaps } from '@/components/base';
 
-import { useFetchGoogleRating } from '@/utils/hooks/useFetchGoogleRating';
+import { useFetchGoogleRating } from '@/utils/hooks';
 
 export const TestPostSection: React.FC = () => {
   const [posts, setPosts] = useState([]);
 
   const ratingValue = useFetchGoogleRating(); //якщо 0 - то пишемо що не завантажилось, і крутим лоадер
-
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // const data = new FormData(event.currentTarget);
-    // author: data.get('author'),
-    // review: data.get('review'),
-
-    const newReview = {
-      _type: 'review',
-      author: 'Mango',
-      review:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, voluptas?',
-    };
-
-    createReview(newReview);
-  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -48,22 +32,6 @@ export const TestPostSection: React.FC = () => {
 
   return (
     <>
-      <h2 className="text-[32px] text-white ">Test Review</h2>
-      <form className="flex flex-col items-center gap-5" onSubmit={onSubmit}>
-        <label>
-          Name
-          <input type="text" name="author" className="w-[300px]" />
-        </label>
-
-        <label>
-          Name
-          <textarea name="review" className="w-[300px]" />
-        </label>
-
-        <button type="submit" className="block bg-blue-100 p-5">
-          Submit
-        </button>
-      </form>
       <h2 className="text-[32px] text-white ">Test Blog Data Sanity</h2>
       <ul className=" flex gap-4 text-white">
         {posts &&

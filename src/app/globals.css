@@ -5,3 +5,7 @@
 body {
   @apply bg-darkBg font-raleway text-[16px] font-normal leading-[1.2];
 }
+
+.section {
+  @apply py-20;
+}
