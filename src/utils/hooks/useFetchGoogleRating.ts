@@ -17,7 +17,12 @@ export const useFetchGoogleRating = () => {
 
         const data = await res.json();
 
-        const averageRating = data?.result.rating;
+        console.log('data', data);
+
+        const averageRating = data?.result?.rating;
+
+        console.log('data?.result', data?.result);
+        console.log('data?.result.rating', data?.result.rating);
 
         setAverageRating(averageRating);
       } catch (e) {
