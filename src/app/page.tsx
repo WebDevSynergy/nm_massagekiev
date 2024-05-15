@@ -1,5 +1,5 @@
 import {
-  // HeroSection,
+  HeroSection,
   BenefitsSection,
   ServicesSection,
   ReviewsSection,
@@ -16,7 +16,7 @@ import {
 export default function Home() {
   return (
     <>
-      {/* <HeroSection /> */}
+      <HeroSection />
 
       <BenefitsSection />
 

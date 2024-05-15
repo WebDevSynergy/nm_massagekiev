@@ -1,17 +1,12 @@
-export const HeroSection: React.FC = async () => {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-  const res = await fetch(`${BASE_URL}/api/rating`);
+import { GoogleRating } from '@/components/ui';
 
-  const { data } = await res.json();
-
-  const ratingValue = data | 0;
-
+export const HeroSection: React.FC = () => {
   return (
     <section className="section">
       <div className="container">
         HeroSection
         <div className="bg-white">
-          <p>{ratingValue}</p>
+          <GoogleRating />
         </div>
       </div>
     </section>

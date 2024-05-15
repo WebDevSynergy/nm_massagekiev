@@ -51,9 +51,12 @@ export default function RootLayout({
           </Link>
         </div>
         {/* ////////////////////ВИДАЛИТИ///////////////////////// */}
-        <Header />
-        <main>{children}</main>
-        <Footer />
+
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="grow">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
