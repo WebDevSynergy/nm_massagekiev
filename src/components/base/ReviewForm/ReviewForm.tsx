@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import useFormPersist from 'react-hook-form-persist';
 
 import { createReviewSanity, sendMsgTelegram } from '@/actions';
-import { makeTgReviewMsg } from '@/utils/helpers';
+import { makeTgReviewMsg } from '@/utils';
 
 import { ReviewFormInputs } from './types';
 

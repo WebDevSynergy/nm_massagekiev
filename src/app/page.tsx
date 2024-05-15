@@ -1,49 +1,32 @@
-import { TestPostSection } from '@/sections/TestPostSection'; //////////
-//////////////////////////////ВИДАЛИТИ///////////////////////////////////
-
-import Link from 'next/link';
-
 import {
-  HeroSection,
+  // HeroSection,
   BenefitsSection,
-  ServicesSection,
-  ReviewsSection,
+  // ServicesSection,
+  // ReviewsSection,
   CosmeceuticalsSection,
-  MasseursSection,
+  // MasseursSection,
   ContactUsSections,
   BlogSections,
   CertificateSection,
   FAQSection,
-  InstagramSection,
+  // InstagramSection,
   ContactsSection,
 } from '@/sections';
 
 export default function Home() {
   return (
     <>
-      {/* ////////////////////ВИДАЛИТИ///////////////////////// */}
-      <div>
-        <TestPostSection />
-
-        <Link
-          className="block text-[48px] text-accent  underline"
-          href="/admin"
-        >
-          Go to admin panel.
-        </Link>
-      </div>
-      {/* ////////////////////ВИДАЛИТИ///////////////////////// */}
-      <HeroSection />
+      {/* <HeroSection /> */}
 
       <BenefitsSection />
 
-      <ServicesSection />
+      {/* <ServicesSection /> */}
 
-      <ReviewsSection />
+      {/* <ReviewsSection /> */}
 
       <CosmeceuticalsSection />
 
-      <MasseursSection />
+      {/* <MasseursSection /> */}
 
       <ContactUsSections />
 
@@ -53,7 +36,7 @@ export default function Home() {
 
       <FAQSection />
 
-      <InstagramSection />
+      {/* <InstagramSection /> */}
 
       <ContactsSection />
     </>

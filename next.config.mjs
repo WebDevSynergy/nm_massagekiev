@@ -12,15 +12,6 @@ const nextConfig = {
     SANITY_SECRET_TOKEN: process.env.SANITY_SECRET_TOKEN,
   },
 
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'https://maps.googleapis.com/maps/api/:path*', // проксируем запросы к Google Places API
-      },
-    ];
-  },
-
   webpack: config => {
     config.module.rules.push({
       test: /\.svg$/,

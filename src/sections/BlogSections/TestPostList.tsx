@@ -1,35 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-'use client';
 
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { getPosts } from '@/sanity/requests';
 
 import { urlForImage } from '@/sanity/lib/image';
 
-import { GoogleMaps } from '@/components/base';
+type Props = {
+  posts: any;
+};
 
-import { useFetchGoogleRating } from '@/utils/hooks';
-
-export const TestPostSection: React.FC = () => {
-  const [posts, setPosts] = useState([]);
-
-  const ratingValue = useFetchGoogleRating(); //якщо 0 - то пишемо що не завантажилось, і крутим лоадер
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const fetchedData = await getPosts();
-
-        setPosts(fetchedData);
-      } catch (e) {
-        console.error('Error fetching data:', e);
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
+export const TestPostList: React.FC<Props> = ({ posts }) => {
   return (
     <>
       <h2 className="text-[32px] text-white ">Test Blog Data Sanity</h2>
@@ -72,12 +51,6 @@ export const TestPostSection: React.FC = () => {
             },
           )}
       </ul>
-
-      <div className="bg-white">
-        <p>{ratingValue}</p>
-      </div>
-
-      <GoogleMaps width={948} height={686} />
     </>
   );
 };

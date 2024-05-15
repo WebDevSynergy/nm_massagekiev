@@ -1,11 +1,11 @@
 {
-  "name": "WDS-template",
+  "name": "nm_massagekiev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
+    "build": "next build",
     "lint": "next lint",
     "check-types": "tsc --pretty --noEmit",
     "check-format": "prettier --check .",
