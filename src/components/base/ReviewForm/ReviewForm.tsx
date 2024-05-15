@@ -40,12 +40,12 @@ export const ReviewForm: React.FC = () => {
         await createReviewSanity(newReview),
       ]);
 
-      alert('SUCCESS');
+      console.log('SUCCESS');
 
       reset();
       window.sessionStorage.removeItem('contactForm');
     } catch (error) {
-      alert('FAIL');
+      console.log('FAIL');
     }
   };
 
