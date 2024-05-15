@@ -1,16 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { urlForImage } from '@/sanity/lib/image';
-import { client } from '@/utils/client';
 import Image from 'next/image';
 
-// const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import { urlForImage } from '@/sanity/lib/image';
+
+import { client } from '@/sanity/lib/client';
 
 export async function generateStaticParams() {
   try {
-    // const res = await fetch(`${BASE_URL}/api/blog`);
-    // const posts = await res.json();
-
-    const posts = (await client.fetch('*[_type == "post"]')) || [];
+    const posts = (await client.fetch('*[_type == "post"]')) || null;
 
     return posts.map((e: any) => ({ slug: e.slug.current }));
   } catch (err) {
@@ -24,21 +21,9 @@ export default async function PostPage({
 }: {
   params: { slug: string };
 }) {
-  // const res = await fetch(`${BASE_URL}/api/blog?slug=${slug}`, {
-  //   next: { revalidate: 1 },
-  // });
-
-  // const data = await res.json();
-
-  const data = (await client.fetch(
-    `*[_type=="post" && slug.current=="${slug}"][0]`,
-  )) || {
-    _id: '1',
-    title: '',
-    preDescription: '',
-    postDescription: '',
-    image: '',
-  };
+  const data =
+    (await client.fetch(`*[_type=="post" && slug.current=="${slug}"][0]`)) ||
+    null;
 
   const { _id, title, preDescription, postDescription, image } = data;
 

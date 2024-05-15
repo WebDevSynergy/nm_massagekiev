@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { client } from '@/utils/client';
+import { client } from '@/sanity/lib/client';
 
 export const GET = async () => {
   try {

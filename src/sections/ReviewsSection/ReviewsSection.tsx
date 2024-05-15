@@ -1,4 +1,5 @@
 import { ReviewForm } from '@/components/base/ReviewForm';
+import { client } from '@/sanity/lib/client';
 
 type ReviewsItem = {
   _id: string;
@@ -7,14 +8,17 @@ type ReviewsItem = {
 };
 
 export const ReviewsSection: React.FC = async () => {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+  // const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-  const res = await fetch(`${BASE_URL}/api/reviews`, {
-    // next: { revalidate: 3600 },
-    next: { revalidate: 1 },
-  });
+  // const res = await fetch(`${BASE_URL}/api/reviews`, {
+  //   // next: { revalidate: 3600 },
+  //   next: { revalidate: 1 },
+  // });
 
-  const reviews = await res.json();
+  // const reviews = await res.json();
+
+  const reviews =
+    (await client.fetch('*[_type == "review"]{_id, author, review}')) || null;
 
   return (
     <section className="section">

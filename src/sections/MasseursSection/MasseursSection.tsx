@@ -1,7 +1,10 @@
-import { urlForImage } from '@/sanity/lib/image';
 import Image from 'next/image';
 import { Key } from 'react';
+
+import { urlForImage } from '@/sanity/lib/image';
 import { Image as SanityImg } from 'sanity';
+
+import { client } from '@/sanity/lib/client';
 
 type MasseursItem = {
   _id: string;
@@ -12,13 +15,7 @@ type MasseursItem = {
 };
 
 export const MasseursSection: React.FC = async () => {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-
-  const res = await fetch(`${BASE_URL}/api/masseurs`, {
-    next: { revalidate: 1 },
-  });
-
-  const masseurs = await res.json();
+  const masseurs = (await client.fetch('*[_type == "masseur"]')) || null;
 
   return (
     <>

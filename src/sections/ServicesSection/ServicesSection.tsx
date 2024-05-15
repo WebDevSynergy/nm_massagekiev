@@ -1,3 +1,5 @@
+import { client } from '@/sanity/lib/client';
+
 type ServicesItem = {
   _id: string;
   title: string;
@@ -9,13 +11,8 @@ type ServicesItem = {
 };
 
 export const ServicesSection: React.FC = async () => {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-  const res = await fetch(`${BASE_URL}/api/services`, {
-    next: { revalidate: 1 },
-  });
+  const services = (await client.fetch('*[_type == "service"]')) || null;
 
-  const services = await res.json();
-  // console.log('services', services);
   return (
     <>
       {services && (
