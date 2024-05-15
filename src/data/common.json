@@ -1,6 +1,7 @@
 {
   "testField": "nm_massagekiev",
   "googleMaps": {
+    "title": "nm_massagekiev\nДанченко, 32",
     "center": {
       "lat": 50.4970817565918,
       "lng": 30.4421443939209

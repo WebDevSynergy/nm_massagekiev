@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import { Key } from 'react';
-
-import { urlForImage } from '@/sanity/lib/image';
 import { Image as SanityImg } from 'sanity';
 
-import { client } from '@/sanity/lib/client';
+import { sanityClient } from '@/sanity/lib/client';
+import { urlForImage } from '@/sanity/lib/image';
 
 type MasseursItem = {
   _id: string;
@@ -15,7 +14,12 @@ type MasseursItem = {
 };
 
 export const MasseursSection: React.FC = async () => {
-  const masseurs = (await client.fetch('*[_type == "masseur"]')) || null;
+  const masseurs =
+    (await sanityClient.fetch(
+      '*[_type == "masseur"]',
+      {},
+      { next: { revalidate: 3600 } },
+    )) || null;
 
   return (
     <>

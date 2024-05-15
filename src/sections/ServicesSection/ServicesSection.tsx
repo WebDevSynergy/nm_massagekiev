@@ -1,4 +1,4 @@
-import { client } from '@/sanity/lib/client';
+import { sanityClient } from '@/sanity/lib/client';
 
 type ServicesItem = {
   _id: string;
@@ -11,7 +11,12 @@ type ServicesItem = {
 };
 
 export const ServicesSection: React.FC = async () => {
-  const services = (await client.fetch('*[_type == "service"]')) || null;
+  const services =
+    (await sanityClient.fetch(
+      '*[_type == "service"]',
+      {},
+      { next: { revalidate: 3600 } },
+    )) || null;
 
   return (
     <>

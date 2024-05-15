@@ -1,6 +1,3 @@
-// export const revalidate = 0;
-// false | 0 | number
-
 import type { Metadata } from 'next';
 import { Raleway, Geologica } from 'next/font/google';
 
