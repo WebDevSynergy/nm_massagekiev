@@ -51,9 +51,13 @@ export const service = {
     {
       name: 'duration',
       title: 'Тривалість сеансу, в хвилинах',
-      type: 'number',
+      type: 'string',
 
-      validation: (Rule: any) => [Rule.required().error('Обовʼзкове поле')],
+      validation: (Rule: any) => [
+        Rule.required().error('Обовʼзкове поле'),
+        Rule.max(10).error('Повинно бути не більше 10 символів'),
+        Rule.min(1).error('Повинно бути від 1-го символа'),
+      ],
     },
 
     {
