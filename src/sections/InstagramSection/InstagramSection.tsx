@@ -23,17 +23,19 @@ export const InstagramSection: React.FC = async () => {
         <section className="section">
           <div className="container">
             InstagramSection
-            <ul className="flex gap-8">
+            <ul className="flex flex-wrap gap-8">
               {instagramPhotosData.map(({ _id, image }: instagramPhoto) => {
                 const alt = image?.caption?.toString() || 'text';
 
                 return (
-                  <li key={_id} className="w-[400px] border border-solid p-8">
+                  <li key={_id} className="size-[380px]">
                     <Image
                       src={urlForImage(image)}
-                      width={400}
-                      height={400}
+                      width={380}
+                      height={380}
+                      loading="lazy"
                       alt={alt}
+                      className="size-full object-cover"
                     />
                   </li>
                 );
