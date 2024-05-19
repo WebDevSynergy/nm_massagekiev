@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
 
       await revalidatePath('/');
 
-      await revalidatePath('blog');
+      await revalidatePath('/blog');
 
       return NextResponse.json(
         { revalidated: true, path: pathToRevalidate },
