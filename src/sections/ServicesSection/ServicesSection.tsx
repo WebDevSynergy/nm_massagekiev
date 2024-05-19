@@ -24,7 +24,7 @@ export const ServicesSection: React.FC = async () => {
         <section className="section">
           <div className="container">
             ServicesSection
-            <ul className="flex gap-8">
+            <ul className="flex flex-wrap gap-8">
               {services.map(
                 ({
                   _id,
@@ -36,7 +36,10 @@ export const ServicesSection: React.FC = async () => {
                   subscription,
                 }: ServicesItem) => {
                   return (
-                    <li key={_id} className="border border-solid p-8">
+                    <li
+                      key={_id}
+                      className="size-[380px] border border-solid p-8"
+                    >
                       <p>title: {title}</p>
                       <p>description: {description}</p>
                       <p>for: {forType}</p>

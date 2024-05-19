@@ -25,7 +25,7 @@ const geologica = Geologica({
 
 export const metadata: Metadata = meta;
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
