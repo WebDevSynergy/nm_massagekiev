@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { Image as SanityImage } from 'sanity';
 
-import { sanityClient } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
+import { getInstagramPhotos } from '@/actions/sanity';
 
 type instagramPhoto = {
   _id: string;
@@ -10,12 +10,7 @@ type instagramPhoto = {
 };
 
 export const InstagramSection: React.FC = async () => {
-  const instagramPhotosData =
-    (await sanityClient.fetch(
-      '*[_type == "instagram"]',
-      {},
-      { next: { revalidate: 3600 } },
-    )) || null;
+  const instagramPhotosData = await getInstagramPhotos();
 
   return (
     <>

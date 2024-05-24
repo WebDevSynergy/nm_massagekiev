@@ -2509,7 +2509,7 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
-"@portabletext/react@^3.0.0":
+"@portabletext/react@^3.0.0", "@portabletext/react@^3.0.18":
   version "3.0.18"
   resolved "https://registry.yarnpkg.com/@portabletext/react/-/react-3.0.18.tgz#cdc05c7663a6fc2b683920f75fdac1fd6e00ce33"
   integrity sha512-AsWiZin7GpA8RTTl9kmR5wiMj72Ynotjjw0bBgbmL0vOYp0jc8nNslJyPPMSMngSLzLa8+rPAg47+d9KtrzLVw==

@@ -15,7 +15,8 @@ export const post = {
   fields: [
     {
       name: 'title',
-      title: 'Заголовок',
+      title:
+        'Заголовок. *** | Обовʼязково! Від 2 до 100 символів | картки постів, мета',
       type: 'string',
 
       validation: (Rule: any) => [
@@ -26,34 +27,25 @@ export const post = {
     },
 
     {
-      name: 'priority',
+      name: 'description',
       title:
-        'Пріоритет. --- Упорядковує елементи, найбільше значення - перший елемент. Якщо в даному пості не потрібно змінювати пріоритет то краще залишити значення за замовчуванням 0',
-      type: 'number',
-      initialValue: 0,
-
-      validation: (Rule: any) => [Rule.required().error('Поле обовʼязкове')],
-    },
-
-    {
-      name: 'preDescription',
-      title: 'Текст статті (до зображення)',
+        'Короткий опис. *** | Обовʼязково! Від 10 до 1000 символів | опис картки постів, мета',
       type: 'text',
 
       validation: (Rule: any) => [
         Rule.required().error('Поле обовʼязкове'),
-        Rule.max(5000).error('Може містити до 5000 символів'),
+        Rule.max(1000).error('Може містити до 1000 символів'),
         Rule.min(10).error('Повинно містити від 10 символів'),
       ],
     },
 
     {
       name: 'image',
-      title: 'Зображення',
+      title: 'Зображення для карток постів',
       type: 'image',
       validation: (Rule: any) => Rule.required().error('Поле обовʼязкове'),
       options: {
-        hotspot: true, // <-- Defaults to false
+        hotspot: true,
       },
 
       fields: [
@@ -72,15 +64,13 @@ export const post = {
     },
 
     {
-      name: 'postDescription',
-      title: 'Текст статті (після зображення)',
-      type: 'text',
+      name: 'priority',
+      title:
+        'Пріоритет. --- Упорядковує елементи, найбільше значення - перший елемент. Якщо в даному пості не потрібно змінювати пріоритет то краще залишити значення за замовчуванням 0',
+      type: 'number',
+      initialValue: 0,
 
-      validation: (Rule: any) => [
-        Rule.required().error('Поле обовʼязкове'),
-        Rule.max(5000).error('Може містити до 5000 символів'),
-        Rule.min(10).error('Повинно містити від 10 символів'),
-      ],
+      validation: (Rule: any) => [Rule.required().error('Поле обовʼязкове')],
     },
 
     {
@@ -112,6 +102,39 @@ export const post = {
         slugify: (input: any) =>
           encodeURI(input.toLowerCase().replace(/\s+/g, '-').slice(0, 200)),
       },
+    },
+
+    {
+      name: 'body',
+      title: 'Редактор контенту',
+      type: 'array',
+      of: [
+        { type: 'block' },
+        {
+          name: 'image',
+          title: 'Зображення',
+          type: 'image',
+          validation: (Rule: any) => Rule.required().error('Поле обовʼязкове'),
+          options: {
+            hotspot: true, // <-- Defaults to false
+          },
+
+          fields: [
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Альтернативний текст та для скрінрідера. Що зображено?',
+              validation: (Rule: any) =>
+                Rule.required().error('Поле обовʼязкове'),
+            },
+            {
+              name: 'attribution',
+              type: 'string',
+              title: 'Attribution (заповнювати не потрібно)',
+            },
+          ],
+        },
+      ],
     },
   ],
 };

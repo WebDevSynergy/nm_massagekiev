@@ -143,6 +143,25 @@ the info window.
 | `width`  | -       | required, `number`, sets the width size in px.  |
 | `height` | ''      | required, `number`, sets the height size in px. |
 
+- #### SanityBlockImage
+
+This component is designed to configure the rendering of images that come from
+sanity in the form of a block type object. Accepts an image object
+
+| Prop    | Default | Description     |
+| ------- | ------- | --------------- | ---------------------------------------------------------------- |
+| `value` | -       | required, `any` | `any[]`, an image object that comes from sanity with block type. |
+
+- #### BlogArticle
+
+The component is designed for rendering content that comes from sanity in the
+form of an array of objects with the block collection type. Receives in props
+post whose value is the object received from sanity
+
+| Prop   | Default | Description     |
+| ------ | ------- | --------------- | ---------------------------------------------------------- |
+| `post` | -       | required, `any` | `any[]`, an object that comes from sanity with block type. |
+
 - #### ----------------------------------------------------------------------------------
 
 - #### Modal(example)
