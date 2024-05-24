@@ -39,7 +39,7 @@ export const masseur = {
 
     {
       name: 'name',
-      title: 'Імʼя',
+      title: 'Імʼя ** || Від 2 до 30 символів',
       type: 'string',
 
       validation: (Rule: any) => [
@@ -51,12 +51,12 @@ export const masseur = {
 
     {
       name: 'resume',
-      title: 'Резюме масажиста',
+      title: 'Резюме масажиста ** || Від 500 до 600 символів',
       type: 'text',
 
       validation: (Rule: any) => [
         Rule.required().error('Поле обовʼязкове'),
-        Rule.max(900).error('Повинно бути не більше 900 символів'),
+        Rule.max(600).error('Повинно бути не більше 900 символів'),
         Rule.min(500).error('Повинно бути від 500 символів'),
       ],
     },

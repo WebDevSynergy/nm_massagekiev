@@ -10,3 +10,5 @@ export * from './CertificateSection';
 export * from './FAQSection';
 export * from './InstagramSection';
 export * from './ContactsSection';
+
+export * from './PostSection';

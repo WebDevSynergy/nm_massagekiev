@@ -1,0 +1,22 @@
+.block {
+  @apply text-lg leading-relaxed;
+}
+
+.block p,
+.block ul,
+.block ol,
+.block blockquote {
+  @apply my-6;
+}
+
+.block h2 {
+  @apply mb-4 mt-12 text-3xl leading-snug;
+}
+
+.block h3 {
+  @apply mb-4 mt-8 text-2xl leading-snug;
+}
+
+.block p {
+  @apply text-red;
+}

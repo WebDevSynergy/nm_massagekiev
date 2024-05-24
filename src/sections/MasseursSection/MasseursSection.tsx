@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { Key } from 'react';
 import { Image as SanityImg } from 'sanity';
 
-import { sanityClient } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
+import { getMasseurs } from '@/actions/sanity';
 
 type MasseursItem = {
   _id: string;
@@ -14,12 +14,7 @@ type MasseursItem = {
 };
 
 export const MasseursSection: React.FC = async () => {
-  const masseurs =
-    (await sanityClient.fetch(
-      '*[_type == "masseur"]',
-      {},
-      { next: { revalidate: 3600 } },
-    )) || null;
+  const masseurs = await getMasseurs();
 
   return (
     <>
@@ -46,20 +41,22 @@ export const MasseursSection: React.FC = async () => {
                       />
                       <p>name: {name}</p>
                       <p>resume: {resume}</p>
-                      <ul>
-                        {certificateArray.map(
-                          (el: SanityImg, idx: Key | null | undefined) => (
-                            <li key={idx}>
-                              <Image
-                                src={urlForImage(el)}
-                                width={400}
-                                height={400}
-                                alt={name}
-                              />
-                            </li>
-                          ),
-                        )}
-                      </ul>
+                      {certificateArray && (
+                        <ul>
+                          {certificateArray.map(
+                            (el: SanityImg, idx: Key | null | undefined) => (
+                              <li key={idx}>
+                                <Image
+                                  src={urlForImage(el)}
+                                  width={400}
+                                  height={400}
+                                  alt={name}
+                                />
+                              </li>
+                            ),
+                          )}
+                        </ul>
+                      )}
                     </li>
                   );
                 },

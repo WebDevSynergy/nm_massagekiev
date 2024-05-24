@@ -14,7 +14,7 @@ export const review = {
   fields: [
     {
       name: 'author',
-      title: 'Імʼя автора відгуку',
+      title: 'Імʼя автора відгуку ** | Від 2 до 30 символів',
       type: 'string',
 
       validation: (Rule: any) => [
@@ -25,7 +25,7 @@ export const review = {
     },
     {
       name: 'review',
-      title: 'Відгук',
+      title: 'Відгук ** | Від 5 до 550 символів',
       type: 'text',
 
       validation: (Rule: any) => [

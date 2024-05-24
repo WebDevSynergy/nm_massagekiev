@@ -1,6 +1,6 @@
 import { ReviewForm } from '@/components/base';
 
-import { sanityClient } from '@/sanity/lib/client';
+import { getReviews } from '@/actions/sanity';
 
 type ReviewsItem = {
   _id: string;
@@ -9,12 +9,7 @@ type ReviewsItem = {
 };
 
 export const ReviewsSection: React.FC = async () => {
-  const reviews =
-    (await sanityClient.fetch(
-      '*[_type == "review"]{_id, author, review}',
-      {},
-      { cache: 'no-cache' },
-    )) || null;
+  const reviews = await getReviews();
 
   return (
     <section className="section">

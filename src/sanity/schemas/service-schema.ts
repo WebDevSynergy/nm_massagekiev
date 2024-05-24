@@ -14,7 +14,7 @@ export const service = {
   fields: [
     {
       name: 'title',
-      title: 'Назва послуги',
+      title: 'Назва послуги ** | Від 2 до 55 символів',
       type: 'string',
 
       validation: (Rule: any) => [
@@ -26,7 +26,7 @@ export const service = {
 
     {
       name: 'description',
-      title: 'Опис послуги',
+      title: 'Опис послуги** | Від 2 до 400 символів',
       type: 'text',
 
       validation: (Rule: any) => [
@@ -38,7 +38,7 @@ export const service = {
 
     {
       name: 'for',
-      title: 'Для кого призначена ця послуга?',
+      title: 'Для кого призначена ця послуга? ** | Від 4 до 70 символів',
       type: 'string',
 
       validation: (Rule: any) => [
@@ -50,7 +50,7 @@ export const service = {
 
     {
       name: 'duration',
-      title: 'Тривалість сеансу, в хвилинах',
+      title: 'Тривалість сеансу, в хвилинах ** | Від 1 до 10 символів',
       type: 'string',
 
       validation: (Rule: any) => [

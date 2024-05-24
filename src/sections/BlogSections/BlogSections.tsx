@@ -1,16 +1,11 @@
 import Image from 'next/image';
 import { Image as SanityImage, Slug } from 'sanity';
 
-import { sanityClient } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
+import { getPostsWithPrioritySort } from '@/actions/sanity';
 
 export const BlogSections: React.FC = async () => {
-  const posts =
-    (await sanityClient.fetch(
-      '*[_type == "post"] | order(priority desc)',
-      {},
-      { next: { revalidate: 3600 } },
-    )) || null;
+  const posts = await getPostsWithPrioritySort();
 
   return (
     <>
@@ -25,32 +20,33 @@ export const BlogSections: React.FC = async () => {
                   ({
                     _id,
                     title,
-                    preDescription,
-                    postDescription,
+                    description,
                     image,
                     slug,
                   }: {
                     _id: string;
                     title: string;
-                    preDescription: string;
-                    postDescription: string;
+                    description: string;
                     image: SanityImage;
                     slug: Slug;
                   }) => {
+                    const alt = image?.caption?.toString() || ' ';
+
                     return (
                       <li
                         key={_id}
                         className=" flex w-[600px] flex-col items-center justify-between gap-4 border border-solid border-cyan-50 p-4"
                       >
                         <h2 className="font-bold">title: {title}</h2>
-                        <p>preDescription: {preDescription}</p>
+                        <p>description: {description}</p>
+
                         <Image
                           src={urlForImage(image)}
-                          alt="test"
+                          alt={alt}
                           width={300}
                           height={300}
                         />
-                        <p>postDescription: {postDescription}</p>
+
                         <p>id: {_id}</p>
                         <p>slug: {slug.current}</p>
                       </li>
