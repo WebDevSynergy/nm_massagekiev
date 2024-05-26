@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { Raleway, Geologica } from 'next/font/google';
+import { Roboto, Open_Sans } from 'next/font/google';
 
 import meta from '@/data/meta';
 
@@ -8,17 +8,17 @@ import './globals.css';
 
 export const metadata: Metadata = meta;
 
-const raleway = Raleway({
+const roboto = Roboto({
   subsets: ['cyrillic', 'latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-raleway',
+  weight: ['400', '700'],
+  variable: '--font-roboto',
   display: 'swap',
 });
 
-const geologica = Geologica({
-  subsets: ['cyrillic'],
-  weight: ['200', '300', '400', '500', '700'],
-  variable: '--font-geologica',
+const openSans = Open_Sans({
+  subsets: ['cyrillic', 'latin'],
+  weight: ['300', '400', '600'],
+  variable: '--font-open-sans',
   display: 'swap',
   adjustFontFallback: false,
 });
@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uk" className="scroll-smooth">
-      <body className={`${raleway.variable} ${geologica.variable}`}>
+      <body className={`${roboto.variable} ${openSans.variable}`}>
         {children}
       </body>
     </html>

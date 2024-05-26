@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --whiteBeige: '#FDFAF7', --beige: '#F9F2E8';
+}
+
 body {
-  @apply bg-slate-400 font-raleway text-[16px] font-normal leading-[1.2];
+  @apply bg-whiteBeige font-roboto text-[16px] font-normal leading-[1.2];
 }
 
 .section {
-  @apply py-20;
+  @apply xl:py-[100px] 2xl:py-[120px];
+}
+
+.section:nth-of-type(2n + 1) {
+  @apply bg-beige;
 }

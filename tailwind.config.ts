@@ -12,9 +12,11 @@ const config: Config = {
       sm: '480px',
       md: '768px',
       xl: '1280px',
+      '2xl': '1920px',
 
       smOnly: { max: '767.98px' },
       mdOnly: { min: '768px', max: '1279.98px' },
+      xlOnly: { min: '1280px', max: '1919.98px' },
     },
 
     container: {
@@ -22,17 +24,21 @@ const config: Config = {
       padding: {
         DEFAULT: '16px',
         sm: '16px',
-        md: '42px',
-        xl: '32px',
+        md: '40px',
+        xl: '40px',
+        '2xl': '140px',
       },
     },
     extend: {
       fontFamily: {
-        raleway: ['var(--font-raleway)'],
-        geologica: ['var(--font-geologica)'],
+        roboto: ['var(--font-roboto)'],
+        'open-sans': ['var(--font-open-sans)'],
       },
 
       colors: {
+        whiteBeige: '#FDFAF7',
+        beige: '#F9F2E8',
+
         white: '#FFFFFF',
         accent: '#0052F2',
         red: '#FF0000',
