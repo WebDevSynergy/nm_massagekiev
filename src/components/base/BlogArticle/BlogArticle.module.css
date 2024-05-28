@@ -18,5 +18,5 @@
 }
 
 .block p {
-  @apply text-red;
+  @apply m-0;
 }

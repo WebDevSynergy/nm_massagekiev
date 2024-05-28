@@ -31,22 +31,24 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        roboto: ['var(--font-roboto)'],
         'open-sans': ['var(--font-open-sans)'],
       },
 
       colors: {
         whiteBeige: '#FDFAF7',
         beige: '#F9F2E8',
-
         white: '#FFFFFF',
-        accent: '#0052F2',
-        red: '#FF0000',
-        darkBg: '#030712',
-        primaryText: '#33343C',
-        secondaryText: 'rgba(51, 52, 60, 0.70)',
-        greyText: '#8E8E93',
-        darkBlue: '#0045CB',
+        greenLight: '#F1F1ED',
+        beigeDark: '#F1DEC6',
+        green: '#4C7B63',
+        greenDark: '#1E5B2A',
+        orange: '#CC680B',
+        brownLight: '#8A5C23',
+        red: '#961C1C',
+        grey: '#979797',
+        brown: '#534236',
+        brownDark: '#3B291D',
+        blackLight: '#29170B',
       },
       transitionDuration: {
         DEFAULT: '300ms',

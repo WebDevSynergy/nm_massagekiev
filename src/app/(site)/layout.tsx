@@ -12,16 +12,16 @@ export default function Layout({
     <>
       <div className="fixed right-0">
         <Link
-          className=" block text-[24px]  text-accent underline"
+          className=" text-accent block  text-[24px] underline"
           href="/admin"
         >
           Go to admin panel.
         </Link>
-        <Link className=" block text-[24px]  text-accent underline" href="/">
+        <Link className=" text-accent block  text-[24px] underline" href="/">
           Home
         </Link>
         <Link
-          className=" block text-[24px]  text-accent underline"
+          className=" text-accent block  text-[24px] underline"
           href="/blog/1"
         >
           Blog
