@@ -179,6 +179,13 @@ modal, `children` -content for modal.
 | `modalWrapStyle` | ''      | optional, `string`, additional css class you'd need for container |
 | `backdropStyle`  | ''      | optional, `string`, additional css class you'd need               |
 
+- #### Logo
+
+| Prop        | Default | Description                                                                         |
+| ----------- | ------- | ----------------------------------------------------------------------------------- |
+| `variant`   | -       | required, choose the color you'd need :'brown' or 'green'                           |
+| `className` | ''      | optional, `string`, adds custom css class for link container which wrapped the icon |
+
 ### 🚧 Technology stack
 
 - **Main technologies**:
