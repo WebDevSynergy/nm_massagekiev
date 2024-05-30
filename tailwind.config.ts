@@ -49,6 +49,7 @@ const config: Config = {
         brown: '#534236',
         brownDark: '#3B291D',
         blackLight: '#29170B',
+        orangeDark: '#AE5400',
       },
       transitionDuration: {
         DEFAULT: '300ms',
