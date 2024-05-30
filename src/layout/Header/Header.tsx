@@ -1,4 +1,4 @@
-import { Logo } from '@/components/ui';
+import { Logo, MainLink } from '@/components/ui';
 
 export const Header: React.FC = () => {
   return (
@@ -6,6 +6,9 @@ export const Header: React.FC = () => {
       <div className="container">
         <Logo variant="brown" />
         Header
+        <div>
+          <MainLink path="#services" label="Послуги" />
+        </div>
       </div>
     </header>
   );
