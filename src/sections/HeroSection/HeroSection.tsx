@@ -1,4 +1,4 @@
-import { ButtonLink, GoogleRating } from '@/components/ui';
+import { ButtonLink, GoogleRating, SectionTitle } from '@/components/ui';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -16,6 +16,7 @@ export const HeroSection: React.FC = () => {
         <div className="bg-white">
           <GoogleRating />
         </div>
+        <SectionTitle>SectionTitle example</SectionTitle>
       </div>
     </section>
   );

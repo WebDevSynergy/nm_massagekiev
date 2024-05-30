@@ -214,6 +214,14 @@ used green colors and `secondary` - orange colors.
 | `label` | ''      | required, `string`, name for link                       |
 | `tel`   | -       | optional, `boolean`, needed if a link to a phone number |
 
+- #### SectionTitle
+
+| Prop         | Default | Description                                                  |
+| ------------ | ------- | ------------------------------------------------------------ |
+| `children`   | -       | required, `ReactNode`.                                       |
+| `isCentered` | `false` | optional, `boolean`, adds css property `text-align: center`. |
+| `className`  | ''      | optional, `string`, adds custom css class.                   |
+
 ### 🚧 Technology stack
 
 - **Main technologies**:

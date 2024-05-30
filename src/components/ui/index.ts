@@ -5,3 +5,4 @@ export * from './SanityBlockImage';
 export * from './Logo';
 export * from './ButtonLink';
 export * from './MainLink';
+export * from './SectionTitle';
