@@ -1,8 +1,7 @@
-import Image from 'next/image';
 import { Image as SanityImage } from 'sanity';
 
-import { urlForImage } from '@/sanity/lib/image';
 import { getInstagramPhotos } from '@/actions/sanity';
+import { InstagramCard } from '@/components/ui';
 
 type instagramPhoto = {
   _id: string;
@@ -20,18 +19,9 @@ export const InstagramSection: React.FC = async () => {
             InstagramSection
             <ul className="flex flex-wrap gap-8">
               {instagramPhotosData.map(({ _id, image }: instagramPhoto) => {
-                const alt = image?.caption?.toString() || 'text';
-
                 return (
-                  <li key={_id} className="size-[380px]">
-                    <Image
-                      src={urlForImage(image)}
-                      width={380}
-                      height={380}
-                      loading="lazy"
-                      alt={alt}
-                      className="size-full object-cover"
-                    />
+                  <li key={_id}>
+                    <InstagramCard image={image} />
                   </li>
                 );
               })}

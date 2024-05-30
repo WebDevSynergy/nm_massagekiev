@@ -222,6 +222,15 @@ used green colors and `secondary` - orange colors.
 | `isCentered` | `false` | optional, `boolean`, adds css property `text-align: center`. |
 | `className`  | ''      | optional, `string`, adds custom css class.                   |
 
+- #### InstagramCard
+
+A component that receives a data object from sanity that contains all the
+information about the image. Creates a cdn link to the image and renders it
+
+| Prop    | Default | Description                                                                                                |
+| ------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `image` | -       | required, `Image` from sanity type. A sanity data object that contains all the information about the image |
+
 ### 🚧 Technology stack
 
 - **Main technologies**:

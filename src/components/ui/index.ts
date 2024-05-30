@@ -6,3 +6,4 @@ export * from './Logo';
 export * from './ButtonLink';
 export * from './MainLink';
 export * from './SectionTitle';
+export * from './InstagramCard';

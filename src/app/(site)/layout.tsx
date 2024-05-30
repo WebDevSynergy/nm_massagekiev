@@ -11,19 +11,13 @@ export default function Layout({
     // {/* ////////////////////ВИДАЛИТИ///////////////////////// */}
     <>
       <div className="fixed right-0">
-        <Link
-          className=" text-accent block  text-[24px] underline"
-          href="/admin"
-        >
+        <Link className="block  text-[24px] underline" href="/admin">
           Go to admin panel.
         </Link>
-        <Link className=" text-accent block  text-[24px] underline" href="/">
+        <Link className="block  text-[24px] underline" href="/">
           Home
         </Link>
-        <Link
-          className=" text-accent block  text-[24px] underline"
-          href="/blog/1"
-        >
+        <Link className="block  text-[24px] underline" href="/blog/1">
           Blog
         </Link>
       </div>
