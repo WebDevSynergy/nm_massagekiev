@@ -206,6 +206,14 @@ used green colors and `secondary` - orange colors.
 | `styleType` | `primary`   | set the type of styling, can be `primary`, `secondary` or `unstyled` |
 | `className` | `undefined` | `string`, allows you to override common styles                       |
 
+- #### SectionTitle
+
+| Prop         | Default | Description                                                  |
+| ------------ | ------- | ------------------------------------------------------------ |
+| `children`   | -       | required, `ReactNode`.                                       |
+| `isCentered` | `false` | optional, `boolean`, adds css property `text-align: center`. |
+| `className`  | ''      | optional, `string`, adds custom css class.                   |
+
 ### 🚧 Technology stack
 
 - **Main technologies**:
