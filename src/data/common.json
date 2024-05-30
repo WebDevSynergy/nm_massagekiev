@@ -16,5 +16,9 @@
       "locationLinkText": "Подивитись наше місцезнаходження на Google Карті ",
       "locationLink": "https://www.google.com/maps/place/nm-massagekiev/@50.4969729,30.4403866,21z/data=!4m15!1m8!3m7!1s0x40d4cd75cbff97fd:0x8ac0784da6eb1d7d!2z0YPQuy4g0KHQtdGA0LNl0Y8g0JTQsNC90YfQtdC90LrQviwgMzIsINCa0LjQtdCyLCAwMjAwMA!3b1!8m2!3d50.4975204!4d30.4403311!16s%2Fg%2F11h4f0qhl8!3m5!1s0x40d4cdf741c6c3b7:0xf3971e41267edd51!8m2!3d50.4969155!4d30.4404875!16s%2Fg%2F11vl4386zt?entry=ttu"
     }
+  },
+  "logo": {
+    "path": "/",
+    "ariaLabel": "Посилання із логотипом компанії"
   }
 }
