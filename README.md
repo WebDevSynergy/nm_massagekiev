@@ -206,6 +206,14 @@ used green colors and `secondary` - orange colors.
 | `styleType` | `primary`   | set the type of styling, can be `primary`, `secondary` or `unstyled` |
 | `className` | `undefined` | `string`, allows you to override common styles                       |
 
+- #### MainLink
+
+| Prop    | Default | Description                                             |
+| ------- | ------- | ------------------------------------------------------- |
+| `path`  | ''      | required, `string`, path for link                       |
+| `label` | ''      | required, `string`, name for link                       |
+| `tel`   | -       | optional, `boolean`, needed if a link to a phone number |
+
 - #### SectionTitle
 
 | Prop         | Default | Description                                                  |

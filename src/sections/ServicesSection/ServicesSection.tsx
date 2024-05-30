@@ -16,7 +16,7 @@ export const ServicesSection: React.FC = async () => {
   return (
     <>
       {services && (
-        <section className="section">
+        <section className="section" id="services">
           <div className="container">
             ServicesSection
             <ul className="flex flex-wrap gap-8">
