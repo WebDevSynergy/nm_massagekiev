@@ -179,6 +179,26 @@ modal, `children` -content for modal.
 | `modalWrapStyle` | ''      | optional, `string`, additional css class you'd need for container |
 | `backdropStyle`  | ''      | optional, `string`, additional css class you'd need               |
 
+- #### ButtonLink
+
+A component implements interfaces for tags `a`,`button` and `Link` from
+'next/link' by set up customized attribute tag. This allows you to use all
+native props for these tags. Also, the component accepts additional props:
+`className` for additional styling the compoonent and `styleType` to use
+predefined styles. In the case of the `a` tag has predefined props
+target="\_blank" rel="noopener noreferrer". In the case of `link` tag don't
+forget to set the `href` prop. In the case of `styleType: unstyled` you can
+customize all styles through the prop `className`.
+
+Style's preset include sizes and colors from main page hero section: `primary`
+used green colors and `secondary` - orange colors.
+
+| Prop        | Default     | Description                                                          |
+| ----------- | ----------- | -------------------------------------------------------------------- |
+| `tag`       | `button`    | `a`, `button` or `link` set the tag you need                         |
+| `styleType` | `primary`   | set the type of styling, can be `primary`, `secondary` or `unstyled` |
+| `className` | `undefined` | `string`, allows you to override common styles                       |
+
 ### 🚧 Technology stack
 
 - **Main technologies**:
