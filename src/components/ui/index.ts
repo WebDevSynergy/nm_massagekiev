@@ -9,3 +9,4 @@ export * from './SectionTitle';
 export * from './InstagramCard';
 export * from './SanityImage';
 export * from './BenefitCard';
+export * from './ReviewCard';

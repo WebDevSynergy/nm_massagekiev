@@ -12,11 +12,9 @@ import { GoogleMapInfoCard, GoogleMapLoadError } from '@/components/ui';
 
 import googleMapsStaticData from '@/data/common.json';
 
-import { GoogleMapsProps } from './types';
-
 const LIBRARIES: Libraries = ['marker'];
 
-const GoogleMaps: React.FC<GoogleMapsProps> = ({ width, height }) => {
+const GoogleMaps: React.FC = () => {
   const API_KEY = process.env.GOOGLE_MAP_API_KEY as string;
   const MAP_ID = process.env.MAP_ID as string;
 
@@ -24,8 +22,8 @@ const GoogleMaps: React.FC<GoogleMapsProps> = ({ width, height }) => {
     googleMapsStaticData.googleMaps;
 
   const containerStyle = {
-    width: `${width}px`,
-    height: `${height}px`,
+    width: `100%`,
+    height: `100%`,
   };
 
   const [infoPosition, setInfoPosition] =
@@ -70,6 +68,8 @@ const GoogleMaps: React.FC<GoogleMapsProps> = ({ width, height }) => {
     setInfoPosition(markerPosition);
   };
 
+  const handleClose = (): void => toggleInfo(null);
+
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -83,11 +83,8 @@ const GoogleMaps: React.FC<GoogleMapsProps> = ({ width, height }) => {
       }}
     >
       {infoPosition !== null && (
-        <InfoWindow
-          position={infoPosition}
-          onCloseClick={() => toggleInfo(null)}
-        >
-          <GoogleMapInfoCard />
+        <InfoWindow position={infoPosition} onCloseClick={handleClose}>
+          <GoogleMapInfoCard onClick={handleClose} />
         </InfoWindow>
       )}
     </GoogleMap>
