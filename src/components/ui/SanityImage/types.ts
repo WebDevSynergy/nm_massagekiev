@@ -4,6 +4,6 @@ import { TImage } from '@/types/instagram';
 
 type OmittedProps = 'src' | 'alt' | 'blur' | 'blurDataURL';
 
-export type InstagramCardProps = Omit<ImageProps, OmittedProps> & {
+export type SanityImageProps = Omit<ImageProps, OmittedProps> & {
   image: TImage;
 };
