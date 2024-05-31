@@ -1,11 +1,13 @@
-import { Image as SanityImage } from 'sanity';
+// import { Image as SanityImage } from 'sanity';
 
 import { getInstagramPhotos } from '@/actions/sanity';
 import { InstagramCard } from '@/components/ui';
 
+import { TImage } from '@/types/instagram';
+
 type instagramPhoto = {
-  _id: string;
-  image: SanityImage;
+  id: string;
+  image: TImage;
 };
 
 export const InstagramSection: React.FC = async () => {
@@ -18,9 +20,9 @@ export const InstagramSection: React.FC = async () => {
           <div className="container">
             InstagramSection
             <ul className="flex flex-wrap gap-8">
-              {instagramPhotosData.map(({ _id, image }: instagramPhoto) => {
+              {instagramPhotosData.map(({ id, image }: instagramPhoto) => {
                 return (
-                  <li key={_id}>
+                  <li key={id}>
                     <InstagramCard image={image} />
                   </li>
                 );

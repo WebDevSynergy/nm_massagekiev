@@ -231,6 +231,19 @@ information about the image. Creates a cdn link to the image and renders it
 | ------- | ------- | ---------------------------------------------------------------------------------------------------------- |
 | `image` | -       | required, `Image` from sanity type. A sanity data object that contains all the information about the image |
 
+- ### SanityImage
+
+An image component, like a wrapper for `Image` з `"next/image"`. It is used to
+retrieve an image from CMS `Sanity`. Contains props: `src`, `alt` value comes
+from the space `image.`, `placeholder` static value from `image.blur`
+`blurDataURL` value comes from prop `image.lqip`. Pass rest props as for the tag
+`image` if you need
+
+| Prop          | Default     | Description                                                                        |
+| ------------- | ----------- | ---------------------------------------------------------------------------------- |
+| `image `      | `undefined` | required, object, that contains fields `src`, `alt`, `lquip`.                      |
+| `imageProps ` | `undefined` | optional, additional image props except `src`, `alt`, `placeholder`, `blurDataURL` |
+
 ### 🚧 Technology stack
 
 - **Main technologies**:
