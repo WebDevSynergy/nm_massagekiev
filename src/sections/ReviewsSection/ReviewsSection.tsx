@@ -1,4 +1,5 @@
 import { ReviewForm } from '@/components/base';
+import { ReviewCard, SectionTitle } from '@/components/ui';
 
 import { getReviews } from '@/actions/sanity';
 
@@ -14,15 +15,14 @@ export const ReviewsSection: React.FC = async () => {
   return (
     <section className="section">
       <div className="container">
-        <p>ReviewsSection</p>
+        <SectionTitle>ReviewsSection</SectionTitle>
 
         {reviews && (
-          <ul className="flex gap-8">
+          <ul className="flex flex-wrap gap-4 xl:gap-6 2xl:gap-10">
             {reviews.map(({ _id, author, review }: ReviewsItem) => {
               return (
-                <li key={_id} className="border border-solid p-8">
-                  <p>author: {author}</p>
-                  <p>review: {review}</p>
+                <li key={_id}>
+                  <ReviewCard author={author} review={review} />
                 </li>
               );
             })}

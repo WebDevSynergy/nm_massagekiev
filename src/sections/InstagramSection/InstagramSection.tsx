@@ -1,12 +1,13 @@
-import Image from 'next/image';
-import { Image as SanityImage } from 'sanity';
+// import { Image as SanityImage } from 'sanity';
 
-import { urlForImage } from '@/sanity/lib/image';
 import { getInstagramPhotos } from '@/actions/sanity';
+import { InstagramCard } from '@/components/ui';
+
+import { TImage } from '@/types/instagram';
 
 type instagramPhoto = {
-  _id: string;
-  image: SanityImage;
+  id: string;
+  image: TImage;
 };
 
 export const InstagramSection: React.FC = async () => {
@@ -19,19 +20,10 @@ export const InstagramSection: React.FC = async () => {
           <div className="container">
             InstagramSection
             <ul className="flex flex-wrap gap-8">
-              {instagramPhotosData.map(({ _id, image }: instagramPhoto) => {
-                const alt = image?.caption?.toString() || 'text';
-
+              {instagramPhotosData.map(({ id, image }: instagramPhoto) => {
                 return (
-                  <li key={_id} className="size-[380px]">
-                    <Image
-                      src={urlForImage(image)}
-                      width={380}
-                      height={380}
-                      loading="lazy"
-                      alt={alt}
-                      className="size-full object-cover"
-                    />
+                  <li key={id}>
+                    <InstagramCard image={image} />
                   </li>
                 );
               })}

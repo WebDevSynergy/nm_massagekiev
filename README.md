@@ -206,6 +206,14 @@ used green colors and `secondary` - orange colors.
 | `styleType` | `primary`   | set the type of styling, can be `primary`, `secondary` or `unstyled` |
 | `className` | `undefined` | `string`, allows you to override common styles                       |
 
+- #### MainLink
+
+| Prop    | Default | Description                                             |
+| ------- | ------- | ------------------------------------------------------- |
+| `path`  | ''      | required, `string`, path for link                       |
+| `label` | ''      | required, `string`, name for link                       |
+| `tel`   | -       | optional, `boolean`, needed if a link to a phone number |
+
 - #### SectionTitle
 
 | Prop         | Default | Description                                                  |
@@ -213,6 +221,38 @@ used green colors and `secondary` - orange colors.
 | `children`   | -       | required, `ReactNode`.                                       |
 | `isCentered` | `false` | optional, `boolean`, adds css property `text-align: center`. |
 | `className`  | ''      | optional, `string`, adds custom css class.                   |
+
+- #### InstagramCard
+
+A component that receives a data object from sanity that contains all the
+information about the image. Creates a cdn link to the image and renders it
+
+| Prop    | Default | Description                                                                                                |
+| ------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `image` | -       | required, `Image` from sanity type. A sanity data object that contains all the information about the image |
+
+- ### SanityImage
+
+An image component, like a wrapper for `Image` з `"next/image"`. It is used to
+retrieve an image from CMS `Sanity`. Contains props: `src`, `alt` value comes
+from the space `image.`, `placeholder` static value from `image.blur`
+`blurDataURL` value comes from prop `image.lqip`. Pass rest props as for the tag
+`image` if you need
+
+| Prop          | Default     | Description                                                                        |
+| ------------- | ----------- | ---------------------------------------------------------------------------------- |
+| `image `      | `undefined` | required, object, that contains fields `src`, `alt`, `lquip`.                      |
+| `imageProps ` | `undefined` | optional, additional image props except `src`, `alt`, `placeholder`, `blurDataURL` |
+
+- #### ReviewCard
+
+A component that receives two data props from sanity that contains the text of
+the review and the name of the author.
+
+| Prop     | Default                          | Description                                              |
+| -------- | -------------------------------- | -------------------------------------------------------- |
+| `review` | `Sorry, the review did not load` | required, `string`, feedback text                        |
+| `author` | `Author`                         | required, `string`, the name of the author of the review |
 
 ### 🚧 Technology stack
 

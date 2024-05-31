@@ -2,6 +2,7 @@
   "testField": "nm_massagekiev",
   "googleMaps": {
     "title": "nm_massagekiev\nДанченко, 32",
+    "schedule": { "days": "понеділок - п’ятниця", "hours": "9:00 - 22:00" },
     "center": {
       "lat": 50.4970817565918,
       "lng": 30.4421443939209
