@@ -244,6 +244,16 @@ from the space `image.`, `placeholder` static value from `image.blur`
 | `image `      | `undefined` | required, object, that contains fields `src`, `alt`, `lquip`.                      |
 | `imageProps ` | `undefined` | optional, additional image props except `src`, `alt`, `placeholder`, `blurDataURL` |
 
+- #### ReviewCard
+
+A component that receives two data props from sanity that contains the text of
+the review and the name of the author.
+
+| Prop     | Default                          | Description                                              |
+| -------- | -------------------------------- | -------------------------------------------------------- |
+| `review` | `Sorry, the review did not load` | required, `string`, feedback text                        |
+| `author` | `Author`                         | required, `string`, the name of the author of the review |
+
 ### 🚧 Technology stack
 
 - **Main technologies**:
