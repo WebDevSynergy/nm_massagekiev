@@ -1,4 +1,4 @@
-import { Logo } from '@/components/ui';
+import { Logo, SocialLinks } from '@/components/ui';
 
 export const Header: React.FC = () => {
   return (
@@ -6,6 +6,7 @@ export const Header: React.FC = () => {
       <div className="container">
         <Logo variant="brown" />
         Header
+        <SocialLinks isHeader={true} />
       </div>
     </header>
   );

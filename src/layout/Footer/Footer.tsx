@@ -1,4 +1,4 @@
-import { Logo } from '@/components/ui';
+import { Logo, SocialLinks } from '@/components/ui';
 
 export const Footer: React.FC = () => {
   return (
@@ -6,6 +6,7 @@ export const Footer: React.FC = () => {
       <div className="container">
         <Logo variant="green" />
         Footer
+        <SocialLinks isHeader={false} />
       </div>
     </footer>
   );
