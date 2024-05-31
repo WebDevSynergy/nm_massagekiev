@@ -5,7 +5,9 @@ export const ContactsSection: React.FC = () => {
     <section className="section">
       <div className="container">
         ContactsSection
-        <GoogleMaps width={948} height={686} />
+        <div className="aspect-square w-full overflow-hidden rounded-3xl xl:h-full">
+          <GoogleMaps />
+        </div>
       </div>
     </section>
   );
