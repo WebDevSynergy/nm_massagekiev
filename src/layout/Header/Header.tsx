@@ -1,4 +1,4 @@
-import { Logo, MainLink } from '@/components/ui';
+import { Logo, MainLink, SocialLinks } from '@/components/ui';
 
 export const Header: React.FC = () => {
   return (
@@ -9,6 +9,7 @@ export const Header: React.FC = () => {
         <div>
           <MainLink path="#services" label="Послуги" />
         </div>
+        <SocialLinks isHeader={true} />
       </div>
     </header>
   );
