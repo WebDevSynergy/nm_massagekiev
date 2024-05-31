@@ -1,6 +1,9 @@
 import { ReviewCardProps } from './type';
 
-export const ReviewCard: React.FC<ReviewCardProps> = ({ author, review }) => {
+export const ReviewCard: React.FC<ReviewCardProps> = ({
+  author = 'Author',
+  review = 'Sorry, the review did not load',
+}) => {
   return (
     <div
       className="flex h-[420px] max-w-[448px] flex-col justify-between rounded-[24px] bg-white p-6 
