@@ -1,7 +1,8 @@
 export type GoogleMapLoadErrorProps = {
   errorLoadMap: {
     msg: string;
-    locationLinkText: string;
+    mapImageAlt: string;
+    linkLabel: string;
     locationLink: string;
   };
   containerStyle: {

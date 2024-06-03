@@ -6,7 +6,7 @@ import { GoogleMapInfoCardProps } from './types';
 
 import data from '@/data/common.json';
 import CloseIcon from '~/icons/close.svg';
-import googleImage from '~/images/google/google@2x.webp';
+import googleImage from '~/images/google/info-window@2x.webp';
 
 export const GoogleMapInfoCard: React.FC<GoogleMapInfoCardProps> = ({
   onClick,

@@ -254,6 +254,19 @@ the review and the name of the author.
 | `review` | `Sorry, the review did not load` | required, `string`, feedback text                        |
 | `author` | `Author`                         | required, `string`, the name of the author of the review |
 
+- #### GoogleMapLoadError
+
+A component that receives two data props from parent google component that
+contains `errorLoadMap` with object of string props `msg` - text content in
+popup clock over the map image, `linkLabel` and `locationLink` - label and path
+for external link, `mapImageAlt` - alt for offline map image. Conditionally
+renders if the google map was not loaded.
+
+| Prop             | Default | Description                                                                   |
+| ---------------- | ------- | ----------------------------------------------------------------------------- |
+| `errorLoadMap`   | ``      | required, object of string props `msg, locationLink, mapImageAlt, linkLabel`  |
+| `containerStyle` | ``      | required, object of string props `width. height`, additional container styles |
+
 ### 🚧 Technology stack
 
 - **Main technologies**:
