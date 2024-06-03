@@ -14,6 +14,7 @@ const config: Config = {
       xl: '1280px',
       '2xl': '1920px',
 
+      sm480: { max: '479.98px' },
       smOnly: { max: '767.98px' },
       mdOnly: { min: '768px', max: '1279.98px' },
       xlOnly: { min: '1280px', max: '1919.98px' },
