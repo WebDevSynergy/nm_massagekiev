@@ -1,6 +1,6 @@
 export * from './ButtonLink';
 export * from './GoogleMapInfoCard';
-export * from './GoogleMapLoadError';
+export * from './GoogleMapStatus';
 export * from './GoogleRating';
 export * from './Logo';
 export * from './SanityBlockImage';
@@ -12,3 +12,4 @@ export * from './BenefitCard';
 export * from './ReviewCard';
 export * from './SocialItem';
 export * from './SocialLinks';
+export * from './Spinner';

@@ -8,7 +8,7 @@ import {
   useJsApiLoader,
 } from '@react-google-maps/api';
 
-import { GoogleMapInfoCard, GoogleMapLoadError } from '@/components/ui';
+import { GoogleMapInfoCard, GoogleMapStatus } from '@/components/ui';
 
 import googleMapsStaticData from '@/data/common.json';
 
@@ -18,7 +18,7 @@ const GoogleMaps: React.FC = () => {
   const API_KEY = process.env.GOOGLE_MAP_API_KEY as string;
   const MAP_ID = process.env.MAP_ID as string;
 
-  const { title, center, position, zoom, errorLoadMap } =
+  const { title, center, position, zoom, errorLoadMap, loadingText } =
     googleMapsStaticData.googleMaps;
 
   const containerStyle = {
@@ -33,7 +33,7 @@ const GoogleMaps: React.FC = () => {
     google.maps.marker.AdvancedMarkerElement | undefined
   >(undefined);
 
-  const { isLoaded } = useJsApiLoader({
+  const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: API_KEY,
     mapIds: [MAP_ID],
@@ -70,6 +70,15 @@ const GoogleMaps: React.FC = () => {
 
   const handleClose = (): void => toggleInfo(null);
 
+  if (loadError) {
+    return (
+      <GoogleMapStatus
+        containerStyle={containerStyle}
+        config={{ ...errorLoadMap, type: 'error' }}
+      />
+    );
+  }
+
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -89,9 +98,9 @@ const GoogleMaps: React.FC = () => {
       )}
     </GoogleMap>
   ) : (
-    <GoogleMapLoadError
+    <GoogleMapStatus
       containerStyle={containerStyle}
-      errorLoadMap={errorLoadMap}
+      config={{ ...errorLoadMap, msg: loadingText, type: 'loading' }}
     />
   );
 };
