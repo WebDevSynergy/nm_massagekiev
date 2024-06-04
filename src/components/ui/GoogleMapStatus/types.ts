@@ -1,5 +1,6 @@
-export type GoogleMapLoadErrorProps = {
-  errorLoadMap: {
+export type GoogleMapStatusProps = {
+  config: {
+    type: 'error' | 'loading';
     msg: string;
     mapImageAlt: string;
     linkLabel: string;
