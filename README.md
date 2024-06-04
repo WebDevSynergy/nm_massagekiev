@@ -254,18 +254,35 @@ the review and the name of the author.
 | `review` | `Sorry, the review did not load` | required, `string`, feedback text                        |
 | `author` | `Author`                         | required, `string`, the name of the author of the review |
 
-- #### GoogleMapLoadError
+- #### GoogleMapStatus
 
 A component that receives two data props from parent google component that
-contains `errorLoadMap` with object of string props `msg` - text content in
-popup clock over the map image, `linkLabel` and `locationLink` - label and path
-for external link, `mapImageAlt` - alt for offline map image. Conditionally
-renders if the google map was not loaded.
+contains `config` with object of string props `type` - status loading or error,
+`msg` - text content in popup clock over the map image, `linkLabel` and
+`locationLink` - label and path for external link, `mapImageAlt` - alt for
+offline map image. Conditionally renders if the google map was not loaded.
 
-| Prop             | Default | Description                                                                   |
-| ---------------- | ------- | ----------------------------------------------------------------------------- |
-| `errorLoadMap`   | ``      | required, object of string props `msg, locationLink, mapImageAlt, linkLabel`  |
-| `containerStyle` | ``      | required, object of string props `width. height`, additional container styles |
+| Prop             | Default | Description                                                                        |
+| ---------------- | ------- | ---------------------------------------------------------------------------------- |
+| `config`         | ``      | required, object of string props `type, msg, locationLink, mapImageAlt, linkLabel` |
+| `containerStyle` | ``      | required, object of string props `width. height`, additional container styles      |
+
+- #### Spinner
+
+A component created using the react-spinner library that displays the loading
+state. \*The "use client" directive must be specified
+
+| Prop          | Default | Description                          |
+| ------------- | ------- | ------------------------------------ |
+| `visible`     | `true`  | specifies whether to show the loader |
+| `width`       | `20`    | size of the loader                   |
+| `color`       | `grey`  | the color of the component           |
+| `strokeWidth` | `5`     | thickness of component lines         |
+
+- #### ContactCard
+
+The component that renders the contact information card receives data from
+static data
 
 ### 🚧 Technology stack
 

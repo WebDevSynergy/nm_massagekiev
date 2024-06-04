@@ -13,3 +13,4 @@ export * from './ReviewCard';
 export * from './SocialItem';
 export * from './SocialLinks';
 export * from './Spinner';
+export * from './ContactCard';

@@ -1,8 +1,10 @@
 {
   "testField": "nm_massagekiev",
+  "schedule": { "days": "понеділок - п’ятниця", "hours": "9:00 - 22:00" },
+  "phone": "+38 (063) 177 22 23",
+  "address": "Київ, вул. Сергія Данченко, 32",
   "googleMaps": {
     "title": "nm_massagekiev\nДанченко, 32",
-    "schedule": { "days": "понеділок - п’ятниця", "hours": "9:00 - 22:00" },
     "center": {
       "lat": 50.4970817565918,
       "lng": 30.4421443939209
@@ -64,5 +66,14 @@
       "path": "https://www.instagram.com/nm_massagekiev/",
       "ariaLabel": "перейти на сторінку Інстаграм"
     }
-  ]
+  ],
+  "contactCard": {
+    "title": "Масаж в Києві",
+    "btnLabel": "Записатися",
+    "subwayStations": [
+      { "name": "Оболонь", "line": "blue" },
+      { "name": "Мінська", "line": "blue" },
+      { "name": "Нивки", "line": "red" }
+    ]
+  }
 }
