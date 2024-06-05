@@ -1,20 +1,25 @@
-import Image from 'next/image';
-import { Key } from 'react';
-import { Image as SanityImg } from 'sanity';
+import { ModalCard, SanityImage } from '@/components/ui';
 
-import { urlForImage } from '@/sanity/lib/image';
 import { getMasseurs } from '@/actions/sanity';
 
-type MasseursItem = {
-  _id: string;
-  certificateArray: SanityImg[];
+import data from '@/data/common.json';
+
+export type Masseurs = {
+  id: string;
+  certificateArray:
+    | (TImage & {
+        id: string;
+      })[]
+    | null;
   resume: string;
-  image: SanityImg;
+  image: TImage;
   name: string;
-};
+}[];
 
 export const MasseursSection: React.FC = async () => {
-  const masseurs = await getMasseurs();
+  const masseurs: Masseurs | null = await getMasseurs();
+
+  const { buttonLabel } = data.reviews;
 
   return (
     <>
@@ -23,44 +28,47 @@ export const MasseursSection: React.FC = async () => {
           <div className="container">
             MasseursSection
             <ul className="flex gap-8">
-              {masseurs.map(
-                ({
-                  _id,
-                  certificateArray,
-                  resume,
-                  image,
-                  name,
-                }: MasseursItem) => {
-                  return (
-                    <li key={_id} className="w-[400px] border border-solid p-8">
-                      <Image
-                        src={urlForImage(image)}
-                        width={400}
-                        height={400}
-                        alt={name}
+              {masseurs.map(({ id, certificateArray, resume, image, name }) => {
+                return (
+                  <li key={id} className="w-[400px] border border-solid p-8">
+                    <div className="size-[334px]">
+                      <SanityImage
+                        image={image}
+                        width={520}
+                        height={520}
+                        loading="lazy"
+                        className="size-full object-cover"
                       />
-                      <p>name: {name}</p>
-                      <p>resume: {resume}</p>
-                      {certificateArray && (
-                        <ul>
-                          {certificateArray.map(
-                            (el: SanityImg, idx: Key | null | undefined) => (
-                              <li key={idx}>
-                                <Image
-                                  src={urlForImage(el)}
-                                  width={400}
-                                  height={400}
-                                  alt={name}
-                                />
-                              </li>
-                            ),
-                          )}
+                    </div>
+
+                    <p>name: {name}</p>
+
+                    <p>resume: {resume}</p>
+
+                    {certificateArray && (
+                      <ModalCard
+                        buttonLabel={buttonLabel}
+                        buttonStyle="unstyled"
+                        buttonStyles="text-green font-bold"
+                      >
+                        <ul className="flex gap-8">
+                          {certificateArray.map(el => (
+                            <li key={el.id}>
+                              <SanityImage
+                                image={el}
+                                width={520}
+                                height={520}
+                                loading="lazy"
+                                className="size-full object-cover"
+                              />
+                            </li>
+                          ))}
                         </ul>
-                      )}
-                    </li>
-                  );
-                },
-              )}
+                      </ModalCard>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </section>

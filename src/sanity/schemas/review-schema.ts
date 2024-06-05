@@ -25,12 +25,12 @@ export const review = {
     },
     {
       name: 'review',
-      title: 'Відгук ** | Від 5 до 550 символів',
+      title: 'Відгук ** | Від 5 до 400 символів',
       type: 'text',
 
       validation: (Rule: any) => [
         Rule.required().error('Обовʼязкове поле'),
-        Rule.max(550).error('Повинно бути не більше 550 символів'),
+        Rule.max(400).error('Повинно бути не більше 400 символів'),
         Rule.min(5).error('Повинно бути від 5-ти символів'),
       ],
     },

@@ -1,7 +1,9 @@
 import { ReviewForm } from '@/components/base';
-import { ReviewCard, SectionTitle } from '@/components/ui';
+import { ModalCard, ReviewCard, SectionTitle } from '@/components/ui';
 
 import { getReviews } from '@/actions/sanity';
+
+import data from '@/data/common.json';
 
 type ReviewsItem = {
   _id: string;
@@ -11,6 +13,8 @@ type ReviewsItem = {
 
 export const ReviewsSection: React.FC = async () => {
   const reviews = await getReviews();
+
+  const { buttonLabel } = data.reviews;
 
   return (
     <section className="section">
@@ -29,7 +33,13 @@ export const ReviewsSection: React.FC = async () => {
           </ul>
         )}
 
-        <ReviewForm />
+        <ModalCard
+          buttonLabel={buttonLabel}
+          buttonStyle="secondary"
+          buttonStyles="mx-auto"
+        >
+          <ReviewForm />
+        </ModalCard>
       </div>
     </section>
   );

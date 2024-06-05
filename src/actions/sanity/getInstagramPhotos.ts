@@ -1,6 +1,5 @@
 import { sanityClient } from '@/sanity/lib/client';
-
-import { TInstagramPhotosResponse } from '@/types/instagram';
+import { TInstagramPhotosResponse } from './types';
 
 export const getInstagramPhotos =
   async (): Promise<TInstagramPhotosResponse | null> => {

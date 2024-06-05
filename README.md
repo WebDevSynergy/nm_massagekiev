@@ -254,6 +254,65 @@ the review and the name of the author.
 | `review` | `Sorry, the review did not load` | required, `string`, feedback text                        |
 | `author` | `Author`                         | required, `string`, the name of the author of the review |
 
+- #### GoogleMapStatus
+
+A component that receives two data props from parent google component that
+contains `config` with object of string props `type` - status loading or error,
+`msg` - text content in popup clock over the map image, `linkLabel` and
+`locationLink` - label and path for external link, `mapImageAlt` - alt for
+offline map image. Conditionally renders if the google map was not loaded.
+
+| Prop             | Default | Description                                                                        |
+| ---------------- | ------- | ---------------------------------------------------------------------------------- |
+| `config`         | ``      | required, object of string props `type, msg, locationLink, mapImageAlt, linkLabel` |
+| `containerStyle` | ``      | required, object of string props `width. height`, additional container styles      |
+
+- #### Spinner
+
+A component created using the react-spinner library that displays the loading
+state. \*The "use client" directive must be specified
+
+| Prop          | Default | Description                          |
+| ------------- | ------- | ------------------------------------ |
+| `visible`     | `true`  | specifies whether to show the loader |
+| `width`       | `20`    | size of the loader                   |
+| `color`       | `grey`  | the color of the component           |
+| `strokeWidth` | `5`     | thickness of component lines         |
+
+- #### ContactCard
+
+The component that renders the contact information card receives data from
+static data
+
+- #### Modal
+
+The component which expect `buttonLabel` - text button's content, `buttonStyle`
+as `styleType` to use predefined styles for ButtonLink component,
+`buttonStyles` - additional css class you'd need for button `children` -content
+for modal. The component has predefined padding style and close button.
+
+| Prop           | Default   | Description                                                                                                                   |
+| -------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `children`     | -         | required, `ReactNode`, which will be content for modal window                                                                 |
+| `buttonLabel`  | `false`   | required, text button's content                                                                                               |
+| `buttonStyle`  | -         | required, as `styleType` to use predefined styles for ButtonLink component as primary -green, secondary, - brown and unstyled |
+| `buttonStyles` | `opacity` | optional, additional css class you'd need                                                                                     |
+
+- #### ModalCard
+
+The component which expect `onClose`:implements close modal window by mouse
+click on backdrop or by press `ESC` button, `isOpen` - state to show/hide modal,
+`children` -content for modal.
+
+| Prop            | Default   | Description                                                                            |
+| --------------- | --------- | -------------------------------------------------------------------------------------- |
+| `children`      | -         | required, `ReactNode`, which will be content for modal window                          |
+| `isOpen`        | `false`   | required, `boolean`, changes state to show/close the window.                           |
+| `onClose`       | -         | required, click handler for close modal window                                         |
+| `animation`     | `opacity` | optional, select the animationType to apply the modal window:'opacity' or 'translateX' |
+| `modalStyle`    | ''        | optional, `string`, additional css class you'd need                                    |
+| `backdropStyle` | ''        | optional, `string`, additional css class you'd need                                    |
+
 ### 🚧 Technology stack
 
 - **Main technologies**:

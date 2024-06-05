@@ -1,9 +1,5 @@
-// import { Image as SanityImage } from 'sanity';
-
 import { getInstagramPhotos } from '@/actions/sanity';
 import { InstagramCard } from '@/components/ui';
-
-import { TImage } from '@/types/instagram';
 
 type instagramPhoto = {
   id: string;
