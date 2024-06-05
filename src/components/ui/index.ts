@@ -12,3 +12,4 @@ export * from './BenefitCard';
 export * from './ReviewCard';
 export * from './SocialItem';
 export * from './SocialLinks';
+export * from './VideoPlayer';
