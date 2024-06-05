@@ -12,6 +12,7 @@ export * from './BenefitCard';
 export * from './ReviewCard';
 export * from './SocialItem';
 export * from './SocialLinks';
+export * from './VideoPlayer';
 export * from './Spinner';
 export * from './ContactCard';
 export * from './Modal';

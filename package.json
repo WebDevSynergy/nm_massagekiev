@@ -33,6 +33,7 @@
     "react-hook-form": "^7.51.4",
     "react-hook-form-persist": "^3.0.0",
     "react-loader-spinner": "^6.1.6",
+    "react-player": "^2.16.0",
     "sanity": "^3.25",
     "sharp": "^0.33.4",
     "styled-components": "^6.0",
