@@ -58,6 +58,9 @@ const config: Config = {
       transitionTimingFunction: {
         DEFAULT: 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
+      borderRadius: {
+        '4xl': '32px',
+      },
     },
   },
   plugins: [],

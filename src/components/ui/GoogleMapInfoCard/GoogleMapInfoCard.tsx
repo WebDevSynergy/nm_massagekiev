@@ -12,6 +12,7 @@ export const GoogleMapInfoCard: React.FC<GoogleMapInfoCardProps> = ({
   onClick,
 }) => {
   const { title, schedule } = data.googleMaps;
+  const { ariaLabel } = data.closeButton;
 
   return (
     <div className="relative flex flex-col gap-4 px-4 py-6 font-open-sans sm:p-6 md:flex-row xl:gap-6 xl:p-8 2xl:p-10">
@@ -41,6 +42,8 @@ export const GoogleMapInfoCard: React.FC<GoogleMapInfoCardProps> = ({
         styleType="unstyled"
         className="absolute right-[2px] top-1 size-5 text-grey transition-colors hover:text-blackLight focus:text-blackLight sm:right-1 sm:size-6 md:right-2 md:top-2 2xl:right-4 2xl:top-4"
         onClick={onClick}
+        type="button"
+        aria-label={ariaLabel}
       >
         <CloseIcon className="size-full" />
       </ButtonLink>

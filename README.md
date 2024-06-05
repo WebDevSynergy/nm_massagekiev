@@ -269,6 +269,20 @@ renders if the google map was not loaded.
 
 - #### Modal
 
+The component which expect `buttonLabel` - text button's content, `buttonStyle`
+as `styleType` to use predefined styles for ButtonLink component,
+`buttonStyles` - additional css class you'd need for button `children` -content
+for modal. The component has predefined padding style and close button.
+
+| Prop           | Default   | Description                                                                                                                   |
+| -------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `children`     | -         | required, `ReactNode`, which will be content for modal window                                                                 |
+| `buttonLabel`  | `false`   | required, text button's content                                                                                               |
+| `buttonStyle`  | -         | required, as `styleType` to use predefined styles for ButtonLink component as primary -green, secondary, - brown and unstyled |
+| `buttonStyles` | `opacity` | optional, additional css class you'd need                                                                                     |
+
+- #### ModalCard
+
 The component which expect `onClose`:implements close modal window by mouse
 click on backdrop or by press `ESC` button, `isOpen` - state to show/hide modal,
 `children` -content for modal.

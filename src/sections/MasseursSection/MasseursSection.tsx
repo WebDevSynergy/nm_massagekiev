@@ -1,6 +1,8 @@
-import { SanityImage } from '@/components/ui';
+import { ModalCard, SanityImage } from '@/components/ui';
 
 import { getMasseurs } from '@/actions/sanity';
+
+import data from '@/data/common.json';
 
 export type Masseurs = {
   id: string;
@@ -16,6 +18,8 @@ export type Masseurs = {
 
 export const MasseursSection: React.FC = async () => {
   const masseurs: Masseurs | null = await getMasseurs();
+
+  const { buttonLabel } = data.reviews;
 
   return (
     <>
@@ -42,19 +46,25 @@ export const MasseursSection: React.FC = async () => {
                     <p>resume: {resume}</p>
 
                     {certificateArray && (
-                      <ul>
-                        {certificateArray.map(el => (
-                          <li key={el.id}>
-                            <SanityImage
-                              image={el}
-                              width={520}
-                              height={520}
-                              loading="lazy"
-                              className="size-full object-cover"
-                            />
-                          </li>
-                        ))}
-                      </ul>
+                      <ModalCard
+                        buttonLabel={buttonLabel}
+                        buttonStyle="unstyled"
+                        buttonStyles="text-green font-bold"
+                      >
+                        <ul className="flex gap-8">
+                          {certificateArray.map(el => (
+                            <li key={el.id}>
+                              <SanityImage
+                                image={el}
+                                width={520}
+                                height={520}
+                                loading="lazy"
+                                className="size-full object-cover"
+                              />
+                            </li>
+                          ))}
+                        </ul>
+                      </ModalCard>
                     )}
                   </li>
                 );
