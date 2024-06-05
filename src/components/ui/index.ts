@@ -13,5 +13,6 @@ export * from './ReviewCard';
 export * from './SocialItem';
 export * from './SocialLinks';
 export * from './Spinner';
+export * from './ContactCard';
 export * from './Modal';
 export * from './ModalCard';

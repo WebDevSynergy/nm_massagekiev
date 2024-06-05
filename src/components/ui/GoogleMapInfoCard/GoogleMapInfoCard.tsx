@@ -11,7 +11,10 @@ import googleImage from '~/images/google/info-window@2x.webp';
 export const GoogleMapInfoCard: React.FC<GoogleMapInfoCardProps> = ({
   onClick,
 }) => {
-  const { title, schedule } = data.googleMaps;
+  const {
+    schedule,
+    googleMaps: { title },
+  } = data;
   const { ariaLabel } = data.closeButton;
 
   return (

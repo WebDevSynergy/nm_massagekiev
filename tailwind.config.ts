@@ -51,6 +51,8 @@ const config: Config = {
         brownDark: '#3B291D',
         blackLight: '#29170B',
         orangeDark: '#AE5400',
+        subwayBlue: '#00AEFF',
+        subwayRed: '#E90202',
       },
       transitionDuration: {
         DEFAULT: '300ms',
