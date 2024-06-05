@@ -8,9 +8,9 @@ import {
 } from '@headlessui/react';
 import { Fragment } from 'react';
 
-import { cn } from '@/utils/cn';
-
 import { ModalProps } from './types';
+
+import { cn } from '@/utils/cn';
 
 export const Modal: React.FC<ModalProps> = ({
   isOpen,

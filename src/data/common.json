@@ -64,5 +64,8 @@
       "path": "https://www.instagram.com/nm_massagekiev/",
       "ariaLabel": "перейти на сторінку Інстаграм"
     }
-  ]
+  ],
+
+  "reviews": { "buttonLabel": "Залишити відгук" },
+  "closeButton": { "ariaLabel": "Закрити вікно" }
 }
