@@ -267,6 +267,21 @@ renders if the google map was not loaded.
 | `errorLoadMap`   | ``      | required, object of string props `msg, locationLink, mapImageAlt, linkLabel`  |
 | `containerStyle` | ``      | required, object of string props `width. height`, additional container styles |
 
+- #### Modal
+
+The component which expect `onClose`:implements close modal window by mouse
+click on backdrop or by press `ESC` button, `isOpen` - state to show/hide modal,
+`children` -content for modal.
+
+| Prop            | Default   | Description                                                                            |
+| --------------- | --------- | -------------------------------------------------------------------------------------- |
+| `children`      | -         | required, `ReactNode`, which will be content for modal window                          |
+| `isOpen`        | `false`   | required, `boolean`, changes state to show/close the window.                           |
+| `onClose`       | -         | required, click handler for close modal window                                         |
+| `animation`     | `opacity` | optional, select the animationType to apply the modal window:'opacity' or 'translateX' |
+| `modalStyle`    | ''        | optional, `string`, additional css class you'd need                                    |
+| `backdropStyle` | ''        | optional, `string`, additional css class you'd need                                    |
+
 ### 🚧 Technology stack
 
 - **Main technologies**:
