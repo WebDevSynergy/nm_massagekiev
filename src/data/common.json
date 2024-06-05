@@ -75,5 +75,9 @@
       { "name": "Мінська", "line": "blue" },
       { "name": "Нивки", "line": "red" }
     ]
-  }
+  },
+
+  "reviews": { "buttonLabel": "Залишити відгук" },
+  "masseurs": { "buttonLabel": "Переглянути сертифікати" },
+  "closeButton": { "ariaLabel": "Закрити вікно" }
 }
