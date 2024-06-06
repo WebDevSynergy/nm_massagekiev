@@ -5,13 +5,16 @@ import { SocialItem } from '@/components/ui/SocialItem';
 import { SocialLinksProps } from './types';
 
 import data from '@/data/common.json';
+import { cn } from '@/utils';
 
 export const SocialLinks: React.FC<SocialLinksProps> = ({ isHeader }) => {
   const { socialLinksHeader, socialLinksFooter } = data;
 
   const list = isHeader ? socialLinksHeader : socialLinksFooter;
   return (
-    <ul className="flex items-center gap-2">
+    <ul
+      className={cn('flex items-center gap-2', { 'hidden xl:flex': isHeader })}
+    >
       {list.map(item => (
         <SocialItem
           key={item.name}
