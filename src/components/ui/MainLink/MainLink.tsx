@@ -2,6 +2,8 @@ import Link from 'next/link';
 
 import IconPhone from '~/icons/phone.svg';
 
+import data from '@/data/common.json';
+
 import { MainLinkProps } from './types';
 
 export const MainLink: React.FC<MainLinkProps> = ({
@@ -11,6 +13,8 @@ export const MainLink: React.FC<MainLinkProps> = ({
   isHeader,
   onClose,
 }) => {
+  const { phoneIconAreaLabel } = data;
+
   return (
     <div>
       {tel ? (
@@ -24,7 +28,12 @@ export const MainLink: React.FC<MainLinkProps> = ({
             <>
               <span className="hidden xl:block">{label}</span>
 
-              <IconPhone width={24} height={24} className="xl:hidden" />
+              <IconPhone
+                width={24}
+                height={24}
+                className="xl:hidden"
+                aria-label={phoneIconAreaLabel}
+              />
             </>
           ) : (
             label
