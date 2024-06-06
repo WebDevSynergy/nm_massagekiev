@@ -208,11 +208,13 @@ used green colors and `secondary` - orange colors.
 
 - #### MainLink
 
-| Prop    | Default | Description                                             |
-| ------- | ------- | ------------------------------------------------------- |
-| `path`  | ''      | required, `string`, path for link                       |
-| `label` | ''      | required, `string`, name for link                       |
-| `tel`   | -       | optional, `boolean`, needed if a link to a phone number |
+| Prop       | Default | Description                                                       |
+| ---------- | ------- | ----------------------------------------------------------------- |
+| `path`     | ''      | required, `string`, path for link                                 |
+| `label`    | ''      | required, `string`, name for link                                 |
+| `tel`      | -       | optional, `boolean`, needed if a link to a phone number           |
+| `isHeader` | -       | optional, `boolean`, needed if a link to a phone number in header |
+| `onClose`  | -       | optional, click handler for close modal window                    |
 
 - #### SectionTitle
 

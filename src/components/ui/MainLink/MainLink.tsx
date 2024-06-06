@@ -1,16 +1,51 @@
 import Link from 'next/link';
 
+import IconPhone from '~/icons/phone.svg';
+
+import data from '@/data/common.json';
+
 import { MainLinkProps } from './types';
 
-export const MainLink: React.FC<MainLinkProps> = ({ path, label, tel }) => {
+export const MainLink: React.FC<MainLinkProps> = ({
+  path,
+  label,
+  tel,
+  isHeader,
+  onClose,
+}) => {
+  const { phoneIconAreaLabel } = data;
+
   return (
-    <Link
-      className="leading-[1.4] tracking-[-0.32px] text-brownDark transition-colors hover:text-green focus:text-green"
-      href={tel ? `tel:${path}` : path}
-      target={tel ? '_blank' : '_self'}
-      rel={tel ? 'noopener noreferrer nofollow' : 'tag'}
-    >
-      {label}
-    </Link>
+    <div>
+      {tel ? (
+        <a
+          className="leading-[1.4] tracking-[-0.32px] text-brownDark transition-colors hover:text-green focus:text-green"
+          href={`tel:${path}`}
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+        >
+          {isHeader ? (
+            <>
+              <span className="hidden xl:block">{label}</span>
+
+              <IconPhone
+                className="size-[40px] p-2 xl:hidden"
+                aria-label={phoneIconAreaLabel}
+              />
+            </>
+          ) : (
+            label
+          )}
+        </a>
+      ) : (
+        <Link
+          className="leading-[1.4] tracking-[-0.32px] text-brownDark transition-colors hover:text-green focus:text-green"
+          href={path}
+          onClick={onClose}
+        >
+          {label}
+        </Link>
+      )}
+    </div>
   );
 };
