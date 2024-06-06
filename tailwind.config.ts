@@ -63,6 +63,9 @@ const config: Config = {
       borderRadius: {
         '4xl': '32px',
       },
+      backdropBlur: {
+        xs: '2px',
+      },
     },
   },
   plugins: [],

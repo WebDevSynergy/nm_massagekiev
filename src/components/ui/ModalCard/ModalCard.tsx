@@ -35,7 +35,7 @@ export const ModalCard: React.FC<ModalCardProps> = ({
       <Modal
         isOpen={open}
         onClose={onClose}
-        modalStyle="rounded-lg md:rounded-2xl xl:rounded-3xl 2xl:rounded-4xl bg-white p-6 md:p-10 xl:p-20 relative"
+        modalStyle="rounded-lg md:rounded-2xl xl:rounded-3xl 2xl:rounded-4xl bg-whiteBeige p-6 md:p-10 xl:p-20 relative"
       >
         <>
           <ButtonLink
