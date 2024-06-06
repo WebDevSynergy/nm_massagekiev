@@ -29,9 +29,7 @@ export const MainLink: React.FC<MainLinkProps> = ({
               <span className="hidden xl:block">{label}</span>
 
               <IconPhone
-                width={24}
-                height={24}
-                className="xl:hidden"
+                className="size-[40px] p-2 xl:hidden"
                 aria-label={phoneIconAreaLabel}
               />
             </>
