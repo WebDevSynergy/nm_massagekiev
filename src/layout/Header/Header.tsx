@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
           </ul>
         </nav>
 
-        <MainLink path={phone} label={phone} tel />
+        <MainLink path={phone} label={phone} tel isHeader />
 
         <SocialLinks isHeader={true} />
       </div>
