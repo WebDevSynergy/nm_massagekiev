@@ -69,7 +69,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
             )}
           </DisclosureButton>
           <Transition
-            enter="duration-200 ease-out"
+            enter="duration-300 ease-out"
             enterFrom="opacity-0 -translate-y-6"
             enterTo="opacity-100 translate-y-0"
             leave="duration-300 ease-out"
