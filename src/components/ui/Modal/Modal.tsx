@@ -57,7 +57,7 @@ export const Modal: React.FC<ModalProps> = ({
       >
         <div
           className={cn(
-            'backdrop-blur-xs fixed inset-0 z-10 flex w-screen items-center justify-center overflow-y-auto bg-black/40',
+            'fixed inset-0 z-10 flex w-screen items-center justify-center overflow-y-auto bg-black/40 backdrop-blur-xs',
             backdropStyle,
           )}
         >
