@@ -18,6 +18,8 @@ export const FAQSection: React.FC = () => {
           <Image
             src={FaqDecor}
             alt={data.alt}
+            width={808}
+            height={640}
             className="xl:h-[640px] xl:w-[588px] 2xl:h-[555px] 2xl:w-[808px] smOnly:hidden mdOnly:hidden"
           />
         </div>

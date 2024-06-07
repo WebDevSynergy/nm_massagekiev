@@ -14,6 +14,7 @@ const config: Config = {
       xl: '1280px',
       '2xl': '1920px',
 
+      sm480: { max: '479.98px' },
       smOnly: { max: '767.98px' },
       mdOnly: { min: '768px', max: '1279.98px' },
       xlOnly: { min: '1280px', max: '1919.98px' },
@@ -50,12 +51,20 @@ const config: Config = {
         brownDark: '#3B291D',
         blackLight: '#29170B',
         orangeDark: '#AE5400',
+        subwayBlue: '#00AEFF',
+        subwayRed: '#E90202',
       },
       transitionDuration: {
         DEFAULT: '300ms',
       },
       transitionTimingFunction: {
         DEFAULT: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      },
+      borderRadius: {
+        '4xl': '32px',
+      },
+      backdropBlur: {
+        xs: '2px',
       },
     },
   },
