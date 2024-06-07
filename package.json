@@ -16,6 +16,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^2.0.4",
     "@portabletext/react": "^3.0.18",
     "@react-google-maps/api": "^2.19.3",
     "@sanity/client": "^6.12.4",

@@ -1,4 +1,5 @@
 export * from '../base/GoogleMaps';
-export * from './ReviewForm';
-export * from './BlogArticle';
+export * from './AccordionFAQ';
 export * from './BenefitsList';
+export * from './BlogArticle';
+export * from './ReviewForm';
