@@ -11,8 +11,8 @@ export const Footer: React.FC = () => {
   const year = date.getFullYear();
 
   return (
-    <footer className="bg-white">
-      <div className="container">
+    <footer className=" bg-white">
+      <div className="section container">
         <div>
           <Logo variant="green" />
         </div>
@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
         <FooterNav />
       </div>
 
-      <div className="bg-blackLight p-4 md:p-8">
+      <div className="bg-blackLight py-4 md:py-8">
         <div className="container flex flex-col items-center md:flex-row md:justify-between smOnly:gap-[16px]">
           <Link
             className="leading-[1.4] tracking-[-0.32px] text-white"
