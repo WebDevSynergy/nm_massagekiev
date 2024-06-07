@@ -2,9 +2,14 @@
 
 import { useState } from 'react';
 
-import { ButtonLink, MainLink, Modal, SocialLinks } from '@/components/ui';
-
-import { cn } from '@/utils';
+import {
+  ButtonLink,
+  Logo,
+  MainLink,
+  MainNav,
+  Modal,
+  SocialLinks,
+} from '@/components/ui';
 
 import data from '@/data/common.json';
 
@@ -15,51 +20,55 @@ export const MobileMenu: React.FC = () => {
   const [open, setOpen] = useState(false);
 
   const {
-    nav,
     phone,
     mobileMenu: { openButton, closeButton },
   } = data;
 
-  const toggleMenu = () => setOpen(!open);
+  const onOpen = () => setOpen(true);
   const onClose = () => setOpen(false);
 
-  const Icon = open ? CloseIcon : MenuIcon;
-
   return (
-    <>
+    <div className="flex items-center justify-center xl:hidden">
       <ButtonLink
         type="button"
         styleType="unstyled"
-        onClick={toggleMenu}
-        className={cn('size-6 text-blackLight md:size-10', { 'md:p-2': open })}
-        aria-label={open ? openButton.ariaLabel : closeButton.ariaLabel}
+        onClick={onOpen}
+        className="size-6 text-blackLight md:size-10"
+        aria-label={openButton.ariaLabel}
       >
-        <Icon className="size-full" />
+        <MenuIcon className="size-full" />
       </ButtonLink>
 
       <Modal
         isOpen={open}
         onClose={onClose}
-        animation="translateX"
-        modalStyle="rounded-b-lg md:rounded-b-2xl bg-whiteBeige p-8 md:p-10 self-start w-full flex w-full flex-col items-center justify-center gap-6"
-        backdropStyle="top-12 md:top-14"
+        animation="translateY"
+        modalStyle="rounded-b-lg md:rounded-b-2xl bg-whiteBeige pb-8 pt-0 self-start w-full flex flex-col items-center justify-center gap-6"
       >
         <>
-          <nav>
-            <ul className="flex flex-col items-center justify-center gap-6">
-              {nav.map(({ path, label }) => (
-                <li key={path}>
-                  <MainLink path={path} label={label} />
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="container flex w-full items-center justify-between py-[12px] md:py-4">
+            <ButtonLink
+              type="button"
+              styleType="unstyled"
+              onClick={onClose}
+              className="size-6 text-blackLight md:size-10 md:p-2"
+              aria-label={closeButton.ariaLabel}
+            >
+              <CloseIcon className="size-full" />
+            </ButtonLink>
+
+            <Logo variant="brown" />
+
+            <MainLink path={phone} label={phone} tel />
+          </div>
+
+          <MainNav mobileStyle onClose={onClose} />
 
           <MainLink path={phone} label={phone} tel />
 
           <SocialLinks isHeader={false} />
         </>
       </Modal>
-    </>
+    </div>
   );
 };
