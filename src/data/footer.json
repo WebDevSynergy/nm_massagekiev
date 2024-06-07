@@ -1,0 +1,24 @@
+{
+  "subscription": {
+    "text": "Отримай знижку 10% на перший масаж за підписку на поштову розсилку"
+  },
+  "nav": [
+    { "path": "/", "label": "Головна", "category": "Про нас" },
+    { "path": "#benefits", "label": "Про салон", "category": "Про нас" },
+    { "path": "#services", "label": "Послуги", "category": "Послуги" },
+    { "path": "#reviews", "label": "Відгуки", "category": "Послуги" },
+    { "path": "#masseurs", "label": "Масажисти", "category": "Послуги" },
+    { "path": "/blog/1", "label": "Блог", "category": "інше" },
+    { "path": "#faq", "label": "Питання і відповіді", "category": "Інше" }
+  ],
+  "category": "Контакти",
+  "policy": {
+    "path": "/policy",
+    "label": "Terms of service & privacy policy"
+  },
+  "copyright": "nm-massagekiev",
+  "creator": {
+    "path": "",
+    "label": "Created by WDS"
+  }
+}
