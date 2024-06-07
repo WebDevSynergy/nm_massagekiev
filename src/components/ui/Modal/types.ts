@@ -6,5 +6,5 @@ export type ModalProps = {
   onClose: () => void;
   modalStyle?: string;
   backdropStyle?: string;
-  animation?: 'opacity' | 'translateX';
+  animation?: 'opacity' | 'translateY';
 };

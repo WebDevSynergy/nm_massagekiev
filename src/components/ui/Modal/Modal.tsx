@@ -27,11 +27,11 @@ export const Modal: React.FC<ModalProps> = ({
       leaveFrom: 'opacity-100',
       leaveTo: 'opacity-0',
     },
-    translateX: {
-      enterFrom: '-translate-x-full',
-      enterTo: 'translate-x-0',
-      leaveFrom: 'translate-x-0',
-      leaveTo: '-translate-x-full',
+    translateY: {
+      enterFrom: '-translate-y-full',
+      enterTo: 'translate-y-0',
+      leaveFrom: 'opacity-100 translate-y-0',
+      leaveTo: 'opacity-0 -translate-y-full',
     },
     scale: {
       enterFrom: 'transform-[scale(95%)]',

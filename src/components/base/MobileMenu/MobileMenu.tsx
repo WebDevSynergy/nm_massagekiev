@@ -1,8 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import {
+  Popover,
+  PopoverButton,
+  PopoverOverlay,
+  PopoverPanel,
+  Transition,
+} from '@headlessui/react';
 
-import { ButtonLink, MainLink, Modal, SocialLinks } from '@/components/ui';
+import { MainLink, MainNav, SocialLinks } from '@/components/ui';
 
 import { cn } from '@/utils';
 
@@ -12,54 +18,71 @@ import MenuIcon from '~/icons/menu.svg';
 import CloseIcon from '~/icons/close.svg';
 
 export const MobileMenu: React.FC = () => {
-  const [open, setOpen] = useState(false);
-
   const {
-    nav,
     phone,
     mobileMenu: { openButton, closeButton },
   } = data;
 
-  const toggleMenu = () => setOpen(!open);
-  const onClose = () => setOpen(false);
-
-  const Icon = open ? CloseIcon : MenuIcon;
-
   return (
-    <>
-      <ButtonLink
-        type="button"
-        styleType="unstyled"
-        onClick={toggleMenu}
-        className={cn('size-6 text-blackLight md:size-10', { 'md:p-2': open })}
-        aria-label={open ? openButton.ariaLabel : closeButton.ariaLabel}
-      >
-        <Icon className="size-full" />
-      </ButtonLink>
-
-      <Modal
-        isOpen={open}
-        onClose={onClose}
-        animation="translateX"
-        modalStyle="rounded-b-lg md:rounded-b-2xl bg-whiteBeige p-8 md:p-10 self-start w-full flex w-full flex-col items-center justify-center gap-6"
-        backdropStyle="top-12 md:top-14"
-      >
+    <Popover className="flex items-center justify-center xl:hidden">
+      {({ open, close }) => (
         <>
-          <nav>
-            <ul className="flex flex-col items-center justify-center gap-6">
-              {nav.map(({ path, label }) => (
-                <li key={path}>
-                  <MainLink path={path} label={label} />
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <PopoverButton
+            as="button"
+            className={cn('relative size-8 text-blackLight md:size-10', {
+              'p-1 md:p-2': open,
+            })}
+            aria-label={open ? closeButton.ariaLabel : openButton.ariaLabel}
+          >
+            <CloseIcon
+              className={cn(
+                'size-full transition-[opacity,transform]',
+                { 'rotate-0 opacity-100': open },
+                { 'rotate-90 opacity-0': !open },
+              )}
+            />
+            <MenuIcon
+              className={cn(
+                'absolute inset-0 size-full transition-[opacity,transform]',
+                { 'opacity-100': !open },
+                { '-rotate-45 opacity-0': open },
+              )}
+            />
+          </PopoverButton>
 
-          <MainLink path={phone} label={phone} tel />
+          <Transition
+            enter="transition ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <PopoverOverlay className="fixed inset-0 top-12 bg-black/40 backdrop-blur-xs md:top-16" />
+          </Transition>
 
-          <SocialLinks isHeader={false} />
+          <Transition
+            enter="transition ease-out duration-300"
+            enterFrom="-translate-y-2"
+            enterTo=" translate-y-0"
+            leave="transition ease-in duration-200"
+            leaveFrom="opacity-100 translate-y-0"
+            leaveTo="opacity-0 -translate-y-2"
+          >
+            <PopoverPanel
+              modal
+              anchor="bottom"
+              className="flex w-full flex-col items-center justify-center gap-6 rounded-b-lg bg-whiteBeige py-8 transition [--anchor-gap:6px] md:rounded-b-2xl"
+            >
+              <MainNav mobileStyle onClose={close} />
+
+              <MainLink path={phone} label={phone} tel />
+
+              <SocialLinks isHeader={false} />
+            </PopoverPanel>
+          </Transition>
         </>
-      </Modal>
-    </>
+      )}
+    </Popover>
   );
 };
