@@ -1,14 +1,14 @@
 import {
   // HeroSection,
   BenefitsSection,
-  // MasseursSection,
+  MasseursSection,
   // ContactUsSections,
   // BlogSections,
   CertificateSection,
   CosmeceuticalsSection,
   FAQSection,
   ReviewsSection,
-  ServicesSection,
+  // ServicesSection,
 } from '@/sections';
 
 export default function Home() {
@@ -18,13 +18,13 @@ export default function Home() {
 
       <BenefitsSection />
 
-      <ServicesSection />
+      {/* <ServicesSection /> */}
 
       <ReviewsSection />
 
       <CosmeceuticalsSection />
 
-      {/* <MasseursSection /> */}
+      <MasseursSection />
 
       {/* <ContactUsSections /> */}
 

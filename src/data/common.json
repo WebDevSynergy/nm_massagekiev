@@ -88,7 +88,10 @@
   },
 
   "reviews": { "buttonLabel": "Залишити відгук" },
-  "masseurs": { "buttonLabel": "Переглянути сертифікати" },
+  "masseurs": {
+    "title": "Масажисти",
+    "buttonLabel": "Переглянути сертифікати"
+  },
   "closeButton": { "ariaLabel": "Закрити вікно" },
   "mobileMenu": {
     "openButton": { "ariaLabel": "Відкрити мобільне меню" },

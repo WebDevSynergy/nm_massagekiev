@@ -19,3 +19,5 @@ export * from './ContactCard';
 export * from './Modal';
 export * from './ModalCard';
 export * from './MainNav';
+export * from './MasseurCard';
+export * from './CertificateCard';
