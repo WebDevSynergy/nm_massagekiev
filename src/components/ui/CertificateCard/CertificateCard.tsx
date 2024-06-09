@@ -44,5 +44,3 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
     </div>
   );
 };
-
-// box-shadow: 0px 0px 40px 0px rgba(41, 23, 11, 0.10);

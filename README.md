@@ -162,23 +162,6 @@ post whose value is the object received from sanity
 | ------ | ------- | --------------- | ---------------------------------------------------------- |
 | `post` | -       | required, `any` | `any[]`, an object that comes from sanity with block type. |
 
-- #### ----------------------------------------------------------------------------------
-
-- #### Modal(example)
-
-Pure Modal Component which expect `onClose`:implements close modal window by
-mouse click on backdrop or by press `ESC` button, `isOpen` - state to show/hide
-modal, `children` -content for modal.
-
-| Prop             | Default | Description                                                       |
-| ---------------- | ------- | ----------------------------------------------------------------- |
-| `children`       | -       | required, `ReactNode`, which will be content for modal window     |
-| `isOpen`         | `false` | required, `boolean`, changes state to show/close the window.      |
-| `onClose`        | -       | required, click handler for close modal window                    |
-| `modalStyle`     | ''      | optional, `string`, additional css class you'd need               |
-| `modalWrapStyle` | ''      | optional, `string`, additional css class you'd need for container |
-| `backdropStyle`  | ''      | optional, `string`, additional css class you'd need               |
-
 - #### Logo
 
 | Prop        | Default | Description                                                                         |
@@ -314,6 +297,24 @@ click on backdrop or by press `ESC` button, `isOpen` - state to show/hide modal,
 | `animation`     | `opacity` | optional, select the animationType to apply the modal window:'opacity' or 'translateX' |
 | `modalStyle`    | ''        | optional, `string`, additional css class you'd need                                    |
 | `backdropStyle` | ''        | optional, `string`, additional css class you'd need                                    |
+
+- #### MasseurCard
+
+The component that expects `masseur` - data about the masseur and renders the
+masseur's card and throws data about certificates, if any, into the
+CertificateCard component
+
+| Prop      | Default | Description                                       |
+| --------- | ------- | ------------------------------------------------- |
+| `masseur` | -       | required, `Object`, massage therapist data object |
+
+- #### CertificateCard
+
+A component that accepts data about the image of the certificate and renders it
+
+| Prop          | Default | Description                                                                                                |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `certificate` | -       | required, `Image` from sanity type. A sanity data object that contains all the information about the image |
 
 ### 🚧 Technology stack
 
