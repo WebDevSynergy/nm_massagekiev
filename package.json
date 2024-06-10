@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.0.4",
+    "@hookform/error-message": "^2.0.1",
     "@portabletext/react": "^3.0.18",
     "@react-google-maps/api": "^2.19.3",
     "@sanity/client": "^6.12.4",
@@ -33,6 +34,7 @@
     "react-hook-form": "^7.51.4",
     "react-hook-form-persist": "^3.0.0",
     "react-loader-spinner": "^6.1.6",
+    "react-number-format": "^5.4.0",
     "react-player": "^2.16.0",
     "sanity": "^3.25",
     "sharp": "^0.33.4",

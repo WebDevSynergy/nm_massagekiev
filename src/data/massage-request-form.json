@@ -1,0 +1,85 @@
+{
+  "id": "massage-request",
+  "title": "Залишити заявку",
+  "image": {
+    "alt": "Студія масажу",
+    "src": "/images/massage-request/massage-request@2x.webp"
+  },
+
+  "form": {
+    "formName": "massageRequest",
+    "inputs": [
+      {
+        "id": "i01",
+        "label": "Імʼя",
+        "type": "text",
+        "name": "userName",
+        "placeholder": "Введіть ім’я",
+        "required": true
+      },
+      {
+        "id": "i02",
+        "label": "Телефон",
+        "type": "tel",
+        "name": "phoneNumber",
+        "pattern": "+############",
+        "placeholder": "Введіть номер",
+        "maxlength": 12,
+        "required": true
+      }
+    ],
+    "textarea": {
+      "label": "Повідомлення",
+      "name": "message",
+      "placeholder": "Введіть повідомлення",
+      "required": true
+    },
+    "error": { "ariaLabel": "увага" },
+    "submitBtn": { "label": "Надіслати" },
+    "validation": {
+      "userName": {
+        "format": {
+          "reg": "^(?!.*(?: --|- |' -| - '))(?![ -]*$)(?!.*--)[A-Za-zА-Яа-яЇїІіЄєҐґ '-]+$",
+          "message": "Невірно введене ім’я."
+        },
+        "minLength": {
+          "value": 1,
+          "message": "Обовʼязкове поле."
+        },
+        "maxLength": {
+          "value": 90,
+          "message": "Максимальна довжина 90 символів."
+        }
+      },
+      "phoneNumber": {
+        "message": "Недійсний номер телефону.",
+        "required": { "value": 1, "message": "Обовʼязкове поле." },
+        "minLength": { "value": 12, "message": "Не менше 11 символів." },
+        "maxLength": { "value": 14, "message": "Не більше 13 символів." }
+      },
+      "message": {
+        "format": {
+          "reg": "^[A-Za-zА-Яа-яЇїІіЄєҐґ0-9(),'\"-.!? \n\r]*$",
+          "message": "Присутні недопустимі символи."
+        },
+        "maxLength": {
+          "value": 512,
+          "message": "У тексті має бути не більше 512 символів."
+        }
+      },
+      "common": {
+        "required": "Обовʼязкове поле."
+      }
+    }
+  },
+  "popup": {
+    "onSuccess": {
+      "title": "Ви успішно надіслали запит",
+      "desc": "З вам зв'яжуться в робочий час"
+    },
+    "onError": {
+      "title": "Не вдалося надіслали запит",
+      "desc": "Зв'яжіться з нами по телефону\n або в соціальних мережах"
+    }
+  }
+}
