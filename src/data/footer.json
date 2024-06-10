@@ -1,29 +1,31 @@
 {
   "subscription": {
-    "text": "Отримай знижку 10% на перший масаж за підписку на поштову розсилку"
+    "text": "Отримай знижку 10% на перший масаж за підписку на поштову розсилку",
+    "form": {},
+    "btn": "Підписатися"
   },
 
   "categories": [
     {
       "title": "Про нас",
       "links": [
-        { "path": "/", "label": "Головна", "category": "Про нас" },
-        { "path": "#benefits", "label": "Про салон", "category": "Про нас" }
+        { "path": "/", "label": "Головна" },
+        { "path": "#benefits", "label": "Про салон" }
       ]
     },
     {
       "title": "Послуги",
       "links": [
-        { "path": "#services", "label": "Послуги", "category": "Послуги" },
-        { "path": "#reviews", "label": "Відгуки", "category": "Послуги" },
-        { "path": "#masseurs", "label": "Масажисти", "category": "Послуги" }
+        { "path": "#services", "label": "Послуги" },
+        { "path": "#reviews", "label": "Відгуки" },
+        { "path": "#masseurs", "label": "Масажисти" }
       ]
     },
     {
       "title": "Інше",
       "links": [
-        { "path": "/blog/1", "label": "Блог", "category": "інше" },
-        { "path": "#faq", "label": "Питання і відповіді", "category": "Інше" }
+        { "path": "/blog/1", "label": "Блог" },
+        { "path": "#faq", "label": "Питання і відповіді" }
       ]
     },
     { "title": "Контакти", "links": [] }
