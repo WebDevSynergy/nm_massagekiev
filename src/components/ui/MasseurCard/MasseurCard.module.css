@@ -34,7 +34,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
   .photo::after {
     width: 372px;
     height: 372px;
@@ -42,7 +42,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1920px) {
   .photo::after {
     width: 520px;
     height: 520px;
