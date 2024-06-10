@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
+import { FieldErrors, FieldValues, Control } from 'react-hook-form';
 
 export type FormFieldProps = {
   label: string;
   name: string;
-  register: UseFormRegister<FieldValues>;
+  control: Control<FieldValues>;
   errors: FieldErrors;
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>;

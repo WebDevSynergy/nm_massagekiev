@@ -53,6 +53,8 @@ const config: Config = {
         orangeDark: '#AE5400',
         subwayBlue: '#00AEFF',
         subwayRed: '#E90202',
+        inputRed: '#970606',
+        inputActive: '#517B65',
       },
       transitionDuration: {
         DEFAULT: '300ms',

@@ -1,13 +1,13 @@
 {
-  "id": "massage-request",
+  "id": "contactUs",
   "title": "Залишити заявку",
   "image": {
     "alt": "Студія масажу",
-    "src": "/images/massage-request/massage-request@2x.webp"
+    "src": "/images/contactUs/contactUs@2x.webp"
   },
 
   "form": {
-    "formName": "massageRequest",
+    "formName": "contactUs",
     "inputs": [
       {
         "id": "i01",
@@ -24,15 +24,15 @@
         "name": "phoneNumber",
         "pattern": "+############",
         "placeholder": "Введіть номер",
-        "maxlength": 12,
+        "maxLength": 19,
         "required": true
       }
     ],
     "textarea": {
       "label": "Повідомлення",
-      "name": "message",
-      "placeholder": "Введіть повідомлення",
-      "required": true
+      "name": "userMessage",
+      "maxLength": 512,
+      "placeholder": "Введіть повідомлення"
     },
     "error": { "ariaLabel": "увага" },
     "submitBtn": { "label": "Надіслати" },
@@ -44,31 +44,31 @@
         },
         "minLength": {
           "value": 1,
-          "message": "Обовʼязкове поле."
+          "message": "Обовʼязкове поле"
         },
         "maxLength": {
           "value": 90,
-          "message": "Максимальна довжина 90 символів."
+          "message": "Максимальна довжина 90 символів"
         }
       },
       "phoneNumber": {
-        "message": "Недійсний номер телефону.",
-        "required": { "value": 1, "message": "Обовʼязкове поле." },
-        "minLength": { "value": 12, "message": "Не менше 11 символів." },
-        "maxLength": { "value": 14, "message": "Не більше 13 символів." }
+        "message": "Недійсний номер телефону",
+        "required": { "value": 1, "message": "Обовʼязкове поле" },
+        "minLength": { "value": 18, "message": "Не менше 11 символів" },
+        "maxLength": { "value": 19, "message": "Не більше 13 символів" }
       },
-      "message": {
+      "userMessage": {
         "format": {
           "reg": "^[A-Za-zА-Яа-яЇїІіЄєҐґ0-9(),'\"-.!? \n\r]*$",
-          "message": "Присутні недопустимі символи."
+          "message": "Присутні недопустимі символи"
         },
         "maxLength": {
           "value": 512,
-          "message": "У тексті має бути не більше 512 символів."
+          "message": "У тексті має бути не більше 512 символів"
         }
       },
       "common": {
-        "required": "Обовʼязкове поле."
+        "required": "Обовʼязкове поле"
       }
     }
   },

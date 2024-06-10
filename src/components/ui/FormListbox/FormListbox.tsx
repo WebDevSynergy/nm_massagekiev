@@ -13,8 +13,8 @@ import {
 
 import { cn } from '@/utils/cn';
 
-import ArrowIcon from '~/icons/arrow-down.svg';
-import CheckIcon from '~/icons/checkmark.svg';
+// import ArrowIcon from '~/icons/arrow-down.svg';
+// import CheckIcon from '~/icons/checkmark.svg';
 
 import { FormListboxProps } from './types';
 
@@ -64,7 +64,7 @@ export const FormListbox: React.FC<FormListboxProps> = ({
                     </span>
 
                     <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
-                      <ArrowIcon
+                      {/* <ArrowIcon
                         className={cn(
                           'text-primaryText size-4 transition-transform',
                           {
@@ -72,7 +72,7 @@ export const FormListbox: React.FC<FormListboxProps> = ({
                           },
                         )}
                         aria-hidden="true"
-                      />
+                      /> */}
                     </span>
                   </ListboxButton>
 
@@ -109,10 +109,10 @@ export const FormListbox: React.FC<FormListboxProps> = ({
 
                               {selected ? (
                                 <span className="absolute inset-y-0 right-0 flex items-center pr-4 text-green">
-                                  <CheckIcon
+                                  {/* <CheckIcon
                                     className="size-4"
                                     aria-hidden="true"
-                                  />
+                                  /> */}
                                 </span>
                               ) : null}
                             </>

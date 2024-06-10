@@ -20,3 +20,11 @@ body {
 .gm-style-iw-d {
   @apply overflow-hidden smOnly:max-h-[210px] !important;
 }
+
+/** FORM STYLES */
+.input {
+  @apply active:bg-inputActive/10 focus:bg-inputActive/20 hover:bg-inputActive/20 relative mb-1 w-full rounded-2xl border-none bg-greenLight px-4 py-[13.4px] text-left text-sm/[1.4] text-brownDark transition placeholder:text-sm/[1.4] placeholder:text-grey focus:outline-none focus-visible:border-none smOnly:focus-visible:py-3 smOnly:focus-visible:text-base/[1.4];
+}
+.label {
+  @apply relative flex flex-col text-sm/[1.4] text-brownDark smOnly:mb-4;
+}

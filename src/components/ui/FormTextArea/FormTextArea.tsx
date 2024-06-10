@@ -1,41 +1,57 @@
 'use client';
 
+import { Controller } from 'react-hook-form';
+
 import { FormError } from '@/components/ui';
 
 import { FormFieldProps } from './types';
 
 import { cn } from '@/utils/cn';
 
+import StarIcon from '~/icons/star.svg';
+
 export const FormTextArea: React.FC<FormFieldProps> = ({
-  label,
-  placeholder,
+  control,
   name,
-  register,
+  label,
   errors,
+  maxLength,
   required = false,
   className = '',
+  ...props
 }) => (
-  <label
-    className={cn(
-      'text-primaryText/70 relative flex flex-col text-sm/[1.3] md:text-base/[1.6]',
-      className,
+  <Controller
+    name={name}
+    control={control}
+    defaultValue=""
+    render={({ field }) => (
+      <label className={cn('label', className)}>
+        <span className="relative mb-1 inline max-w-fit">
+          {label}
+          {required && (
+            <StarIcon className="absolute -right-3 top-0 size-2 text-red" />
+          )}
+        </span>
+
+        <textarea
+          className={cn('input h-[168px] resize-none', {
+            '!bg-inputRed/20': errors[name],
+          })}
+          rows={6}
+          aria-invalid={errors[name] ? 'true' : 'false'}
+          onChange={field.onChange}
+          onBlur={field.onBlur}
+          name={field.name}
+          value={field.value}
+          {...props}
+        />
+
+        {maxLength && (
+          <span className="absolute bottom-0 right-0 text-[10px]/[1] text-brownDark">{`${field.value.length || 0}/${maxLength}`}</span>
+        )}
+
+        <FormError errors={errors} name={name} />
+      </label>
     )}
-  >
-    <span className="block text-green/70 md:mb-1 smOnly:mb-2">
-      {label} {required && <span className="text-green">*</span>}
-    </span>
-
-    <textarea
-      className={cn(
-        'bg-lightBg text-primaryText placeholder:text-greyText focus-visible:border-accent mb-2 h-[150px] w-full resize-none rounded-[10px] border-[1px] border-transparent p-4 text-sm/[1.5] font-light transition placeholder:text-sm/[1.5] focus:outline-none smOnly:focus-visible:text-base/[1.5]',
-        { 'border-red': errors[name] },
-      )}
-      rows={5}
-      placeholder={placeholder}
-      aria-invalid={errors[name] ? 'true' : 'false'}
-      {...register(name)}
-    />
-
-    <FormError errors={errors} name={name} />
-  </label>
+  />
 );
