@@ -1,13 +1,14 @@
 'use client';
 
-import { Modal } from '@/components/ui';
+import { Modal, ButtonLink, SocialLinks, MainLink } from '@/components/ui';
 
 import { cn } from '@/utils/cn';
-import content from '@/data/contactUs-form.json';
+import data from '@/data/contactUs-form.json';
+import commonData from '@/data/common.json';
 
-// import CrossIcon from '~/icons/cross.svg';
-// import SuccessIcon from '~/icons/success.svg';
-// import ErrorIcon from '~/icons/error.svg';
+import CloseIcon from '~/icons/close.svg';
+import ErrorIcon from '~/icons/error.svg';
+import SuccessIcon from '~/icons/check.svg';
 
 import { FormPopupProps } from './types';
 
@@ -16,9 +17,10 @@ export const FormPopup: React.FC<FormPopupProps> = ({
   onClose,
   isSuccess,
 }) => {
-  const { onSuccess, onError } = content.popup;
+  const { onSuccess, onError, closeButton } = data.popup;
+  const { schedule, phone } = commonData;
 
-  // const Icon = isSuccess ? SuccessIcon : ErrorIcon;
+  const Icon = isSuccess ? SuccessIcon : ErrorIcon;
 
   const title = isSuccess ? onSuccess.title : onError.title;
   const desc = isSuccess ? onSuccess.desc : onError.desc;
@@ -27,39 +29,63 @@ export const FormPopup: React.FC<FormPopupProps> = ({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      modalStyle="relative mx-auto w-full max-w-[324px] rounded-[10px] bg-white px-4 pb-[60px] pt-20 md:max-w-[624px] md:px-[42px] md:pb-20 md:pt-[122px] xl:flex xl:h-[438px] xl:max-w-[802px] xl:items-center xl:justify-center xl:p-0"
-      // modalWrapStyle="container flex items-center justify-center"
+      modalStyle="rounded-lg md:rounded-2xl xl:rounded-3xl 2xl:rounded-4xl bg-whiteBeige p-6 md:p-10 xl:p-20 relative w-full md:w-auto"
+      backdropStyle="container"
     >
-      <button
-        type="button"
-        className="absolute right-4 top-4 size-8 text-black md:right-[42px] md:top-[42px] md:size-12 xl:right-8 xl:top-8"
-        onClick={onClose}
-        // aria-label={closeButtton.aria}
-      >
-        {/* <CrossIcon className="size-full" /> */}
-      </button>
-
-      <div>
-        {/* <Icon
-          className={cn(
-            'mx-auto mb-6 block size-16 md:size-[75px] xl:size-[100px]',
-            isSuccess ? 'text-accent' : 'text-red',
-          )}
-        /> */}
-
-        <h3
-          className={cn(
-            'font-geologica mb-4 text-center text-base/5 md:text-xl/[1.3] xl:text-[34px]/[1.3]',
-            isSuccess ? 'text-accent' : 'text-red',
-          )}
+      <>
+        <ButtonLink
+          type="button"
+          styleType="unstyled"
+          className="absolute right-2 top-2 size-4 text-grey transition-colors hover:text-blackLight focus:text-blackLight md:right-4 md:top-4 md:size-6 xl:right-8 xl:top-8 xl:size-8 2xl:right-10 2xl:top-10 2xl:size-10"
+          onClick={onClose}
+          aria-label={closeButton.ariaLabel}
         >
-          {title}
-        </h3>
+          <CloseIcon className="size-full" />
+        </ButtonLink>
 
-        <p className="whitespace-pre text-center text-sm/[1.5] text-black md:text-base/[1.5] xl:text-xl/[1.5] smOnly:text-wrap">
-          {desc}
-        </p>
-      </div>
+        <div className="space-y-2 text-center tracking-[-.02em]">
+          <div
+            className={cn('flex w-full items-center justify-center gap-2', {
+              'smOnly:flex-col': !isSuccess,
+            })}
+          >
+            <Icon
+              className={cn(
+                'size-6 stroke-2 md:size-8 xl:size-10 xl:stroke-[4px]',
+                isSuccess ? 'text-greenDark' : 'text-red',
+              )}
+            />
+            <h3 className="text-center text-2xl/[1.2] font-bold text-blackLight md:text-nowrap md:text-[32px] xl:text-4xl/[1.2] 2xl:text-[40px] smOnly:whitespace-pre">
+              {title}
+            </h3>
+          </div>
+
+          <p
+            className={cn(
+              '!mb-4 text-wrap text-base/[1.2] text-brownDark md:!mb-6 md:text-xl/[1.2] xl:!mb-8 xl:text-2xl/[1.2] 2xl:!mb-10',
+              {
+                'xl:mx-auto xl:max-w-[360px] smOnly:px-4 mdOnly:px-32':
+                  !isSuccess,
+              },
+            )}
+          >
+            {desc}
+          </p>
+
+          <p className="text-sm/[1.4] text-brown md:text-base/[1.4] xl:text-lg/[1.4]">
+            {schedule.days + ' ' + schedule.hours}
+          </p>
+
+          <MainLink
+            path={phone}
+            label={phone}
+            tel
+            className="text-sm/[1.4] text-brown hover:text-brownDark focus:text-brownDark md:text-base/[1.4] xl:text-lg/[1.4]"
+          />
+
+          <SocialLinks className="justify-center" />
+        </div>
+      </>
     </Modal>
   );
 };

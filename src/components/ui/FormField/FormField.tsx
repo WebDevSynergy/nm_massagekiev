@@ -25,7 +25,7 @@ export const FormField: React.FC<FormFieldProps> = ({
     </span>
 
     <input
-      className={cn('input', { 'bg-inputRed/20': errors[name] })}
+      className="input"
       type={type}
       aria-invalid={errors[name] ? 'true' : 'false'}
       {...props}

@@ -16,8 +16,8 @@ export const FormTextArea: React.FC<FormFieldProps> = ({
   label,
   errors,
   maxLength,
-  required = false,
-  className = '',
+  className,
+  required,
   ...props
 }) => (
   <Controller
@@ -34,15 +34,10 @@ export const FormTextArea: React.FC<FormFieldProps> = ({
         </span>
 
         <textarea
-          className={cn('input h-[168px] resize-none', {
-            '!bg-inputRed/20': errors[name],
-          })}
+          className="input h-[168px] resize-none"
           rows={6}
           aria-invalid={errors[name] ? 'true' : 'false'}
-          onChange={field.onChange}
-          onBlur={field.onBlur}
-          name={field.name}
-          value={field.value}
+          {...field}
           {...props}
         />
 

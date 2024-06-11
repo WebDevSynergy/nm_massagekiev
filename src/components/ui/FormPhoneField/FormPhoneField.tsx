@@ -17,8 +17,8 @@ export const FormPhoneField: React.FC<FormPhoneFieldProps> = ({
   control,
   errors,
   placeholder,
-  required = false,
-  className = '',
+  required,
+  className,
 }) => (
   <Controller
     name={name}
@@ -34,7 +34,7 @@ export const FormPhoneField: React.FC<FormPhoneFieldProps> = ({
         </span>
 
         <PatternFormat
-          className={cn('input', { '!bg-inputRed/20': errors[name] })}
+          className="input"
           type="tel"
           aria-invalid={errors[name] ? 'true' : 'false'}
           placeholder={placeholder}

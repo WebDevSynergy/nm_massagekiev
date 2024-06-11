@@ -4,4 +4,5 @@ export type MainLinkProps = {
   tel?: boolean;
   isHeader?: boolean;
   onClose?: () => void;
+  className?: string;
 };

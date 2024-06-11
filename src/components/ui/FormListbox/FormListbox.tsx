@@ -11,12 +11,15 @@ import {
   ListboxOptions,
 } from '@headlessui/react';
 
+import { FormError } from '@/components/ui';
+
+import { FormListboxProps } from './types';
+
 import { cn } from '@/utils/cn';
 
 // import ArrowIcon from '~/icons/arrow-down.svg';
 // import CheckIcon from '~/icons/checkmark.svg';
-
-import { FormListboxProps } from './types';
+import StarIcon from '~/icons/star.svg';
 
 export const FormListbox: React.FC<FormListboxProps> = ({
   label,
@@ -25,8 +28,8 @@ export const FormListbox: React.FC<FormListboxProps> = ({
   variants,
   control,
   errors,
-  required = false,
-  className = '',
+  required,
+  className,
 }) => {
   return (
     <Controller
@@ -37,23 +40,19 @@ export const FormListbox: React.FC<FormListboxProps> = ({
           <Listbox value={field.value || ''} onChange={field.onChange}>
             {({ open }) => (
               <>
-                <Label
-                  as="p"
-                  className="text-sm/[1.3] text-black/70 md:mb-1 md:text-base/[1.6] smOnly:mb-2"
-                >
-                  {label} {required && <span className="text-black">*</span>}
+                <Label as="p" className="label">
+                  {label}
+                  {required && (
+                    <StarIcon className="absolute -right-3 top-0 size-2 text-red" />
+                  )}
                 </Label>
 
                 <div className={cn('relative')}>
                   <ListboxButton
-                    className={cn(
-                      'bg-lightBg text-primaryText focus-visible:border-accent relative z-10 w-full cursor-pointer rounded-[10px] border-[1px] border-transparent px-4 py-[17.5px] text-left text-sm/[1.5] font-light outline-transparent transition-all duration-300 focus:outline-none',
-                      { 'border-red': errors[name] },
-                      {
-                        'border-transparent bg-transparent outline-transparent':
-                          open,
-                      },
-                    )}
+                    className={cn('input', {
+                      'border-transparent bg-transparent outline-transparent':
+                        open,
+                    })}
                   >
                     <span
                       className={cn('text-primaryText block', {
@@ -122,6 +121,8 @@ export const FormListbox: React.FC<FormListboxProps> = ({
                     </ListboxOptions>
                   </Transition>
                 </div>
+
+                <FormError name={name} errors={errors} />
               </>
             )}
           </Listbox>
