@@ -2,10 +2,10 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/layout/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/sections/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx,css}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx,css}',
+    './src/layout/**/*.{js,ts,jsx,tsx,mdx,css}',
+    './src/sections/**/*.{js,ts,jsx,tsx,mdx,css}',
   ],
   theme: {
     screens: {
@@ -53,6 +53,8 @@ const config: Config = {
         orangeDark: '#AE5400',
         subwayBlue: '#00AEFF',
         subwayRed: '#E90202',
+        inputRed: '#970606',
+        inputActive: '#517B65',
       },
       transitionDuration: {
         DEFAULT: '300ms',
@@ -62,6 +64,7 @@ const config: Config = {
       },
       borderRadius: {
         '4xl': '32px',
+        '5xl': '40px',
       },
       backdropBlur: {
         xs: '2px',

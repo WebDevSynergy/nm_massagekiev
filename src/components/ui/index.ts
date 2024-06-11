@@ -1,15 +1,16 @@
+export * from './AccordionFAQItem';
+export * from './BenefitCard';
 export * from './ButtonLink';
 export * from './GoogleMapInfoCard';
 export * from './GoogleMapStatus';
 export * from './GoogleRating';
-export * from './Logo';
-export * from './SanityBlockImage';
-export * from './MainLink';
-export * from './SectionTitle';
 export * from './InstagramCard';
-export * from './SanityImage';
-export * from './BenefitCard';
+export * from './Logo';
+export * from './MainLink';
 export * from './ReviewCard';
+export * from './SanityBlockImage';
+export * from './SanityImage';
+export * from './SectionTitle';
 export * from './SocialItem';
 export * from './SocialLinks';
 export * from './VideoPlayer';
@@ -18,3 +19,13 @@ export * from './ContactCard';
 export * from './Modal';
 export * from './ModalCard';
 export * from './MainNav';
+export * from './MasseurCard';
+export * from './CertificateCard';
+
+/**FORM */
+export * from './FormField';
+export * from './FormPhoneField';
+export * from './FormListbox';
+export * from './FormTextArea';
+export * from './FormError';
+export * from './FormPopup';
