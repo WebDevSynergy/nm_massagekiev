@@ -2,7 +2,7 @@ import {
   // HeroSection,
   BenefitsSection,
   MasseursSection,
-  // ContactUsSections,
+  ContactUsSections,
   // BlogSections,
   CertificateSection,
   CosmeceuticalsSection,
@@ -26,7 +26,7 @@ export default function Home() {
 
       <MasseursSection />
 
-      {/* <ContactUsSections /> */}
+      <ContactUsSections />
 
       {/* <BlogSections /> */}
 
