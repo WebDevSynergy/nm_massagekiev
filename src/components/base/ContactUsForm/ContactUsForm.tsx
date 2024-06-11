@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm, FieldValues, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import useFormPersist from 'react-hook-form-persist';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -14,16 +14,16 @@ import {
 } from '@/components/ui';
 
 import { sendMsgTelegram } from '@/actions';
+import { makeTgContactMsg } from '@/utils';
 
 import content from '@/data/contactUs-form.json';
-import { makeTgContactMsg } from '@/utils/makeTgMsg';
 
-import { schema } from './schema';
+import { TContact, contactSchema } from './schema';
 
 export const ContactUsForm: React.FC = () => {
   const { formName, inputs, textarea, submitBtn } = content.form;
 
-  const [isOpenPopup, setIsOpenPopup] = useState(true);
+  const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const closePopup = () => setIsOpenPopup(false);
@@ -37,8 +37,8 @@ export const ContactUsForm: React.FC = () => {
     reset,
     control,
     formState: { errors },
-  } = useForm<FieldValues>({
-    resolver: zodResolver(schema),
+  } = useForm<TContact>({
+    resolver: zodResolver(contactSchema),
     mode: 'onBlur',
   });
 
@@ -47,9 +47,8 @@ export const ContactUsForm: React.FC = () => {
     setValue,
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = async data => {
-    const { userName, phoneNumber, userMessage } = data;
-    const msg = makeTgContactMsg({ userName, phoneNumber, userMessage });
+  const onSubmit: SubmitHandler<TContact> = async data => {
+    const msg = makeTgContactMsg(data);
 
     try {
       await sendMsgTelegram(msg);
@@ -58,31 +57,32 @@ export const ContactUsForm: React.FC = () => {
     } catch {
       setIsSuccess(false);
     }
-
     openPopup();
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} id={formName}>
         <div className="md:mb-4 md:grid md:grid-cols-2 md:gap-4">
-          {inputs.map(input => {
-            if (input.type === 'tel') {
+          {inputs.map(({ id, name, ...restProps }) => {
+            if (restProps.type === 'tel') {
               return (
                 <FormPhoneField
-                  key={input.id}
-                  {...input}
+                  key={id}
+                  name={name as keyof TContact}
                   control={control}
                   errors={errors}
+                  {...restProps}
                 />
               );
             }
             return (
               <FormField
-                key={input.id}
-                {...input}
+                key={id}
+                name={name as keyof TContact}
                 register={register}
                 errors={errors}
+                {...restProps}
               />
             );
           })}
@@ -90,6 +90,7 @@ export const ContactUsForm: React.FC = () => {
 
         <FormTextArea
           {...textarea}
+          name={textarea.name as keyof TContact}
           control={control}
           errors={errors}
           className="mb-6 xl:mb-8 2xl:mb-10"

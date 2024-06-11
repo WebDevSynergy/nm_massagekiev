@@ -1,3 +1,3 @@
 export * from './cn';
-export * from './makeTgReviewMsg';
+export * from './makeTgMsg';
 export * from './formatPhoneToLink';
