@@ -96,6 +96,5 @@
   "mobileMenu": {
     "openButton": { "ariaLabel": "Відкрити мобільне меню" },
     "closeButton": { "ariaLabel": "Закрити мобільне меню" }
-  },
-  "form": { "error": { "ariaLabel": "увага" } }
+  }
 }

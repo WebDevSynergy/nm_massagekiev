@@ -19,6 +19,7 @@ export const FormField: React.FC<FormFieldProps> = ({
   <label className={cn('label', className)}>
     <span className="relative mb-1 inline max-w-fit">
       {label}
+
       {required && (
         <StarIcon className="absolute -right-3 top-0 size-2 text-red" />
       )}

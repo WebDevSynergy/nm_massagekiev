@@ -3,8 +3,8 @@
 import { Modal, ButtonLink, SocialLinks, MainLink } from '@/components/ui';
 
 import { cn } from '@/utils/cn';
-import data from '@/data/contactUs-form.json';
-import commonData from '@/data/common.json';
+import data from '@/data/common.json';
+import commonData from '@/data/form.common.json';
 
 import CloseIcon from '~/icons/close.svg';
 import ErrorIcon from '~/icons/error.svg';
@@ -17,8 +17,8 @@ export const FormPopup: React.FC<FormPopupProps> = ({
   onClose,
   isSuccess,
 }) => {
-  const { onSuccess, onError, closeButton } = data.popup;
-  const { schedule, phone } = commonData;
+  const { onSuccess, onError, closeButton } = commonData.popup;
+  const { schedule, phone } = data;
 
   const Icon = isSuccess ? SuccessIcon : ErrorIcon;
 
