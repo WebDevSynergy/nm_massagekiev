@@ -1,4 +1,4 @@
-export * from './AccordionItem';
+export * from './AccordionFAQItem';
 export * from './BenefitCard';
 export * from './ButtonLink';
 export * from './GoogleMapInfoCard';

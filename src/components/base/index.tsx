@@ -1,5 +1,5 @@
 export * from '../base/GoogleMaps';
-export * from './AccordionFAQ';
+export * from './Accordion';
 export * from './BenefitsList';
 export * from './BlogArticle';
 export * from './MobileMenu';
