@@ -1,29 +1,28 @@
-import Image from 'next/image';
+import { cn } from '@/utils';
 
-import { AccordionFAQ } from '@/components/base';
-import { SectionTitle } from '@/components/ui';
-import FaqDecor from '~/images/faq/faq@2x.webp';
+import { Accordion } from '@/components/base';
+
+import { AccordionFAQItem, SectionTitle } from '@/components/ui';
+
+import styles from './FAQSection.module.css';
 
 import data from '@/data/faq.json';
 
 export const FAQSection: React.FC = () => {
   return (
-    <section className="section">
-      <div className="container xl:flex xl:gap-6">
-        <div>
+    <section className="section bg-whiteBeige">
+      <div className={cn('container xl:flex xl:gap-6', styles.faq_section)}>
+        <div className="smOnly:mb-4 mdOnly:mb-6">
           <SectionTitle className="mb-2">{data.titleSection}</SectionTitle>
-          <p className="mb-4 font-open-sans text-[16px]/[1.4] font-normal tracking-[-0.32px] text-brownDark md:mb-6 md:text-[18px] md:tracking-[-0.36px] xl:mb-8 2xl:mb-10">
+
+          <p className="font-open-sans text-[16px]/[1.4] font-normal tracking-[-0.32px] text-brownDark md:text-[18px] md:tracking-[-0.36px]">
             {data.descriptionSection}
           </p>
-          <Image
-            src={FaqDecor}
-            alt={data.alt}
-            width={808}
-            height={640}
-            className="xl:h-[640px] xl:w-[588px] 2xl:h-[555px] 2xl:w-[808px] smOnly:hidden mdOnly:hidden"
-          />
         </div>
-        <AccordionFAQ isOpenFirst={true} data={data.faq} />
+
+        <Accordion type="faq">
+          <AccordionFAQItem data={data.faq} />
+        </Accordion>
       </div>
     </section>
   );

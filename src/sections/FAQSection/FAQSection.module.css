@@ -1,0 +1,26 @@
+@media (min-width: 1280px) {
+  .faq_section {
+    background-image: image-set(
+      url('/images/faq/faq@1x.webp') 1x,
+      url('/images/faq/faq@2x.webp') 2x
+    );
+    background-size:
+      588px 640px,
+      cover;
+    background-position: 6% 80%;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 1920px) {
+  .faq_section {
+    background-image: image-set(
+      url('/images/faq/faq-desc@1x.webp') 1x,
+      url('/images/faq/faq-desc@2x.webp') 2x
+    );
+    background-size:
+      708px 568px,
+      cover;
+    background-position: 14% bottom;
+  }
+}
