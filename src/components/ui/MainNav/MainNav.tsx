@@ -13,7 +13,7 @@ export const MainNav: React.FC<MainNavProps> = ({ mobileStyle, onClose }) => {
   return (
     <nav className={cn({ 'hidden xl:block': !mobileStyle })}>
       <ul
-        className={cn('flex items-center justify-center gap-6', {
+        className={cn('flex items-center justify-center gap-2 xl:gap-6', {
           'flex-col': mobileStyle,
         })}
       >
