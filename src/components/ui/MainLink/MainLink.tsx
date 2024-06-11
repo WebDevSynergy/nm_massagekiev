@@ -39,7 +39,7 @@ export const MainLink: React.FC<MainLinkProps> = ({
         </a>
       ) : (
         <Link
-          className="leading-[1.4] tracking-[-0.32px] text-brownDark transition-colors hover:text-green focus:text-green"
+          className="block py-2 leading-[1.4] tracking-[-0.32px] text-brownDark transition-colors hover:text-green focus:text-green"
           href={path}
           onClick={onClose}
         >
