@@ -13,9 +13,10 @@ import {
   FormPopup,
 } from '@/components/ui';
 
-// import { createReviewSanity, sendMsgTelegram } from '@/actions';
+import { sendMsgTelegram } from '@/actions';
 
 import content from '@/data/contactUs-form.json';
+import { makeTgContactMsg } from '@/utils/makeTgMsg';
 
 import { schema } from './schema';
 
@@ -47,21 +48,11 @@ export const ContactUsForm: React.FC = () => {
   });
 
   const onSubmit: SubmitHandler<FieldValues> = async data => {
-    // const newReview = {
-    //   _type: 'review',
-    //   userName: data.userName,
-    //   phoneNumber: data.phoneNumber,
-    //   userMessage: data.userMessage,
-    // };
-
-    // const msg = makeTgReviewMsg({ userName, phoneNumber, userMessage });
+    const { userName, phoneNumber, userMessage } = data;
+    const msg = makeTgContactMsg({ userName, phoneNumber, userMessage });
 
     try {
-      //   Promise.all([
-      //     await sendMsgTelegram(msg),
-      //     await createReviewSanity(newReview),
-      //   ]);
-      console.log('data', data);
+      await sendMsgTelegram(msg);
       setIsSuccess(true);
       reset();
     } catch {

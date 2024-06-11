@@ -3,3 +3,8 @@ export type ReviewMsgData = {
   contact: string;
   review: string;
 };
+export type ContactMsgData = {
+  userName: string;
+  phoneNumber: string;
+  userMessage: string;
+};
