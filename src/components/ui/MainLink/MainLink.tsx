@@ -1,10 +1,12 @@
 import Link from 'next/link';
 
-import IconPhone from '~/icons/phone.svg';
+import { MainLinkProps } from './types';
+
+import { cn } from '@/utils';
 
 import data from '@/data/common.json';
 
-import { MainLinkProps } from './types';
+import IconPhone from '~/icons/phone.svg';
 
 export const MainLink: React.FC<MainLinkProps> = ({
   path,
@@ -12,6 +14,7 @@ export const MainLink: React.FC<MainLinkProps> = ({
   tel,
   isHeader,
   onClose,
+  className,
 }) => {
   const { phoneIconAreaLabel } = data;
 
@@ -19,7 +22,10 @@ export const MainLink: React.FC<MainLinkProps> = ({
     <div>
       {tel ? (
         <a
-          className="leading-[1.4] tracking-[-0.32px] text-brownDark transition-colors hover:text-green focus:text-green"
+          className={cn(
+            'leading-[1.4] tracking-[-0.32px] text-brownDark transition-colors hover:text-green focus:text-green',
+            className,
+          )}
           href={`tel:${path}`}
           target="_blank"
           rel="noopener noreferrer nofollow"
@@ -39,7 +45,10 @@ export const MainLink: React.FC<MainLinkProps> = ({
         </a>
       ) : (
         <Link
-          className="leading-[1.4] tracking-[-0.32px] text-brownDark transition-colors hover:text-green focus:text-green"
+          className={cn(
+            'leading-[1.4] tracking-[-0.32px] text-brownDark transition-colors hover:text-green focus:text-green',
+            className,
+          )}
           href={path}
           onClick={onClose}
         >

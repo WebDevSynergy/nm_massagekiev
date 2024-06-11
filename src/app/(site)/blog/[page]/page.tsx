@@ -5,12 +5,15 @@ import { type ImageAsset } from 'sanity';
 
 import { urlForImage } from '@/sanity/lib/image';
 import { getPostsWithPagination, getTotalPosts } from '@/actions/sanity';
+import { CertificateSection } from '@/sections';
 
 const POSTS_PER_PAGE = 2;
 
 export async function generateStaticParams() {
   try {
     const data = await getTotalPosts();
+
+    console.log('data', data);
 
     const total = data.total;
     const totalPages = Math.ceil(total / POSTS_PER_PAGE);
@@ -45,12 +48,14 @@ export default async function BlogPage({
 
   return (
     <>
-      {posts && (
+      <div className="container">
+        <h1>BlogPage</h1>
+        <h2 className="text-[32px]">Test Blog Data Sanity</h2>
+      </div>
+
+      {posts && posts?.length > 0 && (
         <section className="section">
           <div className="container">
-            <h1>BlogPage</h1>
-            <h2 className="text-[32px]">Test Blog Data Sanity</h2>
-
             <ul className=" flex flex-wrap gap-4">
               {posts &&
                 posts.map(
@@ -115,6 +120,8 @@ export default async function BlogPage({
           </div>
         </section>
       )}
+
+      <CertificateSection />
     </>
   );
 }
