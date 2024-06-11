@@ -1,13 +1,14 @@
 {
-  "id": "contactUs",
-  "title": "Залишити заявку",
+  "id": "reviewForm",
+  "title": "Залишити відгук",
+  "buttonLabel": "Залишити відгук",
   "image": {
     "alt": "Студія масажу",
-    "src": "/images/contactUs/contactUs@2x.webp"
+    "src": "/images/reviews/reviews@2x.webp"
   },
 
   "form": {
-    "formName": "contactUs",
+    "formName": "reviewForm",
     "inputs": [
       {
         "id": "i01",
@@ -22,7 +23,7 @@
         "label": "Телефон",
         "type": "tel",
         "name": "phoneNumber",
-        "pattern": "+ 38 (###) ### ####",
+        "format": "+ 38 (###) ### ####",
         "placeholder": "Введіть номер",
         "maxLength": 19,
         "required": true
@@ -32,7 +33,8 @@
       "label": "Повідомлення",
       "name": "userMessage",
       "maxLength": 512,
-      "placeholder": "Введіть повідомлення"
+      "placeholder": "Введіть повідомлення",
+      "required": true
     },
     "error": { "ariaLabel": "увага" },
     "submitBtn": { "label": "Надіслати" },
@@ -61,6 +63,10 @@
         "format": {
           "reg": "^[A-Za-zА-Яа-яЇїІіЄєҐґ0-9(),'\"-.!? \n\r]*$",
           "message": "Присутні недопустимі символи"
+        },
+        "minLength": {
+          "value": 1,
+          "message": "Обовʼязкове поле"
         },
         "maxLength": {
           "value": 512,

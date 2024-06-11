@@ -10,7 +10,7 @@ const commonMsg = {
   invalid_type_error: common.required,
 };
 
-export const contactSchema = z.object({
+export const reviewSchema = z.object({
   userName: z
     .string(commonMsg)
     .trim()
@@ -32,4 +32,4 @@ export const contactSchema = z.object({
     .regex(RegExp(userMessage.format.reg), userMessage.format.message),
 });
 
-export type TContact = z.infer<typeof contactSchema>;
+export type TReview = z.infer<typeof reviewSchema>;

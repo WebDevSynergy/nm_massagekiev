@@ -43,7 +43,11 @@ export const FormPopup: React.FC<FormPopupProps> = ({
           <CloseIcon className="size-full" />
         </ButtonLink>
 
-        <div className="space-y-2 text-center tracking-[-.02em]">
+        <div
+          className="space-y-2 text-center tracking-[-.02em]"
+          role="status"
+          aria-live="polite"
+        >
           <div
             className={cn('flex w-full items-center justify-center gap-2', {
               'smOnly:flex-col': !isSuccess,

@@ -5,3 +5,4 @@ export * from './BlogArticle';
 export * from './MobileMenu';
 export * from './ReviewForm';
 export * from './ContactUsForm';
+export * from './ModalReview';

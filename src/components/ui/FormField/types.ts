@@ -1,10 +1,12 @@
 import React from 'react';
+import { FieldErrors, UseFormRegister, Path } from 'react-hook-form';
 
-import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
+import { TContact } from '@/components/base/ContactUsForm/schema';
+import { TReview } from '@/components/base/ReviewForm/schema';
 
 export type FormFieldProps = {
   label: string;
-  register: UseFormRegister<FieldValues>;
+  name: Path<TContact | TReview>;
+  register: UseFormRegister<TContact | TReview>;
   errors: FieldErrors;
-  name: string;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'name'>;
