@@ -34,7 +34,7 @@
     { "title": "Контакти", "links": [] }
   ],
   "policy": {
-    "path": "/policy",
+    "path": "/terms-of-service-privacy-policy",
     "label": "Terms of service & privacy policy"
   },
   "copyright": "nm-massagekiev",
