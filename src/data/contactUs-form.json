@@ -10,7 +10,7 @@
     "formName": "contactUs",
     "inputs": [
       {
-        "id": "i01",
+        "id": "cu-i01",
         "label": "Імʼя",
         "type": "text",
         "name": "userName",
@@ -18,7 +18,7 @@
         "required": true
       },
       {
-        "id": "i02",
+        "id": "cu-i02",
         "label": "Телефон",
         "type": "tel",
         "name": "phoneNumber",

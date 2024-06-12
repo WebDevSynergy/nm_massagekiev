@@ -11,18 +11,33 @@ import {
   FormPhoneField,
   FormTextArea,
   FormPopup,
+  FormListbox,
 } from '@/components/ui';
 
 // import { sendMsgTelegram } from '@/actions';
 // import { makeTgContactMsg } from '@/utils';
+import { CertificateFormProps, SwitchButtonType } from './types';
+import { TCertificate, certificateSchema } from './schema';
 
-import content from '@/data/contactUs-form.json';
+import data from '@/data/certificate-form.json';
 
-import { TContact, contactSchema } from './schema';
+import { cn } from '@/utils';
 
-export const ContactUsForm: React.FC = () => {
-  const { formName, inputs, textarea, submitBtn } = content.form;
+export const CertificateForm: React.FC<CertificateFormProps> = ({
+  options,
+}) => {
+  const {
+    formName,
+    switchButtons,
+    priceTipsButtons,
+    inputs: [certificatePrice, massageType],
+    commonInputs,
+    select,
+    textarea,
+    submitBtn,
+  } = data.form;
 
+  const [isCertificatePrice, setIsCertificatePrice] = useState(false);
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -37,9 +52,10 @@ export const ContactUsForm: React.FC = () => {
     reset,
     control,
     formState: { errors },
-  } = useForm<TContact>({
-    resolver: zodResolver(contactSchema),
+  } = useForm<TCertificate>({
+    resolver: zodResolver(certificateSchema),
     mode: 'onBlur',
+    // defaultValues: async () => await fetch('/api'),
   });
 
   useFormPersist(formName, {
@@ -47,7 +63,12 @@ export const ContactUsForm: React.FC = () => {
     setValue,
   });
 
-  const onSubmit: SubmitHandler<TContact> = async data => {
+  const formType: Record<SwitchButtonType, () => void> = {
+    ['service']: () => setIsCertificatePrice(false),
+    ['price']: () => setIsCertificatePrice(true),
+  };
+
+  const onSubmit: SubmitHandler<TCertificate> = async data => {
     // const msg = makeTgContactMsg(data);
     console.log(data);
     try {
@@ -63,13 +84,86 @@ export const ContactUsForm: React.FC = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} id={formName}>
+        <ul className="mb-2 grid grid-cols-2 gap-4">
+          {switchButtons.map(({ label, type }) => (
+            <li key={label}>
+              <button
+                type="button"
+                onClick={formType[type as keyof typeof formType]}
+                className={cn(
+                  'w-full rounded-2xl bg-white py-[14px] text-sm/[1.2] font-bold uppercase text-greenDark',
+                  { '': isCertificatePrice },
+                )}
+                // disabled={type === 'price' ? }
+              >
+                {label}
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        {isCertificatePrice ? (
+          <>
+            <FormField
+              key={certificatePrice.id}
+              register={register}
+              errors={errors}
+              {...certificatePrice}
+              name={certificatePrice.name as keyof TCertificate}
+            />
+
+            <ul className="mb-6 grid grid-cols-3 gap-4">
+              {priceTipsButtons.map(priceValue => (
+                <li key={priceValue}>
+                  <button
+                    className="w-full rounded-[4px] bg-beigeDark p-1 text-base/[1.2] text-brown"
+                    type="button"
+                    onClick={() =>
+                      setValue(
+                        certificatePrice.name as keyof TCertificate,
+                        priceValue,
+                        {
+                          shouldTouch: true,
+                        },
+                      )
+                    }
+                  >
+                    {priceValue}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <>
+            <FormField
+              key={massageType.id}
+              register={register}
+              errors={errors}
+              {...massageType}
+              name={massageType.name as keyof TCertificate}
+            />
+
+            {options && (
+              <FormListbox
+                control={control}
+                {...select}
+                name={select.name as keyof TCertificate}
+                errors={errors}
+                variants={options}
+                className="smOnly:mb-6"
+              />
+            )}
+          </>
+        )}
+
         <div className="md:mb-4 md:grid md:grid-cols-2 md:gap-4">
-          {inputs.map(({ id, name, ...restProps }) => {
+          {commonInputs.map(({ id, name, ...restProps }) => {
             if (restProps.type === 'tel') {
               return (
                 <FormPhoneField
                   key={id}
-                  name={name as keyof TContact}
+                  name={name as keyof TCertificate}
                   control={control}
                   errors={errors}
                   {...restProps}
@@ -79,7 +173,7 @@ export const ContactUsForm: React.FC = () => {
             return (
               <FormField
                 key={id}
-                name={name as keyof TContact}
+                name={name as keyof TCertificate}
                 register={register}
                 errors={errors}
                 {...restProps}
@@ -90,7 +184,7 @@ export const ContactUsForm: React.FC = () => {
 
         <FormTextArea
           {...textarea}
-          name={textarea.name as keyof TContact}
+          name={textarea.name as keyof TCertificate}
           control={control}
           errors={errors}
           className="mb-6 xl:mb-8 2xl:mb-10"

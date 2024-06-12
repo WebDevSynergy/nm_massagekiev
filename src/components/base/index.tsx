@@ -6,3 +6,5 @@ export * from './MobileMenu';
 export * from './ReviewForm';
 export * from './ContactUsForm';
 export * from './ModalReview';
+export * from './CertificateForm';
+export * from './ModalCertificate';

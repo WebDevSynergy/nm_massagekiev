@@ -1,17 +1,41 @@
 {
-  "id": "reviewForm",
-  "title": "Залишити відгук",
-  "buttonLabel": "Залишити відгук",
+  "id": "certificateForm",
+  "title": "Сертифікат",
+  "buttonLabel": "Обрати сертифікат",
   "image": {
-    "alt": "Студія масажу",
-    "src": "/images/reviews/reviews@2x.webp"
+    "alt": "Масажний сертифікат",
+    "src": "/images/certificate/certificate@2x.webp"
   },
 
   "form": {
-    "formName": "reviewForm",
+    "formName": "certificateForm",
+    "switchButtons": [
+      { "label": "Обрати масаж", "type": "service" },
+      { "label": "Обрати суму", "type": "price" }
+    ],
+    "priceTipsButtons": ["500", "1000", "1500"],
     "inputs": [
       {
-        "id": "rf-i01",
+        "id": "cf-i01",
+        "label": "Сума",
+        "type": "number",
+        "name": "certificatePrice",
+        "placeholder": "Введіть cуму",
+        "required": true,
+        "min": "1",
+        "max": "99"
+      },
+      {
+        "id": "cf-i02",
+        "label": "Кількість",
+        "type": "number",
+        "name": "massageType",
+        "required": true
+      }
+    ],
+    "commonInputs": [
+      {
+        "id": "cf-ci01",
         "label": "Імʼя",
         "type": "text",
         "name": "userName",
@@ -19,7 +43,7 @@
         "required": true
       },
       {
-        "id": "rf-i02",
+        "id": "cf-ci02",
         "label": "Телефон",
         "type": "tel",
         "name": "phoneNumber",
@@ -38,6 +62,14 @@
       "defaultValue": "",
       "required": true
     },
+    "select": {
+      "id": "cf-s01",
+      "label": "Обрати масаж",
+      "name": "massageType",
+      "placeholder": "Оберіть варіант",
+      "required": true
+    },
+
     "defaultValues": { "userName": "", "userMessage": "", "phoneNumber": "" },
     "error": { "ariaLabel": "увага" },
     "submitBtn": { "label": "Надіслати" },
@@ -67,15 +99,42 @@
           "reg": "^[A-Za-zА-Яа-яЇїІіЄєҐґ0-9(),'\"-.!? \n\r]*$",
           "message": "Присутні недопустимі символи"
         },
-        "minLength": {
-          "value": 1,
-          "message": "Обовʼязкове поле"
-        },
         "maxLength": {
           "value": 512,
           "message": "У тексті має бути не більше 512 символів"
         }
       },
+      "certificatePrice": {
+        "min": {
+          "value": 350,
+          "message": "Мінімальна вартість"
+        }
+      },
+      "massageType": {
+        "format": {
+          "reg": "^[A-Za-zА-Яа-яЇїІіЄєҐґ0-9(),'\"-.!? \n\r]*$",
+          "message": "Присутні недопустимі символи"
+        },
+        "minLength": {
+          "value": 1,
+          "message": "Обовʼязкове поле"
+        },
+        "maxLength": {
+          "value": 90,
+          "message": "У тексті має бути не більше 90 символів"
+        }
+      },
+      "massageQuantity": {
+        "min": {
+          "value": 1,
+          "message": "Мінімальна кількість"
+        },
+        "max": {
+          "value": 99,
+          "message": "Мінімальна кількість"
+        }
+      },
+
       "common": {
         "required": "Обовʼязкове поле"
       }
