@@ -1,3 +1,7 @@
 export type SocialLinksProps = {
-  isHeader: boolean;
+  isHeader?: boolean;
+  className?: string;
 };
+// export type SocialLinksProps = {
+//   isHeader: boolean;
+// };

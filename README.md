@@ -127,6 +127,12 @@ Z{Enter} --> L(Layout)
 Each component has its own API. You can find it in the component's folder. This
 is a list of more common components and their API.
 
+<details>
+
+<summary><b>Base sections/block components (accordion, form, slider, etc.): </b></summary>
+
+<br/>
+
 - #### GoogleMaps
 
 A GoogleMaps component designed to display a Google map with user interaction.
@@ -162,23 +168,6 @@ post whose value is the object received from sanity
 | ------ | ------- | --------------- | ---------------------------------------------------------- |
 | `post` | -       | required, `any` | `any[]`, an object that comes from sanity with block type. |
 
-- #### ----------------------------------------------------------------------------------
-
-- #### Modal(example)
-
-Pure Modal Component which expect `onClose`:implements close modal window by
-mouse click on backdrop or by press `ESC` button, `isOpen` - state to show/hide
-modal, `children` -content for modal.
-
-| Prop             | Default | Description                                                       |
-| ---------------- | ------- | ----------------------------------------------------------------- |
-| `children`       | -       | required, `ReactNode`, which will be content for modal window     |
-| `isOpen`         | `false` | required, `boolean`, changes state to show/close the window.      |
-| `onClose`        | -       | required, click handler for close modal window                    |
-| `modalStyle`     | ''      | optional, `string`, additional css class you'd need               |
-| `modalWrapStyle` | ''      | optional, `string`, additional css class you'd need for container |
-| `backdropStyle`  | ''      | optional, `string`, additional css class you'd need               |
-
 - #### Logo
 
 | Prop        | Default | Description                                                                         |
@@ -208,11 +197,13 @@ used green colors and `secondary` - orange colors.
 
 - #### MainLink
 
-| Prop    | Default | Description                                             |
-| ------- | ------- | ------------------------------------------------------- |
-| `path`  | ''      | required, `string`, path for link                       |
-| `label` | ''      | required, `string`, name for link                       |
-| `tel`   | -       | optional, `boolean`, needed if a link to a phone number |
+| Prop       | Default | Description                                                       |
+| ---------- | ------- | ----------------------------------------------------------------- |
+| `path`     | ''      | required, `string`, path for link                                 |
+| `label`    | ''      | required, `string`, name for link                                 |
+| `tel`      | -       | optional, `boolean`, needed if a link to a phone number           |
+| `isHeader` | -       | optional, `boolean`, needed if a link to a phone number in header |
+| `onClose`  | -       | optional, click handler for close modal window                    |
 
 - #### SectionTitle
 
@@ -254,18 +245,162 @@ the review and the name of the author.
 | `review` | `Sorry, the review did not load` | required, `string`, feedback text                        |
 | `author` | `Author`                         | required, `string`, the name of the author of the review |
 
-- #### GoogleMapLoadError
+- #### GoogleMapStatus
 
 A component that receives two data props from parent google component that
-contains `errorLoadMap` with object of string props `msg` - text content in
-popup clock over the map image, `linkLabel` and `locationLink` - label and path
-for external link, `mapImageAlt` - alt for offline map image. Conditionally
-renders if the google map was not loaded.
+contains `config` with object of string props `type` - status loading or error,
+`msg` - text content in popup clock over the map image, `linkLabel` and
+`locationLink` - label and path for external link, `mapImageAlt` - alt for
+offline map image. Conditionally renders if the google map was not loaded.
 
-| Prop             | Default | Description                                                                   |
-| ---------------- | ------- | ----------------------------------------------------------------------------- |
-| `errorLoadMap`   | ``      | required, object of string props `msg, locationLink, mapImageAlt, linkLabel`  |
-| `containerStyle` | ``      | required, object of string props `width. height`, additional container styles |
+| Prop             | Default | Description                                                                        |
+| ---------------- | ------- | ---------------------------------------------------------------------------------- |
+| `config`         | ``      | required, object of string props `type, msg, locationLink, mapImageAlt, linkLabel` |
+| `containerStyle` | ``      | required, object of string props `width. height`, additional container styles      |
+
+- #### Spinner
+
+A component created using the react-spinner library that displays the loading
+state. \*The "use client" directive must be specified
+
+| Prop          | Default | Description                          |
+| ------------- | ------- | ------------------------------------ |
+| `visible`     | `true`  | specifies whether to show the loader |
+| `width`       | `20`    | size of the loader                   |
+| `color`       | `grey`  | the color of the component           |
+| `strokeWidth` | `5`     | thickness of component lines         |
+
+- #### ContactCard
+
+The component that renders the contact information card receives data from
+static data
+
+- #### Modal
+
+The component which expect `buttonLabel` - text button's content, `buttonStyle`
+as `styleType` to use predefined styles for ButtonLink component,
+`buttonStyles` - additional css class you'd need for button `children` -content
+for modal. The component has predefined padding style and close button.
+
+| Prop           | Default   | Description                                                                                                                   |
+| -------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `children`     | -         | required, `ReactNode`, which will be content for modal window                                                                 |
+| `buttonLabel`  | `false`   | required, text button's content                                                                                               |
+| `buttonStyle`  | -         | required, as `styleType` to use predefined styles for ButtonLink component as primary -green, secondary, - brown and unstyled |
+| `buttonStyles` | `opacity` | optional, additional css class you'd need                                                                                     |
+
+- #### ModalCard
+
+The component which expect `onClose`:implements close modal window by mouse
+click on backdrop or by press `ESC` button, `isOpen` - state to show/hide modal,
+`children` -content for modal.
+
+| Prop            | Default   | Description                                                                            |
+| --------------- | --------- | -------------------------------------------------------------------------------------- |
+| `children`      | -         | required, `ReactNode`, which will be content for modal window                          |
+| `isOpen`        | `false`   | required, `boolean`, changes state to show/close the window.                           |
+| `onClose`       | -         | required, click handler for close modal window                                         |
+| `animation`     | `opacity` | optional, select the animationType to apply the modal window:'opacity' or 'translateX' |
+| `modalStyle`    | ''        | optional, `string`, additional css class you'd need                                    |
+| `backdropStyle` | ''        | optional, `string`, additional css class you'd need                                    |
+
+- #### MasseurCard
+
+The component that expects `masseur` - data about the masseur and renders the
+masseur's card and throws data about certificates, if any, into the
+CertificateCard component
+
+| Prop      | Default | Description                                       |
+| --------- | ------- | ------------------------------------------------- |
+| `masseur` | -       | required, `Object`, massage therapist data object |
+
+- #### CertificateCard
+
+A component that accepts data about the image of the certificate and renders it
+
+| Prop          | Default | Description                                                                                                |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `certificate` | -       | required, `Image` from sanity type. A sanity data object that contains all the information about the image |
+
+- #### FormField
+
+This is a styled input component with an accompanying label and FormError.If
+input has `required` prop required presetted additional styling for label.
+Additional you can set rest of the tag `input` props such as `className`,
+`placeholder`,
+
+| Prop       | Default     | Description                                                                       |
+| ---------- | ----------- | --------------------------------------------------------------------------------- |
+| `name`     | `undefined` | required, `string`, input name                                                    |
+| `register` | `undefined` | required, `func` register onChange, onBlur, name, validation from React Hook Form |
+| `errors`   | `undefined` | required, errors `object` from React Hook Form.                                   |
+| `label`    | `undefined` | required, `string`, label value                                                   |
+| `type`     | `text`      | optional, `string`, input type                                                    |
+
+- #### FormPhoneField
+
+This is a styled textarea component with an accompanying label and FormError the
+formatt numeric input according pattern. If input has `required` prop required
+presetted additional styling for label. Additional you can set rest of the tag
+`input` props such as `className`, `placeholder`,
+
+| Prop      | Default     | Description                                                                                 |
+| --------- | ----------- | ------------------------------------------------------------------------------------------- |
+| `label`   | `undefined` | required, `string`, label value                                                             |
+| `name`    | `undefined` | required, `string`, textarea name                                                           |
+| `control` | `undefined` | required, `object` object contains methods for registering components into React Hook Form. |
+| `errors`  | `undefined` | required, errors `object` from React Hook Form.                                             |
+
+- #### FormListbox
+
+This is a styled Listbox component (using Listbox @headless library) with an
+accompanying label and FormError. Rendered as `button` + open/hide list `ul`
+
+| Prop          | Default     | Description                                                                                 |
+| ------------- | ----------- | ------------------------------------------------------------------------------------------- |
+| `label`       | `undefined` | required, `string`, label value                                                             |
+| `placeholder` | `undefined` | required, `string`, label for button                                                        |
+| `name`        | `undefined` | required, `string`, form's element name                                                     |
+| `variants`    | `undefined` | required, `string's array`, options to choose                                               |
+| `control`     | `undefined` | required, `object` object contains methods for registering components into React Hook Form. |
+| `errors`      | `undefined` | required, errors `object` from React Hook Form.                                             |
+| `required`    | `undefined` | required, `boolean` sets the label as required or optional.                                 |
+| `className`   | `""`        | optional, `string`, allows you to override common styles                                    |
+
+- #### FormTextArea
+
+This is a styled textarea component with an accompanying label and FormError.If
+textarea has `required` prop required presetted additional styling for label.
+Additional you can set rest of the tag `textarea` props such as `className`,
+`placeholder`,
+
+| Prop      | Default     | Description                                                                                 |
+| --------- | ----------- | ------------------------------------------------------------------------------------------- |
+| `label`   | `undefined` | required, `string`, label value                                                             |
+| `name`    | `undefined` | required, `string`, textarea name                                                           |
+| `control` | `undefined` | required, `object` object contains methods for registering components into React Hook Form. |
+| `errors`  | `undefined` | required, errors `object` from React Hook Form.                                             |
+
+- #### FormError
+
+This is a styled Error component for form's elements .
+
+| Prop     | Default     | Description                                     |
+| -------- | ----------- | ----------------------------------------------- |
+| `name`   | `undefined` | required, `string`, input value name            |
+| `errors` | `undefined` | required, errors `object` from React Hook Form. |
+
+- #### FormPopup
+
+This popup component rendered using Modal component.
+
+| Prop        | Default | Description                                                              |
+| ----------- | ------- | ------------------------------------------------------------------------ |
+| `isOpen`    | `false` | required, `boolean`, changes state to show/close the popup.              |
+| `isSuccess` | `false` | required, `boolean`, show styled Success or Error component with message |
+| `onClose`   | -       | required, click handler for close popup window                           |
+
+</details>
 
 ### 🚧 Technology stack
 

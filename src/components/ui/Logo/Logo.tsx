@@ -1,12 +1,12 @@
 import Link from 'next/link';
 
-import LogoIcon from '~/icons/logo.svg';
-
 import { LogoProps } from './types';
 
 import { cn } from '@/utils';
 
 import data from '@/data/common.json';
+
+import LogoIcon from '~/icons/logo.svg';
 
 export const Logo: React.FC<LogoProps> = ({ variant, className = '' }) => {
   const { logo } = data;

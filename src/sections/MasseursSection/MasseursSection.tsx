@@ -1,61 +1,28 @@
-import { SanityImage } from '@/components/ui';
+import { MasseurCard, SectionTitle } from '@/components/ui';
 
 import { getMasseurs } from '@/actions/sanity';
 
-export type Masseurs = {
-  id: string;
-  certificateArray:
-    | (TImage & {
-        id: string;
-      })[]
-    | null;
-  resume: string;
-  image: TImage;
-  name: string;
-}[];
+import { MasseursData } from './types';
+
+import data from '@/data/common.json';
 
 export const MasseursSection: React.FC = async () => {
-  const masseurs: Masseurs | null = await getMasseurs();
+  const { title } = data.masseurs;
+
+  const masseurs: MasseursData | null = await getMasseurs();
 
   return (
     <>
       {masseurs && (
         <section className="section">
           <div className="container">
-            MasseursSection
-            <ul className="flex gap-8">
-              {masseurs.map(({ id, certificateArray, resume, image, name }) => {
+            <SectionTitle>{title}</SectionTitle>
+
+            <ul className="md:flex md:flex-wrap md:gap-6 xl:gap-[42px] 2xl:gap-10">
+              {masseurs.map(masseur => {
                 return (
-                  <li key={id} className="w-[400px] border border-solid p-8">
-                    <div className="size-[334px]">
-                      <SanityImage
-                        image={image}
-                        width={520}
-                        height={520}
-                        loading="lazy"
-                        className="size-full object-cover"
-                      />
-                    </div>
-
-                    <p>name: {name}</p>
-
-                    <p>resume: {resume}</p>
-
-                    {certificateArray && (
-                      <ul>
-                        {certificateArray.map(el => (
-                          <li key={el.id}>
-                            <SanityImage
-                              image={el}
-                              width={520}
-                              height={520}
-                              loading="lazy"
-                              className="size-full object-cover"
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                  <li key={masseur.id}>
+                    <MasseurCard masseur={masseur} />
                   </li>
                 );
               })}

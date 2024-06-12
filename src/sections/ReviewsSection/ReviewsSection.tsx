@@ -1,4 +1,4 @@
-import { ReviewForm } from '@/components/base';
+import { ModalReview } from '@/components/base';
 import { ReviewCard, SectionTitle } from '@/components/ui';
 
 import { getReviews } from '@/actions/sanity';
@@ -29,7 +29,7 @@ export const ReviewsSection: React.FC = async () => {
           </ul>
         )}
 
-        <ReviewForm />
+        <ModalReview />
       </div>
     </section>
   );

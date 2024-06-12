@@ -1,0 +1,81 @@
+{
+  "id": "reviewForm",
+  "title": "Залишити відгук",
+  "buttonLabel": "Залишити відгук",
+  "image": {
+    "alt": "Студія масажу",
+    "src": "/images/reviews/reviews@2x.webp"
+  },
+
+  "form": {
+    "formName": "reviewForm",
+    "inputs": [
+      {
+        "id": "i01",
+        "label": "Імʼя",
+        "type": "text",
+        "name": "userName",
+        "placeholder": "Введіть ім’я",
+        "required": true
+      },
+      {
+        "id": "i02",
+        "label": "Телефон",
+        "type": "tel",
+        "name": "phoneNumber",
+        "format": "+ 38 (###) ### ####",
+        "placeholder": "Введіть номер",
+        "maxLength": 19,
+        "required": true
+      }
+    ],
+    "textarea": {
+      "label": "Повідомлення",
+      "name": "userMessage",
+      "maxLength": 512,
+      "placeholder": "Введіть повідомлення",
+      "required": true
+    },
+    "error": { "ariaLabel": "увага" },
+    "submitBtn": { "label": "Надіслати" },
+    "validation": {
+      "userName": {
+        "format": {
+          "reg": "^(?!.*(?: --|- |' -| - '))(?![ -]*$)(?!.*--)[A-Za-zА-Яа-яЇїІіЄєҐґ '-]+$",
+          "message": "Невірно введене ім’я."
+        },
+        "minLength": {
+          "value": 1,
+          "message": "Обовʼязкове поле"
+        },
+        "maxLength": {
+          "value": 90,
+          "message": "Максимальна довжина 90 символів"
+        }
+      },
+      "phoneNumber": {
+        "message": "Недійсний номер телефону",
+        "required": { "value": 1, "message": "Обовʼязкове поле" },
+        "minLength": { "value": 18, "message": "Не менше 11 символів" },
+        "maxLength": { "value": 19, "message": "Не більше 13 символів" }
+      },
+      "userMessage": {
+        "format": {
+          "reg": "^[A-Za-zА-Яа-яЇїІіЄєҐґ0-9(),'\"-.!? \n\r]*$",
+          "message": "Присутні недопустимі символи"
+        },
+        "minLength": {
+          "value": 1,
+          "message": "Обовʼязкове поле"
+        },
+        "maxLength": {
+          "value": 512,
+          "message": "У тексті має бути не більше 512 символів"
+        }
+      },
+      "common": {
+        "required": "Обовʼязкове поле"
+      }
+    }
+  }
+}

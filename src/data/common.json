@@ -1,5 +1,18 @@
 {
   "testField": "nm_massagekiev",
+  "nav": [
+    { "path": "/", "label": "Головна" },
+    { "path": "#benefits", "label": "Про салон" },
+    { "path": "#services", "label": "Послуги" },
+    { "path": "#reviews", "label": "Відгуки" },
+    { "path": "#masseurs", "label": "Масажисти" },
+    { "path": "/blog/1", "label": "Блог" },
+    { "path": "#faq", "label": "Питання і відповіді" }
+  ],
+  "schedule": { "days": "понеділок - п’ятниця", "hours": "9:00 - 22:00" },
+  "phone": "+38 (063) 177 22 23",
+  "phoneIconAreaLabel": "+38 (063) 177 22 23",
+  "address": "Київ, вул. Сергія Данченко, 32",
   "googleMaps": {
     "title": "nm_massagekiev\nДанченко, 32",
     "schedule": { "days": "понеділок - п’ятниця", "hours": "9:00 - 22:00" },
@@ -23,6 +36,66 @@
   "logo": {
     "path": "/",
     "ariaLabel": "Посилання із логотипом компанії"
+  },
+
+  "socialLinksHeader": [
+    {
+      "name": "telegram",
+      "path": "https://t.me/Mentiy_Nadiya",
+      "ariaLabel": "перейти в Телеграм"
+    },
+    {
+      "name": "viber",
+      "path": "viber://chat?number=%2B38631772223",
+      "ariaLabel": "перейти у Viber"
+    },
+    {
+      "name": "instagram",
+      "path": "https://www.instagram.com/nm_massagekiev/",
+      "ariaLabel": "перейти на сторінку Інстаграм"
+    }
+  ],
+
+  "socialLinksFooter": [
+    {
+      "name": "telegram",
+      "path": "https://t.me/Mentiy_Nadiya",
+      "ariaLabel": "перейти в Телеграм"
+    },
+    {
+      "name": "viber",
+      "path": "viber://chat?number=%2B38631772223",
+      "ariaLabel": "перейти у Viber"
+    },
+    {
+      "name": "facebook",
+      "path": "https://www.facebook.com/profile.php?id=100083616475207",
+      "ariaLabel": "перейти на сторінку Фейсбук"
+    },
+    {
+      "name": "instagram",
+      "path": "https://www.instagram.com/nm_massagekiev/",
+      "ariaLabel": "перейти на сторінку Інстаграм"
+    }
+  ],
+  "contactCard": {
+    "title": "Масаж в Києві",
+    "btnLabel": "Записатися",
+    "subwayStations": [
+      { "name": "Оболонь", "line": "blue" },
+      { "name": "Мінська", "line": "blue" },
+      { "name": "Нивки", "line": "red" }
+    ]
+  },
+
+  "masseurs": {
+    "title": "Масажисти",
+    "buttonLabel": "Переглянути сертифікати"
+  },
+  "closeButton": { "ariaLabel": "Закрити вікно" },
+  "mobileMenu": {
+    "openButton": { "ariaLabel": "Відкрити мобільне меню" },
+    "closeButton": { "ariaLabel": "Закрити мобільне меню" }
   },
 
   "socialLinksHeader": [

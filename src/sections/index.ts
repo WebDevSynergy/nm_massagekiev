@@ -12,3 +12,4 @@ export * from './InstagramSection';
 export * from './ContactsSection';
 
 export * from './PostSection';
+export * from './NotFoundSection';
