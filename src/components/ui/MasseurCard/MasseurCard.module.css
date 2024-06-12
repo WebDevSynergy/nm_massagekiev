@@ -1,5 +1,5 @@
 .photo {
-  @apply h-[448px] w-full max-w-[448px] overflow-hidden rounded-[24px] md:size-[332px] md:max-w-full xl:size-[372px] 2xl:size-[520px] sm480:h-[328px];
+  @apply h-[448px] w-full max-w-[448px] overflow-hidden rounded-[24px] md:size-[332px] md:max-w-full md:rounded-[32px] xl:size-[372px] xl:rounded-[40px] 2xl:size-[520px] sm480:h-[328px];
 }
 
 .photo::after {
@@ -13,7 +13,7 @@
   width: 100%;
   max-width: 448px;
   height: 328px;
-  border-radius: 30px;
+  border-radius: 32px;
   background-color: #f1dec6;
 
   z-index: -1;
@@ -31,19 +31,26 @@
   .photo::after {
     width: 332px;
     height: 332px;
+    border-radius: 40px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .photo::after {
+    top: 12px;
+    left: 12px;
+
     width: 372px;
     height: 372px;
-    border-radius: 32px;
+    border-radius: 52px;
   }
 }
 
 @media screen and (min-width: 1920px) {
   .photo::after {
+    top: 16px;
+    left: 16px;
+
     width: 520px;
     height: 520px;
   }
