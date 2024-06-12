@@ -1,6 +1,7 @@
 export * from './AccordionFAQItem';
 export * from './BenefitCard';
 export * from './ButtonLink';
+export * from './ButtonLink';
 export * from './GoogleMapInfoCard';
 export * from './GoogleMapStatus';
 export * from './GoogleRating';
@@ -8,6 +9,7 @@ export * from './InstagramCard';
 export * from './Logo';
 export * from './MainLink';
 export * from './ReviewCard';
+export * from './Logo';
 export * from './SanityBlockImage';
 export * from './SanityImage';
 export * from './SectionTitle';

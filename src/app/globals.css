@@ -21,6 +21,17 @@ body {
   @apply overflow-hidden smOnly:max-h-[210px] !important;
 }
 
+/** OVERRIDE GOOGLE MARKER STYLES */
+.gm-style-iw.gm-style-iw-c {
+  @apply flex items-center justify-center gap-4 rounded-3xl p-0 pe-0 smOnly:max-h-[210px] smOnly:max-w-[234px] !important;
+}
+.gm-style-iw-chr {
+  @apply hidden !important;
+}
+.gm-style-iw-d {
+  @apply overflow-hidden smOnly:max-h-[210px] !important;
+}
+
 /** FORM STYLES */
 .input {
   @apply relative mb-1 w-full rounded-2xl border-none bg-greenLight px-4 py-[13.4px] text-left text-sm/[1.4] text-brownDark transition placeholder:text-sm/[1.4] placeholder:text-grey hover:bg-inputActive/20 focus:bg-inputActive/20 focus:outline-none focus-visible:border-none active:bg-inputActive/10 active:text-blackLight smOnly:focus-visible:py-3 smOnly:focus-visible:text-base/[1.4];
