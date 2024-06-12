@@ -49,9 +49,9 @@ export default async function BlogPage({
         <section className="section">
           <div className="container">
             <h1>BlogPage</h1>
-            <h2 className="text-[32px] text-white ">Test Blog Data Sanity</h2>
+            <h2 className="text-[32px]">Test Blog Data Sanity</h2>
 
-            <ul className=" flex flex-wrap gap-4 text-white">
+            <ul className=" flex flex-wrap gap-4">
               {posts &&
                 posts.map(
                   ({
@@ -102,7 +102,7 @@ export default async function BlogPage({
                 {page > 1 && <Link href={`/blog/${page - 1}`}>{page - 1}</Link>}
               </li>
               <li>
-                <p className=" bg-green-600">{page}</p>
+                <p>{page}</p>
               </li>
               <li>
                 {page < totalPages && (

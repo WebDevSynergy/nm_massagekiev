@@ -1,7 +1,20 @@
+import { BenefitsList } from '@/components/base';
+import { SectionTitle } from '@/components/ui';
+
+import data from '@/data/benefits.json';
+
 export const BenefitsSection: React.FC = () => {
+  const { title } = data;
+
   return (
-    <section className="section">
-      <div className="container">Benefits</div>
+    <section className="section bg-whiteBeige">
+      <div className="container">
+        <SectionTitle className="mb-[16px] md:mb-[24px] xl:mb-[32px] 2xl:mb-[40px]">
+          {title}
+        </SectionTitle>
+
+        <BenefitsList />
+      </div>
     </section>
   );
 };

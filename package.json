@@ -31,7 +31,9 @@
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
     "react-hook-form-persist": "^3.0.0",
+    "react-loader-spinner": "^6.1.6",
     "sanity": "^3.25",
+    "sharp": "^0.33.4",
     "styled-components": "^6.0",
     "swiper": "^11.1.4",
     "zod": "^3.22.4"
