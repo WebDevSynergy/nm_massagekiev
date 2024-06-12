@@ -1,15 +1,22 @@
 import React from 'react';
-import { FieldErrors, Control, Path } from 'react-hook-form';
+import {
+  FieldErrors,
+  Control,
+  Path,
+  FieldValues,
+  UseControllerProps,
+} from 'react-hook-form';
 
-import { TContact } from '@/components/base/ContactUsForm/schema';
-import { TReview } from '@/components/base/ReviewForm/schema';
-
-export type FormPhoneFieldProps = {
-  label: string;
-  name: Path<TContact | TReview>;
-  control: Control<TContact | TReview>;
-  errors: FieldErrors;
-} & Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'type' | 'defaultValue'
->;
+export type FormPhoneFieldProps<TFormValues extends FieldValues> =
+  UseControllerProps<TFormValues> & {
+    label: string;
+    name: Path<TFormValues>;
+    control: Control<TFormValues>;
+    errors: FieldErrors;
+  } & Omit<
+      React.DetailedHTMLProps<
+        React.InputHTMLAttributes<HTMLInputElement>,
+        HTMLInputElement
+      >,
+      'value' | 'type'
+    >;

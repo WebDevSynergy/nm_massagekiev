@@ -23,8 +23,9 @@
         "label": "Телефон",
         "type": "tel",
         "name": "phoneNumber",
-        "format": "+ 38 (###) ### ####",
+        "pattern": "+ 38 (0##) ### ####",
         "placeholder": "Введіть номер",
+        "defaultValue": "",
         "maxLength": 19,
         "required": true
       }
@@ -34,8 +35,10 @@
       "name": "userMessage",
       "maxLength": 512,
       "placeholder": "Введіть повідомлення",
+      "defaultValue": "",
       "required": true
     },
+    "defaultValues": { "userName": "", "userMessage": "", "phoneNumber": "" },
     "error": { "ariaLabel": "увага" },
     "submitBtn": { "label": "Надіслати" },
     "validation": {
