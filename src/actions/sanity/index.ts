@@ -7,3 +7,4 @@ export * from './getInstagramPhotos';
 export * from './getServices';
 export * from './getPostsWithPagination';
 export * from './getTotalPosts';
+export * from './getServicesList';
