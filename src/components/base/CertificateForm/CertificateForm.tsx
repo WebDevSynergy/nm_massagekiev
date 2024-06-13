@@ -16,14 +16,13 @@ import {
   CostHint,
 } from '@/components/ui';
 
-// import { sendMsgTelegram } from '@/actions';
-// import { makeTgContactMsg } from '@/utils';
 import { CertificateFormProps, TFormData } from './types';
 import { TCertificate, certificateSchema } from './schema';
 
+import { sendMsgTelegram } from '@/actions';
+import { cn, makeTgCertificateMsg, makeTgOrderMsg } from '@/utils';
 import data from '@/data/certificate-form.json';
 
-import { cn } from '@/utils';
 import { TService } from '@/actions/sanity';
 
 const MAX_DISCOUNT = 20;
@@ -93,6 +92,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
   useFormPersist(formName, {
     watch,
     setValue,
+    exclude: [certificateCost.name, massageQuantity.name, select.name],
   });
 
   const getTotalCost = () => {
@@ -123,14 +123,20 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
   };
 
   const onSubmit: SubmitHandler<TCertificate> = async data => {
-    console.log('SUBMITTED==============>>>>>>>>>>>>>>>>>', data);
+    let msg = '';
+    if (data.massageType) {
+      msg = makeTgCertificateMsg({
+        ...data,
+        promoCost,
+        totalCost: getTotalCost(),
+      });
+    }
+    if (data.certificateCost) {
+      msg = makeTgOrderMsg(data);
+    }
+
     try {
-      if (data.massageType) {
-        // const msg = makeTgCertificateMassageMsg(data);
-      } else {
-        // const msg = makeTgCertificateCostMsg(data);
-      }
-      // await sendMsgTelegram(msg);
+      await sendMsgTelegram(msg);
       setIsSuccess(true);
       reset();
     } catch {

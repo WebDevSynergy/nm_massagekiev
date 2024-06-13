@@ -2,12 +2,12 @@ import {
   // HeroSection,
   // BenefitsSection,
   // MasseursSection,
-  ContactUsSections,
+  // ContactUsSections,
   // BlogSections,
-  // CertificateSection,
+  CertificateSection,
   // CosmeceuticalsSection,
   // FAQSection,
-  ReviewsSection,
+  // ReviewsSection,
   // ServicesSection,
 } from '@/sections';
 
@@ -20,17 +20,17 @@ export default function Home() {
 
       {/* <ServicesSection /> */}
 
-      <ReviewsSection />
+      {/* <ReviewsSection /> */}
 
       {/* <CosmeceuticalsSection /> */}
 
       {/* <MasseursSection /> */}
 
-      <ContactUsSections />
+      {/* <ContactUsSections /> */}
 
       {/* <BlogSections /> */}
 
-      {/* <CertificateSection /> */}
+      <CertificateSection />
 
       {/* <FAQSection /> */}
 

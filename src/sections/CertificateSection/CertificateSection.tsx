@@ -24,7 +24,7 @@ export const CertificateSection: React.FC = () => {
           <ModalCertificate/>
         </div>
 
-        <VideoPlayer url={url} />
+        {/* <VideoPlayer url={url} /> */}
       </div>
     </section>
   );

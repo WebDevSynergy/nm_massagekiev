@@ -74,7 +74,7 @@ export const FormListbox = <TFormValues extends FieldValues>({
                 <ListboxOptions
                   anchor="bottom"
                   as="ul"
-                  className="z-10 h-[312px] w-[var(--button-width)] list-none overflow-hidden rounded-2xl bg-greenLight [--anchor-gap:6px] focus:outline-none"
+                  className="z-10 h-[420px] w-[var(--button-width)] list-none overflow-hidden rounded-2xl bg-greenLight [--anchor-gap:6px] focus:outline-none md:h-[360px]"
                 >
                   {variants.map(option => (
                     <ListboxOption

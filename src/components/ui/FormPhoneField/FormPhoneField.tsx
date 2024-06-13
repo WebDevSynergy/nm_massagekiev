@@ -38,7 +38,6 @@ export const FormPhoneField = <TFormValues extends FieldValues>({
         <PatternFormat
           className="input"
           type="tel"
-          mask="_"
           aria-invalid={errors[name] ? 'true' : 'false'}
           format={pattern || '+ 38 (###) ### ####'}
           placeholder={placeholder}
