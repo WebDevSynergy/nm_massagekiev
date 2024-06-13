@@ -19,6 +19,7 @@ export const ModalCertificate: React.FC = async () => {
       buttonLabel={buttonLabel}
       buttonStyle="primary"
       buttonStyles="mx-auto"
+      backdropStyle="smOnly:items-start"
     >
       <div className="xl:grid xl:w-[880px] xl:grid-cols-2 xl:gap-6">
         <div className="relative hidden overflow-hidden rounded-5xl xl:block">

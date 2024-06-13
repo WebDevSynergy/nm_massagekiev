@@ -29,3 +29,5 @@ export * from './FormListbox';
 export * from './FormTextArea';
 export * from './FormError';
 export * from './FormPopup';
+export * from './FormPatternField';
+export * from './CostHint';

@@ -8,7 +8,7 @@ const {
   phoneNumber,
   userMessage,
   common,
-  certificatePrice,
+  certificateCost,
   massageType,
   massageQuantity,
 } = validation;
@@ -43,9 +43,11 @@ export const certificateSchema = z
   .and(
     z.union([
       z.object({
-        certificatePrice: z
+        certificateCost: z.coerce
           .number(commonMsg)
-          .min(certificatePrice.min.value, certificatePrice.min.message),
+          .int()
+          .positive()
+          .min(certificateCost.min.value, certificateCost.min.message),
         massageType: z.undefined(),
       }),
       z.object({
@@ -53,11 +55,13 @@ export const certificateSchema = z
           .string(commonMsg)
           .min(massageType.minLength.value, massageType.minLength.message)
           .max(massageType.maxLength.value, massageType.maxLength.message),
-        massageQuantity: z
-          .string(commonMsg)
+        massageQuantity: z.coerce
+          .number(commonMsg)
+          .int()
+          .positive()
           .min(massageQuantity.min.value, massageQuantity.min.message)
           .max(massageQuantity.max.value, massageQuantity.max.message),
-        certificatePrice: z.undefined(),
+        certificateCost: z.undefined(),
       }),
     ]),
   );

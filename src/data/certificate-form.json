@@ -6,30 +6,27 @@
     "alt": "Масажний сертифікат",
     "src": "/images/certificate/certificate@2x.webp"
   },
-
   "form": {
     "formName": "certificateForm",
-    "switchButtons": [
+    "currency": "грн",
+    "tabButtons": [
       { "label": "Обрати масаж", "type": "service" },
       { "label": "Обрати суму", "type": "price" }
     ],
-    "priceTipsButtons": ["500", "1000", "1500"],
+    "costHintButtons": [500, 1000, 1500, 2000],
     "inputs": [
       {
         "id": "cf-i01",
         "label": "Сума",
-        "type": "number",
-        "name": "certificatePrice",
+        "name": "certificateCost",
         "placeholder": "Введіть cуму",
-        "required": true,
-        "min": "1",
-        "max": "99"
+        "required": true
       },
       {
         "id": "cf-i02",
-        "label": "Кількість",
-        "type": "number",
-        "name": "massageType",
+        "name": "massageQuantity",
+        "pattern": "##",
+        "defaultValue": "1",
         "required": true
       }
     ],
@@ -50,7 +47,6 @@
         "pattern": "+ 38 (0##) ### ####",
         "placeholder": "Введіть номер",
         "defaultValue": "",
-        "maxLength": 19,
         "required": true
       }
     ],
@@ -59,8 +55,7 @@
       "name": "userMessage",
       "maxLength": 512,
       "placeholder": "Введіть повідомлення",
-      "defaultValue": "",
-      "required": true
+      "defaultValue": ""
     },
     "select": {
       "id": "cf-s01",
@@ -104,10 +99,20 @@
           "message": "У тексті має бути не більше 512 символів"
         }
       },
-      "certificatePrice": {
+      "certificateCost": {
         "min": {
           "value": 350,
-          "message": "Мінімальна вартість"
+          "message": "Мінімальна вартість 350"
+        }
+      },
+      "massageQuantity": {
+        "min": {
+          "value": 1,
+          "message": "Мінімальна кількість 1"
+        },
+        "max": {
+          "value": 99,
+          "message": "Мінімальна кількість 99"
         }
       },
       "massageType": {
@@ -122,16 +127,6 @@
         "maxLength": {
           "value": 90,
           "message": "У тексті має бути не більше 90 символів"
-        }
-      },
-      "massageQuantity": {
-        "min": {
-          "value": 1,
-          "message": "Мінімальна кількість"
-        },
-        "max": {
-          "value": 99,
-          "message": "Мінімальна кількість"
         }
       },
 
