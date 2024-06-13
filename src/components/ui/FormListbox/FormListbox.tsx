@@ -80,7 +80,7 @@ export const FormListbox = <TFormValues extends FieldValues>({
                     <ListboxOption
                       as="li"
                       key={option.id}
-                      className="md:hover:bg-inputActive/20 md:focus:bg-inputActive/20 group relative flex cursor-pointer select-none items-center gap-4 p-4 text-sm/[1.4] text-brownDark  data-[focus]:text-blackLight"
+                      className="group relative flex cursor-pointer select-none items-center gap-4 p-4 text-sm/[1.4] text-brownDark data-[focus]:text-blackLight md:hover:bg-inputActive/20  md:focus:bg-inputActive/20"
                       value={option.title}
                     >
                       <ChevronDownIcon
