@@ -1,4 +1,5 @@
 export * from './AccordionFAQItem';
+export * from './AccordionServiceItem';
 export * from './BenefitCard';
 export * from './ButtonLink';
 export * from './ButtonLink';

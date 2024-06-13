@@ -6,11 +6,13 @@ import { Tab } from '@headlessui/react';
 
 import { cn } from '@/utils';
 
-import { AccordionFAQItemProps } from './types';
+import { AccordionServiceItemProps } from './types';
 
 import DownIcon from '~/icons/arrow-down.svg';
 
-export const AccordionFAQItem: React.FC<AccordionFAQItemProps> = ({ data }) => {
+export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
+  data,
+}) => {
   return (
     <>
       {data?.map((item, index) => (
@@ -26,7 +28,12 @@ export const AccordionFAQItem: React.FC<AccordionFAQItemProps> = ({ data }) => {
                   'mb-2': selected,
                 })}
               >
-                <p className="w-fit font-open-sans text-[16px]/[1.2] font-semibold tracking-[-0.32px] text-brownDark md:text-[18px] md:tracking-[-0.36px] xl:font-bold 2xl:text-[20px] 2xl:tracking-[-0.4px]">
+                <p
+                  className={cn(
+                    'w-fit font-open-sans text-[16px]/[1.2] font-normal uppercase tracking-[-0.32px] text-brownDark xl:text-[18px] xl:font-bold xl:tracking-[-0.36px] 2xl:text-[20px] 2xl:tracking-[-0.4px]',
+                    { 'font-bold': selected },
+                  )}
+                >
                   {item.title}
                 </p>
                 <DownIcon
@@ -38,9 +45,14 @@ export const AccordionFAQItem: React.FC<AccordionFAQItemProps> = ({ data }) => {
                 />
               </div>
               {selected && (
-                <p className="font-open-sans text-[14px]/[1.2] font-normal tracking-[-0.28px] text-brown md:text-[16px] md:tracking-[-0.32px]">
-                  {item.description}
-                </p>
+                <div>
+                  <p className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                    {item.description}
+                  </p>
+                  <p>{item.for}</p>
+                  <p>{item.duration}</p>
+                  <p>{item.subscription}</p>
+                </div>
               )}
             </>
           )}

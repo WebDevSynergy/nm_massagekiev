@@ -98,44 +98,5 @@
     "closeButton": { "ariaLabel": "Закрити мобільне меню" }
   },
 
-  "socialLinksHeader": [
-    {
-      "name": "telegram",
-      "path": "https://t.me/Mentiy_Nadiya",
-      "ariaLabel": "перейти в Телеграм"
-    },
-    {
-      "name": "viber",
-      "path": "viber://chat?number=%2B38631772223",
-      "ariaLabel": "перейти у Viber"
-    },
-    {
-      "name": "instagram",
-      "path": "https://www.instagram.com/nm_massagekiev/",
-      "ariaLabel": "перейти на сторінку Інстаграм"
-    }
-  ],
-
-  "socialLinksFooter": [
-    {
-      "name": "telegram",
-      "path": "https://t.me/Mentiy_Nadiya",
-      "ariaLabel": "перейти в Телеграм"
-    },
-    {
-      "name": "viber",
-      "path": "viber://chat?number=%2B38631772223",
-      "ariaLabel": "перейти у Viber"
-    },
-    {
-      "name": "facebook",
-      "path": "https://www.facebook.com/profile.php?id=100083616475207",
-      "ariaLabel": "перейти на сторінку Фейсбук"
-    },
-    {
-      "name": "instagram",
-      "path": "https://www.instagram.com/nm_massagekiev/",
-      "ariaLabel": "перейти на сторінку Інстаграм"
-    }
-  ]
+  "serviceTitle": "Послуги"
 }
