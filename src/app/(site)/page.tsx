@@ -1,9 +1,9 @@
 import {
   // HeroSection,
   // BenefitsSection,
-  // MasseursSection,
-  // ContactUsSections,
-  // BlogSections,
+  MasseursSection,
+  ContactUsSections,
+  BlogSections,
   CertificateSection,
   // CosmeceuticalsSection,
   // FAQSection,
@@ -24,11 +24,11 @@ export default function Home() {
 
       {/* <CosmeceuticalsSection /> */}
 
-      {/* <MasseursSection /> */}
+      <MasseursSection />
 
-      {/* <ContactUsSections /> */}
+      <ContactUsSections />
 
-      {/* <BlogSections /> */}
+      <BlogSections />
 
       <CertificateSection />
 
