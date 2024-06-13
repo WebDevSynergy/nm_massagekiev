@@ -34,7 +34,7 @@ body {
 
 /** FORM STYLES */
 .input {
-  @apply relative mb-1 w-full rounded-2xl border-none bg-greenLight px-4 py-[13.4px] text-left text-sm/[1.4] text-brownDark transition placeholder:text-sm/[1.4] placeholder:text-grey hover:bg-inputActive/20 focus:bg-inputActive/20 focus:outline-none focus-visible:border-none active:bg-inputActive/10 active:text-blackLight smOnly:focus-visible:py-3 smOnly:focus-visible:text-base/[1.4];
+  @apply relative mb-1 w-full rounded-2xl border-none bg-greenLight px-4 py-3 text-left text-sm/[1.4] text-brownDark transition placeholder:text-sm/[1.4] placeholder:text-grey hover:bg-inputActive/20 focus:bg-inputActive/20 focus:outline-none focus-visible:border-none active:bg-inputActive/10 active:text-blackLight md:py-[14px] smOnly:focus-visible:py-[10.6px] smOnly:focus-visible:text-base/[1.4];
 }
 .input[aria-invalid='true'] {
   @apply bg-inputRed/20 text-brown;

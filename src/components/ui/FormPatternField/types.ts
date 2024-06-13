@@ -1,4 +1,3 @@
-import { TService } from '@/actions/sanity';
 import React from 'react';
 import {
   FieldErrors,
@@ -8,21 +7,18 @@ import {
   UseControllerProps,
 } from 'react-hook-form';
 
-export type FormListboxProps<TFormValues extends FieldValues> =
+export type FormPatternFieldProps<TFormValues extends FieldValues> =
   UseControllerProps<TFormValues> & {
     label: string;
     name: Path<TFormValues>;
     control: Control<TFormValues>;
     errors: FieldErrors;
-
-    variants: TService[];
-    placeholder: string;
-    required: boolean;
-    className?: string;
+    type?: 'text' | 'tel' | 'password' | undefined;
+    handleQuantity: (type: 'add' | 'minus') => void;
   } & Omit<
       React.DetailedHTMLProps<
-        React.SelectHTMLAttributes<HTMLSelectElement>,
-        HTMLSelectElement
+        React.InputHTMLAttributes<HTMLInputElement>,
+        HTMLInputElement
       >,
       'value' | 'type'
     >;

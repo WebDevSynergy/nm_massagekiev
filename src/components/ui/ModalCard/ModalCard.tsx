@@ -6,6 +6,7 @@ import { ButtonLink, Modal } from '@/components/ui';
 
 import { ModalCardProps } from './types';
 
+import { cn } from '@/utils';
 import data from '@/data/common.json';
 
 import CloseIcon from '~/icons/close.svg';
@@ -15,6 +16,7 @@ export const ModalCard: React.FC<ModalCardProps> = ({
   buttonStyle,
   buttonStyles,
   children,
+  backdropStyle,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -35,8 +37,8 @@ export const ModalCard: React.FC<ModalCardProps> = ({
       <Modal
         isOpen={open}
         onClose={onClose}
-        modalStyle="rounded-lg md:rounded-2xl xl:rounded-3xl 2xl:rounded-4xl bg-whiteBeige p-6 md:p-10 xl:p-20 relative w-full xl:w-auto"
-        backdropStyle="container"
+        modalStyle="rounded-lg md:rounded-2xl xl:rounded-3xl 2xl:rounded-4xl bg-whiteBeige p-6 md:p-10 xl:p-20 relative w-full xl:w-auto max-w-[480px] md:max-w-[688px] xl:max-w-[1040px]"
+        backdropStyle={cn('p-4 md:p-10 2xl:p-[140px]', backdropStyle)}
       >
         <>
           <ButtonLink

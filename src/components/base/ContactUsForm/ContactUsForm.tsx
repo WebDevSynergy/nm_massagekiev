@@ -15,7 +15,6 @@ import {
 
 import { sendMsgTelegram } from '@/actions';
 import { makeTgContactMsg } from '@/utils';
-
 import content from '@/data/contactUs-form.json';
 
 import { TContact, contactSchema } from './schema';
@@ -49,7 +48,6 @@ export const ContactUsForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<TContact> = async data => {
     const msg = makeTgContactMsg(data);
-
     try {
       await sendMsgTelegram(msg);
       setIsSuccess(true);
