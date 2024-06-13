@@ -1,6 +1,6 @@
 'use client';
 
-import { Controller } from 'react-hook-form';
+import { Controller, FieldValues } from 'react-hook-form';
 
 import { FormError } from '@/components/ui';
 
@@ -10,7 +10,7 @@ import { cn } from '@/utils/cn';
 
 import StarIcon from '~/icons/star.svg';
 
-export const FormTextArea: React.FC<FormFieldProps> = ({
+export const FormTextArea = <TFormValues extends FieldValues>({
   control,
   name,
   label,
@@ -18,12 +18,13 @@ export const FormTextArea: React.FC<FormFieldProps> = ({
   maxLength,
   className,
   required,
+  defaultValue,
   ...props
-}) => (
+}: FormFieldProps<TFormValues>) => (
   <Controller
     name={name}
     control={control}
-    defaultValue=""
+    defaultValue={defaultValue}
     render={({ field }) => (
       <label className={cn('label', className)}>
         <span className="relative mb-1 inline max-w-fit">
@@ -42,7 +43,7 @@ export const FormTextArea: React.FC<FormFieldProps> = ({
         />
 
         {maxLength && (
-          <span className="absolute bottom-0 right-0 text-[10px]/[1] text-brownDark">{`${field.value.length || 0}/${maxLength}`}</span>
+          <span className="absolute bottom-0 right-0 text-[10px]/[1] text-brownDark">{`${field.value?.length || 0}/${maxLength}`}</span>
         )}
 
         <FormError errors={errors} name={name} />

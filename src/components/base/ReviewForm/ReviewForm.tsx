@@ -16,11 +16,12 @@ import {
 import { createReviewSanity, sendMsgTelegram } from '@/actions';
 import { makeTgReviewMsg } from '@/utils';
 
-import content from '@/data/review-form.json';
+import data from '@/data/review-form.json';
+
 import { TReview, reviewSchema } from './schema';
 
 export const ReviewForm: React.FC = () => {
-  const { formName, inputs, textarea, submitBtn } = content.form;
+  const { formName, inputs, textarea, submitBtn } = data.form;
 
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -71,17 +72,18 @@ export const ReviewForm: React.FC = () => {
         {inputs.map(({ id, name, ...restProps }) => {
           if (restProps.type === 'tel') {
             return (
-              <FormPhoneField
+              <FormPhoneField<TReview>
                 key={id}
                 name={name as keyof TReview}
                 control={control}
                 errors={errors}
+                defaultValue=""
                 {...restProps}
               />
             );
           }
           return (
-            <FormField
+            <FormField<TReview>
               key={id}
               name={name as keyof TReview}
               register={register}
@@ -91,7 +93,7 @@ export const ReviewForm: React.FC = () => {
           );
         })}
 
-        <FormTextArea
+        <FormTextArea<TReview>
           {...textarea}
           name={textarea.name as keyof TReview}
           control={control}

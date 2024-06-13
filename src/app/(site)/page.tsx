@@ -1,14 +1,14 @@
 import {
-  BlogSections,
-  ContactUsSections,
-  // CertificateSection,
-  // CosmeceuticalsSection,
-  FAQSection,
   // HeroSection,
   // BenefitsSection,
-  MasseursSection,
-  ReviewsSection,
   ServicesSection,
+  // ReviewsSection,
+  // CosmeceuticalsSection,
+  MasseursSection,
+  ContactUsSections,
+  BlogSections,
+  CertificateSection,
+  FAQSection,
 } from '@/sections';
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
 
       <ServicesSection />
 
-      <ReviewsSection />
+      {/* <ReviewsSection /> */}
 
       {/* <CosmeceuticalsSection /> */}
 
@@ -30,7 +30,7 @@ export default function Home() {
 
       <BlogSections />
 
-      {/* <CertificateSection /> */}
+      <CertificateSection />
 
       <FAQSection />
 

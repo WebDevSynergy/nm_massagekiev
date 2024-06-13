@@ -1,7 +1,7 @@
 'use client';
 
 import { PatternFormat } from 'react-number-format';
-import { Controller } from 'react-hook-form';
+import { Controller, FieldValues } from 'react-hook-form';
 
 import { FormError } from '@/components/ui';
 
@@ -11,7 +11,7 @@ import { cn } from '@/utils/cn';
 
 import StarIcon from '~/icons/star.svg';
 
-export const FormPhoneField: React.FC<FormPhoneFieldProps> = ({
+export const FormPhoneField = <TFormValues extends FieldValues>({
   label,
   name,
   control,
@@ -20,11 +20,12 @@ export const FormPhoneField: React.FC<FormPhoneFieldProps> = ({
   className,
   pattern,
   placeholder,
-}) => (
-  <Controller
+  defaultValue,
+}: FormPhoneFieldProps<TFormValues>) => (
+  <Controller<TFormValues>
     name={name}
     control={control}
-    defaultValue=""
+    defaultValue={defaultValue}
     render={({ field }) => (
       <label className={cn('label', className)}>
         <span className="relative mb-1 inline max-w-fit">

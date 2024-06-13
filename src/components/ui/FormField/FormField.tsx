@@ -1,3 +1,5 @@
+import { FieldValues } from 'react-hook-form';
+
 import { FormError } from '@/components/ui';
 
 import { cn } from '@/utils/cn';
@@ -6,7 +8,7 @@ import { FormFieldProps } from './types';
 
 import StarIcon from '~/icons/star.svg';
 
-export const FormField: React.FC<FormFieldProps> = ({
+export const FormField = <TFormValues extends FieldValues>({
   name,
   register,
   errors,
@@ -15,7 +17,7 @@ export const FormField: React.FC<FormFieldProps> = ({
   className,
   type = 'text',
   ...props
-}) => (
+}: FormFieldProps<TFormValues>) => (
   <label className={cn('label', className)}>
     <span className="relative mb-1 inline max-w-fit">
       {label}

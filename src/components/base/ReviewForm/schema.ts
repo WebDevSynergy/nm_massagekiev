@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-import data from '@/data/contactUs-form.json';
+import data from '@/data/review-form.json';
 
 const { validation } = data.form;
 const { userName, phoneNumber, userMessage, common } = validation;
@@ -28,6 +28,7 @@ export const reviewSchema = z.object({
   userMessage: z
     .string(commonMsg)
     .trim()
+    .min(userMessage.minLength.value, userMessage.minLength.message)
     .max(userMessage.maxLength.value, userMessage.maxLength.message)
     .regex(RegExp(userMessage.format.reg), userMessage.format.message),
 });
