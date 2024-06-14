@@ -1,18 +1,23 @@
+'use client';
+
 import { CertificateCard, ModalCard, SanityImage } from '@/components/ui';
 
-import data from '@/data/common.json';
-
 import { MasseursCardProps } from './types';
+
+import data from '@/data/common.json';
 
 import styles from './MasseurCard.module.css';
 
 export const MasseurCard: React.FC<MasseursCardProps> = ({
-  masseur: { name, resume, certificateArray, image },
+  name,
+  resume,
+  certificateArray,
+  image,
 }) => {
-  const { buttonLabel } = data.masseurs;
+  const { buttonLabel } = data.masseursSection;
 
   return (
-    <div className="md:w-[332px] xl:w-[372px] 2xl:w-[520px]">
+    <div className="md:w-[332px] xl:w-[384px] 2xl:w-[520px]">
       <div className="relative mb-4 md:mb-6">
         <div className={styles.photo}>
           <SanityImage

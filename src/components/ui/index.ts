@@ -23,6 +23,9 @@ export * from './ModalCard';
 export * from './MainNav';
 export * from './MasseurCard';
 export * from './CertificateCard';
+export * from './ArrowSlider';
+export * from './Slider';
+export * from './BlogCard';
 
 /**FORM */
 export * from './FormField';

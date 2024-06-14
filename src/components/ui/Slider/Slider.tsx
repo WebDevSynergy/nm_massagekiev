@@ -1,31 +1,30 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { SwiperSlide, Swiper } from 'swiper/react';
+
+import { makeSliderConfig } from '@/utils/makeSliderConfig';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay';
 
-import { Navigation, Pagination } from 'swiper/modules';
+import { SliderProps } from './types';
 
-type Slide = {
-  content: React.ReactNode;
-};
-
-type SwiperSliderProps = {
-  slides: Slide[];
-  settings: any;
-};
-
-export const SwiperSlider: React.FC<SwiperSliderProps> = ({
-  slides,
-  settings,
+export const Slider: React.FC<SliderProps> = ({
+  slideClassName,
+  slidesData,
+  slideComponent: SlideComponent,
+  ...restProps
 }) => {
   return (
-    <Swiper modules={[Navigation, Pagination]} {...settings}>
-      {slides.map((slide, index) => (
-        <SwiperSlide key={index}>{slide.content}</SwiperSlide>
+    <Swiper {...makeSliderConfig(restProps)}>
+      {slidesData.map((card, idx) => (
+        <SwiperSlide
+          tag="li"
+          className={slideClassName}
+          key={card.id ? card.id : idx}
+        >
+          <SlideComponent {...card} />
+        </SwiperSlide>
       ))}
     </Swiper>
   );
