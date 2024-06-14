@@ -11,7 +11,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = props => {
 
   const btnClasses = cn(
     {
-      'flex h-11 w-full shrink-0 items-center justify-center rounded-[24px] px-6 py-2 text-base/[1.4] tracking-[-.02em] text-white transition-colors md:max-w-[336px] xl:h-12  xl:max-w-[282px] xl:text-lg/[1.4] 2xl:max-w-[253px] 2xl:text-xl':
+      'flex h-11 w-full shrink-0 items-center justify-center rounded-[24px] px-6 py-2 text-base/[1.4] tracking-[-.02em] text-white transition-colors  xl:h-12  xl:max-w-[282px] xl:text-lg/[1.4] 2xl:max-w-[253px] 2xl:text-xl':
         styleType !== 'unstyled',
       'bg-green hover:bg-greenDark focus:bg-greenDark': styleType === 'primary',
       'bg-orange hover:bg-orangeDark focus:bg-orangeDark':

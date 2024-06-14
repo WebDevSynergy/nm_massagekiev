@@ -4,7 +4,7 @@ import { Accordion } from '@/components/base';
 
 import { AccordionServiceItem, SectionTitle } from '@/components/ui';
 
-import data from '@/data/common.json';
+import dataServices from '@/data/services.json';
 
 export const ServicesSection: React.FC = async () => {
   const services = await getServices();
@@ -13,7 +13,7 @@ export const ServicesSection: React.FC = async () => {
     <section className="section" id="services">
       <div className="container">
         <SectionTitle className="mb-4 md:mb-6 xl:mb-8 2xl:mb-10">
-          {data.serviceTitle}
+          {dataServices.serviceTitle}
         </SectionTitle>
 
         <Accordion type="services">
