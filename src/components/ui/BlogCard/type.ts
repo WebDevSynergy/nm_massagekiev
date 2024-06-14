@@ -1,6 +1,9 @@
+import { Image, Slug } from 'sanity';
+
 export type BlogCardProps = {
-  imageUrl: string;
+  image: Image;
   title: string;
-  text: string;
+  description: string;
   alt: string;
+  slug: Slug;
 };

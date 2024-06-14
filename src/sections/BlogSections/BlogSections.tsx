@@ -1,75 +1,49 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-'use client';
-import React, { useEffect, useState, Suspense } from 'react';
-import { Image as SanityImage, Slug } from 'sanity';
-import { urlForImage } from '@/sanity/lib/image';
+import {
+  ArrowSlider,
+  BlogCard,
+  ButtonLink,
+  SectionTitle,
+  Slider,
+} from '@/components/ui';
+
 import { getPostsWithPrioritySort } from '@/actions/sanity';
-import { BlogCard } from '@/components/ui/BlogCard/BlogCard';
 
-const SwiperSlider = React.lazy(() =>
-  import('@/components/ui/Slider/Slider').then(module => ({
-    default: module.SwiperSlider,
-  })),
-);
+import data from '@/data/common.json';
 
-export const BlogSections: React.FC = () => {
-  const [posts, setPosts] = useState<any[]>([]);
+export const BlogSections: React.FC = async () => {
+  const { labelButton, title } = data.blogSection;
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const fetchedPosts = await getPostsWithPrioritySort();
-      setPosts(fetchedPosts);
-    };
-
-    fetchPosts();
-  }, []);
-
-  const slides = posts.map(
-    ({
-      _id,
-      title,
-      description,
-      image,
-    }: {
-      _id: string;
-      title: string;
-      description: string;
-      image: SanityImage;
-      slug: Slug;
-    }) => {
-      const imageUrl = urlForImage(image);
-      const alt = image?.caption?.toString() || ' ';
-
-      return {
-        content: (
-          <div key={_id}>
-            <BlogCard
-              imageUrl={imageUrl}
-              title={title}
-              text={description}
-              alt={alt}
-            />
-          </div>
-        ),
-      };
-    },
-  );
+  const posts = await getPostsWithPrioritySort();
 
   return (
-    <section className="section">
-      <div className="container">
-        <h2 className="text-[32px]">Блог</h2>
-        <Suspense fallback={<div>Loading...</div>}>
-          <SwiperSlider
-            slides={slides}
-            settings={{
-              slidesPerView: 3,
-              spaceBetween: 10,
-              navigation: true,
-            }}
-          />
-        </Suspense>
-      </div>
-    </section>
+    <>
+      {posts && (
+        <section className="section bg-beige">
+          <div className="container">
+            <div className="md:mb-6 md:flex md:justify-between xl:mb-8 2xl:mb-10">
+              <SectionTitle className="mb-4 md:mb-0">{title}</SectionTitle>
+
+              <ArrowSlider section="blog" wrapClassName="mb-4 md:mb-0" />
+            </div>
+
+            <Slider
+              section="blog"
+              slidesData={posts}
+              slideComponent={BlogCard}
+              wrapClassName="mb-6 2xl:mb-10"
+            />
+
+            <ButtonLink
+              tag="link"
+              href="/blog/1"
+              styleType="secondary"
+              className="mx-auto"
+            >
+              {labelButton}
+            </ButtonLink>
+          </div>
+        </section>
+      )}
+    </>
   );
 };

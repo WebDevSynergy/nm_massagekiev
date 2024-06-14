@@ -1,5 +1,5 @@
 .photo {
-  @apply h-[448px] w-full max-w-[448px] overflow-hidden rounded-[24px] md:size-[332px] md:max-w-full md:rounded-[32px] xl:size-[372px] xl:rounded-[40px] 2xl:size-[520px] sm480:h-[328px];
+  @apply h-[448px] w-full max-w-[448px] overflow-hidden rounded-[24px] md:size-[332px] md:max-w-full md:rounded-[32px] xl:size-[384px] xl:rounded-[40px] 2xl:size-[520px] sm480:h-[328px];
 }
 
 .photo::after {
@@ -40,8 +40,8 @@
     top: 12px;
     left: 12px;
 
-    width: 372px;
-    height: 372px;
+    width: 384px;
+    height: 384px;
     border-radius: 52px;
   }
 }
