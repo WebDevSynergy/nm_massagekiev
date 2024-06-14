@@ -7,12 +7,17 @@ import {
   UseControllerProps,
 } from 'react-hook-form';
 
-export type FormPhoneFieldProps<TFormValues extends FieldValues> =
+import { TFieldInput } from '@/types';
+
+export type FormInputQuantityProps<TFormValues extends FieldValues> =
   UseControllerProps<TFormValues> & {
     label: string;
     name: Path<TFormValues>;
     control: Control<TFormValues>;
     errors: FieldErrors;
+    costs: TCosts;
+    type?: TFieldInput;
+    handleQuantity: (type: 'add' | 'minus') => void;
   } & Omit<
       React.DetailedHTMLProps<
         React.InputHTMLAttributes<HTMLInputElement>,
@@ -20,3 +25,9 @@ export type FormPhoneFieldProps<TFormValues extends FieldValues> =
       >,
       'value' | 'type'
     >;
+
+type TCosts = {
+  currency: string;
+  promoCost: number | undefined;
+  totalCost: number | undefined;
+};

@@ -48,8 +48,8 @@ export const certificateSchema = z
           .int()
           .positive()
           .min(certificateCost.min.value, certificateCost.min.message),
-        massageType: z.never(),
-        massageQuantity: z.never(),
+        massageType: z.undefined(),
+        massageQuantity: z.undefined(),
       }),
       z.object({
         massageType: z
@@ -62,7 +62,7 @@ export const certificateSchema = z
           .positive()
           .min(massageQuantity.min.value, massageQuantity.min.message)
           .max(massageQuantity.max.value, massageQuantity.max.message),
-        certificateCost: z.never(),
+        certificateCost: z.undefined(),
       }),
     ]),
   );

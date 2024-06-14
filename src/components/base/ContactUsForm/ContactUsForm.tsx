@@ -8,19 +8,26 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
   ButtonLink,
   FormField,
-  FormPhoneField,
   FormTextArea,
   FormPopup,
+  FormFieldPattern,
+  Spinner,
 } from '@/components/ui';
 
 import { sendMsgTelegram } from '@/actions';
 import { makeTgContactMsg } from '@/utils';
-import content from '@/data/contactUs-form.json';
+import data from '@/data/contactUs-form.json';
 
 import { TContact, contactSchema } from './schema';
+import { TContactFormData } from './types';
 
 export const ContactUsForm: React.FC = () => {
-  const { formName, inputs, textarea, submitBtn } = content.form;
+  const {
+    formName,
+    inputs: [userNameInput, userPhoneInput],
+    textarea,
+    submitBtn,
+  } = data.form as TContactFormData<typeof data.form>;
 
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -35,7 +42,7 @@ export const ContactUsForm: React.FC = () => {
     setValue,
     reset,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<TContact>({
     resolver: zodResolver(contactSchema),
     mode: 'onBlur',
@@ -62,44 +69,36 @@ export const ContactUsForm: React.FC = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} id={formName}>
         <div className="md:mb-4 md:grid md:grid-cols-2 md:gap-4">
-          {inputs.map(({ id, name, ...restProps }) => {
-            if (restProps.type === 'tel') {
-              return (
-                <FormPhoneField
-                  key={id}
-                  name={name as keyof TContact}
-                  control={control}
-                  errors={errors}
-                  {...restProps}
-                />
-              );
-            }
-            return (
-              <FormField
-                key={id}
-                name={name as keyof TContact}
-                register={register}
-                errors={errors}
-                {...restProps}
-              />
-            );
-          })}
+          <FormField
+            key={userNameInput.id}
+            register={register}
+            errors={errors}
+            {...userNameInput}
+          />
+
+          <FormFieldPattern
+            key={userPhoneInput.id}
+            control={control}
+            errors={errors}
+            {...userPhoneInput}
+          />
         </div>
 
         <FormTextArea
-          {...textarea}
-          name={textarea.name as keyof TContact}
+          key={textarea.id}
+          className="mb-6 xl:mb-8 2xl:mb-10"
           control={control}
           errors={errors}
-          className="mb-6 xl:mb-8 2xl:mb-10"
+          {...textarea}
         />
 
         <ButtonLink
           type="submit"
           styleType="primary"
           className="mx-auto flex w-full max-w-[336px] xl:inline-flex xl:max-w-[282px] 2xl:max-w-[252px]"
+          disabled={isSubmitting}
         >
-          {submitBtn.label}
+          {isSubmitting ? <Spinner /> : submitBtn.label}
         </ButtonLink>
       </form>
 

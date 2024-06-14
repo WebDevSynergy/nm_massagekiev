@@ -8,9 +8,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
   ButtonLink,
   FormField,
-  FormPhoneField,
   FormTextArea,
   FormPopup,
+  FormFieldPattern,
 } from '@/components/ui';
 
 import { createReviewSanity, sendMsgTelegram } from '@/actions';
@@ -19,9 +19,16 @@ import { makeTgReviewMsg } from '@/utils';
 import data from '@/data/review-form.json';
 
 import { TReview, reviewSchema } from './schema';
+import { TReviewFormData } from './types';
+import { Spinner } from '@sanity/ui';
 
 export const ReviewForm: React.FC = () => {
-  const { formName, inputs, textarea, submitBtn } = data.form;
+  const {
+    formName,
+    inputs: [userNameInput, userPhoneInput],
+    textarea,
+    submitBtn,
+  } = data.form as TReviewFormData<typeof data.form>;
 
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -36,7 +43,7 @@ export const ReviewForm: React.FC = () => {
     setValue,
     reset,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<TReview>({
     resolver: zodResolver(reviewSchema),
     mode: 'onBlur',
@@ -69,33 +76,22 @@ export const ReviewForm: React.FC = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} id={formName}>
-        {inputs.map(({ id, name, ...restProps }) => {
-          if (restProps.type === 'tel') {
-            return (
-              <FormPhoneField<TReview>
-                key={id}
-                name={name as keyof TReview}
-                control={control}
-                errors={errors}
-                defaultValue=""
-                {...restProps}
-              />
-            );
-          }
-          return (
-            <FormField<TReview>
-              key={id}
-              name={name as keyof TReview}
-              register={register}
-              errors={errors}
-              {...restProps}
-            />
-          );
-        })}
+        <FormField
+          key={userNameInput.id}
+          register={register}
+          errors={errors}
+          {...userNameInput}
+        />
 
-        <FormTextArea<TReview>
+        <FormFieldPattern
+          key={userPhoneInput.id}
+          control={control}
+          errors={errors}
+          {...userPhoneInput}
+        />
+
+        <FormTextArea
           {...textarea}
-          name={textarea.name as keyof TReview}
           control={control}
           errors={errors}
           className="mb-6 xl:mb-8 2xl:mb-10"
@@ -105,8 +101,9 @@ export const ReviewForm: React.FC = () => {
           type="submit"
           styleType="primary"
           className="mx-auto flex w-full md:ml-0 md:max-w-[292px] xl:inline-flex xl:max-w-[202px] 2xl:max-w-[252px]"
+          disabled={isSubmitting}
         >
-          {submitBtn.label}
+          {isSubmitting ? <Spinner /> : submitBtn.label}
         </ButtonLink>
       </form>
 

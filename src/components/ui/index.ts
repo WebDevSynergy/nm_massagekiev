@@ -26,10 +26,11 @@ export * from './CertificateCard';
 
 /**FORM */
 export * from './FormField';
-export * from './FormPhoneField';
 export * from './FormListbox';
 export * from './FormTextArea';
 export * from './FormError';
 export * from './FormPopup';
-export * from './FormPatternField';
 export * from './CostHint';
+export * from './FormFieldPattern';
+export * from './FormInputQuantity';
+export * from './FormTabButtons';
