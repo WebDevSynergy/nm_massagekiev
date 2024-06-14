@@ -16,7 +16,7 @@ export type FormFieldPatternProps<TFormValues extends FieldValues> =
     control: Control<TFormValues>;
     errors: FieldErrors;
     type: TFieldInput;
-    noValidate?:boolean
+    noValidate?: boolean;
   } & Omit<
       React.DetailedHTMLProps<
         React.InputHTMLAttributes<HTMLInputElement>,

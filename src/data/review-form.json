@@ -31,7 +31,7 @@
       }
     ],
     "textarea": {
-            "id": "rf-te01",
+      "id": "rf-te01",
       "label": "Повідомлення",
       "name": "userMessage",
       "maxLength": 512,

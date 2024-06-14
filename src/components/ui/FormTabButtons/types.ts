@@ -1,4 +1,4 @@
-import { TabButtonsType } from "@/types";
+import { TabButtonsType } from '@/types';
 
 export type FormTabButtonsProps = {
   options: TButton[];
@@ -12,4 +12,5 @@ type TButton = {
 };
 
 type TabFunc = {
-[key: string]:()=> void}
+  [key: string]: () => void;
+};
