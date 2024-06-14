@@ -24,6 +24,7 @@
       },
       {
         "id": "cf-i02",
+        "label": "Кількість",
         "name": "massageQuantity",
         "pattern": "##",
         "defaultValue": "1",
@@ -51,6 +52,7 @@
       }
     ],
     "textarea": {
+      "id": "cf-te01",
       "label": "Повідомлення",
       "name": "userMessage",
       "maxLength": 512,

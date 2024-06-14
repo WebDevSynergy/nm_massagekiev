@@ -337,7 +337,7 @@ Additional you can set rest of the tag `input` props such as `className`,
 | `label`    | `undefined` | required, `string`, label value                                                   |
 | `type`     | `text`      | optional, `string`, input type                                                    |
 
-- #### FormPhoneField
+- #### FormFieldPattern
 
 This is a styled textarea component with an accompanying label and FormError the
 formatt numeric input according pattern. If input has `required` prop required
