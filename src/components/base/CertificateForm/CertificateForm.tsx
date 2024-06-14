@@ -119,17 +119,13 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
   };
 
   const onSubmit: SubmitHandler<TCertificate> = async data => {
-    let msg = '';
-    if (data.massageType) {
-      msg = makeTgCertificateMsg({
-        ...data,
-        promoCost,
-        totalCost: getTotalCost(),
-      });
-    }
-    if (data.certificateCost) {
-      msg = makeTgOrderMsg(data);
-    }
+    const msg = !data.massageType
+      ? makeTgOrderMsg(data)
+      : makeTgCertificateMsg({
+          ...data,
+          promoCost,
+          totalCost: getTotalCost(),
+        });
 
     try {
       await sendMsgTelegram(msg);
