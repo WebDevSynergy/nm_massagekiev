@@ -16,14 +16,13 @@ import {
   CostHint,
 } from '@/components/ui';
 
+import { TService } from '@/actions/sanity';
 import { CertificateFormProps, TFormData } from './types';
 import { TCertificate, certificateSchema } from './schema';
 
 import { sendMsgTelegram } from '@/actions';
 import { cn, makeTgCertificateMsg, makeTgOrderMsg } from '@/utils';
 import data from '@/data/certificate-form.json';
-
-import { TService } from '@/actions/sanity';
 
 const MAX_DISCOUNT = 20;
 
@@ -34,16 +33,13 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
     formName,
     currency,
     costHintButtons,
-    commonInputs,
-    textarea,
     submitBtn,
-  } = data.form;
-
-  const {
     inputs: [certificateCost, massageQuantity],
+    commonInputs,
     select,
     tabButtons,
-  } = data.form as TFormData;
+    textarea,
+  } = data.form as TFormData<typeof data.form>;
 
   const [isCertificateCost, setIsCertificateCost] = useState(false);
   const [promoCost, setPromoCost] = useState<number | undefined>();
@@ -69,7 +65,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
   });
 
   const typeMassage = watch(select.name);
-  const quantity = watch(massageQuantity.name as keyof TCertificate);
+  const quantity = watch(massageQuantity.name);
 
   useEffect(() => {
     const service = options?.find(({ title }) => title === typeMassage);
@@ -222,7 +218,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
               return (
                 <FormPhoneField
                   key={id}
-                  name={name as keyof TCertificate}
+                  name={name}
                   control={control}
                   errors={errors}
                   {...restProps}
@@ -232,7 +228,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
             return (
               <FormField
                 key={id}
-                name={name as keyof TCertificate}
+                name={name}
                 register={register}
                 errors={errors}
                 {...restProps}
@@ -243,7 +239,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
 
         <FormTextArea
           {...textarea}
-          name={textarea.name as keyof TCertificate}
+          name={textarea.name}
           control={control}
           errors={errors}
           className="mb-6 xl:mb-8 2xl:mb-10"
