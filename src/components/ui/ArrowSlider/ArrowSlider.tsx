@@ -2,11 +2,12 @@
 
 import { cn } from '@/utils/cn';
 
-import ControlIcon from '~/icons/arrow.svg';
+import { ArrowSliderProps } from './types';
 
 import data from '@/data/common.json';
+import ControlIcon from '~/icons/arrow.svg';
 
-import { ArrowSliderProps } from './types';
+import styles from './ArrowSlider.module.css';
 
 export const ArrowSlider: React.FC<ArrowSliderProps> = ({
   section,
@@ -23,32 +24,41 @@ export const ArrowSlider: React.FC<ArrowSliderProps> = ({
   return (
     <div
       className={cn(
-        'flex justify-between md:w-[120px] xl:w-[130px] 2xl:w-[144px]',
+        'md:w-[120px] xl:w-[130px] 2xl:w-[144px]',
+        'flex justify-between',
         wrapClassName,
       )}
     >
       <button
-        className={cn(`slider-prev-btn-${section}`, 'ctrlSliderBtn')}
+        className={cn(
+          `slider-prev-btn-${section}`,
+          'ctrlSliderBtn',
+          styles.btn,
+        )}
         type="button"
         aria-label={prevBtnAriaLabel}
       >
         <ControlIcon
           width={40}
           height={40}
-          className={`size-[20px] rotate-180 text-greenDark transition-all hover:text-blackLight md:size-[24px] xl:size-[40px]`}
+          className={`size-[20px] rotate-180 md:size-[24px] xl:size-[40px]`}
           aria-label={prevIconAriaLabel}
         />
       </button>
 
       <button
-        className={cn(`slider-next-btn-${section}`, 'ctrlSliderBtn')}
+        className={cn(
+          `slider-next-btn-${section}`,
+          'ctrlSliderBtn',
+          styles.btn,
+        )}
         type="button"
         aria-label={nextBtnAriaLabel}
       >
         <ControlIcon
           width={40}
           height={40}
-          className="size-[20px] text-greenDark transition-all hover:text-blackLight md:size-[24px] xl:size-[40px]"
+          className="size-[20px] md:size-[24px] xl:size-[40px]"
           aria-label={nextIconAriaLabel}
         />
       </button>

@@ -4,8 +4,8 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="section">
       <div className="container">
-        HeroSection
-        <div className="flex items-center justify-between gap-2">
+        <SectionTitle>HeroSection</SectionTitle>
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <ButtonLink type="button" styleType="primary">
             Записатися
           </ButtonLink>
@@ -16,7 +16,6 @@ export const HeroSection: React.FC = () => {
         <div className="bg-white">
           <GoogleRating />
         </div>
-        <SectionTitle>SectionTitle example</SectionTitle>
       </div>
     </section>
   );

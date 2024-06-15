@@ -42,3 +42,8 @@ body {
 .label {
   @apply relative flex flex-col text-sm/[1.4] text-brownDark smOnly:mb-4;
 }
+
+/* SLIDER */
+.swiper-button-disabled.ctrlSliderBtn {
+  @apply text-grey hover:text-grey focus:text-grey;
+}
