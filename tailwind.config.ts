@@ -69,6 +69,9 @@ const config: Config = {
       backdropBlur: {
         xs: '2px',
       },
+      boxShadow: {
+        blackShadow: '0px 0px 40px 0px rgba(41, 23, 11, 0.10)',
+      },
     },
   },
   plugins: [],

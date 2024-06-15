@@ -35,7 +35,7 @@ export const makeSliderConfig = ({
 
   switch (section) {
     case Sections.INSTAGRAM:
-      loopBase = false;
+      loopBase = true;
 
       slidesPerViewTab = 3;
       spaceBetweenTab = 16;
@@ -47,8 +47,21 @@ export const makeSliderConfig = ({
       spaceBetweenBigDesk = 24;
       break;
 
+    case Sections.CERTIFICATES:
+      loopBase = false;
+
+      slidesPerViewTab = 1;
+      spaceBetweenTab = 16;
+
+      slidesPerViewDesk = 1;
+      spaceBetweenDesk = 24;
+
+      slidesPerViewBigDesk = 1;
+      spaceBetweenBigDesk = 40;
+      break;
+
     default:
-      loopBase = true;
+      loopBase = false;
 
       spaceBetweenTab = 16;
       slidesPerViewTab = 2;

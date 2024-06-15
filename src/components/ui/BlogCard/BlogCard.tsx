@@ -13,11 +13,13 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   image,
   title,
   description,
-  alt,
   slug,
 }) => {
   const path = slug?.current ? slug?.current : '';
   const { labelLink } = data.blogSection;
+
+  const alt = image?.caption ? image.caption.toString() : '';
+
   return (
     <div className="rounded-[24px] bg-white p-6">
       <div

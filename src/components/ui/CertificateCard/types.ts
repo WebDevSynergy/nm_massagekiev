@@ -1,3 +1,1 @@
-export type CertificateCardProps = {
-  certificate: TImage;
-};
+export type CertificateCardProps = TImage;
