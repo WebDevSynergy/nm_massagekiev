@@ -318,9 +318,20 @@ CertificateCard component
 
 A component that accepts data about the image of the certificate and renders it
 
+| Prop    | Default | Description                                                                                                |
+| ------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `props` | -       | required, `Image` from sanity type. A sanity data object that contains all the information about the image |
+
+- #### BlogCard
+
+A component that accepts data about the post of the certificate and renders it
+
 | Prop          | Default | Description                                                                                                |
 | ------------- | ------- | ---------------------------------------------------------------------------------------------------------- |
-| `certificate` | -       | required, `Image` from sanity type. A sanity data object that contains all the information about the image |
+| `image`       | -       | required, `Image` from sanity type. A sanity data object that contains all the information about the image |
+| `title`       | -       | required, `String` is the title of the post                                                                |
+| `description` | -       | required, `String` post description                                                                        |
+| `slug`        | -       | required, `Object` from sanity type. A data object containing a slug                                       |
 
 - #### FormField
 
@@ -399,6 +410,23 @@ This popup component rendered using Modal component.
 | `isOpen`    | `false` | required, `boolean`, changes state to show/close the popup.              |
 | `isSuccess` | `false` | required, `boolean`, show styled Success or Error component with message |
 | `onClose`   | -       | required, click handler for close popup window                           |
+
+- #### Slider
+
+| Prop             | Default     | Description                                                                                                            |
+| ---------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `slideComponent` | -           | required, `React.FC<any>`, It`s the component that will be rendered as side.                                           |
+| `slidesData`     | -           | required, `Record<string, any>[]`, It is a array with slide`s objects                                                  |
+| `section`        | -           | required, `reviews`, `masseurs`, `blog`, `instagram`,`certificates`, name of the section where slider will be rendered |
+| `wrapClassName`  | `undefined` | optional, `string`, adds custom css class to the Swiper component.                                                     |
+| `slideClassName` | `undefined` | optional, `string`, adds custom css class to the SlideComponent component.                                             |
+
+- #### ArrowSlider
+
+| Prop            | Default     | Description                                                                                                                     |
+| --------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `section`       | -           | required, `reviews`, `masseurs`, `blog`, `instagram`,`certificates`, name of the section where sliderControls will be rendered. |
+| `wrapClassName` | `undefined` | optional, `Record<string, any>[]`, adds custom css class on the div that wraps control buttons.                                 |
 
 </details>
 

@@ -55,14 +55,15 @@ export const MasseurCard: React.FC<MasseursCardProps> = ({
               slidesData={certificateArray}
               section="certificates"
               slideComponent={CertificateCard}
-              wrapClassName=" mb-4 h-[305px] w-[432px] overflow-hidden rounded-[4px] 
+              wrapClassName=" mb-4 h-[305px] w-[400px] overflow-hidden rounded-[4px] 
                               md:h-[429px] md:w-[608px] md:rounded-[8px] 
                               xl:h-[530px] xl:w-[752px] xl:rounded-[24px]
                               sm480:size-full shadow-blackShadow"
             />
+
             <ArrowSlider
               section="certificates"
-              wrapClassName="w-full xl:absolute xl:z-[999] xl:w-full xl:top-1/2 xl:-translate-y-1/2 2xl:z-[999] 2xl:w-full 2xl:top-1/2 2xl:-translate-y-1/2"
+              wrapClassName="w-full xl:absolute xl:z-[999] xl:w-full xl:top-1/2 xl:-translate-y-1/2 2xl:z-[99999] 2xl:w-full 2xl:top-1/2 2xl:-translate-y-1/2"
             />
           </div>
         </ModalCard>
