@@ -19,7 +19,7 @@ export const InstagramSection: React.FC = async () => {
       {instagramPhotosData && (
         <section className="section">
           <div className="container">
-            <div className="flex justify-between md:mb-6 xl:mb-8 2xl:mb-10">
+            <div className="md:mb-6 md:flex md:justify-between xl:mb-8 2xl:mb-10">
               <SectionTitle className="mb-4 md:mb-0">{title}</SectionTitle>
 
               <ArrowSlider section="instagram" wrapClassName="mb-4 md:mb-0" />
