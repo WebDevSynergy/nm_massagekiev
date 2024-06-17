@@ -428,6 +428,20 @@ This popup component rendered using Modal component.
 | `section`       | -           | required, `reviews`, `masseurs`, `blog`, `instagram`,`certificates`, name of the section where sliderControls will be rendered. |
 | `wrapClassName` | `undefined` | optional, `Record<string, any>[]`, adds custom css class on the div that wraps control buttons.                                 |
 
+- #### GoogleRatingCard
+
+| Prop            | Default     | Description                                                                                     |
+| --------------- | ----------- | ----------------------------------------------------------------------------------------------- |
+| `text`          | -           | required, `text`, description text                                                              |
+| `wrapClassName` | `undefined` | optional, `Record<string, any>[]`, adds custom css class on the div that wraps control buttons. |
+
+- #### HeroReview
+
+| Prop            | Default     | Description                                                                                     |
+| --------------- | ----------- | ----------------------------------------------------------------------------------------------- |
+| `review`        | -           | required, `Object`, an object with text data about the review and the path to the image.        |
+| `wrapClassName` | `undefined` | optional, `Record<string, any>[]`, adds custom css class on the div that wraps control buttons. |
+
 </details>
 
 ### 🚧 Technology stack
