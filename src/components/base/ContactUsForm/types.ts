@@ -6,7 +6,7 @@ export type TContactFormData<T> = T extends {
   inputs: (infer I)[];
   textarea: infer Q;
 }
-  ? Omit<T, 'textrea' | 'inputs' | 'commonInputs'> & {
+  ? Omit<T, 'textarea' | 'inputs' | 'commonInputs'> & {
       inputs: TInput<I, TContact>[];
       textarea: TInput<Q, TContact>;
     }

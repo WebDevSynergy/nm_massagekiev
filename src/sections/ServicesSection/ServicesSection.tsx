@@ -1,4 +1,5 @@
 import { getServices } from '@/actions/sanity';
+import { ModalBuyCertificate } from '@/components/base';
 
 type ServicesItem = {
   _id: string;
@@ -46,6 +47,14 @@ export const ServicesSection: React.FC = async () => {
                 },
               )}
             </ul>
+            <ModalBuyCertificate
+              choosedMassage={{
+                massageQuantity: 33,
+                massageType: services[0].title,
+                totalCost: services[0].price,
+                promoCost: services[0].price,
+              }}
+            />
           </div>
         </section>
       )}
