@@ -20,7 +20,10 @@ export type TCertificateFormData<T> = T extends {
   textarea: infer Q;
   tabButtons: (infer W)[];
 }
-  ? Omit<T, 'texQrea' | 'tabButtons' | 'select' | 'inputs' | 'commonInputs'> & {
+  ? Omit<
+      T,
+      'textarea' | 'tabButtons' | 'select' | 'inputs' | 'commonInputs'
+    > & {
       inputs: TInput<I, TCertificate>[];
       commonInputs: TInput<V, TCertificate>[];
       select: TInput<S, TCertificate>;
