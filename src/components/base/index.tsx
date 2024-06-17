@@ -11,3 +11,5 @@ export * from './ContactUsForm';
 export * from './ModalReview';
 export * from './CertificateForm';
 export * from './ModalCertificate';
+export * from './BuyMassageForm';
+export * from './ModalBuyCertificate';

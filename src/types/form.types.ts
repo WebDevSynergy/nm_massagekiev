@@ -8,3 +8,10 @@ export type TInput<T, U> = T extends { name: string; type?: string }
   : T;
 
 export type TabButtonsType = 'service' | 'price';
+
+export type TMassage = {
+  massageQuantity: number;
+  totalCost?: number;
+  promoCost?: number;
+  massageType: string;
+};
