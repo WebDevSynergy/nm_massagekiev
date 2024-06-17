@@ -17,16 +17,30 @@ import dataServices from '@/data/services.json';
 export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
   data,
 }) => {
-  const [quantitySelector, setQuantitySelector] = useState(99);
+  const [quantitySelector, setQuantitySelector] = useState<number>(99);
+  const [selectedOption, setSelectedOption] = useState('one');
+  console.log(quantitySelector);
+
+  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(event.target.value);
+  };
+
+  const handleQuantityChange = (newQuantity: number) => {
+    if (selectedOption === 'other') {
+      setQuantitySelector(newQuantity);
+    }
+  };
 
   const handleDecrement = () => {
-    if (quantitySelector !== 0) {
+    if (selectedOption === 'other' && quantitySelector !== 0) {
       setQuantitySelector(quantitySelector - 1);
     }
   };
 
   const handleIncrement = () => {
-    setQuantitySelector(quantitySelector + 1);
+    if (selectedOption === 'other' && quantitySelector !== 99) {
+      setQuantitySelector(quantitySelector + 1);
+    }
   };
 
   const totalPriceCalculate = (price: string, quantity: number) => {
@@ -59,14 +73,17 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
         <Tab
           key={index}
           as={'li'}
-          className="cursor-pointer list-none border-b border-solid border-brownLight py-4 outline-none first:pt-0"
+          className="list-none border-b border-solid border-brownLight py-4 outline-none first:pt-0"
         >
           {({ selected }) => (
             <>
               <div
-                className={cn('flex items-center justify-between', {
-                  'mb-2': selected,
-                })}
+                className={cn(
+                  'flex cursor-pointer items-center justify-between',
+                  {
+                    'mb-2': selected,
+                  },
+                )}
               >
                 <p
                   className={cn(
@@ -100,9 +117,15 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                   </p>
 
                   <form className="mt-2 w-full">
-                    <label className="flex w-full items-center justify-between rounded-[40px] bg-white p-2 md:px-4">
+                    <label className="flex w-full cursor-pointer items-center justify-between rounded-[40px] bg-white p-2 md:px-4">
                       <div className="flex items-center gap-2">
-                        <input type="radio" name="option" value="one" />
+                        <input
+                          type="radio"
+                          name="option"
+                          value="one"
+                          checked={selectedOption === 'one'}
+                          onChange={handleRadioChange}
+                        />
                         <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                           {dataServices.oneMassage}
                         </span>
@@ -123,9 +146,15 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                           {dataServices.subscriptions}
                         </p>
                         <div className="mb-4 flex flex-col gap-1">
-                          <label className="flex w-full items-center justify-between p-2 md:px-4">
+                          <label className="flex w-full cursor-pointer items-center justify-between p-2 md:px-4">
                             <div className="flex items-center gap-1">
-                              <input type="radio" name="option" value="five" />
+                              <input
+                                type="radio"
+                                name="option"
+                                value="five"
+                                checked={selectedOption === 'five'}
+                                onChange={handleRadioChange}
+                              />
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.fiveMassage}
                               </span>
@@ -146,9 +175,15 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                             </div>
                           </label>
 
-                          <label className="flex w-full items-center justify-between p-2 md:px-4">
+                          <label className="flex w-full cursor-pointer items-center justify-between p-2 md:px-4">
                             <div className="flex items-center gap-1">
-                              <input type="radio" name="option" value="ten" />
+                              <input
+                                type="radio"
+                                name="option"
+                                value="ten"
+                                checked={selectedOption === 'ten'}
+                                onChange={handleRadioChange}
+                              />
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.tenMassage}
                               </span>
@@ -170,9 +205,15 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                             </div>
                           </label>
 
-                          <label className="relative flex w-full items-center justify-between p-2 md:px-4">
+                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:px-4">
                             <div className="flex items-center gap-1">
-                              <input type="radio" name="option" value="other" />
+                              <input
+                                type="radio"
+                                name="option"
+                                value="other"
+                                checked={selectedOption === 'other'}
+                                onChange={handleRadioChange}
+                              />
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.other}
                               </span>
@@ -182,6 +223,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                               onClickDecrement={handleDecrement}
                               onClickIncrement={handleIncrement}
                               quantity={quantitySelector}
+                              onQuantityChange={handleQuantityChange}
                               className="absolute left-[45%] top-0 -translate-x-1/2"
                             />
                             <div className="flex items-center gap-2">

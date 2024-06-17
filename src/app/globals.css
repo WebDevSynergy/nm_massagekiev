@@ -42,3 +42,9 @@ body {
 .label {
   @apply relative flex flex-col text-sm/[1.4] text-brownDark smOnly:mb-4;
 }
+
+/** HIDE ARROW BUTTONS FOR SERVICES input[type="number"] */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
