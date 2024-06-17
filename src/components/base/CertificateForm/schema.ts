@@ -49,6 +49,7 @@ export const certificateSchema = z
           .positive()
           .min(certificateCost.min.value, certificateCost.min.message),
         massageType: z.undefined(),
+        massageQuantity: z.undefined(),
       }),
       z.object({
         massageType: z

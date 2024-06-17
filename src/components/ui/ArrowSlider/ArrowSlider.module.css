@@ -1,0 +1,3 @@
+.btn {
+  @apply text-greenDark transition-all hover:text-blackLight focus:text-blackLight;
+}

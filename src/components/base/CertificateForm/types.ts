@@ -1,43 +1,33 @@
 import { TService } from '@/actions/sanity';
 
 import { TCertificate } from './schema';
+import { TInput, TabButtonsType } from '@/types';
 
 export type CertificateFormProps = {
   options: TService[] | null;
 };
 
-export type ButtonsType = 'service' | 'price';
+type TButtons<T> = T extends { type: string }
+  ? Omit<T, 'type'> & {
+      type: Extract<TabButtonsType, T['type']>;
+    }
+  : T;
 
-export type TabButtonsType = {
-  label: string;
-  type: ButtonsType;
-};
-
-export type TSelect = {
-  id: string;
-  label: string;
-  name: keyof TCertificate;
-  placeholder: string;
-  required: boolean;
-};
-
-type TQuantity = {
-  id: string;
-  label: string;
-  name: keyof TCertificate;
-  pattern: string;
-  defaultValue: undefined;
-  required: boolean;
-};
-type TCertificateCost = {
-  id: string;
-  label: string;
-  name: keyof TCertificate;
-  required: boolean;
-};
-
-export type TFormData = {
-  tabButtons: TabButtonsType[];
-  select: TSelect;
-  inputs: (TCertificateCost | TQuantity)[];
-};
+export type TCertificateFormData<T> = T extends {
+  inputs: (infer I)[];
+  commonInputs: (infer V)[];
+  select: infer S;
+  textarea: infer Q;
+  tabButtons: (infer W)[];
+}
+  ? Omit<
+      T,
+      'textarea' | 'tabButtons' | 'select' | 'inputs' | 'commonInputs'
+    > & {
+      inputs: TInput<I, TCertificate>[];
+      commonInputs: TInput<V, TCertificate>[];
+      select: TInput<S, TCertificate>;
+      textarea: TInput<Q, TCertificate>;
+      tabButtons: TButtons<W>[];
+    }
+  : T;

@@ -43,6 +43,11 @@ body {
   @apply relative flex flex-col text-sm/[1.4] text-brownDark smOnly:mb-4;
 }
 
+/* SLIDER */
+.swiper-button-disabled.ctrlSliderBtn {
+  @apply text-grey hover:text-grey focus:text-grey;
+}
+
 /** HIDE ARROW BUTTONS FOR SERVICES input[type="number"] */
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {

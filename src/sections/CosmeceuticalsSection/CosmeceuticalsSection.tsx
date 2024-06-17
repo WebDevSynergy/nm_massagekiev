@@ -8,6 +8,7 @@ import cosmeceuticalsImage from '~/images/cosmeceuticals/cosmeceuticals.webp';
 
 export const CosmeceuticalsSection: React.FC = () => {
   const { title, description, subtitle, results, alt } = data;
+
   return (
     <section className="section">
       <div className="container">

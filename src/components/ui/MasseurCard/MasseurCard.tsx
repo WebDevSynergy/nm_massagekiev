@@ -1,18 +1,29 @@
-import { CertificateCard, ModalCard, SanityImage } from '@/components/ui';
+'use client';
 
-import data from '@/data/common.json';
+import {
+  ArrowSlider,
+  CertificateCard,
+  ModalCard,
+  SanityImage,
+  Slider,
+} from '@/components/ui';
 
 import { MasseursCardProps } from './types';
+
+import data from '@/data/common.json';
 
 import styles from './MasseurCard.module.css';
 
 export const MasseurCard: React.FC<MasseursCardProps> = ({
-  masseur: { name, resume, certificateArray, image },
+  name,
+  resume,
+  certificateArray,
+  image,
 }) => {
-  const { buttonLabel } = data.masseurs;
+  const { buttonLabel } = data.masseursSection;
 
   return (
-    <div className="md:w-[332px] xl:w-[372px] 2xl:w-[520px]">
+    <div className="md:w-[332px] xl:w-[384px] 2xl:w-[520px]">
       <div className="relative mb-4 md:mb-6">
         <div className={styles.photo}>
           <SanityImage
@@ -39,15 +50,22 @@ export const MasseurCard: React.FC<MasseursCardProps> = ({
           buttonStyle="unstyled"
           buttonStyles="text-green font-bold underline text-[16px]/[1.2] font-semibold tracking-[-0.32px]"
         >
-          <ul className="flex gap-8">
-            {/* {certificateArray.map(certificate => ( */}
-            {/* slice!!! */}
-            {certificateArray.slice(0, 1).map(certificate => (
-              <li key={certificate.id}>
-                <CertificateCard certificate={certificate} />
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-col items-center xl:relative xl:px-16 ">
+            <Slider
+              slidesData={certificateArray}
+              section="certificates"
+              slideComponent={CertificateCard}
+              wrapClassName=" mb-4 h-[305px] w-[400px] overflow-hidden rounded-[4px] 
+                              md:h-[429px] md:w-[608px] md:rounded-[8px] 
+                              xl:h-[530px] xl:w-[752px] xl:rounded-[24px]
+                              sm480:size-full shadow-blackShadow"
+            />
+
+            <ArrowSlider
+              section="certificates"
+              wrapClassName="w-full xl:absolute xl:z-[999] xl:w-full xl:top-1/2 xl:-translate-y-1/2 2xl:z-[99999] 2xl:w-full 2xl:top-1/2 2xl:-translate-y-1/2"
+            />
+          </div>
         </ModalCard>
       )}
     </div>

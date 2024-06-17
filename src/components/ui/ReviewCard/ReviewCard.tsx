@@ -1,3 +1,5 @@
+'use client';
+
 import { ReviewCardProps } from './type';
 
 export const ReviewCard: React.FC<ReviewCardProps> = ({

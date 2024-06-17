@@ -33,6 +33,7 @@
     },
     "loadingText": "Карта завантажується"
   },
+
   "logo": {
     "path": "/",
     "ariaLabel": "Посилання із логотипом компанії"
@@ -78,6 +79,7 @@
       "ariaLabel": "перейти на сторінку Інстаграм"
     }
   ],
+
   "contactCard": {
     "title": "Масаж в Києві",
     "btnLabel": "Записатися",
@@ -88,15 +90,47 @@
     ]
   },
 
-  "masseurs": {
+  "masseursSection": {
     "title": "Масажисти",
     "buttonLabel": "Переглянути сертифікати"
   },
+
   "closeButton": { "ariaLabel": "Закрити вікно" },
+
   "mobileMenu": {
     "openButton": { "ariaLabel": "Відкрити мобільне меню" },
     "closeButton": { "ariaLabel": "Закрити мобільне меню" }
   },
 
-  "serviceTitle": "Послуги"
+  "arrowSlider": {
+    "prevBtnAriaLabel": "Кнопка назад для перегортання слайдів",
+    "nextBtnAriaLabel": "Кнопка вперед для перегортання слайдів",
+    "prevIconAriaLabel": "іконка стрілки гортання назад",
+    "nextIconAriaLabel": "іконка стрілки гортання вперед"
+  },
+
+  "blogSection": {
+    "title": "Блог",
+    "labelLink": "Читати більше",
+    "labelButton": "Більше статтей"
+  },
+
+  "instagramSection": {
+    "title": "Ми в інстаграмі",
+    "label": "Підписатися"
+  },
+
+  "reviewsSection": {
+    "title": "Відгуки клієнтів",
+    "links": [
+      {
+        "label": "Відгуки на гугл картах",
+        "href": "https://www.google.com/search?q=nm-massagekiev&stick=H4sIAAAAAAAA_-NgU1I1qDAxSDFJTkkzNzFMNks2TjK3MqhIM7Y0N0w1MTQyM09NSTE1XMTKl5erm5tYXJyYnpqdmVoGAJMkvP06AAAA&hl=ru&mat=CQopUjxhYSwuElcBezTaAWBvf9WA0UR08986dopNq30g2puAiYfgIOrOIjiHBTpms75bLGfoBIQgTl0MOB4bxAY6925ZuAYiuN4Lz45UZEAyLdgc1IQuYeCnikcndjCa1lY&authuser=0&ved=2ahUKEwigx_-5vIGGAxXjhv0HHb0uAogQ-MgIegQIBBAd#lrd=0x40d4cdf741c6c3b7:0xf3971e41267edd51,1,,,,"
+      },
+      {
+        "label": "Відгуки в інстаграмі",
+        "href": "https://www.instagram.com/stories/highlights/17955379342752520/"
+      }
+    ]
+  }
 }

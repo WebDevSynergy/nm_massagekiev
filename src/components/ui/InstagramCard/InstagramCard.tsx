@@ -1,3 +1,5 @@
+'use client';
+
 import { SanityImage } from '@/components/ui';
 
 import { InstagramCardProps } from './types';

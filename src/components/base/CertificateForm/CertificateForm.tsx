@@ -8,22 +8,23 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
   ButtonLink,
   FormField,
-  FormPhoneField,
   FormTextArea,
   FormPopup,
   FormListbox,
-  FormPatternField,
   CostHint,
+  FormInputQuantity,
+  FormTabButtons,
+  FormFieldPattern,
+  Spinner,
 } from '@/components/ui';
 
-import { CertificateFormProps, TFormData } from './types';
+import { TService } from '@/actions/sanity';
+import { CertificateFormProps, TCertificateFormData } from './types';
 import { TCertificate, certificateSchema } from './schema';
 
 import { sendMsgTelegram } from '@/actions';
-import { cn, makeTgCertificateMsg, makeTgOrderMsg } from '@/utils';
+import { makeTgCertificateMsg, makeTgOrderMsg } from '@/utils';
 import data from '@/data/certificate-form.json';
-
-import { TService } from '@/actions/sanity';
 
 const MAX_DISCOUNT = 20;
 
@@ -33,17 +34,14 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
   const {
     formName,
     currency,
-    costHintButtons,
-    commonInputs,
-    textarea,
-    submitBtn,
-  } = data.form;
-
-  const {
-    inputs: [certificateCost, massageQuantity],
-    select,
     tabButtons,
-  } = data.form as TFormData;
+    costHintButtons,
+    submitBtn,
+    select,
+    textarea,
+    inputs: [certificateCost, massageQuantity],
+    commonInputs: [userNameInput, userPhoneInput],
+  } = data.form as TCertificateFormData<typeof data.form>;
 
   const [isCertificateCost, setIsCertificateCost] = useState(false);
   const [promoCost, setPromoCost] = useState<number | undefined>();
@@ -61,15 +59,21 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
     setValue,
     reset,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<TCertificate>({
     resolver: zodResolver(certificateSchema),
     mode: 'onBlur',
     shouldUnregister: true,
   });
 
+  useFormPersist(formName, {
+    watch,
+    setValue,
+    exclude: [certificateCost.name, massageQuantity.name, select.name],
+  });
+
   const typeMassage = watch(select.name);
-  const quantity = watch(massageQuantity.name as keyof TCertificate);
+  const quantity = watch(massageQuantity.name);
 
   useEffect(() => {
     const service = options?.find(({ title }) => title === typeMassage);
@@ -89,11 +93,11 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
     }
   }, [typeMassage, quantity, options]);
 
-  useFormPersist(formName, {
-    watch,
-    setValue,
-    exclude: [certificateCost.name, massageQuantity.name, select.name],
-  });
+  useEffect(() => {
+    if (!typeMassage) {
+      setPromoCost(0), setChoosedService(undefined);
+    }
+  }, [typeMassage]);
 
   const getTotalCost = () => {
     if (!quantity) {
@@ -117,9 +121,9 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
     setValue(massageQuantity.name, value);
   };
 
-  const formType = {
-    ['service']: () => setIsCertificateCost(false),
-    ['price']: () => setIsCertificateCost(true),
+  const tabType = {
+    service: () => setIsCertificateCost(false),
+    price: () => setIsCertificateCost(true),
   };
 
   const onSubmit: SubmitHandler<TCertificate> = async data => {
@@ -148,26 +152,11 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} id={formName}>
-        <ul className="mb-2 grid grid-cols-2 gap-4 xl:mb-4 xl:gap-6">
-          {tabButtons.map(({ label, type }) => (
-            <li key={label}>
-              <button
-                type="button"
-                onClick={formType[type]}
-                className={cn(
-                  'w-full rounded-2xl bg-white py-[14px] text-sm/[1.2] font-bold uppercase text-grey md:leading-5',
-                  {
-                    'text-greenDark':
-                      (isCertificateCost && type === 'price') ||
-                      (!isCertificateCost && type !== 'price'),
-                  },
-                )}
-              >
-                {label}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <FormTabButtons
+          options={tabButtons}
+          isCertificateCost={isCertificateCost}
+          tabType={tabType}
+        />
 
         {isCertificateCost ? (
           <>
@@ -182,79 +171,59 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
           </>
         ) : (
           <div className="md:mb-4 md:flex md:flex-col-reverse md:gap-2 xl:gap-4">
-            <div className="rounded-2xl bg-beige p-4 md:flex md:items-center md:justify-between md:px-6 md:py-[6px] smOnly:mb-2">
-              <FormPatternField
-                key={massageQuantity.id}
-                control={control}
-                errors={errors}
-                handleQuantity={handleQuantity}
-                {...massageQuantity}
-              />
-
-              <ul className="flex items-center justify-between text-base/[1.2] font-semibold text-brownDark md:gap-6">
-                <li>
-                  <span className="text-red line-through">
-                    {`${getTotalCost() ?? 0} ${currency}`}
-                  </span>
-                </li>
-                <li>
-                  <span>{`${promoCost ?? 0} ${currency}`}</span>
-                </li>
-              </ul>
-            </div>
+            <FormInputQuantity
+              key={massageQuantity.id}
+              control={control}
+              errors={errors}
+              handleQuantity={handleQuantity}
+              costs={{ currency, promoCost, totalCost: getTotalCost() }}
+              {...massageQuantity}
+            />
 
             {options && (
               <FormListbox
                 key={select.id}
+                className="smOnly:mb-4"
                 control={control}
-                {...select}
                 errors={errors}
                 variants={options}
-                className="smOnly:mb-4"
+                {...select}
               />
             )}
           </div>
         )}
 
         <div className="md:mb-2 md:grid md:grid-cols-2 md:gap-4">
-          {commonInputs.map(({ id, name, ...restProps }) => {
-            if (restProps.type === 'tel') {
-              return (
-                <FormPhoneField
-                  key={id}
-                  name={name as keyof TCertificate}
-                  control={control}
-                  errors={errors}
-                  {...restProps}
-                />
-              );
-            }
-            return (
-              <FormField
-                key={id}
-                name={name as keyof TCertificate}
-                register={register}
-                errors={errors}
-                {...restProps}
-              />
-            );
-          })}
+          <FormField
+            key={userNameInput.id}
+            register={register}
+            errors={errors}
+            {...userNameInput}
+          />
+
+          <FormFieldPattern
+            key={userPhoneInput.id}
+            control={control}
+            errors={errors}
+            {...userPhoneInput}
+          />
         </div>
 
         <FormTextArea
-          {...textarea}
-          name={textarea.name as keyof TCertificate}
+          key={textarea.id}
+          className="mb-6 xl:mb-8 2xl:mb-10"
           control={control}
           errors={errors}
-          className="mb-6 xl:mb-8 2xl:mb-10"
+          {...textarea}
         />
 
         <ButtonLink
           type="submit"
           styleType="primary"
           className="mx-auto flex w-full md:ml-0 md:max-w-[292px] xl:inline-flex xl:max-w-[202px] 2xl:max-w-[252px]"
+          disabled={isSubmitting}
         >
-          {submitBtn.label}
+          {isSubmitting ? <Spinner /> : submitBtn.label}
         </ButtonLink>
       </form>
 

@@ -30,6 +30,7 @@
       }
     ],
     "textarea": {
+      "id": "cu-te01",
       "label": "Повідомлення",
       "name": "userMessage",
       "maxLength": 512,
