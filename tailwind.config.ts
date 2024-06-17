@@ -14,6 +14,7 @@ const config: Config = {
       xl: '1280px',
       '2xl': '1920px',
 
+      sm320: { max: '319.98px' },
       sm480: { max: '479.98px' },
       smOnly: { max: '767.98px' },
       mdOnly: { min: '768px', max: '1279.98px' },
@@ -71,6 +72,7 @@ const config: Config = {
       },
       boxShadow: {
         blackShadow: '0px 0px 40px 0px rgba(41, 23, 11, 0.10)',
+        blackShadow20: '0px 0px 40px 0px rgba(41, 23, 11, 0.20)',
       },
     },
   },
