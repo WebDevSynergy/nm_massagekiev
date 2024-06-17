@@ -4,7 +4,7 @@ export * from './ButtonLink';
 export * from './ButtonLink';
 export * from './GoogleMapInfoCard';
 export * from './GoogleMapStatus';
-export * from './GoogleRating';
+export * from './GoogleRatingCard';
 export * from './InstagramCard';
 export * from './Logo';
 export * from './MainLink';
@@ -26,6 +26,7 @@ export * from './CertificateCard';
 export * from './ArrowSlider';
 export * from './Slider';
 export * from './BlogCard';
+export * from './HeroReview';
 
 /**FORM */
 export * from './FormField';
