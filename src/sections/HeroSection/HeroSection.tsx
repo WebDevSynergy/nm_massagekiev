@@ -57,7 +57,7 @@ export const HeroSection: React.FC = () => {
               <li>
                 <ButtonLink
                   tag="link"
-                  href="#contactUs"
+                  href="#scroll-contactUs"
                   styleType="primary"
                   className="md:w-[336px] xl:w-[282px] 2xl:w-[253px]"
                 >
