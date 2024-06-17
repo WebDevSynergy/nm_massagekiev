@@ -1,5 +1,6 @@
 import { TContact } from '@/components/base/ContactUsForm/schema';
 import { TReview } from '@/components/base/ReviewForm/schema';
+import { TMassage } from '@/types';
 
 export const makeTgReviewMsg = ({
   userName,
@@ -17,14 +18,7 @@ export const makeTgContactMsg = ({
   return `<b>Новий запис клієнта на сайті!</b>\n\n<b>Автор: ${userName}</b>\n<b>Контакт: ${phoneNumber}</b>${userMessage && `\n\n<b>Повідомлення: ${userMessage}`}</b>`;
 };
 
-export const makeTgCertificateMsg = (
-  data: TContact & {
-    massageQuantity: number;
-    totalCost?: number;
-    promoCost?: number;
-    massageType: string;
-  },
-) => {
+export const makeTgCertificateMsg = (data: TContact & TMassage) => {
   const {
     userName,
     phoneNumber,
