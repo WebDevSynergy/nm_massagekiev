@@ -41,7 +41,7 @@ export const QuantitySelectorServices: React.FC<
   return (
     <div
       className={cn(
-        'flex h-7 w-[84px] items-center rounded-lg bg-greenLight p-1',
+        'flex h-7 w-[84px] items-center rounded-lg bg-greenLight p-1 xl:w-[105px]',
         className,
       )}
     >
@@ -58,7 +58,7 @@ export const QuantitySelectorServices: React.FC<
         type="number"
         value={quantity}
         onChange={handleInputChange}
-        className="w-7 bg-greenLight text-center"
+        className="w-7 bg-greenLight text-center font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:w-[49px] xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]"
       />
       <button
         type="button"

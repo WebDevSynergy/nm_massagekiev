@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { ModalCard, SectionTitle } from '@/components/ui';
 import { BuyMassageForm } from '@/components/base';
+import { ModalCard, SectionTitle } from '@/components/ui';
 
 import { ModalBuyCertificateProps } from './types';
 
@@ -47,13 +47,15 @@ export const ModalBuyCertificate: React.FC<ModalBuyCertificateProps> = ({
             </p>
 
             <p className="font-semibold">
-              {promoCost && (
-                <span className="mr-2 text-red line-through md:ml-4">
+              <span className="text-red line-through">
+                {totalCost + ' ' + currency}
+              </span>
+
+              {massageQuantity !== 1 && promoCost && (
+                <span className="ml-4 mr-2 xl:ml-6">
                   {promoCost + ' ' + currency}
                 </span>
               )}
-
-              <span>{totalCost + ' ' + currency}</span>
             </p>
           </div>
 

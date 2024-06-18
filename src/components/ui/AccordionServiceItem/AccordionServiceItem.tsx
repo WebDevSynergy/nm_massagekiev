@@ -6,12 +6,13 @@ import { Tab } from '@headlessui/react';
 
 import { cn } from '@/utils';
 
-import { ButtonLink, QuantitySelectorServices } from '@/components/ui';
+import { QuantitySelectorServices } from '@/components/ui';
 
 import { AccordionServiceItemProps } from './types';
 
 import DownIcon from '~/icons/arrow-down.svg';
 
+import { ModalBuyCertificate } from '@/components/base';
 import dataServices from '@/data/services.json';
 
 export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
@@ -19,27 +20,42 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
 }) => {
   const [quantitySelector, setQuantitySelector] = useState<number>(99);
   const [selectedOption, setSelectedOption] = useState('one');
-  console.log(quantitySelector);
+  const [chosenQuantity, setChosenQuantity] = useState<number>(1);
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value);
+    const value = event.target.value;
+
+    setSelectedOption(value);
+
+    if (value === 'one') {
+      setChosenQuantity(1);
+    } else if (value === 'five') {
+      setChosenQuantity(5);
+    } else if (value === 'ten') {
+      setChosenQuantity(10);
+    } else if (value === 'other') {
+      setChosenQuantity(quantitySelector);
+    }
   };
 
   const handleQuantityChange = (newQuantity: number) => {
     if (selectedOption === 'other') {
       setQuantitySelector(newQuantity);
+      setChosenQuantity(newQuantity);
     }
   };
 
   const handleDecrement = () => {
     if (selectedOption === 'other' && quantitySelector !== 0) {
       setQuantitySelector(quantitySelector - 1);
+      setChosenQuantity(quantitySelector - 1);
     }
   };
 
   const handleIncrement = () => {
     if (selectedOption === 'other' && quantitySelector !== 99) {
       setQuantitySelector(quantitySelector + 1);
+      setChosenQuantity(quantitySelector + 1);
     }
   };
 
@@ -47,7 +63,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
     const priceStr = parseFloat(price);
     const totalPrice = quantity * priceStr;
 
-    return totalPrice;
+    return Math.round(totalPrice);
   };
 
   const totalDiscPriceCalculate = (price: string, quantity: number) => {
@@ -64,7 +80,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
       totalPrice -= discountAmount;
     }
 
-    return totalPrice;
+    return Math.round(totalPrice);
   };
 
   return (
@@ -117,7 +133,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                   </p>
 
                   <form className="mt-2 w-full">
-                    <label className="flex w-full cursor-pointer items-center justify-between rounded-[40px] bg-white p-2 md:px-4">
+                    <label className="flex w-full cursor-pointer items-center justify-between rounded-[40px] bg-white p-2 md:p-4">
                       <div className="flex items-center gap-2">
                         <input
                           type="radio"
@@ -130,7 +146,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                           {dataServices.oneMassage}
                         </span>
                       </div>
-                      <div className="flex items-center gap-6">
+                      <div className="flex items-center gap-6 md:gap-5 xl:gap-10">
                         <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                           {item.duration}&nbsp;{dataServices.duration}
                         </span>
@@ -146,7 +162,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                           {dataServices.subscriptions}
                         </p>
                         <div className="mb-4 flex flex-col gap-1">
-                          <label className="flex w-full cursor-pointer items-center justify-between p-2 md:px-4">
+                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
                             <div className="flex items-center gap-1">
                               <input
                                 type="radio"
@@ -159,12 +175,16 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                                 {dataServices.fiveMassage}
                               </span>
                             </div>
-
-                            <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                              {dataServices.discount5}
-                            </span>
-                            <div className="flex items-center gap-2">
-                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                            <div className="2xl:absolute 2xl:right-[37%] 2xl:translate-x-1/2">
+                              <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px] smOnly:hidden mdOnly:hidden xlOnly:hidden">
+                                {dataServices.fiveMassage}
+                              </span>
+                              <span className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown md:right-[28%] xl:right-[45%] xl:text-[14px] xl:tracking-[-0.28px] 2xl:right-[-30%] 2xl:text-[16px] 2xl:tracking-[-0.32px] ">
+                                {dataServices.discount5}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-[14px] xl:gap-9">
+                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalPriceCalculate(item.price, 5)}&nbsp;
                                 {dataServices.UAH}
                               </span>
@@ -175,7 +195,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                             </div>
                           </label>
 
-                          <label className="flex w-full cursor-pointer items-center justify-between p-2 md:px-4">
+                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
                             <div className="flex items-center gap-1">
                               <input
                                 type="radio"
@@ -188,12 +208,16 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                                 {dataServices.tenMassage}
                               </span>
                             </div>
-
-                            <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                              {dataServices.discount10}
-                            </span>
-                            <div className="flex items-center gap-2">
-                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                            <div className="2xl:absolute 2xl:right-[39%] 2xl:translate-x-1/2">
+                              <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px] smOnly:hidden mdOnly:hidden xlOnly:hidden">
+                                {dataServices.tenMassage}
+                              </span>
+                              <span className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown md:right-[28%] xl:right-[45%] xl:text-[14px] xl:tracking-[-0.28px] 2xl:right-[-36%] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                                {dataServices.discount10}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-[14px] xl:gap-9">
+                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalPriceCalculate(item.price, 10)}&nbsp;
                                 {dataServices.UAH}
                               </span>
@@ -205,7 +229,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                             </div>
                           </label>
 
-                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:px-4">
+                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
                             <div className="flex items-center gap-1">
                               <input
                                 type="radio"
@@ -224,10 +248,10 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                               onClickIncrement={handleIncrement}
                               quantity={quantitySelector}
                               onQuantityChange={handleQuantityChange}
-                              className="absolute left-[45%] top-0 -translate-x-1/2"
+                              className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 md:right-[28%] xl:right-[45%] 2xl:right-[34%]"
                             />
-                            <div className="flex items-center gap-2">
-                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                            <div className="flex items-center gap-2 xl:gap-7">
+                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalPriceCalculate(
                                   item.price,
                                   quantitySelector,
@@ -248,9 +272,21 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                         </div>
                       </>
                     )}
-                    <ButtonLink type="submit" styleType="primary">
-                      {dataServices.btn}
-                    </ButtonLink>
+
+                    <ModalBuyCertificate
+                      choosedMassage={{
+                        massageQuantity: chosenQuantity,
+                        massageType: item.title,
+                        totalCost: totalPriceCalculate(
+                          item.price,
+                          chosenQuantity,
+                        ),
+                        promoCost: totalDiscPriceCalculate(
+                          item.price,
+                          chosenQuantity,
+                        ),
+                      }}
+                    />
                   </form>
                 </div>
               )}
