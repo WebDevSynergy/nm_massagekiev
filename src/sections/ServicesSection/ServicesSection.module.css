@@ -1,0 +1,22 @@
+@media (min-width: 1280px) {
+  .services_section {
+    background-image: image-set(
+      url('/images/services/services@1x.webp') 1x,
+      url('/images/services/services@2x.webp') 2x
+    );
+    background-size:
+      579px 1024px,
+      cover;
+    background-position: top 38% right 6%;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: 1920px) {
+  .services_section {
+    background-size:
+      808px 1421px,
+      cover;
+    background-position: top 60% right 12%;
+  }
+}

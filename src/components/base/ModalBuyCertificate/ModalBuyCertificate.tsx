@@ -47,15 +47,15 @@ export const ModalBuyCertificate: React.FC<ModalBuyCertificateProps> = ({
             </p>
 
             <p className="font-semibold">
-              <span className="text-red line-through">
-                {totalCost + ' ' + currency}
-              </span>
-
-              {massageQuantity !== 1 && promoCost && (
-                <span className="ml-4 mr-2 xl:ml-6">
-                  {promoCost + ' ' + currency}
+              {massageQuantity !== 1 && (
+                <span className="text-red line-through">
+                  {totalCost + ' ' + currency}
                 </span>
               )}
+
+              <span className="ml-4 mr-2 xl:ml-6">
+                {promoCost + ' ' + currency}
+              </span>
             </p>
           </div>
 
