@@ -26,7 +26,10 @@ export * from './Slider';
 export * from './SocialItem';
 export * from './SocialLinks';
 export * from './Spinner';
+<<<<<<< HEAD
 export * from './VideoPlayer';
+export * from './Gallery';
+export * from './GalleryPagination';
 
 /**FORM */
 export * from './CostHint';
