@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { GalleryPaginationProps } from './types';
 
 export const GalleryPagination: React.FC<GalleryPaginationProps> = ({
