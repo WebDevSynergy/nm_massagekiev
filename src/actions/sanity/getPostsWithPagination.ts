@@ -5,7 +5,17 @@ export const getPostsWithPagination = async (start: number, end: number) => {
     const data =
       (await sanityClient.fetch(
         `{
-      "posts": *[_type == "post"] | order(_createdAt) [${start}...${end}],
+      "posts": *[_type == "post"] | order(_createdAt) {
+        "image": {
+          "src": image.asset->url, 
+          "alt": image.caption,
+          "lqip": image.asset->metadata.lqip
+        }, 
+        "id": _id, 
+        "title": title, 
+        "description": description, 
+        "slug": slug
+      } [${start}...${end}],
       "total": count(*[_type == "post"])
       }`,
       )) || null;

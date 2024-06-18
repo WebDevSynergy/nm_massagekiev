@@ -11,5 +11,7 @@ export * from './FAQSection';
 export * from './InstagramSection';
 export * from './ContactsSection';
 
+export * from './GallerySection';
+
 export * from './PostSection';
 export * from './NotFoundSection';

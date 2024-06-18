@@ -12,13 +12,13 @@ export async function POST(req: NextRequest) {
     const { slug, updateType } = body;
 
     if (updateType === 'post' && slug) {
-      const pathToRevalidate = `/blog/${slug}`;
+      const pathToRevalidate = `/blog/post/${slug}`;
 
       await revalidatePath(pathToRevalidate);
 
       await revalidatePath('/');
 
-      await revalidatePath('/blog');
+      await revalidatePath('/blog/1');
 
       return NextResponse.json(
         { revalidated: true, path: pathToRevalidate },
@@ -27,10 +27,10 @@ export async function POST(req: NextRequest) {
     } else if (updateType !== 'post') {
       await revalidatePath('/');
 
-      await revalidatePath('/blog');
+      await revalidatePath('/blog/1');
 
       return NextResponse.json(
-        { revalidated: true, path: "'/' and 'blog'" },
+        { revalidated: true, path: "'/' and 'blog/1'" },
         { status: 200 },
       );
     } else {
