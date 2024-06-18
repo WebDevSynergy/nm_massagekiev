@@ -37,7 +37,11 @@ export const AccordionFAQItem: React.FC<AccordionFAQItemProps> = ({ data }) => {
                   )}
                 />
               </div>
-              {selected && <p>{item.description}</p>}
+              {selected && (
+                <p className="font-open-sans text-[14px]/[1.2] font-normal tracking-[-0.28px] text-brown md:text-[16px] md:tracking-[-0.32px]">
+                  {item.description}
+                </p>
+              )}
             </>
           )}
         </Tab>

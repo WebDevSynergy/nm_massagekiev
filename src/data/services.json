@@ -1,0 +1,19 @@
+{
+  "serviceTitle": "Послуги",
+
+  "for": "Для кого?",
+
+  "typeDurationPrice": "Тип, тривалість і ціна",
+  "oneMassage": "1 масаж",
+  "duration": "хвилин",
+  "UAH": "грн",
+
+  "subscriptions": "Абонементи",
+  "fiveMassage": "5 масажів",
+  "tenMassage": "10 масажів",
+  "other": "інший",
+  "discount5": "-5%",
+  "discount10": "-10%",
+
+  "btn": "Записатися"
+}

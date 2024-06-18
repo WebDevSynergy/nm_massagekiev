@@ -1,16 +1,16 @@
 import {
-  HeroSection,
   BenefitsSection,
-  MasseursSection,
-  ContactUsSections,
   BlogSections,
   CertificateSection,
+  ContactUsSections,
+  ContactsSection,
   CosmeceuticalsSection,
   FAQSection,
-  ReviewsSection,
+  HeroSection,
   InstagramSection,
+  MasseursSection,
+  ReviewsSection,
   ServicesSection,
-  ContactsSection,
 } from '@/sections';
 
 export default function Home() {
