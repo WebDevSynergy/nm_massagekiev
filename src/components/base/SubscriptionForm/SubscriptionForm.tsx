@@ -51,7 +51,7 @@ export const SubscriptionForm: React.FC = () => {
       />
 
       {errors.email && (
-        <p className="absolute -bottom-4 left-4 flex w-full text-[10px]">
+        <p className="absolute -bottom-4 left-4 flex w-full text-[10px] text-red">
           <Star width={8} height={8} />
 
           {errors.email?.message}

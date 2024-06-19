@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
       <div className=" bg-blackLight py-4 md:py-8">
         <div className="container flex flex-col items-center md:flex-row md:justify-between smOnly:gap-[16px]">
           <Link
-            className="leading-[1.4] tracking-[-0.32px] text-white"
+            className=" leading-[1.4] tracking-[-0.32px] text-white transition-colors hover:text-beigeDark focus:text-beigeDark"
             href={policy.path}
           >
             {policy.label}
@@ -34,8 +34,10 @@ export const Footer: React.FC = () => {
           <p className="leading-[1.4] tracking-[-0.32px] text-white">{`© ${copyright} | ${year}`}</p>
 
           <Link
-            className="leading-[1.4] tracking-[-0.32px] text-white underline"
+            className="leading-[1.4] tracking-[-0.32px] text-white underline transition-colors hover:text-beigeDark focus:text-beigeDark"
             href={creator.path}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
           >
             {creator.label}
           </Link>
