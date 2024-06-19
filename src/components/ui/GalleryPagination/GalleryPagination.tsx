@@ -1,4 +1,7 @@
-import Link from 'next/link';
+import { PaginationArrowItem } from './PaginationArrowItem';
+import { PaginationNumberItem } from './PaginationNumberItem';
+
+import { makePaginationElements } from '@/utils';
 
 import { GalleryPaginationProps } from './types';
 
@@ -6,17 +9,33 @@ export const GalleryPagination: React.FC<GalleryPaginationProps> = ({
   page,
   totalPages,
 }) => {
+  const [paginationElements] = makePaginationElements(page, totalPages);
+
   return (
-    <ul className="flex gap-4 text-[18px]">
-      <li>{page > 1 && <Link href={`/blog/${page - 1}`}>{page - 1}</Link>}</li>
+    <>
+      <div className="flex items-center justify-center gap-2 text-[14px]/[1.4] font-semibold tracking-[-0.28px] sm480:gap-1 sm480:text-[12px]">
+        <PaginationArrowItem type="prev" page={page} totalPages={totalPages} />
 
-      <li>
-        <p>{page}</p>
-      </li>
+        <ul className="flex gap-2 sm320:gap-1">
+          {paginationElements &&
+            paginationElements.map((number, idx) => (
+              <li key={idx}>
+                <PaginationNumberItem
+                  href={
+                    number.toString() === page.toString()
+                      ? ''
+                      : `/blog/${number}`
+                  }
+                  current={number.toString() === page.toString()}
+                >
+                  {number}
+                </PaginationNumberItem>
+              </li>
+            ))}
+        </ul>
 
-      <li>
-        {page < totalPages && <a href={`/blog/${page + 1}`}>{page + 1}</a>}
-      </li>
-    </ul>
+        <PaginationArrowItem type="next" page={page} totalPages={totalPages} />
+      </div>
+    </>
   );
 };
