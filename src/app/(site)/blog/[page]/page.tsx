@@ -2,8 +2,6 @@ import { ContactUsSections, GallerySection } from '@/sections';
 
 import { getPostsWithPagination, getTotalPosts } from '@/actions/sanity';
 
-export const revalidate = 0;
-
 const POSTS_PER_PAGE = 6;
 
 export async function generateStaticParams() {

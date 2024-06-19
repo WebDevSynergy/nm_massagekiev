@@ -432,7 +432,7 @@ This popup component rendered using Modal component.
 
 | Prop            | Default     | Description                                                                                     |
 | --------------- | ----------- | ----------------------------------------------------------------------------------------------- |
-| `text`          | -           | required, `text`, description text                                                              |
+| `text`          | -           | required, `string`, description text                                                            |
 | `wrapClassName` | `undefined` | optional, `Record<string, any>[]`, adds custom css class on the div that wraps control buttons. |
 
 - #### HeroReview
@@ -441,6 +441,46 @@ This popup component rendered using Modal component.
 | --------------- | ----------- | ----------------------------------------------------------------------------------------------- |
 | `review`        | -           | required, `Object`, an object with text data about the review and the path to the image.        |
 | `wrapClassName` | `undefined` | optional, `Record<string, any>[]`, adds custom css class on the div that wraps control buttons. |
+
+- #### Gallery
+
+Blog page component. Takes an array of posts and renders them
+
+| Prop    | Default | Description                                              |
+| ------- | ------- | -------------------------------------------------------- |
+| `posts` | -       | required, `Array`, array of objects with data for posts. |
+
+- #### GalleryPagination
+
+Blog page component. Gets data about the number of pages and the current page
+and renders the post page control buttons according to their number and number
+
+| Prop         | Default | Description                                 |
+| ------------ | ------- | ------------------------------------------- |
+| `page`       | -       | required, `number`, current page number.    |
+| `totalPages` | -       | required, `number`, the total of all pages. |
+
+- #### PaginationNumberItem
+
+A pagination component that renders a pagination element that displays the page
+number
+
+| Prop       | Default | Description                                                                 |
+| ---------- | ------- | --------------------------------------------------------------------------- |
+| `children` | -       | required, `ReactNode`, which will be content for pagination element control |
+| `href`     | -       | required, `string`, a link to the page with the corresponding number.       |
+| `current`  | -       | `boolean`, sets the styles of the current page element if true.             |
+
+- #### PaginationArrowItem
+
+A pagination component that renders a pagination element that displays a button
+to scroll forward or back
+
+| Prop         | Default | Description                                                                                                         |
+| ------------ | ------- | ------------------------------------------------------------------------------------------------------------------- |
+| `page`       | -       | required, `number`, current page number.                                                                            |
+| `totalPages` | -       | required, `number`, the total of all pages.                                                                         |
+| `type`       | -       | `prev`,`next` a type that changes styles and logic according to whether pages should be turned forward or backward. |
 
 </details>
 
