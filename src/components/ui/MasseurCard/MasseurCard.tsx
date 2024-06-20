@@ -28,8 +28,8 @@ export const MasseurCard: React.FC<MasseursCardProps> = ({
         <div className={styles.photo}>
           <SanityImage
             image={image}
-            width={520}
-            height={520}
+            width={504}
+            height={504}
             loading="lazy"
             className="size-full object-cover"
           />
@@ -48,7 +48,7 @@ export const MasseurCard: React.FC<MasseursCardProps> = ({
         <ModalCard
           buttonLabel={buttonLabel}
           buttonStyle="unstyled"
-          buttonStyles="text-green font-bold underline text-[16px]/[1.2] font-semibold tracking-[-0.32px]"
+          buttonStyles="text-green font-bold underline text-[16px]/[1.2] font-semibold tracking-[-0.32px] hover:text-greenDark focus:text-greenDark cursor-pointer transition-all"
         >
           <div className="flex flex-col items-center xl:relative xl:px-16 ">
             <Slider

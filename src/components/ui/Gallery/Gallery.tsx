@@ -6,6 +6,7 @@ import data from '@/data/blog.json';
 
 export const Gallery: React.FC<GalleryProps> = ({ posts }) => {
   const { galleryTitle, labelLink } = data;
+
   return (
     <>
       <h2 className="visually-hidden">{galleryTitle}</h2>
