@@ -1,0 +1,13 @@
+.card:hover {
+  cursor: pointer;
+}
+
+.card:hover img,
+.card:focus img {
+  scale: 1.25;
+}
+
+.card:hover .readMore,
+.card:focus .readMore {
+  @apply text-greenDark;
+}
