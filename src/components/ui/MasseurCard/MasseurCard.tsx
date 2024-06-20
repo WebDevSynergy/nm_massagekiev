@@ -23,7 +23,7 @@ export const MasseurCard: React.FC<MasseursCardProps> = ({
   const { buttonLabel } = data.masseursSection;
 
   return (
-    <div className="md:w-[332px] xl:w-[384px] 2xl:w-[520px]">
+    <div className="md:w-[336px] xl:w-[384px] 2xl:w-[520px]">
       <div className="relative mb-4 md:mb-6">
         <div className={styles.photo}>
           <SanityImage
