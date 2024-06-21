@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Tab } from '@headlessui/react';
 
@@ -10,7 +10,7 @@ import { QuantitySelectorServices } from '@/components/ui';
 
 import { AccordionServiceItemProps } from './types';
 
-import DownIcon from '~/icons/arrow-down.svg';
+import ArrowIcon from '~/icons/arrow-down.svg';
 
 import { ModalBuyCertificate } from '@/components/base';
 import dataServices from '@/data/services.json';
@@ -18,44 +18,138 @@ import dataServices from '@/data/services.json';
 export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
   data,
 }) => {
-  const [quantitySelector, setQuantitySelector] = useState<number>(99);
-  const [selectedOption, setSelectedOption] = useState('one');
-  const [chosenQuantity, setChosenQuantity] = useState<number>(1);
+  const getFromLocStorOrDef = (
+    key: string,
+    defaultValue: number[] | string[],
+  ) => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem(key);
+      return saved ? JSON.parse(saved) : defaultValue;
+    }
+    return defaultValue;
+  };
 
-  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const initialQuantitySelector = getFromLocStorOrDef(
+    'quantitySelector',
+    data.map(() => 15),
+  );
+  const initialSelectedOption = getFromLocStorOrDef(
+    'selectedOption',
+    data.map(() => 'one'),
+  );
+  const initialChosenQuantity = getFromLocStorOrDef(
+    'chosenQuantity',
+    data.map(() => 1),
+  );
+
+  const [quantitySelector, setQuantitySelector] = useState<number[]>(
+    initialQuantitySelector,
+  );
+
+  const [selectedOption, setSelectedOption] = useState<string[]>(
+    initialSelectedOption,
+  );
+
+  const [chosenQuantity, setChosenQuantity] = useState<number[]>(
+    initialChosenQuantity,
+  );
+
+  useEffect(() => {
+    localStorage.setItem('quantitySelector', JSON.stringify(quantitySelector));
+  }, [quantitySelector]);
+
+  useEffect(() => {
+    localStorage.setItem('selectedOption', JSON.stringify(selectedOption));
+  }, [selectedOption]);
+
+  useEffect(() => {
+    localStorage.setItem('chosenQuantity', JSON.stringify(chosenQuantity));
+  }, [chosenQuantity]);
+
+  const handleRadioChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    index: number,
+  ) => {
     const value = event.target.value;
 
-    setSelectedOption(value);
+    setSelectedOption(prevState => {
+      const newState = [...prevState];
+      newState[index] = value;
+      return newState;
+    });
 
     if (value === 'one') {
-      setChosenQuantity(1);
+      setChosenQuantity(prevState => {
+        const newState = [...prevState];
+        newState[index] = 1;
+        return newState;
+      });
     } else if (value === 'five') {
-      setChosenQuantity(5);
+      setChosenQuantity(prevState => {
+        const newState = [...prevState];
+        newState[index] = 5;
+        return newState;
+      });
     } else if (value === 'ten') {
-      setChosenQuantity(10);
+      setChosenQuantity(prevState => {
+        const newState = [...prevState];
+        newState[index] = 10;
+        return newState;
+      });
     } else if (value === 'other') {
-      setChosenQuantity(quantitySelector);
+      setChosenQuantity(prevState => {
+        const newState = [...prevState];
+        newState[index] = quantitySelector[index];
+        return newState;
+      });
     }
   };
 
-  const handleQuantityChange = (newQuantity: number) => {
-    if (selectedOption === 'other') {
-      setQuantitySelector(newQuantity);
-      setChosenQuantity(newQuantity);
+  const handleQuantityChange = (newQuantity: number, index: number) => {
+    if (selectedOption[index] === 'other') {
+      setQuantitySelector(prevState => {
+        const newState = [...prevState];
+        newState[index] = newQuantity;
+        return newState;
+      });
+
+      setChosenQuantity(prevState => {
+        const newState = [...prevState];
+        newState[index] = newQuantity;
+        return newState;
+      });
     }
   };
 
-  const handleDecrement = () => {
-    if (selectedOption === 'other' && quantitySelector !== 0) {
-      setQuantitySelector(quantitySelector - 1);
-      setChosenQuantity(quantitySelector - 1);
+  const handleDecrement = (index: number) => {
+    if (selectedOption[index] === 'other' && quantitySelector[index] !== 0) {
+      setQuantitySelector(prevState => {
+        const newState = [...prevState];
+        newState[index] = prevState[index] - 1;
+        return newState;
+      });
+
+      setChosenQuantity(prevState => {
+        const newState = [...prevState];
+        newState[index] = prevState[index] - 1;
+        return newState;
+      });
     }
   };
 
-  const handleIncrement = () => {
-    if (selectedOption === 'other' && quantitySelector !== 99) {
-      setQuantitySelector(quantitySelector + 1);
-      setChosenQuantity(quantitySelector + 1);
+  const handleIncrement = (index: number) => {
+    if (selectedOption[index] === 'other' && quantitySelector[index] !== 99) {
+      setQuantitySelector(prevState => {
+        const newState = [...prevState];
+        newState[index] = prevState[index] + 1;
+        return newState;
+      });
+
+      setChosenQuantity(prevState => {
+        const newState = [...prevState];
+        newState[index] = prevState[index] + 1;
+        return newState;
+      });
     }
   };
 
@@ -109,11 +203,11 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                 >
                   {item.title}
                 </p>
-                <DownIcon
+                <ArrowIcon
                   className={cn(
                     'size-5 transition-[transform] md:size-6',
-                    { 'rotate-0 text-orange': selected },
-                    { 'rotate-180 text-green': !selected },
+                    { 'rotate-0 text-green': !selected },
+                    { 'rotate-180 text-orange': selected },
                   )}
                 />
               </div>
@@ -133,14 +227,22 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                   </p>
 
                   <form className="mt-2 w-full">
-                    <label className="flex w-full cursor-pointer items-center justify-between rounded-[40px] bg-white p-2 md:p-4">
-                      <div className="flex items-center gap-2">
+                    <label
+                      className={cn(
+                        'flex w-full cursor-pointer items-center justify-between p-2 md:p-4',
+                        {
+                          'rounded-[40px] bg-white':
+                            selectedOption[index] === 'one',
+                        },
+                      )}
+                    >
+                      <div className="custom-radio flex items-center gap-2">
                         <input
                           type="radio"
                           name="option"
                           value="one"
-                          checked={selectedOption === 'one'}
-                          onChange={handleRadioChange}
+                          checked={selectedOption[index] === 'one'}
+                          onChange={event => handleRadioChange(event, index)}
                         />
                         <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                           {dataServices.oneMassage}
@@ -162,14 +264,24 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                           {dataServices.subscriptions}
                         </p>
                         <div className="mb-4 flex flex-col gap-1">
-                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
-                            <div className="flex items-center gap-1">
+                          <label
+                            className={cn(
+                              'relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4',
+                              {
+                                'rounded-[40px] bg-white':
+                                  selectedOption[index] === 'five',
+                              },
+                            )}
+                          >
+                            <div className="custom-radio flex items-center gap-1">
                               <input
                                 type="radio"
                                 name="option"
                                 value="five"
-                                checked={selectedOption === 'five'}
-                                onChange={handleRadioChange}
+                                checked={selectedOption[index] === 'five'}
+                                onChange={event =>
+                                  handleRadioChange(event, index)
+                                }
                               />
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.fiveMassage}
@@ -195,14 +307,24 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                             </div>
                           </label>
 
-                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
-                            <div className="flex items-center gap-1">
+                          <label
+                            className={cn(
+                              'relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4',
+                              {
+                                'rounded-[40px] bg-white':
+                                  selectedOption[index] === 'ten',
+                              },
+                            )}
+                          >
+                            <div className="custom-radio flex items-center gap-1">
                               <input
                                 type="radio"
                                 name="option"
                                 value="ten"
-                                checked={selectedOption === 'ten'}
-                                onChange={handleRadioChange}
+                                checked={selectedOption[index] === 'ten'}
+                                onChange={event =>
+                                  handleRadioChange(event, index)
+                                }
                               />
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.tenMassage}
@@ -229,14 +351,24 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                             </div>
                           </label>
 
-                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
-                            <div className="flex items-center gap-1">
+                          <label
+                            className={cn(
+                              'relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4',
+                              {
+                                'rounded-[40px] bg-white':
+                                  selectedOption[index] === 'other',
+                              },
+                            )}
+                          >
+                            <div className="custom-radio flex items-center gap-1">
                               <input
                                 type="radio"
                                 name="option"
                                 value="other"
-                                checked={selectedOption === 'other'}
-                                onChange={handleRadioChange}
+                                checked={selectedOption[index] === 'other'}
+                                onChange={event =>
+                                  handleRadioChange(event, index)
+                                }
                               />
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.other}
@@ -244,17 +376,20 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                             </div>
 
                             <QuantitySelectorServices
-                              onClickDecrement={handleDecrement}
-                              onClickIncrement={handleIncrement}
-                              quantity={quantitySelector}
-                              onQuantityChange={handleQuantityChange}
+                              key={index}
+                              onClickDecrement={() => handleDecrement(index)}
+                              onClickIncrement={() => handleIncrement(index)}
+                              quantity={quantitySelector[index]}
+                              onQuantityChange={newQuantity =>
+                                handleQuantityChange(newQuantity, index)
+                              }
                               className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 md:right-[28%] xl:right-[45%] 2xl:right-[34%]"
                             />
                             <div className="flex items-center gap-2 xl:gap-7">
                               <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalPriceCalculate(
                                   item.price,
-                                  quantitySelector,
+                                  quantitySelector[index],
                                 )}
                                 &nbsp;
                                 {dataServices.UAH}
@@ -262,7 +397,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                               <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalDiscPriceCalculate(
                                   item.price,
-                                  quantitySelector,
+                                  quantitySelector[index],
                                 )}
                                 &nbsp;
                                 {dataServices.UAH}
@@ -275,15 +410,15 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
 
                     <ModalBuyCertificate
                       choosedMassage={{
-                        massageQuantity: chosenQuantity,
+                        massageQuantity: chosenQuantity[index],
                         massageType: item.title,
                         totalCost: totalPriceCalculate(
                           item.price,
-                          chosenQuantity,
+                          chosenQuantity[index],
                         ),
                         promoCost: totalDiscPriceCalculate(
                           item.price,
-                          chosenQuantity,
+                          chosenQuantity[index],
                         ),
                       }}
                     />
