@@ -14,7 +14,7 @@ export const BlogArticle: React.FC<BlockContentProps> = ({ post }) => {
   };
   return (
     <div className={`mx-auto ${styles.block}`}>
-      <PortableText value={post.body} components={components} />
+      <PortableText value={post?.body} components={components} />
     </div>
   );
 };
