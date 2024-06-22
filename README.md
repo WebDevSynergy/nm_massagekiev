@@ -482,6 +482,16 @@ to scroll forward or back
 | `totalPages` | -       | required, `number`, the total of all pages.                                                                         |
 | `type`       | -       | `prev`,`next` a type that changes styles and logic according to whether pages should be turned forward or backward. |
 
+- #### VideoPlayer
+
+The VideoPlayer component is designed to play an introductory video within the
+certificate section of a webpage or application. This component utilizes a
+responsive video player to deliver a seamless and engaging viewing experience.
+
+| Prop  | Default | Description                                     |
+| ----- | ------- | ----------------------------------------------- |
+| `url` | -       | required, `string`, the absolute path to video. |
+
 </details>
 
 ### 🚧 Technology stack

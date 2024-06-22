@@ -8,7 +8,7 @@ import { cn } from '@/utils';
 
 import { AccordionFAQItemProps } from './types';
 
-import DownIcon from '~/icons/arrow-down.svg';
+import ArrowIcon from '~/icons/arrow-down.svg';
 
 export const AccordionFAQItem: React.FC<AccordionFAQItemProps> = ({ data }) => {
   return (
@@ -29,11 +29,11 @@ export const AccordionFAQItem: React.FC<AccordionFAQItemProps> = ({ data }) => {
                 <p className="w-fit font-open-sans text-[16px]/[1.2] font-semibold tracking-[-0.32px] text-brownDark md:text-[18px] md:tracking-[-0.36px] xl:font-bold 2xl:text-[20px] 2xl:tracking-[-0.4px]">
                   {item.title}
                 </p>
-                <DownIcon
+                <ArrowIcon
                   className={cn(
                     'size-5 transition-[transform] md:size-6',
-                    { 'rotate-0 text-orange': selected },
-                    { 'rotate-180 text-green': !selected },
+                    { 'rotate-0 text-green': !selected },
+                    { 'rotate-180 text-orange': selected },
                   )}
                 />
               </div>

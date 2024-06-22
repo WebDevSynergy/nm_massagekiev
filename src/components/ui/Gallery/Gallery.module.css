@@ -1,0 +1,16 @@
+.card {
+  @apply transition-all;
+}
+.card img {
+  @apply transition-all;
+}
+
+.card:hover,
+.card:focus {
+  @apply shadow-blackShadow;
+}
+
+.card:hover img,
+.card:focus img {
+  scale: 1.15;
+}

@@ -11,7 +11,8 @@ import styles from './ServicesSection.module.css';
 import dataServices from '@/data/services.json';
 
 export const ServicesSection: React.FC = async () => {
-  const services = await getServices();
+  const data = await getServices();
+  const services = data.reverse();
 
   return (
     <section className="section bg-beige" id="services">

@@ -21,10 +21,12 @@ export const QuantitySelectorServices: React.FC<
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     const numberValue = parseInt(value, 10);
-    console.log(value);
 
-    if (!isNaN(numberValue) && numberValue > 0 && numberValue < 100) {
-      onQuantityChange(numberValue);
+    if (!isNaN(numberValue)) {
+      const quantityValue = Math.max(1, Math.min(99, numberValue));
+      onQuantityChange(quantityValue);
+    } else if (value === '') {
+      onQuantityChange(1);
     }
   };
 
@@ -60,6 +62,7 @@ export const QuantitySelectorServices: React.FC<
         onChange={handleInputChange}
         className="w-7 bg-greenLight text-center font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:w-[49px] xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]"
       />
+
       <button
         type="button"
         ref={incrementButtonRef}
