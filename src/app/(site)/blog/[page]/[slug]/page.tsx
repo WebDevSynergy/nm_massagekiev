@@ -1,4 +1,4 @@
-import { PostSection, BlogSections } from '@/sections';
+import { PostSection, BlogSections, ContactUsSections } from '@/sections';
 
 import { getOnePost, getPostsSlug } from '@/actions/sanity';
 
@@ -26,6 +26,7 @@ export default async function PostPage({
     <>
       <PostSection post={post} />
       <BlogSections />
+      <ContactUsSections />
     </>
   );
 }
