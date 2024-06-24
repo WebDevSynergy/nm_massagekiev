@@ -1,22 +1,23 @@
 .block {
-  @apply text-lg leading-relaxed;
+  @apply flex flex-col gap-2 text-[16px]/[1.4] tracking-[-0.02em] xl:mx-auto xl:w-[894px] xl:text-[18px] 2xl:w-[1086px];
 }
 
-.block p,
 .block ul,
-.block ol,
+.block ol {
+  @apply flex flex-col gap-2;
+}
+
 .block blockquote {
-  @apply my-6;
+  @apply text-[18px] italic xl:text-[20px];
 }
 
-.block h2 {
-  @apply mb-4 mt-12 text-3xl leading-snug;
+.block h1 {
+  font-variation-settings: 'wght' 700;
+  @apply mb-2 text-[24px]/[1.2] text-blackLight md:mb-4 md:text-[32px]  xl:mb-6 xl:text-[36px] 2xl:mb-[40px] 2xl:text-[40px];
 }
 
+.block h2,
 .block h3 {
-  @apply mb-4 mt-8 text-2xl leading-snug;
-}
-
-.block p {
-  @apply m-0;
+  font-variation-settings: 'wght' 700;
+  @apply mb-1 text-[18px] xl:text-[20px];
 }

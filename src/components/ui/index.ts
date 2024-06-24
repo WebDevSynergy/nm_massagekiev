@@ -29,6 +29,7 @@ export * from './Spinner';
 export * from './VideoPlayer';
 export * from './Gallery';
 export * from './GalleryPagination';
+export * from './GoBackBtn';
 export * from './ScrollToTopButton';
 
 /**FORM */
