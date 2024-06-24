@@ -8,7 +8,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className="bg-whiteBeige py-2 xl:py-4 2xl:py-6">
-      <div className="container mx-auto flex items-center justify-between 2xl:px-[262px]">
+      <div className="container mx-auto flex items-center justify-between">
         <MobileMenu />
 
         <Logo variant="brown" />
