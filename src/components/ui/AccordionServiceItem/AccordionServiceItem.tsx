@@ -4,16 +4,16 @@ import React, { useEffect, useState } from 'react';
 
 import { Tab } from '@headlessui/react';
 
-import { cn } from '@/utils';
-
+import { ModalBuyCertificate } from '@/components/base';
 import { QuantitySelectorServices } from '@/components/ui';
 
 import { AccordionServiceItemProps } from './types';
 
-import ArrowIcon from '~/icons/arrow-down.svg';
+import { cn } from '@/utils';
 
-import { ModalBuyCertificate } from '@/components/base';
 import dataServices from '@/data/services.json';
+
+import ArrowIcon from '~/icons/arrow-down.svg';
 
 export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
   data,
@@ -248,6 +248,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                           {dataServices.oneMassage}
                         </span>
                       </div>
+
                       <div className="flex items-center gap-6 md:gap-5 xl:gap-10">
                         <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                           {item.duration}&nbsp;{dataServices.duration}
@@ -258,11 +259,13 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                         </span>
                       </div>
                     </label>
+
                     {item.subscription && (
                       <>
                         <p className="mb-2 mt-4 font-open-sans text-[14px]/[1.2] font-semibold tracking-[-0.28px] text-brownDark xl:text-[16px] xl:tracking-[-0.32px] 2xl:text-[18px] 2xl:tracking-[-0.36px] mdOnly:font-bold">
                           {dataServices.subscriptions}
                         </p>
+
                         <div className="mb-4 flex flex-col gap-1">
                           <label
                             className={cn(
@@ -283,23 +286,28 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                                   handleRadioChange(event, index)
                                 }
                               />
+
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.fiveMassage}
                               </span>
                             </div>
+
                             <div className="2xl:absolute 2xl:right-[37%] 2xl:translate-x-1/2">
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px] smOnly:hidden mdOnly:hidden xlOnly:hidden">
                                 {dataServices.fiveMassage}
                               </span>
+
                               <span className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown md:right-[28%] xl:right-[45%] xl:text-[14px] xl:tracking-[-0.28px] 2xl:right-[-30%] 2xl:text-[16px] 2xl:tracking-[-0.32px] ">
                                 {dataServices.discount5}
                               </span>
                             </div>
+
                             <div className="flex items-center gap-[14px] xl:gap-9">
                               <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalPriceCalculate(item.price, 5)}&nbsp;
                                 {dataServices.UAH}
                               </span>
+
                               <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalDiscPriceCalculate(item.price, 5)}&nbsp;
                                 {dataServices.UAH}
@@ -326,23 +334,28 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                                   handleRadioChange(event, index)
                                 }
                               />
+
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.tenMassage}
                               </span>
                             </div>
+
                             <div className="2xl:absolute 2xl:right-[39%] 2xl:translate-x-1/2">
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px] smOnly:hidden mdOnly:hidden xlOnly:hidden">
                                 {dataServices.tenMassage}
                               </span>
+
                               <span className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown md:right-[28%] xl:right-[45%] xl:text-[14px] xl:tracking-[-0.28px] 2xl:right-[-36%] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.discount10}
                               </span>
                             </div>
+
                             <div className="flex items-center gap-[14px] xl:gap-9">
                               <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalPriceCalculate(item.price, 10)}&nbsp;
                                 {dataServices.UAH}
                               </span>
+
                               <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalDiscPriceCalculate(item.price, 10)}
                                 &nbsp;
@@ -370,6 +383,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                                   handleRadioChange(event, index)
                                 }
                               />
+
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.other}
                               </span>
@@ -385,6 +399,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                               }
                               className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 md:right-[28%] xl:right-[45%] 2xl:right-[34%]"
                             />
+
                             <div className="flex items-center gap-2 xl:gap-7">
                               <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalPriceCalculate(
@@ -394,6 +409,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                                 &nbsp;
                                 {dataServices.UAH}
                               </span>
+
                               <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {totalDiscPriceCalculate(
                                   item.price,

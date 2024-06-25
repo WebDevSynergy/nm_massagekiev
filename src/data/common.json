@@ -2,12 +2,12 @@
   "testField": "nm_massagekiev",
   "nav": [
     { "path": "/", "label": "Головна" },
-    { "path": "#benefits", "label": "Про салон" },
-    { "path": "#services", "label": "Послуги" },
-    { "path": "#reviews", "label": "Відгуки" },
-    { "path": "#masseurs", "label": "Масажисти" },
+    { "path": "/#benefits", "label": "Про салон" },
+    { "path": "/#services", "label": "Послуги" },
+    { "path": "/#reviews", "label": "Відгуки" },
+    { "path": "/#masseurs", "label": "Масажисти" },
     { "path": "/blog/1", "label": "Блог" },
-    { "path": "#faq", "label": "Питання і відповіді" }
+    { "path": "/#faq", "label": "Питання і відповіді" }
   ],
   "schedule": { "days": "понеділок - п’ятниця", "hours": "9:00 - 22:00" },
   "phone": "+38 (063) 177 22 23",
