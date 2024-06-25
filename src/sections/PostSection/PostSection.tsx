@@ -1,15 +1,15 @@
 import { BlogArticle } from '@/components/base';
-
 import { GoBackBtn } from '@/components/ui';
+
+import { BlockContentProps } from './types';
 
 import data from '@/data/post.json';
 
 import Arrow from '~/icons/arrow-left.svg';
 
-import { BlockContentProps } from './types';
-
 export const PostSection: React.FC<BlockContentProps> = ({ post }) => {
   const { goBackBtnText } = data;
+
   return (
     <section className="section">
       <div className="container">
@@ -21,6 +21,7 @@ export const PostSection: React.FC<BlockContentProps> = ({ post }) => {
           />
           {goBackBtnText}
         </GoBackBtn>
+
         <BlogArticle post={post} />
       </div>
     </section>

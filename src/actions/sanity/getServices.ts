@@ -4,7 +4,7 @@ export const getServices = async () => {
   try {
     const services =
       (await sanityClient.fetch(
-        '*[_type == "service"]  | order(_createdAt desc)',
+        '*[_type == "service"]  | order(_createdAt asc)',
         {},
         { next: { revalidate: 3600 } },
       )) || null;

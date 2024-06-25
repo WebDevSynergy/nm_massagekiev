@@ -1,11 +1,10 @@
-import React from 'react';
-
 import { MainLink } from '@/components/ui';
 
 import { MainNavProps } from './types';
 
-import data from '@/data/common.json';
 import { cn } from '@/utils';
+
+import data from '@/data/common.json';
 
 export const MainNav: React.FC<MainNavProps> = ({ mobileStyle, onClose }) => {
   const { nav } = data;

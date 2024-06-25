@@ -4,11 +4,19 @@
 
 .block ul,
 .block ol {
-  @apply flex flex-col gap-2;
+  @apply flex flex-col gap-2 pl-6;
+}
+
+.block ul li {
+  @apply list-disc;
+}
+
+.block ol li {
+  @apply list-decimal;
 }
 
 .block blockquote {
-  @apply text-[18px] italic xl:text-[20px];
+  @apply ml-2 border-l-4 p-3 text-[18px] xl:text-[20px];
 }
 
 .block h1 {
@@ -16,8 +24,32 @@
   @apply mb-2 text-[24px]/[1.2] text-blackLight md:mb-4 md:text-[32px]  xl:mb-6 xl:text-[36px] 2xl:mb-[40px] 2xl:text-[40px];
 }
 
-.block h2,
-.block h3 {
+.block h2 {
   font-variation-settings: 'wght' 700;
-  @apply mb-1 text-[18px] xl:text-[20px];
+  @apply mb-2 text-[18px]/[1.2] text-blackLight md:mb-3 md:text-[24px]  xl:mb-4 xl:text-[28px] 2xl:mb-[28px] 2xl:text-[32px];
+}
+
+.block h3 {
+  font-variation-settings: 'wght' 600;
+  @apply mb-2 text-[18px]/[1.2] text-blackLight md:mb-3 md:text-[22px]  xl:mb-4 xl:text-[26px] 2xl:mb-[20px] 2xl:text-[28px];
+}
+
+.block h4 {
+  font-variation-settings: 'wght' 600;
+  @apply mb-2 text-[16px]/[1.2] text-blackLight md:mb-2 md:text-[20px]  xl:mb-3 xl:text-[22px] 2xl:mb-[16px] 2xl:text-[24px];
+}
+
+.block h5 {
+  font-variation-settings: 'wght' 600;
+  @apply mb-1 text-[14px]/[1.2] text-blackLight md:mb-2 md:text-[16px]  xl:mb-2 xl:text-[20px] 2xl:mb-[16px] 2xl:text-[20px];
+}
+
+.block h6 {
+  font-variation-settings: 'wght' 600;
+  @apply mb-1 text-[12px]/[1.2] text-blackLight md:mb-2 md:text-[14px]  xl:mb-2 xl:text-[16px] 2xl:mb-[12px] 2xl:text-[18px];
+}
+
+.block strong {
+  font-variation-settings: 'wght' 600;
+  @apply font-bold;
 }
