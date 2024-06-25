@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
+
 import { ContactUsSections, GallerySection } from '@/sections';
 
 import { getPostsWithPagination, getTotalPosts } from '@/actions/sanity';
+
+import meta from '@/data/meta.json';
+
+export const metadata: Metadata = meta.blog;
 
 const POSTS_PER_PAGE = 6;
 

@@ -1,4 +1,9 @@
+import type { Metadata } from 'next';
+
+import meta from '@/data/meta.json';
 import data from '@/data/policy.json';
+
+export const metadata: Metadata = meta.termsOfServicePrivacyPolicy;
 
 export default function Policy() {
   const { title, sections } = data;

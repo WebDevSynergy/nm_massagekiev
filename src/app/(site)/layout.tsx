@@ -1,5 +1,11 @@
+import type { Metadata } from 'next';
+
 import { Footer, Header } from '@/layout';
 import { ScrollToTopButton } from '@/components/ui';
+
+import meta from '@/data/meta';
+
+export const metadata: Metadata = meta;
 
 export default function Layout({
   children,
