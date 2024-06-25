@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 import data from '@/data/meta.json';
 
-const { title, description, keywords, locale, images } = data;
+const { title, description, keywords, locale, images } = data.main;
 
 const { NEXT_PUBLIC_BASE_URL } = process.env;
 
