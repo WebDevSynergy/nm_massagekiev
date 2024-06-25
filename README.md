@@ -175,6 +175,22 @@ post whose value is the object received from sanity
 | `variant`   | -       | required, choose the color you'd need :'brown' or 'green'                           |
 | `className` | ''      | optional, `string`, adds custom css class for link container which wrapped the icon |
 
+- #### SocialItem
+
+| Prop        | Default | Description                                                                   |
+| ----------- | ------- | ----------------------------------------------------------------------------- |
+| `href`      | -       | required, `string`, adds path to socials                                      |
+| `ariaLabel` | -       | required, `string`, adds attribute aria-label                                 |
+| `name`      | -       | required, choose the name you'd need: 'facebook' or 'instagram' or 'telegram' |
+|             |         | or 'viber'                                                                    |
+
+- #### SocialLinks
+
+| Prop        | Default | Description                                                              |
+| ----------- | ------- | ------------------------------------------------------------------------ |
+| `isHeader`  | -       | optional, `boolean`, true - if social links in header, false - in footer |
+| `className` | ''      | optional, `string`, adds custom css class                                |
+
 - #### ButtonLink
 
 A component implements interfaces for tags `a`,`button` and `Link` from
@@ -491,6 +507,25 @@ responsive video player to deliver a seamless and engaging viewing experience.
 | Prop  | Default | Description                                     |
 | ----- | ------- | ----------------------------------------------- |
 | `url` | -       | required, `string`, the absolute path to video. |
+
+- #### Accordion
+
+| Prop       | Default | Description                                                          |
+| ---------- | ------- | -------------------------------------------------------------------- |
+| `children` | -       | required, `ReactNode`, which will be content for accordion component |
+| `type`     | -       | required, choose the type you'd need: 'faq' or 'services'            |
+
+- #### AccordionServiceItem
+
+| Prop   | Default | Description                                                 |
+| ------ | ------- | ----------------------------------------------------------- |
+| `data` | -       | required, `Array`, array of objects with data for services. |
+
+- #### AccordionFAQItem
+
+| Prop   | Default | Description                                                              |
+| ------ | ------- | ------------------------------------------------------------------------ |
+| `data` | -       | required, `Array`, array of objects with data for questions and answers. |
 
 </details>
 
