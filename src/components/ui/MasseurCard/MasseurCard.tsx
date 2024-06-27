@@ -1,7 +1,7 @@
 'use client';
 
 import {
-  ArrowSlider,
+  // ArrowSlider,
   CertificateCard,
   ModalCard,
   SanityImage,
@@ -61,10 +61,10 @@ export const MasseurCard: React.FC<MasseursCardProps> = ({
                               sm480:size-full shadow-blackShadow"
             />
 
-            <ArrowSlider
+            {/* <ArrowSlider
               section="certificates"
               wrapClassName="w-full xl:absolute xl:z-[999] xl:w-full xl:top-1/2 xl:-translate-y-1/2 2xl:z-[99999] 2xl:w-full 2xl:top-1/2 2xl:-translate-y-1/2"
-            />
+            /> */}
           </div>
         </ModalCard>
       )}
