@@ -64,26 +64,28 @@ Z{Enter} --> L(Layout)
   L --> C(Footer)
   B --> BA[Menu]
 
-  A --> AA[Section 1. Name_template]
-  A --> AB[Section 2. Name_template]
-  A --> AC[Section 3. Name_template]
-  A --> AD[Section 4. Name_template]
-  A --> AE[Section 5. Name_template]
-  A --> AF[Section 6. Name_template]
-  A --> AG[Section 7. Name_template]
+  A --> AA[Section 1. Hero]
+  A --> AB[Section 2. Benefits]
+  A --> AC[Section 3. Services]
+  A --> AD[Section 4. Reviews]
+  A --> AE[Section 5. Masseurs]
+  A --> AF[Section 6. ContactUs]
+  A --> AG[Section 7. Blog] 
+  A --> AH[Section 8. Certificate]
+  A --> AI[Section 9. FAQ]
+  A --> AJ[Section 10. Instagram]
+  A --> AK[Section 11. Contacts]
 
 
-  BA --> D((Name_template_page))
-  D --> DA[Section 1. Name_template_page Name_template]
-  D --> DB[Section 2. Name_template_page Name_template]
-  D --> DC[Section 3. Name_template]
-  D --> DB[Section 4. Name_template]
+  BA --> D((Blog)) --> E((Post))
+  D --> DA[Section 1. BlogGalery]
+  D --> DB[Section 2. ContactUs]
 
 
-  BA --> E((Name_template_page))
-  E --> EA[Section 1. Name_template_page Name_template]
-  E --> EB[Section 2. Name_template_page Name_template]
-  E --> EC[Section 3. Name_template_page Name_template]
+  AG --> E((Post))
+  E --> EA[Section 1. Post]
+  E --> EC[Section 2. Blog] --> E((Post))
+  E --> EB[Section 3. ContactUs]
 
 
 ```
@@ -561,6 +563,8 @@ To deploy this project, you need to perform the following steps:
 
 **WDS** is ready to answer your questions and provide additional information:
 
-- **Website**: [webdevsynergy.vercel.app](webdevsynergy.vercel.app)
-- **Phone**: <a href="tel:+380679995570">+380679995570</a>
+- **Website**: [webdevsynergy.com.ua](https://www.webdevsynergy.com.ua)
+- **Phone**: <a href="tel:+380665762413">+38 066 576 24 13</a>
 - **Email**: [wds.webdevsynergy@gmail.com](mailto:wds.webdevsynergy@gmail.com)
+- **Instagram**: [webdevsynergy](https://www.instagram.com/webdevsynergy/)
+- **Telegram**: [WebDevSynergy_Info](https://t.me/WebDevSynergy_Info)
