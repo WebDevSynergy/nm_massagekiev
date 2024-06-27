@@ -10,7 +10,7 @@ export const getServicesList = async (): Promise<TService[] | null> => {
   try {
     const servicesList =
       (await sanityClient.fetch<TService[]>(
-        '*[_type == "service"]  | order(_createdAt desc) {"id": _id, title, price}',
+        '*[_type == "service"]  | order(_createdAt asc) {"id": _id, title, price}',
         {},
         { next: { revalidate: 3600 } },
       )) || null;

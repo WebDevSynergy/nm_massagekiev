@@ -4,11 +4,19 @@ import { cn } from '@/utils';
 
 import { Accordion } from '@/components/base';
 
-import { AccordionServiceItem, SectionTitle } from '@/components/ui';
+import { SectionTitle } from '@/components/ui';
+
+const AccordionServiceItem = dynamic(
+  () => import('@/components/ui/AccordionServiceItem/AccordionServiceItem'),
+  {
+    ssr: false,
+  },
+);
 
 import styles from './ServicesSection.module.css';
 
 import dataServices from '@/data/services.json';
+import dynamic from 'next/dynamic';
 
 export const ServicesSection: React.FC = async () => {
   const services = await getServices();

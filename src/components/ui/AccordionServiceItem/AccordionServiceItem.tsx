@@ -15,7 +15,7 @@ import dataServices from '@/data/services.json';
 
 import ArrowIcon from '~/icons/arrow-down.svg';
 
-export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
+const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
   data,
 }) => {
   const getFromLocStorOrDef = (
@@ -227,15 +227,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                   </p>
 
                   <form className="mt-2 w-full">
-                    <label
-                      className={cn(
-                        'flex w-full cursor-pointer items-center justify-between p-2 md:p-4',
-                        {
-                          'rounded-[40px] bg-white':
-                            selectedOption[index] === 'one',
-                        },
-                      )}
-                    >
+                    <label className="flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
                       <div className="custom-radio flex items-center gap-2">
                         <input
                           type="radio"
@@ -267,15 +259,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                         </p>
 
                         <div className="mb-4 flex flex-col gap-1">
-                          <label
-                            className={cn(
-                              'relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4',
-                              {
-                                'rounded-[40px] bg-white':
-                                  selectedOption[index] === 'five',
-                              },
-                            )}
-                          >
+                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
                             <div className="custom-radio flex items-center gap-1">
                               <input
                                 type="radio"
@@ -315,15 +299,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                             </div>
                           </label>
 
-                          <label
-                            className={cn(
-                              'relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4',
-                              {
-                                'rounded-[40px] bg-white':
-                                  selectedOption[index] === 'ten',
-                              },
-                            )}
-                          >
+                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
                             <div className="custom-radio flex items-center gap-1">
                               <input
                                 type="radio"
@@ -364,16 +340,8 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                             </div>
                           </label>
 
-                          <label
-                            className={cn(
-                              'relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4',
-                              {
-                                'rounded-[40px] bg-white':
-                                  selectedOption[index] === 'other',
-                              },
-                            )}
-                          >
-                            <div className="custom-radio flex items-center gap-1">
+                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
+                            <span className="custom-radio flex items-center gap-1">
                               <input
                                 type="radio"
                                 name="option"
@@ -387,7 +355,7 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                               <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                                 {dataServices.other}
                               </span>
-                            </div>
+                            </span>
 
                             <QuantitySelectorServices
                               key={index}
@@ -448,3 +416,5 @@ export const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
     </>
   );
 };
+
+export default AccordionServiceItem;
