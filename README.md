@@ -1,6 +1,6 @@
-# WDS_template 💻
+# nm_massagekiev
 
-**[View live page](https://webdevsynergy.vercel.app/en)**
+**[View live page](<https://nm-massagekiev-phi.vercel.app>)**
 
 ---
 
@@ -8,19 +8,17 @@
 
 ## 🗂️ Project description 🗂️
 
-A website for the **WDS_template** website development company.
+A website for a **nm_massagekiev** massage studio.
 
-- **Project name**: WDS_template
+- **Project name**: nm_massagekiev
 - **Project goals**:
-  - Develop websites for your business for free.
-  - Promotes the education and development of young professionals.
-  - Provides an opportunity for businesses to cooperate with talented students.
-  - Attracting new client / partners
+ - Information about types of services, personnel
+ - Acquaintance with services
+ - Attracting new customers
 - **Target audience**:
-  - **Age**: 18-50+
-  - **Gender**: All
-- **Product scope**: Development of a multi-page website for the WDS company,
-  whose main field of activity is web-developing
+ - **Age**: 0-50+
+ - **Gender**: all
+- **Field of activity**: Development of a multi-page site for the nm_massagekiev company, whose main field of activity is health and therapeutic massages
 
 ## ⚙️ Creating the project ⚙️
 
@@ -53,7 +51,7 @@ A website for the **WDS_template** website development company.
 
 ### Design
 
-[Design layout on Figma](<https://www.figma.com/file/w0UKi99fF2QwHJL5NHc8vr/wds-(webdevsynergy)---website-portfolio---julia-kopytko?type=design&node-id=1304-60&mode=design&t=MKtlXN4sPoVkCyzp-0>)
+[Design layout on Figma](<https://www.figma.com/design/MTYF9kXvQJFGAX6SxgrUXY/website---студія-масажу?node-id=166-41&m=dev>)
 
 ### Project structure
 
