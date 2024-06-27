@@ -17,8 +17,9 @@ export const makeSliderConfig = ({
   const slidesPerViewBase = 1;
 
   const spaceBetweenBase = 16;
+
   const autoplayBase =
-    section === Sections.INSTAGRAM || section === Sections.CERTIFICATES
+    section === Sections.INSTAGRAM
       ? { delay: 2000, disableOnInteraction: false }
       : false;
 
