@@ -1,4 +1,4 @@
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 
 import { SliderProps } from '@/components/ui/Slider/types';
 
@@ -18,7 +18,7 @@ export const makeSliderConfig = ({
 
   const spaceBetweenBase = 16;
   const autoplayBase =
-    section === Sections.INSTAGRAM
+    section === Sections.INSTAGRAM || section === Sections.CERTIFICATES
       ? { delay: 2000, disableOnInteraction: false }
       : false;
 
@@ -32,6 +32,8 @@ export const makeSliderConfig = ({
 
   let slidesPerViewBigDesk: number;
   let spaceBetweenBigDesk: number;
+
+  let paginationBase: boolean | { clickable: boolean } = false;
 
   switch (section) {
     case Sections.INSTAGRAM:
@@ -58,6 +60,9 @@ export const makeSliderConfig = ({
 
       slidesPerViewBigDesk = 1;
       spaceBetweenBigDesk = 40;
+
+      paginationBase = { clickable: true };
+
       break;
 
     default:
@@ -77,7 +82,7 @@ export const makeSliderConfig = ({
     className: wrapClassName,
     updateOnWindowResize: true,
     wrapperTag: 'ul',
-    modules: [Navigation, Autoplay],
+    modules: [Navigation, Autoplay, Pagination],
     speed: 800,
     lazyPreloadPrevNext: 1,
     navigation: {
@@ -89,6 +94,7 @@ export const makeSliderConfig = ({
     spaceBetween: spaceBetweenBase,
     slidesPerView: slidesPerViewBase,
     autoplay: autoplayBase,
+    pagination: paginationBase,
 
     breakpoints: {
       768: {

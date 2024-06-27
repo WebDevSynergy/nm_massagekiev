@@ -6,6 +6,7 @@ import { makeSliderConfig } from '@/utils/makeSliderConfig';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import { SliderProps } from './types';
 
