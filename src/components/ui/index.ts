@@ -1,5 +1,4 @@
 export * from './AccordionFAQItem';
-export * from './AccordionServiceItem';
 export * from './ArrowSlider';
 export * from './BenefitCard';
 export * from './BlogCard';

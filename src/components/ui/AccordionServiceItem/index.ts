@@ -1,1 +1,1 @@
-export * from './AccordionServiceItem';
+export { default as AccordionServiceItem } from './AccordionServiceItem';

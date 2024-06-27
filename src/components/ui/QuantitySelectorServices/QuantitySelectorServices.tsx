@@ -8,27 +8,9 @@ import { QuantitySelectorServicesProps } from './types';
 
 export const QuantitySelectorServices: React.FC<
   QuantitySelectorServicesProps
-> = ({
-  onClickDecrement,
-  onClickIncrement,
-  quantity,
-  onQuantityChange,
-  className = '',
-}) => {
+> = ({ onClickDecrement, onClickIncrement, quantity, className = '' }) => {
   const incrementButtonRef = useRef<HTMLButtonElement>(null);
   const decrementButtonRef = useRef<HTMLButtonElement>(null);
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    const numberValue = parseInt(value, 10);
-
-    if (!isNaN(numberValue)) {
-      const quantityValue = Math.max(1, Math.min(99, numberValue));
-      onQuantityChange(quantityValue);
-    } else if (value === '') {
-      onQuantityChange(1);
-    }
-  };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === 'Enter') {
@@ -56,12 +38,15 @@ export const QuantitySelectorServices: React.FC<
       >
         -
       </button>
-      <input
-        type="number"
-        value={quantity}
-        onChange={handleInputChange}
-        className="w-7 bg-greenLight text-center font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:w-[49px] xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]"
-      />
+
+      <p
+        className="w-7 bg-greenLight text-center font-open-sans
+        text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:w-[49px]
+        xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px]
+        2xl:tracking-[-0.32px]"
+      >
+        {quantity}
+      </p>
 
       <button
         type="button"
