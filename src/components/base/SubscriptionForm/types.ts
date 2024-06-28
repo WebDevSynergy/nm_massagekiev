@@ -2,4 +2,4 @@ import * as yup from 'yup';
 
 import { schema } from './schema';
 
-export type FormData = yup.InferType<typeof schema>;
+export type SubscriptionFormData = yup.InferType<typeof schema>;
