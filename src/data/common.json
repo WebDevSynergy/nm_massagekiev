@@ -10,8 +10,11 @@
     { "path": "/#faq", "label": "Питання і відповіді" }
   ],
   "schedule": { "days": "понеділок - п’ятниця", "hours": "9:00 - 22:00" },
-  "phone": "+38 (063) 177 22 23",
-  "phoneIconAreaLabel": "+38 (063) 177 22 23",
+  "phone": {
+    "path": "+380631772223",
+    "label": "+38 (063) 177 22 23",
+    "phoneIconAreaLabel": "+38 (063) 177 22 23"
+  },
   "address": "Київ, вул. Сергія Данченко, 32",
   "googleMaps": {
     "title": "nm_massagekiev\nДанченко, 32",

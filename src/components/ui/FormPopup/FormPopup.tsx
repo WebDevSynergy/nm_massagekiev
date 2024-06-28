@@ -90,8 +90,8 @@ export const FormPopup: React.FC<FormPopupProps> = ({
           </p>
 
           <MainLink
-            path={phone}
-            label={phone}
+            path={phone.path}
+            label={phone.label}
             tel
             className="text-sm/[1.4] text-brown hover:text-brownDark focus:text-brownDark md:text-base/[1.4] xl:text-lg/[1.4]"
           />

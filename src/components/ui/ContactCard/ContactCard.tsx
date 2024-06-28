@@ -1,11 +1,12 @@
 import { SectionTitle } from '../SectionTitle';
 import { ButtonLink } from '../ButtonLink';
 
-import { cn, formatPhoneToLink } from '@/utils';
+import { cn } from '@/utils';
 
 import data from '@/data/common.json';
 
 import SubwayIcon from '~/icons/subway-icon.svg';
+import { MainLink } from '../MainLink';
 
 export const ContactCard: React.FC = () => {
   const {
@@ -14,6 +15,7 @@ export const ContactCard: React.FC = () => {
     phone,
     contactCard: { title, btnLabel, subwayStations },
   } = data;
+
   return (
     <div className="mb-4 flex flex-col items-center justify-center rounded-[24px] bg-whiteBeige p-6 md:mb-6 md:p-10 xl:mb-0 xl:h-[327px] xl:w-[568px] 2xl:w-[568px]">
       <SectionTitle isCentered>{title}</SectionTitle>
@@ -46,13 +48,7 @@ export const ContactCard: React.FC = () => {
 
         <p className="text-center text-brown">{`${schedule.days} ${schedule.hours}`}</p>
 
-        <ButtonLink
-          tag="a"
-          href={formatPhoneToLink(phone)}
-          styleType="unstyled"
-        >
-          {phone}
-        </ButtonLink>
+        <MainLink path={phone.path} label={phone.label} tel />
       </address>
 
       <ButtonLink styleType="primary">{btnLabel}</ButtonLink>

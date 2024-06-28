@@ -16,7 +16,7 @@ export const MainLink: React.FC<MainLinkProps> = ({
   onClose,
   className,
 }) => {
-  const { phoneIconAreaLabel } = data;
+  const { phoneIconAreaLabel } = data.phone;
 
   return (
     <div>

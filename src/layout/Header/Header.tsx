@@ -4,7 +4,7 @@ import { Logo, MainLink, MainNav, SocialLinks } from '@/components/ui';
 import data from '@/data/common.json';
 
 export const Header: React.FC = () => {
-  const { phone } = data;
+  const { path, label } = data.phone;
 
   return (
     <header className="bg-whiteBeige py-2 xl:py-4 2xl:py-6">
@@ -16,7 +16,7 @@ export const Header: React.FC = () => {
         <MainNav />
 
         <div className="flex items-center justify-center xl:gap-4 2xl:gap-8">
-          <MainLink path={phone} label={phone} tel isHeader />
+          <MainLink path={path} label={label} tel isHeader />
 
           <SocialLinks isHeader={true} />
         </div>

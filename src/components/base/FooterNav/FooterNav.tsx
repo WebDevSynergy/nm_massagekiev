@@ -5,7 +5,7 @@ import commonData from '@/data/common.json';
 
 export const FooterNav = () => {
   const { categories } = data;
-  const { phone } = commonData;
+  const { path, label } = commonData.phone;
 
   return (
     <div className="flex flex-col md:flex-row md:justify-between xl:grow smOnly:items-center smOnly:gap-[24px] smOnly:text-center">
@@ -17,7 +17,7 @@ export const FooterNav = () => {
 
           {category.links.length === 0 ? (
             <div className="flex flex-col gap-1 md:gap-2">
-              <MainLink path={phone} label={phone} tel />
+              <MainLink path={path} label={label} tel />
 
               <SocialLinks isHeader={false} />
             </div>
