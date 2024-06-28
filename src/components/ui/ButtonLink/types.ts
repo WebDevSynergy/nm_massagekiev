@@ -17,7 +17,7 @@ export type ButtonAsLink = BaseProps &
     tag: 'link';
   };
 
-type ButtonAsExternal = BaseProps &
+export type ButtonAsExternal = BaseProps &
   Omit<ButtonAsLink, 'tag' | 'href'> & {
     tag: 'a';
     href: string;
