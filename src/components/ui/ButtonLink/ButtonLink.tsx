@@ -2,7 +2,12 @@
 
 import Link from 'next/link';
 
-import { ButtonAsButton, ButtonAsExternal, ButtonAsLink, ButtonLinkProps } from './types';
+import {
+  ButtonAsButton,
+  ButtonAsExternal,
+  ButtonAsLink,
+  ButtonLinkProps,
+} from './types';
 
 import { cn } from '@/utils/cn';
 
@@ -22,7 +27,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = props => {
 
   if (tag === 'link') {
     return (
-      <Link className={btnClasses} {...restProps as ButtonAsLink}>
+      <Link className={btnClasses} {...(restProps as ButtonAsLink)}>
         {children}
       </Link>
     );
@@ -32,14 +37,14 @@ export const ButtonLink: React.FC<ButtonLinkProps> = props => {
         className={btnClasses}
         target="_blank"
         rel="noopener noreferrer"
-        {...restProps as ButtonAsExternal}
+        {...(restProps as ButtonAsExternal)}
       >
         {children}
       </a>
     );
   } else {
     return (
-      <button className={btnClasses} {...restProps as ButtonAsButton}>
+      <button className={btnClasses} {...(restProps as ButtonAsButton)}>
         {children}
       </button>
     );
