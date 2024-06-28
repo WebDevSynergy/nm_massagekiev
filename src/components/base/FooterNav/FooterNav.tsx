@@ -24,7 +24,9 @@ export const FooterNav = () => {
           ) : (
             <ul className="flex flex-col gap-1 md:gap-2">
               {category.links.map(navLink => (
-                <MainLink key={navLink.path} {...navLink} />
+                <li key={navLink.path}>
+                  <MainLink {...navLink} />
+                </li>
               ))}
             </ul>
           )}

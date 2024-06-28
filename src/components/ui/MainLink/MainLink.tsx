@@ -19,7 +19,7 @@ export const MainLink: React.FC<MainLinkProps> = ({
   const { phoneIconAreaLabel } = data.phone;
 
   return (
-    <div>
+    <>
       {tel ? (
         <a
           className={cn(
@@ -55,6 +55,6 @@ export const MainLink: React.FC<MainLinkProps> = ({
           {label}
         </Link>
       )}
-    </div>
+    </>
   );
 };
