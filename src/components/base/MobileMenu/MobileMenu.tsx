@@ -76,7 +76,7 @@ export const MobileMenu: React.FC = () => {
             >
               <MainNav mobileStyle onClose={close} />
 
-              <MainLink path={phone} label={phone} tel />
+              <MainLink path={phone.path} label={phone.label} tel />
 
               <SocialLinks isHeader={false} />
             </PopoverPanel>
