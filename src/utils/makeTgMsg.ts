@@ -57,5 +57,5 @@ export const makeTgOrderMsg = (
 export const makeTgSubscriptionMsg = (data: SubscriptionFormData) => {
   const { email } = data;
 
-  return `<b>Нова підписка на розсилку:</b> ${email}\n}`;
+  return `<b>Нова підписка на розсилку:</b> ${email}`;
 };

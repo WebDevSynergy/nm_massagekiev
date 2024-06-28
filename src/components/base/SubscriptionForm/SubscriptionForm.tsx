@@ -19,6 +19,7 @@ import { schema } from './schema';
 
 export const SubscriptionForm: React.FC = () => {
   const { placeholder, btn } = data.subscription.form;
+
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
