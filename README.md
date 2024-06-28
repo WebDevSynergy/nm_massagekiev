@@ -1,6 +1,6 @@
 # nm_massagekiev
 
-**[View live page](https://nm-massagekiev-phi.vercel.app)**
+**[View live page](https://nm-massagekiev.com.ua)**
 
 ---
 
