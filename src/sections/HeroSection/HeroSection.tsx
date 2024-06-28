@@ -4,10 +4,9 @@ import { ButtonLink, GoogleRatingCard, HeroReview } from '@/components/ui';
 
 import data from '@/data/hero.json';
 
-import contactData from '@/data/contactUs-form.json';
-
 export const HeroSection: React.FC = () => {
-  const { title, description, buttons, ratingText, review, image, alt } = data;
+  const { title, description, buttons, ratingText, review, image, alt, href } =
+    data;
 
   return (
     <section className="section">
@@ -59,7 +58,7 @@ export const HeroSection: React.FC = () => {
               <li>
                 <ButtonLink
                   tag="link"
-                  href={contactData.id}
+                  href={href}
                   styleType="primary"
                   className="md:w-[336px] xl:w-[282px] 2xl:w-[253px]"
                 >

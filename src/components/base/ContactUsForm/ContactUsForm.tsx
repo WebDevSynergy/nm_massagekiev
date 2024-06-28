@@ -16,7 +16,7 @@ import {
 
 import { sendMsgTelegram } from '@/actions';
 import { makeTgContactMsg } from '@/utils';
-import data from '@/data/contactUs-form.json';
+import data from '@/data/contact-us.json';
 
 import { TContact, contactSchema } from './schema';
 import { TContactFormData } from './types';

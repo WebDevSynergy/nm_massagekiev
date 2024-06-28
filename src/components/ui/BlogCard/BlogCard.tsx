@@ -53,7 +53,6 @@ export const BlogCard: React.FC<BlogCardProps> = ({
         </div>
 
         <p
-          id="btn"
           className={cn(
             'text-[14px]/[1.71] font-semibold tracking-[-0.28px] text-green md:text-[16px]/[1.5] md:tracking-[-0.32px] 2xl:text-[18px]/[1.4] 2xl:tracking-[-0.36px]',
             styles.readMore,

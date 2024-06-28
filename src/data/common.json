@@ -85,7 +85,10 @@
 
   "contactCard": {
     "title": "Масаж в Києві",
-    "btnLabel": "Записатися",
+    "btn": {
+      "path": "#contactUsSection",
+      "label": "Записатися"
+    },
     "subwayStations": [
       { "name": "Оболонь", "line": "blue" },
       { "name": "Мінська", "line": "blue" },

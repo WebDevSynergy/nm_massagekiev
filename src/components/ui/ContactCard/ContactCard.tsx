@@ -13,7 +13,7 @@ export const ContactCard: React.FC = () => {
     schedule,
     address,
     phone,
-    contactCard: { title, btnLabel, subwayStations },
+    contactCard: { title, btn, subwayStations },
   } = data;
 
   return (
@@ -51,7 +51,9 @@ export const ContactCard: React.FC = () => {
         <MainLink path={phone.path} label={phone.label} tel />
       </address>
 
-      <ButtonLink styleType="primary">{btnLabel}</ButtonLink>
+      <ButtonLink tag="link" href={btn.path} styleType="primary">
+        {btn.label}
+      </ButtonLink>
     </div>
   );
 };

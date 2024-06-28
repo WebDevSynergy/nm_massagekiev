@@ -9,6 +9,8 @@
 
   "buttons": { "buyBtnLabel": "Записатися", "servicesBtnLabel": "Послуги" },
 
+  "href": "#contactUsSection",
+
   "ratingText": "середня оцінка на Google Maps",
 
   "review": {
