@@ -1,6 +1,6 @@
 # nm_massagekiev
 
-**[View live page](<https://nm-massagekiev-phi.vercel.app>)**
+**[View live page](https://nm-massagekiev-phi.vercel.app)**
 
 ---
 
@@ -12,13 +12,14 @@ A website for a **nm_massagekiev** massage studio.
 
 - **Project name**: nm_massagekiev
 - **Project goals**:
- - Information about types of services, personnel
- - Acquaintance with services
- - Attracting new customers
+- Information about types of services, personnel
+- Acquaintance with services
+- Attracting new customers
 - **Target audience**:
- - **Age**: 0-50+
- - **Gender**: all
-- **Field of activity**: Development of a multi-page site for the nm_massagekiev company, whose main field of activity is health and therapeutic massages
+- **Age**: 0-50+
+- **Gender**: all
+- **Field of activity**: Development of a multi-page site for the nm_massagekiev
+  company, whose main field of activity is health and therapeutic massages
 
 ## ⚙️ Creating the project ⚙️
 
@@ -51,7 +52,7 @@ A website for a **nm_massagekiev** massage studio.
 
 ### Design
 
-[Design layout on Figma](<https://www.figma.com/design/MTYF9kXvQJFGAX6SxgrUXY/website---студія-масажу?node-id=166-41&m=dev>)
+[Design layout on Figma](https://www.figma.com/design/MTYF9kXvQJFGAX6SxgrUXY/website---студія-масажу?node-id=166-41&m=dev)
 
 ### Project structure
 
@@ -70,7 +71,7 @@ Z{Enter} --> L(Layout)
   A --> AD[Section 4. Reviews]
   A --> AE[Section 5. Masseurs]
   A --> AF[Section 6. ContactUs]
-  A --> AG[Section 7. Blog] 
+  A --> AG[Section 7. Blog]
   A --> AH[Section 8. Certificate]
   A --> AI[Section 9. FAQ]
   A --> AJ[Section 10. Instagram]

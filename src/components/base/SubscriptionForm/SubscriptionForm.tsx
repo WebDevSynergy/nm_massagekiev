@@ -7,16 +7,19 @@ import useFormPersist from 'react-hook-form-persist';
 
 import { ButtonLink, FormPopup, Spinner } from '@/components/ui';
 
+import { sendMsgTelegram, sendToGoogleSheet } from '@/actions';
+import { makeTgSubscriptionMsg } from '@/utils';
+
 import data from '@/data/footer.json';
 
 import Star from '~/icons/star.svg';
 
-import { FormData } from './types';
+import { SubscriptionFormData } from './types';
 import { schema } from './schema';
-import { sendToGoogleSheet } from '@/actions';
 
 export const SubscriptionForm: React.FC = () => {
   const { placeholder, btn } = data.subscription.form;
+
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -30,15 +33,17 @@ export const SubscriptionForm: React.FC = () => {
     watch,
     setValue,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({
+  } = useForm<SubscriptionFormData>({
     resolver: yupResolver(schema),
   });
 
   useFormPersist('subscriptionForm', { watch, setValue });
 
-  const onSubmit: SubmitHandler<FormData> = async data => {
+  const onSubmit: SubmitHandler<SubscriptionFormData> = async data => {
+    const msg = makeTgSubscriptionMsg(data);
+
     try {
-      await sendToGoogleSheet(data);
+      Promise.all([await sendMsgTelegram(msg), await sendToGoogleSheet(data)]);
       setIsSuccess(true);
       reset();
     } catch {

@@ -1,6 +1,7 @@
 import { TContact } from '@/components/base/ContactUsForm/schema';
 import { TReview } from '@/components/base/ReviewForm/schema';
 import { TMassage } from '@/types';
+import { SubscriptionFormData } from '@/components/base/SubscriptionForm/types';
 
 export const makeTgReviewMsg = ({
   userName,
@@ -51,4 +52,10 @@ export const makeTgOrderMsg = (
   <b>Автор:</b> ${userName}\n
   <b>Контакт:</b> ${phoneNumber}\n 
   ${userMessage && `<b>Повідомлення:</b> ${userMessage}`}`;
+};
+
+export const makeTgSubscriptionMsg = (data: SubscriptionFormData) => {
+  const { email } = data;
+
+  return `<b>Нова підписка на розсилку:</b> ${email}`;
 };
