@@ -30,6 +30,7 @@ export * from './Gallery';
 export * from './GalleryPagination';
 export * from './GoBackBtn';
 export * from './ScrollToTopButton';
+export * from './GalleryCard';
 
 /**FORM */
 export * from './CostHint';

@@ -5,10 +5,11 @@ import { ContactUsSections, GallerySection } from '@/sections';
 import { getPostsWithPagination, getTotalPosts } from '@/actions/sanity';
 
 import meta from '@/data/meta.json';
+import data from '@/data/blog.json';
 
 export const metadata: Metadata = meta.blog;
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = Number(data.postsPerPage) || 1;
 
 export async function generateStaticParams() {
   try {

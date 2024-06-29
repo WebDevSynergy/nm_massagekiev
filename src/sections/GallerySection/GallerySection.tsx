@@ -1,4 +1,4 @@
-import { Gallery, GalleryPagination } from '@/components/ui';
+import { ButtonLink, Gallery, GalleryPagination } from '@/components/ui';
 
 import { GallerySectionProps } from './types';
 
@@ -9,7 +9,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
   page,
   totalPages,
 }) => {
-  const { title, description } = data;
+  const { title, description, emptyGallery } = data;
 
   return (
     <>
@@ -26,9 +26,27 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
             {description}
           </p>
 
-          <Gallery posts={posts} />
+          {posts && posts?.length > 0 ? (
+            <>
+              <Gallery posts={posts} />
 
-          <GalleryPagination page={page} totalPages={totalPages} />
+              <GalleryPagination page={page} totalPages={totalPages} />
+            </>
+          ) : (
+            <div
+              className="flex flex-col items-center justify-center rounded-[24px] bg-white 
+            px-2 py-20 text-center md:rounded-[32px] xl:rounded-[40px] "
+            >
+              <p className="mb-8 font-bold">{emptyGallery.label}</p>
+              <ButtonLink
+                tag="link"
+                href={emptyGallery.href}
+                styleType="primary"
+              >
+                {emptyGallery.labelLink}
+              </ButtonLink>
+            </div>
+          )}
         </div>
       </section>
     </>
