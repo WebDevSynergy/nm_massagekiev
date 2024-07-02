@@ -11,16 +11,16 @@ import {
   FormTextArea,
   FormPopup,
   FormFieldPattern,
+  Spinner,
 } from '@/components/ui';
 
 import { createReviewSanity, sendMsgTelegram } from '@/actions';
 import { makeTgReviewMsg } from '@/utils';
 
-import data from '@/data/review-form.json';
-
 import { TReview, reviewSchema } from './schema';
 import { TReviewFormData } from './types';
-import { Spinner } from '@sanity/ui';
+
+import data from '@/data/review-form.json';
 
 export const ReviewForm: React.FC = () => {
   const {
@@ -65,12 +65,15 @@ export const ReviewForm: React.FC = () => {
         await sendMsgTelegram(msg),
         await createReviewSanity(newReview),
       ]);
+
       setIsSuccess(true);
+
       reset();
     } catch {
       setIsSuccess(false);
+    } finally {
+      openPopup();
     }
-    openPopup();
   };
 
   return (
