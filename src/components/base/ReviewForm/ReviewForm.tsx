@@ -52,9 +52,10 @@ export const ReviewForm: React.FC = () => {
   useFormPersist(formName, { watch, setValue });
 
   const onSubmit: SubmitHandler<TReview> = async data => {
+    console.log('data', data);
     const newReview = {
       _type: 'review',
-      author: data.userMessage,
+      author: data.userName,
       review: data.userMessage,
       contact: data.phoneNumber,
     };
