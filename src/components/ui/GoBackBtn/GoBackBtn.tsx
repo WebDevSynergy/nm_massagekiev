@@ -1,22 +1,17 @@
-'use client';
-
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 import { GoBackBtnProps } from './types';
+
+import data from '@/data/post.json';
 
 export const GoBackBtn: React.FC<GoBackBtnProps> = ({
   children,
   className,
 }) => {
-  const router = useRouter();
-
-  const handleBack = () => {
-    router.back();
-  };
-
+  const { href } = data;
   return (
-    <button type="button" className={className} onClick={handleBack}>
+    <Link type="button" className={className} href={href}>
       {children}
-    </button>
+    </Link>
   );
 };
