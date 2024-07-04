@@ -18,7 +18,7 @@ import { BuyMassageFormProps, TBuyMassageFormData } from './types';
 import { TBuyCertificate, buyCertificateSchema } from './schema';
 
 import { sendMsgTelegram } from '@/actions';
-import { makeTgCertificateMsg } from '@/utils';
+import { makeTgBuyMsg } from '@/utils';
 import data from '@/data/buyCertificate-form.json';
 
 export const BuyMassageForm: React.FC<BuyMassageFormProps> = ({
@@ -57,7 +57,7 @@ export const BuyMassageForm: React.FC<BuyMassageFormProps> = ({
   });
 
   const onSubmit: SubmitHandler<TBuyCertificate> = async data => {
-    const msg = makeTgCertificateMsg({ ...data, ...choosedMassage });
+    const msg = makeTgBuyMsg({ ...data, ...choosedMassage });
     try {
       await sendMsgTelegram(msg);
       setIsSuccess(true);

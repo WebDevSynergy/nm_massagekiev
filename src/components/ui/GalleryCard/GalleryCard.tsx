@@ -19,7 +19,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
   return (
     <div
       className={cn(
-        'mb-4 rounded-[24px] bg-white  transition-all last:mb-0 md:mb-0 md:w-[336px] md:rounded-[32px] xl:w-[384px] xl:rounded-[40px] 2xl:w-[520px]',
+        'rounded-[24px] bg-white transition-all md:w-[336px] md:rounded-[32px] xl:w-[384px] xl:rounded-[40px] 2xl:w-[520px]',
         styles.card,
       )}
     >

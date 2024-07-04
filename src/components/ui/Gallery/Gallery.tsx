@@ -15,7 +15,7 @@ export const Gallery: React.FC<GalleryProps> = ({ posts }) => {
         {posts &&
           posts.map(({ id, title, description, image, slug }) => {
             return (
-              <li key={id}>
+              <li key={id} className="mb-4 last:mb-0 md:mb-0">
                 <GalleryCard
                   title={title}
                   description={description}
