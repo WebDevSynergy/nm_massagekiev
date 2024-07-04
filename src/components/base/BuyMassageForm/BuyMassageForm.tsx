@@ -58,9 +58,12 @@ export const BuyMassageForm: React.FC<BuyMassageFormProps> = ({
 
   const onSubmit: SubmitHandler<TBuyCertificate> = async data => {
     const msg = makeTgBuyMsg({ ...data, ...choosedMassage });
+
     try {
       await sendMsgTelegram(msg);
+
       setIsSuccess(true);
+
       reset();
     } catch {
       setIsSuccess(false);
@@ -110,6 +113,7 @@ export const BuyMassageForm: React.FC<BuyMassageFormProps> = ({
           isOpen={isOpenPopup}
           onClose={closePopup}
           isSuccess={isSuccess}
+          section="services"
         />
       )}
     </>

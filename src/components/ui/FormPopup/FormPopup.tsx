@@ -18,6 +18,7 @@ export const FormPopup: React.FC<FormPopupProps> = ({
   isOpen,
   onClose,
   isSuccess,
+  section,
 }) => {
   const close = useClose();
 
@@ -31,7 +32,10 @@ export const FormPopup: React.FC<FormPopupProps> = ({
 
   const Icon = isSuccess ? SuccessIcon : ErrorIcon;
 
-  const title = isSuccess ? onSuccess.title : onError.title;
+  const title = isSuccess
+    ? onSuccess.title[section] || onSuccess.defaultSuccessTitle
+    : onError.title;
+
   const desc = isSuccess ? onSuccess.desc : onError.desc;
 
   return (
@@ -82,7 +86,9 @@ export const FormPopup: React.FC<FormPopupProps> = ({
               },
             )}
           >
-            {desc}
+            {isSuccess && (section === 'review' || section === 'subscription')
+              ? onSuccess.defaultDesc
+              : desc}
           </p>
 
           <p className="text-sm/[1.4] text-brown md:text-base/[1.4] xl:text-lg/[1.4]">

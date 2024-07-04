@@ -57,7 +57,9 @@ export const ContactUsForm: React.FC = () => {
     const msg = makeTgContactMsg(data);
     try {
       await sendMsgTelegram(msg);
+
       setIsSuccess(true);
+
       reset();
     } catch {
       setIsSuccess(false);
@@ -107,6 +109,7 @@ export const ContactUsForm: React.FC = () => {
           isOpen={isOpenPopup}
           onClose={closePopup}
           isSuccess={isSuccess}
+          section="contactUs"
         />
       )}
     </>
