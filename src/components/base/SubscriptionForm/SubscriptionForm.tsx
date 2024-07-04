@@ -44,7 +44,9 @@ export const SubscriptionForm: React.FC = () => {
 
     try {
       Promise.all([await sendMsgTelegram(msg), await sendToGoogleSheet(data)]);
+
       setIsSuccess(true);
+
       reset();
     } catch {
       setIsSuccess(false);
@@ -89,6 +91,7 @@ export const SubscriptionForm: React.FC = () => {
           isOpen={isOpenPopup}
           onClose={closePopup}
           isSuccess={isSuccess}
+          section="subscription"
         />
       )}
     </>

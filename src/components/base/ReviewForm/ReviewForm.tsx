@@ -52,7 +52,6 @@ export const ReviewForm: React.FC = () => {
   useFormPersist(formName, { watch, setValue });
 
   const onSubmit: SubmitHandler<TReview> = async data => {
-    console.log('data', data);
     const newReview = {
       _type: 'review',
       author: data.userName,
@@ -116,6 +115,7 @@ export const ReviewForm: React.FC = () => {
           isOpen={isOpenPopup}
           onClose={closePopup}
           isSuccess={isSuccess}
+          section="review"
         />
       )}
     </>
