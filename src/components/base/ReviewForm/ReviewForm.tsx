@@ -46,7 +46,7 @@ export const ReviewForm: React.FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<TReview>({
     resolver: zodResolver(reviewSchema),
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   useFormPersist(formName, { watch, setValue });

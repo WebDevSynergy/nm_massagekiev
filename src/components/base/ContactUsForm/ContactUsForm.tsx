@@ -45,7 +45,7 @@ export const ContactUsForm: React.FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<TContact>({
     resolver: zodResolver(contactSchema),
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   useFormPersist(formName, {
