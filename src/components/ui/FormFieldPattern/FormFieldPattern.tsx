@@ -56,6 +56,7 @@ export const FormFieldPattern = <TFormValues extends FieldValues>({
             onChange={field.onChange}
             onBlur={() => {
               field.value && setFormat(false)
+              name === quantityInputName && field.onChange(1)
               field.onBlur()}}
             name={field.name}
             value={field.value}
