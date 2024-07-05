@@ -47,7 +47,7 @@ export const BuyMassageForm: React.FC<BuyMassageFormProps> = ({
     formState: { errors, isSubmitting },
   } = useForm<TBuyCertificate>({
     resolver: zodResolver(buyCertificateSchema),
-    mode: 'onBlur',
+    mode: 'onChange',
     shouldUnregister: true,
   });
 

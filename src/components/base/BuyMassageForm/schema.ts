@@ -29,7 +29,8 @@ export const buyCertificateSchema = z.object({
     .string(commonMsg)
     .trim()
     .max(userMessage.maxLength.value, userMessage.maxLength.message)
-    .regex(RegExp(userMessage.format.reg), userMessage.format.message),
+    .regex(RegExp(userMessage.format.reg), userMessage.format.message)
+    .optional(),
 });
 
 export type TBuyCertificate = z.infer<typeof buyCertificateSchema>;

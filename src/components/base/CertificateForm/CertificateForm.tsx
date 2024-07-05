@@ -62,7 +62,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
     formState: { errors, isSubmitting },
   } = useForm<TCertificate>({
     resolver: zodResolver(certificateSchema),
-    mode: 'onBlur',
+    mode: 'onChange',
     shouldUnregister: true,
   });
 
