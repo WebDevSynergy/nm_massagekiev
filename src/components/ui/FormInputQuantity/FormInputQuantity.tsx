@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/utils';
-import { FormFieldPattern } from '../FormFieldPattern/FormFieldPattern';
+import { FormFieldPattern } from '../FormFieldPattern';
 import { FormInputQuantityProps } from './types';
 import { FieldValues } from 'react-hook-form';
 

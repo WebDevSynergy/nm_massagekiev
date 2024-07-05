@@ -1,5 +1,5 @@
 'use client';
-
+import { useState } from 'react';
 import { PatternFormat } from 'react-number-format';
 import { Controller, FieldValues } from 'react-hook-form';
 
@@ -24,8 +24,8 @@ export const FormFieldPattern = <TFormValues extends FieldValues>({
   type = 'text',
   noValidate,
 }: FormFieldPatternProps<TFormValues>) => {
+  const [format, setFormat] = useState(false);
   const quantityInputName = data.form.inputs[1].name;
-
   return (
     <Controller<TFormValues>
       name={name}
@@ -51,8 +51,12 @@ export const FormFieldPattern = <TFormValues extends FieldValues>({
             aria-invalid={errors[name] ? 'true' : 'false'}
             format={pattern || '+ 38 (###) ### ####'}
             placeholder={placeholder}
+            allowEmptyFormatting={format}
+            onFocus={() =>  setFormat(true)}
             onChange={field.onChange}
-            onBlur={field.onBlur}
+            onBlur={() => {
+              field.value && setFormat(false)
+              field.onBlur()}}
             name={field.name}
             value={field.value}
           />
