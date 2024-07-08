@@ -8,6 +8,7 @@ const {
   phoneNumber,
   userMessage,
   common,
+  number,
   certificateCost,
   massageType,
   massageQuantity,
@@ -16,6 +17,10 @@ const {
 const commonMsg = {
   required_error: common.required,
   invalid_type_error: common.required,
+};
+const numberCommonMsg = {
+  required_error: number.required,
+  invalid_type_error: number.required,
 };
 
 export const certificateSchema = z
@@ -44,9 +49,9 @@ export const certificateSchema = z
     z.union([
       z.object({
         certificateCost: z.coerce
-          .number(commonMsg)
-          .int()
-          .positive()
+          .number(numberCommonMsg)
+          .int({ message: number.required })
+          .positive({ message: number.positive })
           .min(certificateCost.min.value, certificateCost.min.message),
         massageType: z.undefined(),
         massageQuantity: z.undefined(),
@@ -57,9 +62,9 @@ export const certificateSchema = z
           .min(massageType.minLength.value, massageType.minLength.message)
           .max(massageType.maxLength.value, massageType.maxLength.message),
         massageQuantity: z.coerce
-          .number(commonMsg)
-          .int()
-          .positive()
+          .number(numberCommonMsg)
+          .int({ message: number.required })
+          .positive({ message: number.positive })
           .min(massageQuantity.min.value, massageQuantity.min.message)
           .max(massageQuantity.max.value, massageQuantity.max.message),
         certificateCost: z.undefined(),

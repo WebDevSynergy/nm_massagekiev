@@ -156,14 +156,17 @@ input[type='number']::-webkit-outer-spin-button {
 
 .custom-radio span {
   position: relative;
+  padding-left: 24px;
 }
 
 .custom-radio span::before {
   content: '';
+
   position: absolute;
-  left: -23px;
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
+
   width: 16px;
   height: 16px;
   border: 2px solid #979797;
@@ -178,10 +181,12 @@ input[type='number']::-webkit-outer-spin-button {
 
 .custom-radio input:checked + span::after {
   content: '';
+
   position: absolute;
-  left: -24px;
+  left: 0;
   top: 50%;
-  transform: translate(50%, -50%);
+  transform: translate(40%, -50%);
+
   width: 9px;
   height: 9px;
   background-color: #1e5b2a;

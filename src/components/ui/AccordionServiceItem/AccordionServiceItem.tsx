@@ -233,6 +233,7 @@ const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                           type="radio"
                           name="option"
                           value="one"
+                          className="visually-hidden"
                           checked={selectedOption[index] === 'one'}
                           onChange={event => handleRadioChange(event, index)}
                         />
@@ -265,6 +266,7 @@ const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                                 type="radio"
                                 name="option"
                                 value="five"
+                                className="visually-hidden"
                                 checked={selectedOption[index] === 'five'}
                                 onChange={event =>
                                   handleRadioChange(event, index)
@@ -305,6 +307,7 @@ const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                                 type="radio"
                                 name="option"
                                 value="ten"
+                                className="visually-hidden"
                                 checked={selectedOption[index] === 'ten'}
                                 onChange={event =>
                                   handleRadioChange(event, index)
@@ -347,6 +350,7 @@ const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                                 name="option"
                                 value="other"
                                 checked={selectedOption[index] === 'other'}
+                                className="visually-hidden"
                                 onChange={event =>
                                   handleRadioChange(event, index)
                                 }

@@ -16,7 +16,7 @@ export const makeTgContactMsg = ({
   phoneNumber,
   userMessage,
 }: TContact) => {
-  return `<b>Новий запис клієнта на сайті!</b>\n\n<b>Автор: ${userName}</b>\n<b>Контакт: ${phoneNumber}</b>${userMessage && `\n\n<b>Повідомлення: ${userMessage}`}</b>`;
+  return `<b>Запит на консультацію!</b>\n\n<b>Клієнт: ${userName}</b>\n<b>Телефон: ${phoneNumber}</b>${userMessage && `\n\n<b>Повідомлення: ${userMessage}`}</b>`;
 };
 
 export const makeTgCertificateMsg = (data: TContact & TMassage) => {
@@ -30,13 +30,36 @@ export const makeTgCertificateMsg = (data: TContact & TMassage) => {
     totalCost,
   } = data;
 
-  return `<b>Нове замовлення послуги на сайті!</b>\n
-  <b>Тип масажу:</b> ${massageType}\n
-  <b>Тип кількість:</b> ${massageQuantity}\n
-  ${totalCost && `<b>Вартістьь замовлення:</b> ${totalCost}`}\n
-  ${promoCost && `<b>Акційна ціна:</b> ${promoCost}`}\n
-  <b>Автор:</b> ${userName}\n
-  <b>Контакт:</b> ${phoneNumber}\n 
+  return `<b>Замовлення сертифікату!</b>\n
+  <b>Послуга:</b> ${massageType}
+  <b>Кількість:</b> ${massageQuantity}
+  ${totalCost && `<b>Сума(без знижки):</b> ${totalCost}грн`}
+  ${promoCost && `<b>Ціна сертифікату(зі знижкою):</b> ${promoCost}грн`}\n
+  <b>Клієнт:</b> ${userName}
+  <b>Телефон:</b> ${phoneNumber}\n 
+  ${userMessage && `<b>Повідомлення:</b> ${userMessage}`}`;
+};
+
+export const makeTgBuyMsg = (data: TContact & TMassage) => {
+  const {
+    userName,
+    phoneNumber,
+    userMessage,
+    massageQuantity,
+    massageType,
+    promoCost,
+    totalCost,
+  } = data;
+
+  console.log('massageQuantity', massageQuantity);
+
+  return `<b>Замовлення ${massageQuantity > 1 ? 'абонементу' : 'послуги'}!</b>\n
+  <b>Послуга:</b> ${massageType}
+  <b>Кількість:</b> ${massageQuantity}
+  ${totalCost && `<b>Сума(без знижки):</b> ${totalCost}грн`}
+  ${promoCost && `<b>Сума замовлення (зі знижкою):</b> ${promoCost}грн`}\n
+  <b>Клієнт:</b> ${userName}
+  <b>Телефон:</b> ${phoneNumber}\n 
   ${userMessage && `<b>Повідомлення:</b> ${userMessage}`}`;
 };
 
@@ -47,10 +70,10 @@ export const makeTgOrderMsg = (
 ) => {
   const { userName, phoneNumber, userMessage, certificateCost } = data;
 
-  return `<b>Нове замовлення сертифікату на сайті!</b>\n\n
-  <b>Вартість сертифікату:</b> ${certificateCost}\n
-  <b>Автор:</b> ${userName}\n
-  <b>Контакт:</b> ${phoneNumber}\n 
+  return `<b>Замовлення сертифікату!</b>\n
+  <b>Сертифікат на суму:</b> ${certificateCost}грн\n
+  <b>Клієнт:</b> ${userName}
+  <b>Телефон:</b> ${phoneNumber}\n 
   ${userMessage && `<b>Повідомлення:</b> ${userMessage}`}`;
 };
 

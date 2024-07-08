@@ -29,8 +29,7 @@ export const reviewSchema = z.object({
     .string(commonMsg)
     .trim()
     .min(userMessage.minLength.value, userMessage.minLength.message)
-    .max(userMessage.maxLength.value, userMessage.maxLength.message)
-    .regex(RegExp(userMessage.format.reg), userMessage.format.message),
+    .max(userMessage.maxLength.value, userMessage.maxLength.message),
 });
 
 export type TReview = z.infer<typeof reviewSchema>;

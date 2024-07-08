@@ -34,7 +34,7 @@
       "id": "rf-te01",
       "label": "Повідомлення",
       "name": "userMessage",
-      "maxLength": 512,
+      "maxLength": 400,
       "placeholder": "Введіть повідомлення",
       "defaultValue": "",
       "required": true
@@ -64,17 +64,13 @@
         "maxLength": { "value": 19, "message": "Не більше 13 символів" }
       },
       "userMessage": {
-        "format": {
-          "reg": "^[A-Za-zА-Яа-яЇїІіЄєҐґ0-9(),'\"-.!? \n\r]*$",
-          "message": "Присутні недопустимі символи"
-        },
         "minLength": {
-          "value": 1,
-          "message": "Обовʼязкове поле"
+          "value": 5,
+          "message": "Повинно бути від 5 символів"
         },
         "maxLength": {
-          "value": 512,
-          "message": "У тексті має бути не більше 512 символів"
+          "value": 400,
+          "message": "Повинно бути не більше 400 символів"
         }
       },
       "common": {

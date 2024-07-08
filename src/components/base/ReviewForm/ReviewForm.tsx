@@ -46,7 +46,7 @@ export const ReviewForm: React.FC = () => {
     formState: { errors, isSubmitting },
   } = useForm<TReview>({
     resolver: zodResolver(reviewSchema),
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   useFormPersist(formName, { watch, setValue });
@@ -54,7 +54,7 @@ export const ReviewForm: React.FC = () => {
   const onSubmit: SubmitHandler<TReview> = async data => {
     const newReview = {
       _type: 'review',
-      author: data.userMessage,
+      author: data.userName,
       review: data.userMessage,
       contact: data.phoneNumber,
     };
@@ -115,6 +115,7 @@ export const ReviewForm: React.FC = () => {
           isOpen={isOpenPopup}
           onClose={closePopup}
           isSuccess={isSuccess}
+          section="review"
         />
       )}
     </>

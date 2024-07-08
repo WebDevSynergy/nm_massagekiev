@@ -62,7 +62,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
     formState: { errors, isSubmitting },
   } = useForm<TCertificate>({
     resolver: zodResolver(certificateSchema),
-    mode: 'onBlur',
+    mode: 'onChange',
     shouldUnregister: true,
   });
 
@@ -128,6 +128,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
 
   const onSubmit: SubmitHandler<TCertificate> = async data => {
     let msg = '';
+
     if (data.massageType) {
       msg = makeTgCertificateMsg({
         ...data,
@@ -135,13 +136,16 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
         totalCost: getTotalCost(),
       });
     }
+
     if (data.certificateCost) {
       msg = makeTgOrderMsg(data);
     }
 
     try {
       await sendMsgTelegram(msg);
+
       setIsSuccess(true);
+
       reset();
     } catch {
       setIsSuccess(false);
@@ -232,6 +236,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
           isOpen={isOpenPopup}
           onClose={closePopup}
           isSuccess={isSuccess}
+          section="certificate"
         />
       )}
     </>

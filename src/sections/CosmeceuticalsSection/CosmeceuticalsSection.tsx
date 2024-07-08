@@ -14,13 +14,13 @@ export const CosmeceuticalsSection: React.FC = () => {
       <div className="container">
         <div className="xl:flex xl:items-center xl:gap-x-6">
           <div>
-            <SectionTitle className="mb-2">{title}</SectionTitle>
+            <SectionTitle className="mb-2 2xl:mb-4">{title}</SectionTitle>
 
             <p className="mb-4 text-[16px]/[1.4] tracking-[-0.32px] text-brownDark md:mb-6 xl:mb-8 xl:text-[18px]/[1.4] xl:tracking-[-0.36px]">
               {description}
             </p>
 
-            <h3 className="mb-2 text-[16px]/[1.4] font-semibold tracking-[-0.32px] text-brownDark xl:text-[18px]/[1.4] xl:font-bold xl:tracking-[-0.36px] 2xl:mb-10">
+            <h3 className="mb-2 text-[16px]/[1.4] font-semibold tracking-[-0.32px] text-brownDark xl:text-[18px]/[1.4] xl:font-bold xl:tracking-[-0.36px]">
               {subtitle}
             </h3>
 

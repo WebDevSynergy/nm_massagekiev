@@ -4,7 +4,7 @@ export const getReviews = async () => {
   try {
     const reviews =
       (await sanityClient.fetch(
-        '*[_type == "review"] | order(_createdAt) {_id, author, review}',
+        '*[_type == "review"] | order(_createdAt desc) {_id, author, review}',
         {},
         { cache: 'no-cache' },
       )) || null;
