@@ -191,7 +191,7 @@ input[type='number']::-webkit-outer-spin-button {
 /** Scroll to top btn */
 
 .scroll-to-top {
-  @apply fixed bottom-[134px] right-0 z-[9] hidden size-[40px] items-center justify-center rounded-[100px] bg-beigeDark md:bottom-[114px] xl:bottom-[155px] 2xl:bottom-[167px] 2xl:right-[100px];
+  @apply fixed bottom-[134px] right-0 z-[9] hidden size-[40px] items-center justify-center rounded-[100px] bg-beigeDark md:bottom-[114px] xl:bottom-[155px] xl:right-[20px] 2xl:bottom-[167px] 2xl:right-[100px];
 }
 
 .scroll-to-top.visible {
