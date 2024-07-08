@@ -52,12 +52,13 @@ export const FormFieldPattern = <TFormValues extends FieldValues>({
             format={pattern || '+ 38 (###) ### ####'}
             placeholder={placeholder}
             allowEmptyFormatting={format}
-            onFocus={() =>  setFormat(true)}
+            onFocus={() => setFormat(true)}
             onChange={field.onChange}
             onBlur={() => {
-              field.value && setFormat(false)
-              name === quantityInputName && field.onChange(1)
-              field.onBlur()}}
+              field.value && setFormat(false);
+              name === quantityInputName && field.onChange(1);
+              field.onBlur();
+            }}
             name={field.name}
             value={field.value}
           />
