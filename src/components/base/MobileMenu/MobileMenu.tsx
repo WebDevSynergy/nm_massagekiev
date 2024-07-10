@@ -74,7 +74,7 @@ export const MobileMenu: React.FC = () => {
               anchor="bottom"
               className="flex w-full flex-col items-center justify-center gap-6 rounded-b-lg bg-whiteBeige py-8 transition [--anchor-gap:6px] md:rounded-b-2xl"
             >
-              <MainNav mobileStyle onClose={close} />
+              <MainNav mobileStyle onClose={close} isMobileMenu />
 
               <MainLink path={phone.path} label={phone.label} tel />
 

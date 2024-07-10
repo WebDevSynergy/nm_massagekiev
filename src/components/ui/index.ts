@@ -31,6 +31,7 @@ export * from './GalleryPagination';
 export * from './GoBackBtn';
 export * from './ScrollToTopButton';
 export * from './GalleryCard';
+export * from './ScrollLink';
 
 /**FORM */
 export * from './CostHint';

@@ -1,4 +1,4 @@
-import { MainLink } from '@/components/ui';
+import { MainLink, ScrollLink } from '@/components/ui';
 
 import { MainNavProps } from './types';
 
@@ -6,7 +6,11 @@ import { cn } from '@/utils';
 
 import data from '@/data/common.json';
 
-export const MainNav: React.FC<MainNavProps> = ({ mobileStyle, onClose }) => {
+export const MainNav: React.FC<MainNavProps> = ({
+  mobileStyle,
+  onClose,
+  isMobileMenu,
+}) => {
   const { nav } = data;
 
   return (
@@ -18,7 +22,17 @@ export const MainNav: React.FC<MainNavProps> = ({ mobileStyle, onClose }) => {
       >
         {nav.map(({ path, label }) => (
           <li key={path}>
-            <MainLink path={path} label={label} onClose={onClose} />
+            {isMobileMenu ? (
+              <ScrollLink path={path} label={label} onClose={onClose} />
+            ) : (
+              <MainLink
+                path={
+                  label === 'Блог' || label === 'Головна' ? path : `/#${path}`
+                }
+                label={label}
+                onClose={onClose}
+              />
+            )}
           </li>
         ))}
       </ul>
