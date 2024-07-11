@@ -2,8 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { Tab } from '@headlessui/react';
-
 import { ModalBuyCertificate } from '@/components/base';
 import { QuantitySelectorServices } from '@/components/ui';
 
@@ -177,245 +175,253 @@ const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
     return Math.round(totalPrice);
   };
 
+  const [selected, setSelected] = useState(1);
+
   return (
     <>
       {data?.map((item, index) => (
-        <Tab
+        <li
           key={index}
-          as={'li'}
-          className="list-none border-b border-solid border-brownLight py-4 outline-none first:pt-0"
+          className={cn(
+            'list-none border-b border-solid border-brownLight outline-none last:pb-0',
+            {
+              'pb-4': selected === index,
+            },
+          )}
         >
-          {({ selected }) => (
-            <>
-              <div
+          <>
+            <button
+              type="button"
+              onClick={() => setSelected(index)}
+              className={cn(
+                'flex w-full cursor-pointer items-center justify-between py-4 xl:w-[588px] 2xl:w-[808px]',
+                {
+                  'mb-2': selected === index,
+                },
+              )}
+            >
+              <p
                 className={cn(
-                  'flex cursor-pointer items-center justify-between',
-                  {
-                    'mb-2': selected,
-                  },
+                  'w-fit text-left font-open-sans text-[16px]/[1.2] font-normal uppercase tracking-[-0.32px] text-brownDark xl:text-[18px] xl:font-bold xl:tracking-[-0.36px] 2xl:text-[20px] 2xl:tracking-[-0.4px]',
+                  { 'font-bold': selected === index },
                 )}
               >
-                <p
-                  className={cn(
-                    'w-fit font-open-sans text-[16px]/[1.2] font-normal uppercase tracking-[-0.32px] text-brownDark xl:text-[18px] xl:font-bold xl:tracking-[-0.36px] 2xl:text-[20px] 2xl:tracking-[-0.4px]',
-                    { 'font-bold': selected },
-                  )}
-                >
-                  {item.title}
+                {item.title}
+              </p>
+
+              <ArrowIcon
+                className={cn(
+                  'size-5 transition-[transform] md:size-6',
+                  { 'rotate-0 text-green': selected !== index },
+                  { 'rotate-180 text-orange': selected === index },
+                )}
+              />
+            </button>
+
+            {selected === index && (
+              <div>
+                <p className="mb-4 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                  {item.description}
                 </p>
-                <ArrowIcon
-                  className={cn(
-                    'size-5 transition-[transform] md:size-6',
-                    { 'rotate-0 text-green': !selected },
-                    { 'rotate-180 text-orange': selected },
-                  )}
-                />
-              </div>
-              {selected && (
-                <div>
-                  <p className="mb-4 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                    {item.description}
-                  </p>
-                  <p className="mb-2 font-open-sans text-[14px]/[1.2] font-semibold tracking-[-0.28px] text-brownDark xl:text-[16px] xl:tracking-[-0.32px] 2xl:text-[18px] 2xl:tracking-[-0.36px] mdOnly:font-bold">
-                    {dataServices.for}
-                  </p>
-                  <p className="mb-4 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                    {item.for}
-                  </p>
-                  <p className="font-open-sans text-[14px]/[1.2] font-semibold tracking-[-0.28px] text-brownDark xl:text-[16px] xl:tracking-[-0.32px] 2xl:text-[18px] 2xl:tracking-[-0.36px] mdOnly:font-bold">
-                    {dataServices.typeDurationPrice}
-                  </p>
+                <p className="mb-2 font-open-sans text-[14px]/[1.2] font-semibold tracking-[-0.28px] text-brownDark xl:text-[16px] xl:tracking-[-0.32px] 2xl:text-[18px] 2xl:tracking-[-0.36px] mdOnly:font-bold">
+                  {dataServices.for}
+                </p>
+                <p className="mb-4 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                  {item.for}
+                </p>
+                <p className="font-open-sans text-[14px]/[1.2] font-semibold tracking-[-0.28px] text-brownDark xl:text-[16px] xl:tracking-[-0.32px] 2xl:text-[18px] 2xl:tracking-[-0.36px] mdOnly:font-bold">
+                  {dataServices.typeDurationPrice}
+                </p>
 
-                  <form className="mt-2 w-full">
-                    <label className="flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
-                      <div className="custom-radio flex items-center gap-2">
-                        <input
-                          type="radio"
-                          name="option"
-                          value="one"
-                          className="visually-hidden"
-                          checked={selectedOption[index] === 'one'}
-                          onChange={event => handleRadioChange(event, index)}
-                        />
-                        <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                          {dataServices.oneMassage}
-                        </span>
-                      </div>
+                <form className="mt-2 w-full">
+                  <label className="flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
+                    <div className="custom-radio flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="option"
+                        value="one"
+                        className="visually-hidden"
+                        checked={selectedOption[index] === 'one'}
+                        onChange={event => handleRadioChange(event, index)}
+                      />
+                      <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                        {dataServices.oneMassage}
+                      </span>
+                    </div>
 
-                      <div className="flex items-center gap-6 md:gap-5 xl:gap-10">
-                        <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                          {item.duration}&nbsp;{dataServices.duration}
-                        </span>
-                        <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                          {item.price}&nbsp;
-                          {dataServices.UAH}
-                        </span>
-                      </div>
-                    </label>
+                    <div className="flex items-center gap-6 md:gap-5 xl:gap-10">
+                      <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                        {item.duration}&nbsp;{dataServices.duration}
+                      </span>
+                      <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                        {item.price}&nbsp;
+                        {dataServices.UAH}
+                      </span>
+                    </div>
+                  </label>
 
-                    {item.subscription && (
-                      <>
-                        <p className="mb-2 mt-4 font-open-sans text-[14px]/[1.2] font-semibold tracking-[-0.28px] text-brownDark xl:text-[16px] xl:tracking-[-0.32px] 2xl:text-[18px] 2xl:tracking-[-0.36px] mdOnly:font-bold">
-                          {dataServices.subscriptions}
-                        </p>
+                  {item.subscription && (
+                    <>
+                      <p className="mb-2 mt-4 font-open-sans text-[14px]/[1.2] font-semibold tracking-[-0.28px] text-brownDark xl:text-[16px] xl:tracking-[-0.32px] 2xl:text-[18px] 2xl:tracking-[-0.36px] mdOnly:font-bold">
+                        {dataServices.subscriptions}
+                      </p>
 
-                        <div className="mb-4 flex flex-col gap-1">
-                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
-                            <div className="custom-radio flex items-center gap-1">
-                              <input
-                                type="radio"
-                                name="option"
-                                value="five"
-                                className="visually-hidden"
-                                checked={selectedOption[index] === 'five'}
-                                onChange={event =>
-                                  handleRadioChange(event, index)
-                                }
-                              />
-
-                              <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                                {dataServices.fiveMassage}
-                              </span>
-                            </div>
-
-                            <div className="2xl:absolute 2xl:right-[37%] 2xl:translate-x-1/2">
-                              <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px] smOnly:hidden mdOnly:hidden xlOnly:hidden">
-                                {dataServices.fiveMassage}
-                              </span>
-
-                              <span className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown md:right-[28%] xl:right-[45%] xl:text-[14px] xl:tracking-[-0.28px] 2xl:right-[-30%] 2xl:text-[16px] 2xl:tracking-[-0.32px] ">
-                                {dataServices.discount5}
-                              </span>
-                            </div>
-
-                            <div className="flex items-center gap-[14px] xl:gap-9">
-                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                                {totalPriceCalculate(item.price, 5)}&nbsp;
-                                {dataServices.UAH}
-                              </span>
-
-                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                                {totalDiscPriceCalculate(item.price, 5)}&nbsp;
-                                {dataServices.UAH}
-                              </span>
-                            </div>
-                          </label>
-
-                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
-                            <div className="custom-radio flex items-center gap-1">
-                              <input
-                                type="radio"
-                                name="option"
-                                value="ten"
-                                className="visually-hidden"
-                                checked={selectedOption[index] === 'ten'}
-                                onChange={event =>
-                                  handleRadioChange(event, index)
-                                }
-                              />
-
-                              <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                                {dataServices.tenMassage}
-                              </span>
-                            </div>
-
-                            <div className="2xl:absolute 2xl:right-[39%] 2xl:translate-x-1/2">
-                              <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px] smOnly:hidden mdOnly:hidden xlOnly:hidden">
-                                {dataServices.tenMassage}
-                              </span>
-
-                              <span className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown md:right-[28%] xl:right-[45%] xl:text-[14px] xl:tracking-[-0.28px] 2xl:right-[-36%] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                                {dataServices.discount10}
-                              </span>
-                            </div>
-
-                            <div className="flex items-center gap-[14px] xl:gap-9">
-                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                                {totalPriceCalculate(item.price, 10)}&nbsp;
-                                {dataServices.UAH}
-                              </span>
-
-                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                                {totalDiscPriceCalculate(item.price, 10)}
-                                &nbsp;
-                                {dataServices.UAH}
-                              </span>
-                            </div>
-                          </label>
-
-                          <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
-                            <span className="custom-radio flex items-center gap-1">
-                              <input
-                                type="radio"
-                                name="option"
-                                value="other"
-                                checked={selectedOption[index] === 'other'}
-                                className="visually-hidden"
-                                onChange={event =>
-                                  handleRadioChange(event, index)
-                                }
-                              />
-
-                              <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                                {dataServices.other}
-                              </span>
-                            </span>
-
-                            <QuantitySelectorServices
-                              key={index}
-                              onClickDecrement={() => handleDecrement(index)}
-                              onClickIncrement={() => handleIncrement(index)}
-                              quantity={quantitySelector[index]}
-                              onQuantityChange={newQuantity =>
-                                handleQuantityChange(newQuantity, index)
+                      <div className="mb-4 flex flex-col gap-1">
+                        <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
+                          <div className="custom-radio flex items-center gap-1">
+                            <input
+                              type="radio"
+                              name="option"
+                              value="five"
+                              className="visually-hidden"
+                              checked={selectedOption[index] === 'five'}
+                              onChange={event =>
+                                handleRadioChange(event, index)
                               }
-                              className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 md:right-[28%] xl:right-[45%] 2xl:right-[34%]"
                             />
 
-                            <div className="flex items-center gap-2 xl:gap-7">
-                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                                {totalPriceCalculate(
-                                  item.price,
-                                  quantitySelector[index],
-                                )}
-                                &nbsp;
-                                {dataServices.UAH}
-                              </span>
+                            <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                              {dataServices.fiveMassage}
+                            </span>
+                          </div>
 
-                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                                {totalDiscPriceCalculate(
-                                  item.price,
-                                  quantitySelector[index],
-                                )}
-                                &nbsp;
-                                {dataServices.UAH}
-                              </span>
-                            </div>
-                          </label>
-                        </div>
-                      </>
-                    )}
+                          <div className="2xl:absolute 2xl:right-[37%] 2xl:translate-x-1/2">
+                            <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px] smOnly:hidden mdOnly:hidden xlOnly:hidden">
+                              {dataServices.fiveMassage}
+                            </span>
 
-                    <ModalBuyCertificate
-                      choosedMassage={{
-                        massageQuantity: chosenQuantity[index],
-                        massageType: item.title,
-                        totalCost: totalPriceCalculate(
-                          item.price,
-                          chosenQuantity[index],
-                        ),
-                        promoCost: totalDiscPriceCalculate(
-                          item.price,
-                          chosenQuantity[index],
-                        ),
-                      }}
-                    />
-                  </form>
-                </div>
-              )}
-            </>
-          )}
-        </Tab>
+                            <span className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown md:right-[28%] xl:right-[45%] xl:text-[14px] xl:tracking-[-0.28px] 2xl:right-[-30%] 2xl:text-[16px] 2xl:tracking-[-0.32px] ">
+                              {dataServices.discount5}
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-[14px] xl:gap-9">
+                            <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                              {totalPriceCalculate(item.price, 5)}&nbsp;
+                              {dataServices.UAH}
+                            </span>
+
+                            <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                              {totalDiscPriceCalculate(item.price, 5)}&nbsp;
+                              {dataServices.UAH}
+                            </span>
+                          </div>
+                        </label>
+
+                        <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
+                          <div className="custom-radio flex items-center gap-1">
+                            <input
+                              type="radio"
+                              name="option"
+                              value="ten"
+                              className="visually-hidden"
+                              checked={selectedOption[index] === 'ten'}
+                              onChange={event =>
+                                handleRadioChange(event, index)
+                              }
+                            />
+
+                            <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                              {dataServices.tenMassage}
+                            </span>
+                          </div>
+
+                          <div className="2xl:absolute 2xl:right-[39%] 2xl:translate-x-1/2">
+                            <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px] smOnly:hidden mdOnly:hidden xlOnly:hidden">
+                              {dataServices.tenMassage}
+                            </span>
+
+                            <span className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown md:right-[28%] xl:right-[45%] xl:text-[14px] xl:tracking-[-0.28px] 2xl:right-[-36%] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                              {dataServices.discount10}
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-[14px] xl:gap-9">
+                            <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                              {totalPriceCalculate(item.price, 10)}&nbsp;
+                              {dataServices.UAH}
+                            </span>
+
+                            <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                              {totalDiscPriceCalculate(item.price, 10)}
+                              &nbsp;
+                              {dataServices.UAH}
+                            </span>
+                          </div>
+                        </label>
+
+                        <label className="relative flex w-full cursor-pointer items-center justify-between p-2 md:p-4">
+                          <span className="custom-radio flex items-center gap-1">
+                            <input
+                              type="radio"
+                              name="option"
+                              value="other"
+                              checked={selectedOption[index] === 'other'}
+                              className="visually-hidden"
+                              onChange={event =>
+                                handleRadioChange(event, index)
+                              }
+                            />
+
+                            <span className="font-open-sans text-[12px]/[1.2] font-normal tracking-[-0.24px] text-brown xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                              {dataServices.other}
+                            </span>
+                          </span>
+
+                          <QuantitySelectorServices
+                            key={index}
+                            onClickDecrement={() => handleDecrement(index)}
+                            onClickIncrement={() => handleIncrement(index)}
+                            quantity={quantitySelector[index]}
+                            onQuantityChange={newQuantity =>
+                              handleQuantityChange(newQuantity, index)
+                            }
+                            className="absolute right-[55%] top-[50%] -translate-y-1/2 translate-x-1/2 md:right-[28%] xl:right-[45%] 2xl:right-[34%]"
+                          />
+
+                          <div className="flex items-center gap-2 xl:gap-7">
+                            <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                              {totalPriceCalculate(
+                                item.price,
+                                quantitySelector[index],
+                              )}
+                              &nbsp;
+                              {dataServices.UAH}
+                            </span>
+
+                            <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                              {totalDiscPriceCalculate(
+                                item.price,
+                                quantitySelector[index],
+                              )}
+                              &nbsp;
+                              {dataServices.UAH}
+                            </span>
+                          </div>
+                        </label>
+                      </div>
+                    </>
+                  )}
+
+                  <ModalBuyCertificate
+                    choosedMassage={{
+                      massageQuantity: chosenQuantity[index],
+                      massageType: item.title,
+                      totalCost: totalPriceCalculate(
+                        item.price,
+                        chosenQuantity[index],
+                      ),
+                      promoCost: totalDiscPriceCalculate(
+                        item.price,
+                        chosenQuantity[index],
+                      ),
+                    }}
+                  />
+                </form>
+              </div>
+            )}
+          </>
+        </li>
       ))}
     </>
   );
