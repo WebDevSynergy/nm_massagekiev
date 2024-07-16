@@ -1,8 +1,11 @@
 import Image from 'next/image';
 
 import { urlForImage } from '@/sanity/lib/image';
+import { cn } from '@/utils';
 
 import { SanityBlockImageProps } from './types';
+
+import styles from './SanityBlockImage.module.css';
 
 export const SanityBlockImage: React.FC<SanityBlockImageProps> = ({
   value,
@@ -10,7 +13,12 @@ export const SanityBlockImage: React.FC<SanityBlockImageProps> = ({
   const alt = value?.caption?.toString() || ' ';
 
   return (
-    <div className="mx-auto h-[328px] w-full overflow-hidden rounded-[40px] md:my-2 md:size-[688px] xl:my-4 xl:h-[682px] xl:w-[894px] 2xl:my-6 2xl:w-[1086px]">
+    <div
+      className={cn(
+        'mx-auto my-2 size-full overflow-hidden rounded-[24px] md:my-4 md:size-[688px] md:rounded-[32px] xl:my-6 xl:h-[682px] xl:w-[894px] xl:rounded-[40px] 2xl:my-8 2xl:w-[1086px]',
+        styles.img,
+      )}
+    >
       <Image
         className="block size-full object-cover object-center"
         src={urlForImage(value)}
