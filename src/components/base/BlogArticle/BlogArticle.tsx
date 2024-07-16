@@ -12,6 +12,7 @@ export const BlogArticle: React.FC<BlockContentProps> = ({ post }) => {
       image: SanityBlockImage,
     },
   };
+
   return (
     <div className={`mx-auto ${styles.block}`}>
       <PortableText value={post?.body} components={components} />
