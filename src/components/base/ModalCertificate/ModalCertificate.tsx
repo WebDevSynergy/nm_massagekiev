@@ -18,7 +18,7 @@ export const ModalCertificate: React.FC = async () => {
     <ModalCard
       buttonLabel={buttonLabel}
       buttonStyle="primary"
-      buttonStyles="mx-auto"
+      buttonStyles="mr-auto"
       backdropStyle="smOnly:items-start"
     >
       <div className="xl:grid xl:w-[880px] xl:grid-cols-2 xl:gap-6">
