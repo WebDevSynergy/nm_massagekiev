@@ -12,17 +12,18 @@ export const HeroSection: React.FC = () => {
     <section className="section">
       <div className="container">
         <div className="xl:flex xl:items-center xl:gap-x-6">
-          <div className="relative mb-4 size-[448px] md:mb-6 md:size-[688px] xl:mb-0 xl:size-[588px] 2xl:w-[808px] smOnly:w-full">
+          <div className="relative mb-4 h-auto w-full md:mb-6 md:size-[688px] xl:mb-0 xl:size-[588px] 2xl:w-[808px] smOnly:w-full">
             <div
-              className="size-[448px] overflow-hidden rounded-[24px] md:size-[688px] md:rounded-[32px] xl:size-[588px]
+              className="h-auto w-full overflow-hidden rounded-[24px] md:size-[688px] md:rounded-[32px] xl:size-[588px]
           2xl:w-[808px] smOnly:w-full"
             >
               <Image
                 src={image}
                 width={808}
-                height={588}
+                height={808}
                 alt={alt}
-                className="size-full object-cover"
+                priority
+                className="h-auto w-full object-contain"
               />
             </div>
 

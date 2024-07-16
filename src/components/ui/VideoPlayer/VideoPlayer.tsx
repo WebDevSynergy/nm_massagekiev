@@ -38,7 +38,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({ url }) => {
 
   return (
     <div
-      className="size-[448px] overflow-hidden rounded-[24px] md:size-[688px]
+      className="h-auto w-full overflow-hidden rounded-[24px] md:size-[688px]
                  md:rounded-[32px] xl:size-[588px] 2xl:size-[686px] 2xl:rounded-[40px] sm480:max-h-[448px] sm480:max-w-full"
     >
       <video

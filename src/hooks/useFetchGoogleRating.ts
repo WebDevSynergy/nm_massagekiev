@@ -22,6 +22,7 @@ export const useFetchGoogleRating = () => {
         setAverageRating(averageRating);
       } catch (e) {
         console.error('Error fetching place details:', e);
+        setAverageRating(0);
       }
     };
 
