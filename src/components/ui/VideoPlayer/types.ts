@@ -1,3 +1,6 @@
 export type VideoPlayerProps = {
-  url: string;
+  url: {
+    mp4: string;
+    mov?: string;
+  };
 };

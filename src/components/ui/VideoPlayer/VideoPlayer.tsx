@@ -49,7 +49,9 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({ url }) => {
         className="pointer-events-none"
         style={{ width: '100%', height: '100%' }}
       >
-        <source src={url} />
+        <source src={url.mp4} type="video/mp4" />
+        <source src={url.mov} />
+        Your browser does not support the video tag.
       </video>
     </div>
   );
