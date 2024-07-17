@@ -153,6 +153,8 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
     openPopup();
   };
 
+  console.log('choosedService', choosedService);
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} id={formName}>
@@ -181,6 +183,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
               errors={errors}
               handleQuantity={handleQuantity}
               costs={{ currency, promoCost, totalCost: getTotalCost() }}
+              choosedService={choosedService}
               {...massageQuantity}
             />
 
@@ -215,7 +218,7 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
 
         <FormTextArea
           key={textarea.id}
-          className="mb-6 xl:mb-8 2xl:mb-10"
+          className="mb-4"
           control={control}
           errors={errors}
           {...textarea}

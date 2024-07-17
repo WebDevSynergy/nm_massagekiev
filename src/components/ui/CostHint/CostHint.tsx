@@ -8,7 +8,7 @@ export const CostHint: React.FC<CostHintProps> = ({ options, onClick }) => {
       {options.map(cost => (
         <li key={cost} className="smOnly:basis-1/3 smOnly:last-of-type:hidden">
           <button
-            className="w-full rounded bg-beigeDark py-1 text-base/[1.2] text-brown md:w-[86px]"
+            className="w-full rounded bg-beigeDark py-1 text-base/[1.2] text-brown transition-all hover:bg-green/20 hover:text-blackLight focus:bg-green/20 focus:text-blackLight md:w-[86px]"
             type="button"
             onClick={() => onClick(cost)}
           >

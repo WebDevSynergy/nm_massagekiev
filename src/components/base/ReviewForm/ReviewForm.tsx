@@ -97,7 +97,7 @@ export const ReviewForm: React.FC = () => {
           {...textarea}
           control={control}
           errors={errors}
-          className="mb-6 xl:mb-8 2xl:mb-10"
+          className="mb-4"
         />
 
         <ButtonLink

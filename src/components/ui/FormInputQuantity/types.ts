@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { TService } from '@/actions/sanity';
+
 import {
   FieldErrors,
   Control,
@@ -16,6 +19,7 @@ export type FormInputQuantityProps<TFormValues extends FieldValues> =
     control: Control<TFormValues>;
     errors: FieldErrors;
     costs: TCosts;
+    choosedService: TService | undefined;
     type?: TFieldInput;
     handleQuantity: (type: 'add' | 'minus') => void;
   } & Omit<

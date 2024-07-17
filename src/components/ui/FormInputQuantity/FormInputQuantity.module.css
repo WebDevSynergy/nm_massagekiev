@@ -1,0 +1,3 @@
+.inputColor input {
+  @apply !text-gray-300 hover:bg-inherit;
+}
