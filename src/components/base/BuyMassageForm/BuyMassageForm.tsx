@@ -92,7 +92,7 @@ export const BuyMassageForm: React.FC<BuyMassageFormProps> = ({
 
         <FormTextArea
           key={textarea.id}
-          className="mb-6 xl:mb-8 2xl:mb-10"
+          className="mb-4"
           control={control}
           errors={errors}
           {...textarea}

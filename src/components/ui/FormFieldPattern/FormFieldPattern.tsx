@@ -23,6 +23,7 @@ export const FormFieldPattern = <TFormValues extends FieldValues>({
   pattern,
   type = 'text',
   noValidate,
+  isDisabled,
 }: FormFieldPatternProps<TFormValues>) => {
   const [format, setFormat] = useState(false);
   const quantityInputName = data.form.inputs[1].name;
@@ -50,13 +51,14 @@ export const FormFieldPattern = <TFormValues extends FieldValues>({
             type={type}
             aria-invalid={errors[name] ? 'true' : 'false'}
             format={pattern || '+ 38 (###) ### ####'}
+            disabled={isDisabled !== undefined ? isDisabled : false}
             placeholder={placeholder}
             allowEmptyFormatting={format}
             onFocus={() => setFormat(true)}
             onChange={field.onChange}
             onBlur={() => {
               field.value && setFormat(false);
-              name === quantityInputName && field.onChange(1);
+              name === quantityInputName && field.onChange(field.value);
               field.onBlur();
             }}
             name={field.name}
