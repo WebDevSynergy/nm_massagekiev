@@ -4,6 +4,7 @@
   "description": "Вибери суму сертифіката, вид масажу та кількість сеансів",
   "url": {
     "mp4": "https://res.cloudinary.com/dsgx4xoew/video/upload/v1721242707/IMG_5782_fxxmnm_h2ob2c.mp4",
-    "mov": "https://res.cloudinary.com/dsgx4xoew/video/upload/v1718913387/IMG_5782_fxxmnm.mov"
+    "mov": "https://res.cloudinary.com/dsgx4xoew/video/upload/v1718913387/IMG_5782_fxxmnm.mov",
+    "notSupport": "Your browser does not support the video tag."
   }
 }
