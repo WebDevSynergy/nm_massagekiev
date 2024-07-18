@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { PatternFormat } from 'react-number-format';
 import { Controller, FieldValues } from 'react-hook-form';
@@ -27,6 +28,7 @@ export const FormFieldPattern = <TFormValues extends FieldValues>({
 }: FormFieldPatternProps<TFormValues>) => {
   const [format, setFormat] = useState(false);
   const quantityInputName = data.form.inputs[1].name;
+
   return (
     <Controller<TFormValues>
       name={name}

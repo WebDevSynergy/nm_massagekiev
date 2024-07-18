@@ -183,7 +183,7 @@ const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
         <li
           key={index}
           className={cn(
-            'list-none border-b border-solid border-brownLight outline-none last:pb-0',
+            'list-none border-b border-solid border-brownLight outline-none',
             {
               'pb-4': selected === index,
             },
