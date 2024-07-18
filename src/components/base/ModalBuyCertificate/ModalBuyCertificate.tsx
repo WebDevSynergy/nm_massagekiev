@@ -21,6 +21,7 @@ export const ModalBuyCertificate: React.FC<ModalBuyCertificateProps> = ({
       buttonLabel={buttonLabel}
       buttonStyle="primary"
       buttonStyles="mr-0 ml-auto"
+      backdropStyle="smOnly:items-start"
     >
       <div className="xl:grid xl:w-[880px] xl:grid-cols-2 xl:gap-6">
         <div className="relative hidden overflow-hidden rounded-5xl xl:block">
