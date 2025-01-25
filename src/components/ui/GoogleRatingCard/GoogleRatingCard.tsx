@@ -32,6 +32,7 @@ export const GoogleRatingCard: React.FC<GoogleRatingCardProps> = ({
         if (pS >= 5) {
           return 1;
         }
+
         return pS + 1;
       });
     }, 300);
