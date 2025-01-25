@@ -12,7 +12,7 @@ import { GoogleMapInfoCard, GoogleMapStatus } from '@/components/ui';
 
 import googleMapsStaticData from '@/data/common.json';
 
-const LIBRARIES: Libraries = ['marker'];
+const LIBRARIES: Libraries = ['marker', 'places'];
 
 const GoogleMaps: React.FC = () => {
   const API_KEY = process.env.GOOGLE_MAP_API_KEY as string;

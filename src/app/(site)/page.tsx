@@ -1,3 +1,4 @@
+import { getRating } from '@/actions/sanity';
 import {
   BenefitsSection,
   BlogSections,
@@ -13,10 +14,14 @@ import {
   ServicesSection,
 } from '@/sections';
 
-export default function Home() {
+export const revalidate = 0;
+
+export default async function Home() {
+  const rating = await getRating();
+
   return (
     <>
-      <HeroSection />
+      <HeroSection rating={rating} />
 
       <BenefitsSection />
 

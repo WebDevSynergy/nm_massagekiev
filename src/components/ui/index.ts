@@ -32,6 +32,7 @@ export * from './GoBackBtn';
 export * from './ScrollToTopButton';
 export * from './GalleryCard';
 export * from './ScrollLink';
+export * from './Spinner';
 
 /**FORM */
 export * from './CostHint';
