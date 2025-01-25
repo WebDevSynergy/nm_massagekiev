@@ -4,7 +4,9 @@ import { ButtonLink, GoogleRatingCard, HeroReview } from '@/components/ui';
 
 import data from '@/data/hero.json';
 
-export const HeroSection: React.FC = () => {
+import { HeroTypeProps } from './types';
+
+export const HeroSection: React.FC<HeroTypeProps> = ({ rating }) => {
   const { title, description, buttons, ratingText, review, image, alt, href } =
     data;
 
@@ -30,6 +32,7 @@ export const HeroSection: React.FC = () => {
             <GoogleRatingCard
               text={ratingText}
               wrapClassName="absolute top-0 left-0 md:-left-2 xl:-top-10 xl:-left-6"
+              rating={rating}
             />
 
             <HeroReview
