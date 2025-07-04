@@ -1,4 +1,8 @@
 {
   "goBackBtnText": "Перейти до всіх статей",
-  "href": "/blog/1"
+  "href": "/blog/1",
+  "meta": {
+    "title": "nm_massagekiev — стаття",
+    "description": "Професійний масаж у Києві – Виноградар, Поділ, вул. Данченка, 32."
+  }
 }
