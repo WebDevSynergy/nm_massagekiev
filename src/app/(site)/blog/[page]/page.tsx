@@ -118,6 +118,7 @@ export default async function BlogPage({
           author: {
             '@type': 'Organization',
             name: siteName,
+            url: SITE_URL,
           },
           image: {
             '@type': 'ImageObject',
