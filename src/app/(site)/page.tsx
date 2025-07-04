@@ -124,10 +124,29 @@ export default async function Home() {
             aggregateRating: {
               '@type': 'AggregateRating',
               ratingValue: rating,
+              ratingCount: 13,
             },
             parentOrganization: {
               '@id': `${SITE_URL}#organization`,
             },
+          }),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Головна',
+                item: SITE_URL,
+              },
+            ],
           }),
         }}
       />

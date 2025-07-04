@@ -110,7 +110,7 @@ export default async function PostPage({
       getShortDescription(post.description || '') || meta.description,
     url: `${SITE_URL}/blog/post/${slug}`,
     image: post.image ? urlForImage(post.image) : DEFAULT_OG_IMAGE,
-    author: { '@type': 'Organization', name: siteName },
+    author: { '@type': 'Organization', name: siteName, url: SITE_URL },
     publisher: {
       '@type': 'Organization',
       name: siteName,
