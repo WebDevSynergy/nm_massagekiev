@@ -53,3 +53,7 @@
   font-variation-settings: 'wght' 600;
   @apply font-bold;
 }
+
+.block a {
+  color: blue;
+}

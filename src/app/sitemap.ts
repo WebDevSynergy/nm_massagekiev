@@ -24,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${BASE_URL}/blog/${el.page}`,
         lastModified: new Date(),
         changeFrequency: 'monthly',
-        priority: 0.8,
+        priority: 0.6,
       }));
       return blogEntries;
     } catch (err) {
@@ -42,7 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           url: `${BASE_URL}/blog/post/${current}`,
           lastModified: new Date(),
           changeFrequency: 'monthly',
-          priority: 0.9,
+          priority: 0.8,
         }),
       );
 
@@ -60,12 +60,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${BASE_URL}`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${BASE_URL}/terms-of-service-privacy-policy`,
-      priority: 0.5,
+      lastModified: '2025-17-04', // або актуальна дата останньої зміни документа
+      changeFrequency: 'yearly',
+      priority: 0.2,
     },
     ...blogEntries,
     ...postsEntries,

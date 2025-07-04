@@ -33,7 +33,6 @@ const meta: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
   },
   icons: {
     icon: [

@@ -1,24 +1,60 @@
 {
-  "testField": "nm_massagekiev",
+  "siteName": "nm_massagekiev",
   "nav": [
-    { "path": "/", "label": "Головна" },
-    { "path": "benefits", "label": "Про салон" },
-    { "path": "services", "label": "Послуги" },
-    { "path": "reviews", "label": "Відгуки" },
-    { "path": "masseurs", "label": "Масажисти" },
-    { "path": "/blog/1", "label": "Блог" },
-    { "path": "faq", "label": "Питання і відповіді" }
+    {
+      "path": "/",
+      "label": "Головна"
+    },
+    {
+      "path": "benefits",
+      "label": "Про салон"
+    },
+    {
+      "path": "services",
+      "label": "Послуги"
+    },
+    {
+      "path": "reviews",
+      "label": "Відгуки"
+    },
+    {
+      "path": "masseurs",
+      "label": "Масажисти"
+    },
+    {
+      "path": "/blog/1",
+      "label": "Блог"
+    },
+    {
+      "path": "faq",
+      "label": "Питання і відповіді"
+    }
   ],
-  "schedule": { "days": "понеділок - п’ятниця", "hours": "9:00 - 22:00" },
+  "schedule": {
+    "days": "понеділок - п’ятниця",
+    "hours": "9:00 - 22:00",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09: 00",
+    "closes": "22: 00"
+  },
   "phone": {
     "path": "+380631772223",
     "label": "+38 (063) 177 22 23",
     "phoneIconAreaLabel": "+38 (063) 177 22 23"
   },
   "address": "Київ, вул. Сергія Данченко, 32",
+  "addressStructured": {
+    "streetAddress": "вул. Сергія Данченко, 32",
+    "addressLocality": "Київ",
+    "postalCode": "04084",
+    "addressCountry": "UA"
+  },
   "googleMaps": {
     "title": "nm_massagekiev\nДанченко, 32",
-    "schedule": { "days": "понеділок - п’ятниця", "hours": "9:00 - 22:00" },
+    "schedule": {
+      "days": "понеділок - п’ятниця",
+      "hours": "9:00 - 22:00"
+    },
     "center": {
       "lat": 50.4970817565918,
       "lng": 30.4421443939209
@@ -36,12 +72,15 @@
     },
     "loadingText": "Карта завантажується"
   },
-
   "logo": {
     "path": "/",
     "ariaLabel": "Посилання із логотипом компанії"
   },
-
+  "socialLinksArr": [
+    "https://t.me/Mentiy_Nadiya",
+    "viber://chat?number=%2B380631772223",
+    "https://www.instagram.com/nm_massagekiev/"
+  ],
   "socialLinksHeader": [
     {
       "name": "telegram",
@@ -59,7 +98,6 @@
       "ariaLabel": "перейти на сторінку Інстаграм"
     }
   ],
-
   "socialLinksFooter": [
     {
       "name": "telegram",
@@ -82,7 +120,6 @@
       "ariaLabel": "перейти на сторінку Інстаграм"
     }
   ],
-
   "contactCard": {
     "title": "Масаж в Києві",
     "btn": {
@@ -90,43 +127,51 @@
       "label": "Записатися"
     },
     "subwayStations": [
-      { "name": "Оболонь", "line": "blue" },
-      { "name": "Мінська", "line": "blue" },
-      { "name": "Нивки", "line": "red" }
+      {
+        "name": "Оболонь",
+        "line": "blue"
+      },
+      {
+        "name": "Мінська",
+        "line": "blue"
+      },
+      {
+        "name": "Нивки",
+        "line": "red"
+      }
     ]
   },
-
   "masseursSection": {
     "id": "masseurs",
     "title": "Масажисти",
     "buttonLabel": "Переглянути сертифікати"
   },
-
-  "closeButton": { "ariaLabel": "Закрити вікно" },
-
-  "mobileMenu": {
-    "openButton": { "ariaLabel": "Відкрити мобільне меню" },
-    "closeButton": { "ariaLabel": "Закрити мобільне меню" }
+  "closeButton": {
+    "ariaLabel": "Закрити вікно"
   },
-
+  "mobileMenu": {
+    "openButton": {
+      "ariaLabel": "Відкрити мобільне меню"
+    },
+    "closeButton": {
+      "ariaLabel": "Закрити мобільне меню"
+    }
+  },
   "arrowSlider": {
     "prevBtnAriaLabel": "Кнопка назад для перегортання слайдів",
     "nextBtnAriaLabel": "Кнопка вперед для перегортання слайдів",
     "prevIconAriaLabel": "іконка стрілки гортання назад",
     "nextIconAriaLabel": "іконка стрілки гортання вперед"
   },
-
   "blogSection": {
     "title": "Блог",
     "labelLink": "Читати більше",
     "labelButton": "Більше статтей"
   },
-
   "instagramSection": {
     "title": "Ми в інстаграмі",
     "label": "Підписатися"
   },
-
   "reviewsSection": {
     "id": "reviews",
     "title": "Відгуки клієнтів",
