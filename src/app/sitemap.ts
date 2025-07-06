@@ -65,7 +65,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${BASE_URL}/terms-of-service-privacy-policy`,
-      lastModified: '2025-17-04', // або актуальна дата останньої зміни документа
+      lastModified: '2025-07-06T07:46:10.615Z', // або актуальна дата останньої зміни документа
       changeFrequency: 'yearly',
       priority: 0.2,
     },
