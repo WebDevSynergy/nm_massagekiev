@@ -15,7 +15,6 @@ export const FormInputQuantity = <TFormValues extends FieldValues>({
   qty,
   ...props
 }: FormInputQuantityProps<TFormValues>) => {
-  console.log('props', props);
   const btnClasses =
     'absolute top-1/2 z-10 flex size-6 shrink-0 -translate-y-1/2 items-center justify-center rounded bg-white p-1 text-base/[1.2] text-brown';
 
