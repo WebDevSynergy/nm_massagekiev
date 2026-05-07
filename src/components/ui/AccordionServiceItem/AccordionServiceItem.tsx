@@ -162,12 +162,16 @@ const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
     const priceStr = parseFloat(price);
     let totalPrice = quantity * priceStr;
 
-    if (quantity >= 2 && quantity <= 19) {
-      const discount = quantity;
+    if (quantity >= 5 && quantity <= 9) {
+      const discount = 5;
       const discountAmount = (totalPrice * discount) / 100;
       totalPrice -= discountAmount;
-    } else if (quantity >= 20) {
-      const discount = 20;
+    } else if (quantity >= 10 && quantity <= 14) {
+      const discount = 10;
+      const discountAmount = (totalPrice * discount) / 100;
+      totalPrice -= discountAmount;
+    } else if (quantity >= 15) {
+      const discount = 15;
       const discountAmount = (totalPrice * discount) / 100;
       totalPrice -= discountAmount;
     }
@@ -380,14 +384,16 @@ const AccordionServiceItem: React.FC<AccordionServiceItemProps> = ({
                           />
 
                           <div className="flex items-center gap-2 xl:gap-7">
-                            <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
-                              {totalPriceCalculate(
-                                item.price,
-                                quantitySelector[index],
-                              )}
-                              &nbsp;
-                              {dataServices.UAH}
-                            </span>
+                            {quantitySelector[index] > 4 && (
+                              <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-red line-through xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
+                                {totalPriceCalculate(
+                                  item.price,
+                                  quantitySelector[index],
+                                )}
+                                &nbsp;
+                                {dataServices.UAH}
+                              </span>
+                            )}
 
                             <span className="font-open-sans text-[12px]/[1.2] font-semibold tracking-[-0.24px] text-brownDark xl:text-[14px] xl:tracking-[-0.28px] 2xl:text-[16px] 2xl:tracking-[-0.32px]">
                               {totalDiscPriceCalculate(

@@ -26,7 +26,7 @@ import { sendMsgTelegram } from '@/actions';
 import { makeTgCertificateMsg, makeTgOrderMsg } from '@/utils';
 import data from '@/data/certificate-form.json';
 
-const MAX_DISCOUNT = 20;
+const MAX_DISCOUNT = 15;
 
 export const CertificateForm: React.FC<CertificateFormProps> = ({
   options,
@@ -79,14 +79,20 @@ export const CertificateForm: React.FC<CertificateFormProps> = ({
     const service = options?.find(({ title }) => title === typeMassage);
 
     if (service && quantity) {
-      const potentialDiscount = parseInt(
-        Math.round((service.price * Number(quantity)) / 1000).toFixed(),
-      );
+      const currentQuantity = Number(quantity);
 
-      const discount =
-        potentialDiscount > MAX_DISCOUNT ? MAX_DISCOUNT : potentialDiscount;
+      let discount = 0;
+
+      if (currentQuantity >= 5 && currentQuantity < 10) {
+        discount = 5;
+      } else if (currentQuantity >= 10 && currentQuantity < 15) {
+        discount = 10;
+      } else if (currentQuantity >= 15) {
+        discount = MAX_DISCOUNT;
+      }
+
       const promoCost =
-        (service.price - service.price * (discount / 100)) * Number(quantity);
+        (service.price - service.price * (discount / 100)) * currentQuantity;
 
       setPromoCost(promoCost);
       setChoosedService(service);
