@@ -12,8 +12,10 @@ export const FormInputQuantity = <TFormValues extends FieldValues>({
   type,
   costs,
   choosedService,
+  qty,
   ...props
 }: FormInputQuantityProps<TFormValues>) => {
+  console.log('props', props);
   const btnClasses =
     'absolute top-1/2 z-10 flex size-6 shrink-0 -translate-y-1/2 items-center justify-center rounded bg-white p-1 text-base/[1.2] text-brown';
 
@@ -73,7 +75,9 @@ export const FormInputQuantity = <TFormValues extends FieldValues>({
           <span
             className={cn(
               ' line-through',
-              choosedService ? ' text-red' : 'text-transparent',
+              choosedService && qty && qty > 4
+                ? ' text-red'
+                : 'text-transparent',
             )}
           >
             {`${costs.totalCost ?? 0} ${costs.currency}`}

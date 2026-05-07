@@ -20,6 +20,7 @@ export type FormInputQuantityProps<TFormValues extends FieldValues> =
     errors: FieldErrors;
     costs: TCosts;
     choosedService: TService | undefined;
+    qty?: number;
     type?: TFieldInput;
     handleQuantity: (type: 'add' | 'minus') => void;
   } & Omit<
